@@ -2,5 +2,21 @@
     <qresource prefix="/new/icon_resource">
         <file>RS.ico</file>
     </qresource>
+    <qresource prefix="/images">
+        <file>Images/1 Ports.bmp</file>
+        <file>Images/2 Cal Kits.bmp</file>
+        <file>Images/3 Setting up.bmp</file>
+        <file>Images/4 Measure.bmp</file>
+        <file>Images/Blank Header.bmp</file>
+        <file>Images/Checked.png</file>
+        <file>Images/DownArrow.png</file>
+        <file>Images/Header Text.bmp</file>
+        <file>Images/Measured Button.bmp</file>
+        <file>Images/Measured Single Port.bmp</file>
+        <file>Images/Measured Through.bmp</file>
+        <file>Images/Unchecked.png</file>
+        <file>Images/Unmeasured Button.bmp</file>
+        <file>Images/Unmeasured Single Port.bmp</file>
+        <file>Images/Unmeasured Through.bmp</file>
+    </qresource>
 </RCC>
-

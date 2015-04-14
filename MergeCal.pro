@@ -19,9 +19,17 @@ TEMPLATE     = app
 
 include(RsaToolbox/rsatoolbox.pri)
 #include(RsaToolbox/QuaZip/quazip.pri)
-HEADERS     += Settings.h
+HEADERS     += Settings.h \
+    PortsPage.h \
+    CalKitsPage.h \
+    SetupPage.h \
+    MeasurePage.h
 INCLUDEPATH += $$PWD
-SOURCES     += main.cpp
+SOURCES     += main.cpp \
+    PortsPage.cpp \
+    CalKitsPage.cpp \
+    SetupPage.cpp \
+    MeasurePage.cpp
 RESOURCES   += Resources.qrc
 OTHER_FILES += DEBUG_LOGFILE.txt
 
@@ -31,4 +39,10 @@ win32: RC_FILE = VS2010Resources.rc
 DEFINES     += SOURCE_DIR=\\\"$$PWD\\\"
 CONFIG(debug, debug|release):DEFINES += DEBUG_MODE
 CONFIG(release, debug|release):DEFINES += QT_NO_DEBUG_OUTPUT
+
+FORMS += \
+    PortsPage.ui \
+    CalKitsPage.ui \
+    SetupPage.ui \
+    MeasurePage.ui
 

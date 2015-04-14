@@ -2,17 +2,26 @@
 
 // MergeCal
 #include "Settings.h"
+#include "PortsPage.h"
+#include "CalKitsPage.h"
+#include "SetupPage.h"
+#include "MeasurePage.h"
 
 // RsaToolbox
-#include "Log.h"
-#include "Vna.h"
-#include "Keys.h"
+#include <Log.h>
+#include <Vna.h>
+#include <Keys.h>
+#include <Wizard.h>
 using namespace RsaToolbox;
 
 // Qt
 #include <QString>
 #include <QApplication>
 #include <QMessageBox>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QDesktopWidget>
+#include <QStatusBar>
 
 
 bool isNoConnection(Vna &vna);
@@ -31,18 +40,51 @@ int main(int argc, char *argv[])
 
     Keys keys(KEY_PATH);
 
-    if (isNoConnection(vna) || isUnknownModel(vna))
-        return 0;
+//    if (isNoConnection(vna) || isUnknownModel(vna))
+//        return 0;
 
 
-    //////////////////////////////////////
-    //
-    // YOUR CODE GOES HERE
-    //
-    //////////////////////////////////////
+
+    Wizard wizard;
+    wizard.setWindowTitle(APP_NAME);
+    wizard.setGeometry(0,0,625,500);
+    wizard.move(QApplication::desktop()->screen()->rect().center() - wizard.rect().center());
+    wizard.setWindowFlags(wizard.windowFlags() | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowStaysOnTopHint);
+
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(wizard.layout());
+    QLabel *label = new QLabel;
+    layout->insertWidget(1, label);
+
+    QStatusBar *statusBar = new QStatusBar;
+    layout->insertWidget(-1, statusBar);
+    statusBar->setSizeGripEnabled(false);
+    statusBar->hide();
+
+    PortsPage *portsPage = new PortsPage;
+    portsPage->setNextIndex(1);
+    portsPage->setHeaderLabel(label);
+    wizard.addPage(portsPage);
+
+    CalKitsPage *calKitsPage = new CalKitsPage;
+    calKitsPage->setHeaderLabel(label);
+    calKitsPage->setNextIndex(2);
+    wizard.addPage(calKitsPage);
+
+    SetupPage *setupPage = new SetupPage;
+    setupPage->setHeaderLabel(label);
+    setupPage->setStatusBar(statusBar);
+    setupPage->setNextIndex(3);
+    wizard.addPage(setupPage);
+
+    MeasurePage *measurePage = new MeasurePage;
+    measurePage->setHeaderLabel(label);
+    measurePage->setStatusBar(statusBar);
+    wizard.addPage(measurePage);
+
+    wizard.show();
 
 
-    return 0;
+    return a.exec();
 }
 
 
