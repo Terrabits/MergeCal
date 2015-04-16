@@ -2,7 +2,12 @@
 #define PORTSPAGE_H
 
 
+// Project
+#include "PortsModel.h"
+
 // RsaToolbox
+#include <Connector.h>
+#include <Vna.h>
 #include <WizardPage.h>
 
 // Qt
@@ -23,14 +28,37 @@ public:
     ~PortsPage();
 
     virtual void initialize();
+    virtual bool isReadyForNext();
 
     void setHeaderLabel(QLabel *header);
     QLabel *headerLabel();
 
+    void setVna(RsaToolbox::Vna *vna);
+    RsaToolbox::Vna *vna() const;
+
+
+private slots:
+
+
+    void on_connectorType_currentIndexChanged(int index);
+
 private:
     Ui::PortsPage *ui;
-
     QLabel *_header;
+
+    RsaToolbox::Vna *_vna;
+    PortsModel _model;
+
+    void updateConnectors();
+    QVector<RsaToolbox::Connector> _connectors;
+
+    void updateGender();
+
+    void updateChannels();
+    QVector<uint> _channels;
+
+
+
 };
 
 #endif // PORTSPAGE_H

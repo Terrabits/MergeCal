@@ -40,10 +40,8 @@ int main(int argc, char *argv[])
 
     Keys keys(KEY_PATH);
 
-//    if (isNoConnection(vna) || isUnknownModel(vna))
-//        return 0;
-
-
+    if (isNoConnection(vna) || isUnknownModel(vna))
+        return 0;
 
     Wizard wizard;
     wizard.setWindowTitle(APP_NAME);
@@ -61,22 +59,27 @@ int main(int argc, char *argv[])
     statusBar->hide();
 
     PortsPage *portsPage = new PortsPage;
+    portsPage->setName("Ports");
     portsPage->setNextIndex(1);
     portsPage->setHeaderLabel(label);
+    portsPage->setVna(&vna);
     wizard.addPage(portsPage);
 
     CalKitsPage *calKitsPage = new CalKitsPage;
+    calKitsPage->setName("Cal Kits");
     calKitsPage->setHeaderLabel(label);
     calKitsPage->setNextIndex(2);
     wizard.addPage(calKitsPage);
 
     SetupPage *setupPage = new SetupPage;
+    setupPage->setName("Setup");
     setupPage->setHeaderLabel(label);
     setupPage->setStatusBar(statusBar);
     setupPage->setNextIndex(3);
     wizard.addPage(setupPage);
 
     MeasurePage *measurePage = new MeasurePage;
+    measurePage->setName("Measure");
     measurePage->setHeaderLabel(label);
     measurePage->setStatusBar(statusBar);
     wizard.addPage(measurePage);

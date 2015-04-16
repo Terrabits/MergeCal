@@ -14,8 +14,141 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="1" column="1">
+    <widget class="QWidget" name="form" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="portsLabel">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Choose ports:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PortsView" name="ports">
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="alternatingRowColors">
+         <bool>false</bool>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::NoSelection</enum>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget" native="true">
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="connectorTypeLabel">
+           <property name="text">
+            <string>Connector Type:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="connectorType">
+           <item>
+            <property name="text">
+             <string>N Type 50</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="connectorGenderLabel">
+           <property name="text">
+            <string>Connector Gender:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="connectorGender">
+           <item>
+            <property name="text">
+             <string>Male</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="channelLabel">
+           <property name="text">
+            <string>Channel:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="channel"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>3</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="RsaToolbox::ErrorLabel" name="error" native="true"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item row="0" column="1">
     <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>153</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="1">
+    <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -34,63 +167,11 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>140</width>
+       <width>40</width>
        <height>20</height>
       </size>
      </property>
     </spacer>
-   </item>
-   <item row="1" column="1">
-    <widget class="QWidget" name="widget" native="true">
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="portsLabel">
-        <property name="text">
-         <string>Ports:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="RsaToolbox::PortsLineEdit" name="ports">
-        <property name="text">
-         <string>1-4</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="connectorTypeLabel">
-        <property name="text">
-         <string>Connector Type:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QComboBox" name="connectorType">
-        <item>
-         <property name="text">
-          <string>N Type 50</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Connector Gender:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QComboBox" name="comboBox">
-        <item>
-         <property name="text">
-          <string>Male</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </widget>
    </item>
    <item row="1" column="2">
     <spacer name="horizontalSpacer_2">
@@ -99,21 +180,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>139</width>
+       <width>40</width>
        <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="1">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>153</height>
       </size>
      </property>
     </spacer>
@@ -122,9 +190,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>RsaToolbox::PortsLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>PortsLineEdit.h</header>
+   <class>PortsView</class>
+   <extends>QListView</extends>
+   <header>PortsView.h</header>
+  </customwidget>
+  <customwidget>
+   <class>RsaToolbox::ErrorLabel</class>
+   <extends>QWidget</extends>
+   <header>ErrorLabel.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

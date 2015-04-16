@@ -23,13 +23,17 @@ HEADERS     += Settings.h \
     PortsPage.h \
     CalKitsPage.h \
     SetupPage.h \
-    MeasurePage.h
+    MeasurePage.h \
+    PortsModel.h \
+    PortsView.h
 INCLUDEPATH += $$PWD
 SOURCES     += main.cpp \
     PortsPage.cpp \
     CalKitsPage.cpp \
     SetupPage.cpp \
-    MeasurePage.cpp
+    MeasurePage.cpp \
+    PortsModel.cpp \
+    PortsView.cpp
 RESOURCES   += Resources.qrc
 OTHER_FILES += DEBUG_LOGFILE.txt
 
