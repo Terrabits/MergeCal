@@ -2,7 +2,14 @@
 #define CALKITSPAGE_H
 
 
+// Project
+#include "DoubleOffsetShortKit.h"
+#include "AvailableCalKitsModel.h"
+
+
 // RsaToolbox
+#include <Connector.h>
+#include <Vna.h>
 #include <WizardPage.h>
 
 // Qt
@@ -27,10 +34,22 @@ public:
     void setHeaderLabel(QLabel *header);
     QLabel *headerLabel();
 
+    void setVna(RsaToolbox::Vna *vna);
+
+    RsaToolbox::Connector connectorType() const;
+    void setConnectorType(RsaToolbox::Connector type);
+
+    // Something like this...
+    // QVector<CalsAndKits> calibrations() const;
+
 private:
     Ui::CalKitsPage *ui;
-
     QLabel *_header;
+
+    RsaToolbox::Vna *_vna;
+    RsaToolbox::Connector _connectorType;
+
+    AvailableCalKitsModel _availableCalKitsModel;
 };
 
 #endif // CALKITSPAGE_H

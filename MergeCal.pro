@@ -25,7 +25,10 @@ HEADERS     += Settings.h \
     SetupPage.h \
     MeasurePage.h \
     PortsModel.h \
-    PortsView.h
+    PortsView.h \
+    AvailableCalKitsModel.h \
+    AvailableCalKitsView.h \
+    DoubleOffsetShortKit.h
 INCLUDEPATH += $$PWD
 SOURCES     += main.cpp \
     PortsPage.cpp \
@@ -33,7 +36,10 @@ SOURCES     += main.cpp \
     SetupPage.cpp \
     MeasurePage.cpp \
     PortsModel.cpp \
-    PortsView.cpp
+    PortsView.cpp \
+    AvailableCalKitsModel.cpp \
+    AvailableCalKitsView.cpp \
+    DoubleOffsetShortKit.cpp
 RESOURCES   += Resources.qrc
 OTHER_FILES += DEBUG_LOGFILE.txt
 

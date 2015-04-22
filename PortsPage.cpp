@@ -96,5 +96,6 @@ void PortsPage::updateChannels() {
 
 void PortsPage::on_connectorType_currentIndexChanged(int index)
 {
+    Q_UNUSED(index);
     updateGender();
 }
