@@ -29,6 +29,11 @@ void PortsPage::initialize() {
     breadCrumbs()->hide();
     _header->setPixmap(QPixmap(":/images/Images/1 Ports.bmp"));
 }
+void PortsPage::backToThis() {
+    breadCrumbs()->hide();
+    _header->setPixmap(QPixmap(":/images/Images/1 Ports.bmp"));
+}
+
 bool PortsPage::isReadyForNext() {
     if (_model.ports().isEmpty()) {
         ui->error->showMessage("*No ports selected");
@@ -36,11 +41,11 @@ bool PortsPage::isReadyForNext() {
         ui->ports->setCurrentIndex(_model.index(0));
         return false;
     }
-    // submit ports
-    // submit connector
-    // submit gender
-    // submit channel
-    // if successful, return true;
+
+    emit portsSelected(_model.ports());
+    emit connectorSelected(connector());
+    emit channelSelected(channel());
+
     return true;
 }
 
@@ -60,6 +65,29 @@ void PortsPage::setVna(Vna *vna) {
 }
 Vna *PortsPage::vna() const {
     return _vna;
+}
+
+QVector<uint> PortsPage::ports() const {
+    return _model.ports();
+}
+Connector PortsPage::connector() const {
+    const int typeIndex = ui->connectorType->currentIndex();
+    Connector connector(_connectors[typeIndex]);
+
+    const int genderIndex = ui->connectorGender->currentIndex();
+    const int genderCount = ui->connectorGender->count();
+    if (genderCount == 1)
+        connector.setGender(Connector::Gender::Neutral);
+    else if (genderIndex == 0)
+        connector.setGender(Connector::Gender::Male);
+    else
+        connector.setGender(Connector::Gender::Female);
+
+    return connector;
+}
+uint PortsPage::channel() const {
+    int i = ui->channel->currentIndex();
+    return _channels[i];
 }
 
 // Private

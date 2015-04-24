@@ -30,7 +30,7 @@ DoubleOffsetShortKit::DoubleOffsetShortKit(const DoubleOffsetShortKit &other) {
     _maxFreq_Hz = other._maxFreq_Hz;
 }
 
-DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit) :
+DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender) :
     _isValid(false),
     _isOShort1(false),
     _isOShort2(false),
@@ -40,7 +40,7 @@ DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit) :
 {
     _nameLabel = calKit.nameLabel();
 //    _connector = calKit.connectorType();
-    if (getOffsetShorts(calKit) && getFrequencyRange(calKit)) {
+    if (getOffsetShorts(calKit, gender)) {
         _isValid = true;
     }
 }
@@ -122,5 +122,91 @@ bool DoubleOffsetShortKit::operator==(const DoubleOffsetShortKit &other) {
         return false;
 
     // Else
+    return true;
+}
+
+bool DoubleOffsetShortKit::getOffsetShorts(VnaCalKit &calKit, Connector::Gender gender) {
+    QVector<VnaCalStandard> standards = calKit.standards();
+
+    VnaCalStandard os1, os2, os3;
+
+    if (gender == Connector::Gender::Neutral) {
+        foreach (VnaCalStandard s, standards) {
+            if (s.isOffsetShort1()) {
+                _isOShort1 = true;
+                os1 = s;
+            }
+            if (s.isOffsetShort2()) {
+                _isOShort2 = true;
+                os2 = s;
+            }
+            if (s.isOffsetShort3()) {
+                _isOShort3 = true;
+                os3 = s;
+            }
+        }
+    }
+    else if (gender == Connector::Gender::Male) {
+        foreach (VnaCalStandard s, standards) {
+            if (s.isMaleOffsetShort1()) {
+                _isOShort1 = true;
+                os1 = s;
+            }
+            if (s.isMaleOffsetShort2()) {
+                _isOShort2 = true;
+                os2 = s;
+            }
+            if (s.isMaleOffsetShort3()) {
+                _isOShort3 = true;
+                os3 = s;
+            }
+        }
+    }
+    else {
+        foreach (VnaCalStandard s, standards) {
+            if (s.isFemaleOffsetShort1()) {
+                _isOShort1 = true;
+                os1 = s;
+            }
+            if (s.isFemaleOffsetShort2()) {
+                _isOShort2 = true;
+                os2 = s;
+            }
+            if (s.isFemaleOffsetShort3()) {
+                _isOShort3 = true;
+                os3 = s;
+            }
+        }
+    }
+
+    uint numOShorts = 0;
+    if (_isOShort1)
+        numOShorts++;
+    if (_isOShort2)
+        numOShorts++;
+    if (_isOShort3)
+        numOShorts++;
+
+    if (numOShorts != 2)
+        return false;
+
+    if (_isOShort1) {
+        _minFreq_Hz = os1.minimumFrequency_Hz();
+        _maxFreq_Hz = os1.maximumFrequency_Hz();
+    }
+    else {
+        _minFreq_Hz = os2.minimumFrequency_Hz();
+        _maxFreq_Hz = os2.maximumFrequency_Hz();
+    }
+
+    if (_isOShort3) {
+        _minFreq_Hz = std::max(_minFreq_Hz, os3.minimumFrequency_Hz());
+        _maxFreq_Hz = std::min(_maxFreq_Hz, os3.maximumFrequency_Hz());
+    }
+    else {
+        _minFreq_Hz = std::max(_minFreq_Hz, os2.minimumFrequency_Hz());
+        _maxFreq_Hz = std::min(_maxFreq_Hz, os2.maximumFrequency_Hz());
+    }
+
     return true;
 }

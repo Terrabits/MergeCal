@@ -5,6 +5,10 @@
 #include <General.h>
 using namespace RsaToolbox;
 
+// Qt
+#include <QDebug>
+
+
 AvailableCalKitsModel::AvailableCalKitsModel(QObject *parent) :
     QAbstractTableModel(parent),
     _vna(NULL)
@@ -39,6 +43,7 @@ int AvailableCalKitsModel::columnCount(const QModelIndex &parent) const {
 
     return COLUMNS;
 }
+
 QVariant AvailableCalKitsModel::data(const QModelIndex &index, int role) const {
     if (!index.isValid())
         return QVariant();
@@ -102,5 +107,13 @@ bool AvailableCalKitsModel::isConnectorType() const {
     return _connectorType.type() != Connector::Type::UNKNOWN_CONNECTOR;
 }
 void AvailableCalKitsModel::initializeKits() {
-
+    beginResetModel();
+    _kits.clear();
+    QVector<NameLabel> nameLabels = _vna->calKits(_connectorType);
+    foreach (NameLabel nl, nameLabels) {
+        DoubleOffsetShortKit kit(_vna->calKit(nl), _connectorType.gender());
+        if (kit.isValid())
+            _kits << kit;
+    }
+    endResetModel();
 }

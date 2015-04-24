@@ -28,6 +28,7 @@ public:
     ~PortsPage();
 
     virtual void initialize();
+    virtual void backToThis();
     virtual bool isReadyForNext();
 
     void setHeaderLabel(QLabel *header);
@@ -36,10 +37,16 @@ public:
     void setVna(RsaToolbox::Vna *vna);
     RsaToolbox::Vna *vna() const;
 
+    QVector<uint> ports() const;
+    RsaToolbox::Connector connector() const;
+    uint channel() const;
+
+signals:
+    void portsSelected(QVector<uint> ports);
+    void connectorSelected(RsaToolbox::Connector type);
+    void channelSelected(uint index);
 
 private slots:
-
-
     void on_connectorType_currentIndexChanged(int index);
 
 private:

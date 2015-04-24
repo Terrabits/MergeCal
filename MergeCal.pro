@@ -28,7 +28,9 @@ HEADERS     += Settings.h \
     PortsView.h \
     AvailableCalKitsModel.h \
     AvailableCalKitsView.h \
-    DoubleOffsetShortKit.h
+    DoubleOffsetShortKit.h \
+    FrequencyRange.h \
+    ChosenCalKitsModel.h
 INCLUDEPATH += $$PWD
 SOURCES     += main.cpp \
     PortsPage.cpp \
@@ -39,7 +41,9 @@ SOURCES     += main.cpp \
     PortsView.cpp \
     AvailableCalKitsModel.cpp \
     AvailableCalKitsView.cpp \
-    DoubleOffsetShortKit.cpp
+    DoubleOffsetShortKit.cpp \
+    FrequencyRange.cpp \
+    ChosenCalKitsModel.cpp
 RESOURCES   += Resources.qrc
 OTHER_FILES += DEBUG_LOGFILE.txt
 

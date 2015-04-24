@@ -5,7 +5,8 @@
 // Project
 #include "DoubleOffsetShortKit.h"
 #include "AvailableCalKitsModel.h"
-
+#include "FrequencyRange.h"
+#include "ChosenCalKitsModel.h"
 
 // RsaToolbox
 #include <Connector.h>
@@ -30,26 +31,35 @@ public:
     ~CalKitsPage();
 
     virtual void initialize();
+    virtual void backToThis();
 
+    bool isHeader() const;
     void setHeaderLabel(QLabel *header);
     QLabel *headerLabel();
 
     void setVna(RsaToolbox::Vna *vna);
 
     RsaToolbox::Connector connectorType() const;
-    void setConnectorType(RsaToolbox::Connector type);
 
     // Something like this...
     // QVector<CalsAndKits> calibrations() const;
 
+public slots:
+    void setConnectorType(RsaToolbox::Connector type);
+
+private slots:
+    void on_addKit_clicked();
+
 private:
     Ui::CalKitsPage *ui;
+
     QLabel *_header;
 
     RsaToolbox::Vna *_vna;
     RsaToolbox::Connector _connectorType;
 
     AvailableCalKitsModel _availableCalKitsModel;
+    ChosenCalKitsModel _chosenCalKitsModel;
 };
 
 #endif // CALKITSPAGE_H

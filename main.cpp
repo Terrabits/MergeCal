@@ -69,6 +69,9 @@ int main(int argc, char *argv[])
     calKitsPage->setName("Cal Kits");
     calKitsPage->setHeaderLabel(label);
     calKitsPage->setNextIndex(2);
+    calKitsPage->setVna(&vna);
+    QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
+                     calKitsPage, SLOT(setConnectorType(RsaToolbox::Connector)));
     wizard.addPage(calKitsPage);
 
     SetupPage *setupPage = new SetupPage;
