@@ -70,8 +70,12 @@ int main(int argc, char *argv[])
     calKitsPage->setHeaderLabel(label);
     calKitsPage->setNextIndex(2);
     calKitsPage->setVna(&vna);
+    QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
+                     calKitsPage, SLOT(setPorts(QVector<uint>)));
     QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
                      calKitsPage, SLOT(setConnectorType(RsaToolbox::Connector)));
+    QObject::connect(portsPage, SIGNAL(channelSelected(uint)),
+                     calKitsPage, SLOT(setChannel(uint)));
     wizard.addPage(calKitsPage);
 
     SetupPage *setupPage = new SetupPage;

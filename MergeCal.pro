@@ -30,7 +30,12 @@ HEADERS     += Settings.h \
     AvailableCalKitsView.h \
     DoubleOffsetShortKit.h \
     FrequencyRange.h \
-    ChosenCalKitsModel.h
+    ChosenCalKitsModel.h \
+    FrequencyDelegate.h \
+    FrequencyEditor.h \
+    Calibration.h \
+    Thru.h \
+    PartialCal.h
 INCLUDEPATH += $$PWD
 SOURCES     += main.cpp \
     PortsPage.cpp \
@@ -43,7 +48,12 @@ SOURCES     += main.cpp \
     AvailableCalKitsView.cpp \
     DoubleOffsetShortKit.cpp \
     FrequencyRange.cpp \
-    ChosenCalKitsModel.cpp
+    ChosenCalKitsModel.cpp \
+    FrequencyDelegate.cpp \
+    FrequencyEditor.cpp \
+    Calibration.cpp \
+    Thru.cpp \
+    PartialCal.cpp
 RESOURCES   += Resources.qrc
 OTHER_FILES += DEBUG_LOGFILE.txt
 

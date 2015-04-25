@@ -15,7 +15,7 @@ class DoubleOffsetShortKit
 public:
     DoubleOffsetShortKit();
     DoubleOffsetShortKit(const DoubleOffsetShortKit &other);
-    DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender);
+    DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender, bool needThru);
 
     bool isValid() const;
 
@@ -48,7 +48,7 @@ private:
     double _minFreq_Hz;
     double _maxFreq_Hz;
 
-    bool getOffsetShorts(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender);
+    bool getOffsetShortsAndValidate(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender, bool needThru);
 };
 
 #endif // DOUBLEOFFSETSHORTKIT_H

@@ -11,7 +11,8 @@ using namespace RsaToolbox;
 
 AvailableCalKitsModel::AvailableCalKitsModel(QObject *parent) :
     QAbstractTableModel(parent),
-    _vna(NULL)
+    _vna(NULL),
+    _needThru(false)
 {
 }
 
@@ -74,16 +75,26 @@ void AvailableCalKitsModel::setVna(Vna *vna) {
         return;
 
     _vna = vna;
-    if (isVna() && isConnectorType())
-        initializeKits();
+    initializeKits();
 }
-void AvailableCalKitsModel::setConnectorType(Connector type) {
+void AvailableCalKitsModel::setPorts(const QVector<uint> &ports) {
+    if (_ports == ports)
+        return;
+
+    _ports = ports;
+    bool needThru = _ports.size() > 1;
+    if (needThru != _needThru) {
+        _needThru = needThru;
+        initializeKits();
+    }
+}
+
+void AvailableCalKitsModel::setConnectorType(const Connector &type) {
     if (_connectorType == type)
         return;
 
     _connectorType = type;
-    if (isVna() && isConnectorType())
-        initializeKits();
+    initializeKits();
 }
 
 bool AvailableCalKitsModel::hasCalKit(const DoubleOffsetShortKit &kit) const {
@@ -103,17 +114,46 @@ DoubleOffsetShortKit AvailableCalKitsModel::calKit(const QModelIndex &index) con
 bool AvailableCalKitsModel::isVna() const {
     return _vna != NULL;
 }
+bool AvailableCalKitsModel::isPorts() const {
+    return !_ports.isEmpty();
+}
 bool AvailableCalKitsModel::isConnectorType() const {
     return _connectorType.type() != Connector::Type::UNKNOWN_CONNECTOR;
 }
 void AvailableCalKitsModel::initializeKits() {
-    beginResetModel();
-    _kits.clear();
+    if (!isVna())
+        return;
+    if (!isConnectorType())
+        return;
+    if (!isPorts())
+        return;
+
+    QVector<DoubleOffsetShortKit> kits;
+    kits.clear();
     QVector<NameLabel> nameLabels = _vna->calKits(_connectorType);
     foreach (NameLabel nl, nameLabels) {
-        DoubleOffsetShortKit kit(_vna->calKit(nl), _connectorType.gender());
+        DoubleOffsetShortKit kit(_vna->calKit(nl), _connectorType.gender(), _needThru);
         if (kit.isValid())
-            _kits << kit;
+            kits << kit;
     }
-    endResetModel();
+    sort(kits);
+
+    if (_kits != kits) {
+        beginResetModel();
+        _kits = kits;
+        endResetModel();
+    }
+}
+void AvailableCalKitsModel::sort(QVector<DoubleOffsetShortKit> kits) {
+    // Bubble sort!
+    for (int i = 0; i < kits.size()-1; i++) {
+        for (int j = 0; j < kits.size()-1; j++) {
+            if (kits[j].minimumFrequency_Hz() > kits[j+1].minimumFrequency_Hz()) {
+                // swap
+                DoubleOffsetShortKit kit_j = kits[j];
+                kits[j] = kits[j+1];
+                kits[j+1] = kit_j;
+            }
+        }
+    }
 }

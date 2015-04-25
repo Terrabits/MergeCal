@@ -28,10 +28,14 @@ PortsPage::~PortsPage()
 void PortsPage::initialize() {
     breadCrumbs()->hide();
     _header->setPixmap(QPixmap(":/images/Images/1 Ports.bmp"));
+    ui->error->clearMessage();
+    connect(buttons()->cancel(), SIGNAL(clicked()),
+            wizard(), SLOT(close()));
 }
 void PortsPage::backToThis() {
     breadCrumbs()->hide();
     _header->setPixmap(QPixmap(":/images/Images/1 Ports.bmp"));
+    ui->error->clearMessage();
 }
 
 bool PortsPage::isReadyForNext() {

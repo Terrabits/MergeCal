@@ -35,7 +35,8 @@ public:
 
     // Extra
     void setVna(RsaToolbox::Vna *vna);
-    void setConnectorType(RsaToolbox::Connector type);
+    void setPorts(const QVector<uint> &ports);
+    void setConnectorType(const RsaToolbox::Connector &type);
 
     bool hasCalKit(const DoubleOffsetShortKit &kit) const;
     DoubleOffsetShortKit calKit(const QModelIndex &index) const;
@@ -48,10 +49,15 @@ private:
     bool isVna() const;
     RsaToolbox::Vna *_vna;
 
+    bool isPorts() const;
+    bool _needThru;
+    QVector<uint> _ports;
+
     bool isConnectorType() const;
     RsaToolbox::Connector _connectorType;
 
     void initializeKits();
+    static void sort(QVector<DoubleOffsetShortKit> kits);
     QVector<DoubleOffsetShortKit> _kits;
 
 };

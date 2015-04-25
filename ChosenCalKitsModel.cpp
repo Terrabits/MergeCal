@@ -101,18 +101,51 @@ bool ChosenCalKitsModel::setData(const QModelIndex &index, const QVariant &value
         return false;
 
     int column = index.column();
-    if (column < 1 || uint(column) >= COLUMNS)
+    if (column != START_COLUMN && column != STOP_COLUMN)
         return false;
 
     int row = index.row();
     if (row < 0 || row >= _kits.size())
         return false;
 
+    if (!value.canConvert<double>())
+        return false;
+
     // set data
-    Q_UNUSED(value);
+    double _value = value.toDouble();
+    QModelIndex topLeft = index;
+    QModelIndex bottomRight = index;
+    if (column == START_COLUMN) {
+        _kits[row].setStartFrequency(_value);
+        if (row != 0 && _kits[row-1].calKit().maximumFrequency_Hz() >= _value) {
+            _kits[row-1].setStopFrequency(_value);
+            topLeft = this->index(row-1, STOP_COLUMN);
+        }
+    }
+    else {
+        _kits[row].setStopFrequency(_value);
+        if (row != _kits.size()-1 && _kits[row+1].calKit().minimumFrequency_Hz() <= _value) {
+            _kits[row+1].setStartFrequency(_value);
+            bottomRight = this->index(row+1, START_COLUMN);
+        }
+    }
+    emit dataChanged(topLeft, bottomRight);
     return true;
 }
+bool ChosenCalKitsModel::removeRow(int row, const QModelIndex &parent) {
+    if (parent.isValid())
+        return false;
 
+    if (row < 0 || row >= _kits.size())
+        return false;
+
+    beginRemoveRows(parent, row, row);
+    _kits.remove(row);
+    resetFrequencies();
+    setDefaultFrequencies();
+    endRemoveRows();
+    return true;
+}
 
 bool ChosenCalKitsModel::isValid() const {
     return false;
@@ -159,35 +192,38 @@ void ChosenCalKitsModel::setDefaultFrequencies() {
     sortKits();
     for (int i = 0; i < _kits.size(); i++) {
         if (!_kits[i].isStartFrequency()) {
-            if (i == 0)
+            if (i == 0) {
                 _kits[i].setStartFrequency(_kits[i].calKit().minimumFrequency_Hz());
-            else if (_kits[i-1].isStopFrequency())
-                _kits[i].setStartFrequency(_kits[i-1].stopFrequency_Hz());
+            }
             else {
-                if (_kits[i].calKit().minimumFrequency_Hz() < _kits[i-1].calKit().maximumFrequency_Hz())
+                if (_kits[i].calKit().minimumFrequency_Hz() < _kits[i-1].calKit().maximumFrequency_Hz()) {
                     _kits[i].setStartFrequency((_kits[i].calKit().minimumFrequency_Hz() + _kits[i-1].calKit().maximumFrequency_Hz())/2.0);
-                else
+                    _kits[i-1].setStopFrequency(_kits[i].startFrequency_Hz());
+                }
+                else {
                     _kits[i].setStartFrequency(_kits[i].calKit().minimumFrequency_Hz());
+                }
             }
         }
         if (!_kits[i].isStopFrequency()) {
-            if (i == _kits.size() - 1)
+            if (i == _kits.size() - 1) {
                 _kits[i].setStopFrequency(_kits[i].calKit().maximumFrequency_Hz());
-            else if (_kits[i+1].isStartFrequency())
-                _kits[i].setStopFrequency(_kits[i+1].startFrequency_Hz());
+            }
             else {
-                if (_kits[i].calKit().maximumFrequency_Hz() > _kits[i+1].calKit().minimumFrequency_Hz())
+                if (_kits[i].calKit().maximumFrequency_Hz() > _kits[i+1].calKit().minimumFrequency_Hz()) {
                     _kits[i].setStopFrequency((_kits[i].calKit().maximumFrequency_Hz() + _kits[i+1].calKit().minimumFrequency_Hz())/2.0);
-                else
+                    _kits[i+1].setStartFrequency(_kits[i].stopFrequency_Hz());
+                }
+                else {
                     _kits[i].setStopFrequency(_kits[i].calKit().maximumFrequency_Hz());
+                }
             }
         }
     }
 }
 void ChosenCalKitsModel::resetFrequencies() {
-    foreach (FrequencyRange r, _kits) {
-        r.clearStartStop();
-    }
+    for (int i = 0; i < _kits.size(); i++)
+        _kits[i].clearStartStop();
 }
 
 

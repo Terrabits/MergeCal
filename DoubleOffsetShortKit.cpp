@@ -30,7 +30,7 @@ DoubleOffsetShortKit::DoubleOffsetShortKit(const DoubleOffsetShortKit &other) {
     _maxFreq_Hz = other._maxFreq_Hz;
 }
 
-DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender) :
+DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender, bool needThru) :
     _isValid(false),
     _isOShort1(false),
     _isOShort2(false),
@@ -40,7 +40,7 @@ DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToo
 {
     _nameLabel = calKit.nameLabel();
 //    _connector = calKit.connectorType();
-    if (getOffsetShorts(calKit, gender)) {
+    if (getOffsetShortsAndValidate(calKit, gender, needThru)) {
         _isValid = true;
     }
 }
@@ -125,13 +125,22 @@ bool DoubleOffsetShortKit::operator==(const DoubleOffsetShortKit &other) {
     return true;
 }
 
-bool DoubleOffsetShortKit::getOffsetShorts(VnaCalKit &calKit, Connector::Gender gender) {
+bool DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connector::Gender gender, bool needThru) {
     QVector<VnaCalStandard> standards = calKit.standards();
 
+    bool isMatch = false;
+    bool isShort = false;
+    bool isThru = false;
     VnaCalStandard os1, os2, os3;
 
     if (gender == Connector::Gender::Neutral) {
         foreach (VnaCalStandard s, standards) {
+            if (s.isMatch())
+                isMatch = true;
+            if (s.isShort())
+                isShort = true;
+            if (s.isThru())
+                isThru = true;
             if (s.isOffsetShort1()) {
                 _isOShort1 = true;
                 os1 = s;
@@ -146,8 +155,14 @@ bool DoubleOffsetShortKit::getOffsetShorts(VnaCalKit &calKit, Connector::Gender 
             }
         }
     }
-    else if (gender == Connector::Gender::Male) {
+    else if (gender == Connector::Gender::Female) {
         foreach (VnaCalStandard s, standards) {
+            if (s.isMaleMatch())
+                isMatch = true;
+            if (s.isMaleShort())
+                isShort = true;
+            if (s.isThruMM())
+                isThru = true;
             if (s.isMaleOffsetShort1()) {
                 _isOShort1 = true;
                 os1 = s;
@@ -164,6 +179,12 @@ bool DoubleOffsetShortKit::getOffsetShorts(VnaCalKit &calKit, Connector::Gender 
     }
     else {
         foreach (VnaCalStandard s, standards) {
+            if (s.isFemaleMatch())
+                isMatch = true;
+            if (s.isFemaleShort())
+                isShort = true;
+            if (s.isThruFF())
+                isThru = true;
             if (s.isFemaleOffsetShort1()) {
                 _isOShort1 = true;
                 os1 = s;
@@ -178,6 +199,11 @@ bool DoubleOffsetShortKit::getOffsetShorts(VnaCalKit &calKit, Connector::Gender 
             }
         }
     }
+
+    if (!isMatch || !isShort)
+        return false;
+    if (needThru && !isThru)
+        return false;
 
     uint numOShorts = 0;
     if (_isOShort1)

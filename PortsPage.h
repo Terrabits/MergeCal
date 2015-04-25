@@ -42,8 +42,8 @@ public:
     uint channel() const;
 
 signals:
-    void portsSelected(QVector<uint> ports);
-    void connectorSelected(RsaToolbox::Connector type);
+    void portsSelected(const QVector<uint> &ports);
+    void connectorSelected(const RsaToolbox::Connector &type);
     void channelSelected(uint index);
 
 private slots:
