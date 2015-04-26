@@ -8,10 +8,14 @@
 #include "PartialCal.h"
 
 // RsaToolbox
+#include <NameLabel.h>
+#include <Connector.h>
 #include <Vna.h>
 
 // Qt
 #include <QObject>
+#include <QVector>
+#include <QBitArray>
 
 
 class Calibration : public QObject
@@ -21,31 +25,35 @@ public:
     explicit Calibration(QObject *parent = 0);
     ~Calibration();
 
-    // Initialize
     void setVna(RsaToolbox::Vna *vna);
 
     void initialize();
+
+    uint numberOfPorts() const;
+    uint port(uint index);
+    QVector<uint> ports() const;
+
     bool isMatchMeasured(uint port);
     void measureMatch(uint port);
 
     bool isShortMeasured(uint port);
     void measureShort(uint port);
 
-    bool isOffsetShortAMeasured(uint port, uint kitIndex);
-    void measureOffsetShortA(uint port, uint kitIndex);
+    bool isOffsetShortAMeasured(uint kitIndex, uint port);
+    void measureOffsetShortA(uint kitIndex, uint port);
 
-    bool isOffsetShortBMeasured(uint port, uint kitIndex);
-    void measureOffsetShortB(uint port, uint kitIndex);
+    bool isOffsetShortBMeasured(uint kitIndex, uint port);
+    void measureOffsetShortB(uint kitIndex, uint port);
 
     bool isThruMeasured(uint index);
     uint numberOfThrus() const;
-    Thru thru(uint index);
+    Thru thru(uint index) const;
     void measureThru(uint index);
 
     uint numberOfKits() const;
-    RsaToolbox::NameLabel kit(uint index);
-    QString offsetAName(uint kitIndex);
-    QString offsetBName(uint kitIndex);
+    RsaToolbox::NameLabel kit(uint index) const;
+    QString offsetShortAName(uint kitIndex) const;
+    QString offsetShortBName(uint kitIndex) const;
 
 signals:
 
@@ -57,6 +65,12 @@ public slots:
 
 private:
     RsaToolbox::Vna *_vna;
+
+    QBitArray _isMatchMeasured;
+    QBitArray _isShortMeasured;
+    QVector<QBitArray> _isOffsetShortAMeasured;
+    QVector<QBitArray> _isOffsetShortBMeasured;
+    QVector<Thru> _thrus;
 
     QVector<uint> _ports;
     RsaToolbox::Connector _connector;

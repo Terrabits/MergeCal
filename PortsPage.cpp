@@ -46,6 +46,16 @@ bool PortsPage::isReadyForNext() {
         return false;
     }
 
+    VnaChannel::SweepType sweepType = _vna->channel(channel()).sweepType();
+    if (sweepType == VnaChannel::SweepType::Power
+            || sweepType == VnaChannel::SweepType::Cw
+            || sweepType == VnaChannel::SweepType::Time)
+    {
+        ui->channel->setFocus();
+        ui->error->showMessage("*Channel must perform a frequency sweep");
+        return false;
+    }
+
     emit portsSelected(_model.ports());
     emit connectorSelected(connector());
     emit channelSelected(channel());

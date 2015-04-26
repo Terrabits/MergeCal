@@ -108,7 +108,7 @@
            <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
-             <height>314</height>
+             <height>10</height>
             </size>
            </property>
           </spacer>
@@ -249,8 +249,6 @@
        </widget>
       </item>
      </layout>
-     <zorder>chosenKits</zorder>
-     <zorder>availableKits</zorder>
      <zorder>availableKits</zorder>
      <zorder>widget</zorder>
      <zorder>chosenKits</zorder>
@@ -302,11 +300,6 @@
     </widget>
    </item>
   </layout>
-  <zorder>verticalSpacer</zorder>
-  <zorder>widget_3</zorder>
-  <zorder>error</zorder>
-  <zorder>verticalSpacer_4</zorder>
-  <zorder>channelInfo</zorder>
  </widget>
  <customwidgets>
   <customwidget>

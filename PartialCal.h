@@ -18,6 +18,7 @@ class PartialCal : public QObject
     Q_OBJECT
 public:
     explicit PartialCal(QObject *parent = 0);
+    PartialCal(const PartialCal &other);
     ~PartialCal();
 
     void setVna(RsaToolbox::Vna *vna);
@@ -32,14 +33,15 @@ public:
     void measureShort(uint port);
     void measureOffsetShortA(uint port);
     void measureOffsetShortB(uint port);
-
-    void measureThru(uint outputPort, uint inputPort);
+    void measureThru(uint port1, uint port2);
 
     RsaToolbox::ComplexRowVector directivity(uint outputPort, uint inputPort);
     RsaToolbox::ComplexRowVector sourceMatch(uint outputPort, uint inputPort);
     RsaToolbox::ComplexRowVector reflectionTracking(uint outputPort, uint inputPort);
     RsaToolbox::ComplexRowVector loadMatch(uint outputPort, uint inputPort);
     RsaToolbox::ComplexRowVector transmissionTracking(uint outputPort, uint inputPort);
+
+    void operator=(const PartialCal &other);
 
 signals:
     void startingMeasurement(const QString &caption, uint time_ms);
@@ -53,8 +55,13 @@ private:
 
     QVector<uint> _ports;
     RsaToolbox::Connector _connector;
-    uint _channel;
     FrequencyRange _calKit;
+
+    uint _channel;
+    uint _sweepTime_ms;
+    void deleteChannel();
+    RsaToolbox::VnaCalibrate _cal;
+
 
 };
 
