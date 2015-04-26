@@ -4,6 +4,9 @@
 // RsaToolbox
 using namespace RsaToolbox;
 
+// Qt
+#include <QDebug>
+
 
 Calibration::Calibration(QObject *parent) :
     QObject(parent),
@@ -23,6 +26,7 @@ void Calibration::setVna(RsaToolbox::Vna *vna) {
 }
 
 void Calibration::initialize() {
+    qDebug() << "Calibration::initialize";
     _isMatchMeasured.fill(false, _ports.size());
     _isShortMeasured.fill(false, _ports.size());
     _isOffsetShortAMeasured.fill(QBitArray(_ports.size(), false), _kits.size());

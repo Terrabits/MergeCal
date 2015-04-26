@@ -52,9 +52,12 @@ public:
 public slots:
     void setPorts(const QVector<uint> &ports);
     void setConnectorType(const RsaToolbox::Connector &type);
-    void setChannel(uint index);
+    void setChannel(const uint &index);
 
     void cancel();
+
+signals:
+    void calKitsSelected(const QVector<FrequencyRange> &calKits);
 
 private slots:
     void on_addKit_clicked();

@@ -92,6 +92,7 @@ bool CalKitsPage::isReadyForNext() {
         }
     }
 
+    emit calKitsSelected(_chosenCalKitsModel.calKits());
     return true;
 }
 
@@ -135,7 +136,7 @@ void CalKitsPage::setConnectorType(const Connector &type) {
     _availableCalKitsModel.setConnectorType(_connectorType);
     ui->availableKits->resizeColumnsToContents();
 }
-void CalKitsPage::setChannel(uint index) {
+void CalKitsPage::setChannel(const uint &index) {
     _channel = index;
     updateChannelInfo();
 }

@@ -83,6 +83,15 @@ int main(int argc, char *argv[])
     setupPage->setHeaderLabel(label);
     setupPage->setStatusBar(statusBar);
     setupPage->setNextIndex(3);
+    setupPage->setVna(&vna);
+    QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
+                     setupPage, SLOT(setPorts(QVector<uint>)));
+    QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
+                     setupPage, SLOT(setConnector(RsaToolbox::Connector)));
+    QObject::connect(portsPage, SIGNAL(channelSelected(uint)),
+                     setupPage, SLOT(setChannel(uint)));
+    QObject::connect(calKitsPage, SIGNAL(calKitsSelected(QVector<FrequencyRange>)),
+                     setupPage, SLOT(setCalKits(QVector<FrequencyRange>)));
     wizard.addPage(setupPage);
 
     MeasurePage *measurePage = new MeasurePage;

@@ -26,11 +26,16 @@ void SetupPage::initialize() {
     _header->setPixmap(QPixmap(":/images/Images/3 Setting up.bmp"));
 
     _statusBar->show();
-//    QProgressBar *progressBar = new QProgressBar;
-//    progressBar->setMaximum(100);
-//    progressBar->setValue(50);
-//    progressBar->setTextVisible(false);
-//    _statusBar->addWidget(progressBar, 1);
+
+    _calibration.setVna(_vna);
+    _calibration.setPorts(_ports);
+    _calibration.setConnector(_connector);
+    _calibration.setChannel(_channel);
+    _calibration.setCalKits(_kits);
+
+    // Connect to status bar?
+
+    _calibration.initialize();
 }
 
 void SetupPage::setHeaderLabel(QLabel *header) {
@@ -46,3 +51,21 @@ void SetupPage::setStatusBar(QStatusBar *statusBar) {
 QStatusBar *SetupPage::statusBar() {
     return _statusBar;
 }
+
+void SetupPage::setVna(Vna *vna) {
+    _vna = vna;
+}
+void SetupPage::setPorts(const QVector<uint> &ports) {
+    _ports = ports;
+}
+void SetupPage::setConnector(const Connector &connector) {
+    _connector = connector;
+}
+void SetupPage::setChannel(const uint &channel) {
+    _channel = channel;
+}
+void SetupPage::setCalKits(const QVector<FrequencyRange> &kits) {
+    _kits = kits;
+}
+
+

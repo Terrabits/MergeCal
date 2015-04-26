@@ -4,6 +4,9 @@
 // RsaToolbox
 using namespace RsaToolbox;
 
+// Qt
+#include <QDebug>
+
 
 PartialCal::PartialCal(QObject *parent) :
     QObject(parent),
@@ -74,17 +77,22 @@ void PartialCal::initialize() {
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
     _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-
     _cal.keepRawData();
 
     foreach (uint port, _ports) {
+        qDebug() << "Cal kit: " << _calKit.calKit().displayNameLabel();
+        qDebug() << "Match " << port;
         measureMatch(port);
+        qDebug() << "Short " << port;
         measureShort(port);
+        qDebug() << "Offset Short A " << port;
         measureOffsetShortA(port);
+        qDebug() << "Offset short B " << port;
         measureOffsetShortB(port);
     }
     for (int i = 0; i < _ports.size(); i++) {
         for (int j = i+1; j < _ports.size(); j++) {
+            qDebug() << "Thru " << _ports[i] << _ports[j];
             measureThru(_ports[i], _ports[j]);
         }
     }
