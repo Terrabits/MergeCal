@@ -2,6 +2,9 @@
 #define MEASUREPAGE_H
 
 
+// Project
+#include "TimedProgressBar.h"
+
 // RsaToolbox
 #include <WizardPage.h>
 
@@ -28,14 +31,14 @@ public:
     void setHeaderLabel(QLabel *header);
     QLabel *headerLabel();
 
-    void setStatusBar(QStatusBar *statusBar);
-    QStatusBar *statusBar();
+    void setProgressBar(TimedProgressBar *progressBar);
+    TimedProgressBar *progressBar();
 
 private:
     Ui::MeasurePage *ui;
 
     QLabel *_header;
-    QStatusBar *_statusBar;
+    TimedProgressBar *_progressBar;
 };
 
 #endif // MEASUREPAGE_H

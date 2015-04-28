@@ -35,7 +35,8 @@ HEADERS     += Settings.h \
     FrequencyEditor.h \
     Calibration.h \
     Thru.h \
-    PartialCal.h
+    PartialCal.h \
+    TimedProgressBar.h
 INCLUDEPATH += $$PWD
 SOURCES     += main.cpp \
     PortsPage.cpp \
@@ -53,7 +54,8 @@ SOURCES     += main.cpp \
     FrequencyEditor.cpp \
     Calibration.cpp \
     Thru.cpp \
-    PartialCal.cpp
+    PartialCal.cpp \
+    TimedProgressBar.cpp
 RESOURCES   += Resources.qrc
 OTHER_FILES += DEBUG_LOGFILE.txt
 
@@ -68,5 +70,6 @@ FORMS += \
     PortsPage.ui \
     CalKitsPage.ui \
     SetupPage.ui \
-    MeasurePage.ui
+    MeasurePage.ui \
+    TimedProgressBar.ui
 

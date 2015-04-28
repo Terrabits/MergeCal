@@ -6,6 +6,7 @@
 #include "CalKitsPage.h"
 #include "SetupPage.h"
 #include "MeasurePage.h"
+#include "TimedProgressBar.h"
 
 // RsaToolbox
 #include <Log.h>
@@ -22,10 +23,12 @@ using namespace RsaToolbox;
 #include <QLabel>
 #include <QDesktopWidget>
 #include <QStatusBar>
+#include <QSpacerItem>
 
 
 bool isNoConnection(Vna &vna);
 bool isUnknownModel(Vna &vna);
+bool isSwitchMatrix(Vna &vna);
 
 int main(int argc, char *argv[])
 {
@@ -42,6 +45,12 @@ int main(int argc, char *argv[])
 
     if (isNoConnection(vna) || isUnknownModel(vna))
         return 0;
+    if (vna.sets().isEmpty()) {
+        vna.preset();
+        vna.wait();
+    }
+    if (isSwitchMatrix(vna))
+        return 0;
 
     Wizard wizard;
     wizard.setWindowTitle(APP_NAME);
@@ -53,10 +62,8 @@ int main(int argc, char *argv[])
     QLabel *label = new QLabel;
     layout->insertWidget(1, label);
 
-    QStatusBar *statusBar = new QStatusBar;
-    layout->insertWidget(-1, statusBar);
-    statusBar->setSizeGripEnabled(false);
-    statusBar->hide();
+    TimedProgressBar *progressBar = new TimedProgressBar;
+    layout->insertWidget(-1, progressBar);
 
     PortsPage *portsPage = new PortsPage;
     portsPage->setName("Ports");
@@ -81,7 +88,7 @@ int main(int argc, char *argv[])
     SetupPage *setupPage = new SetupPage;
     setupPage->setName("Setup");
     setupPage->setHeaderLabel(label);
-    setupPage->setStatusBar(statusBar);
+    setupPage->setProgressBar(progressBar);
     setupPage->setNextIndex(3);
     setupPage->setVna(&vna);
     QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
@@ -97,7 +104,7 @@ int main(int argc, char *argv[])
     MeasurePage *measurePage = new MeasurePage;
     measurePage->setName("Measure");
     measurePage->setHeaderLabel(label);
-    measurePage->setStatusBar(statusBar);
+    measurePage->setProgressBar(progressBar);
     wizard.addPage(measurePage);
 
     wizard.show();
@@ -124,6 +131,19 @@ bool isUnknownModel(Vna &vna) {
     if (vna.properties().isUnknownModel()) {
         QString error_message(QString("VNA not recognized.\n")
                               + "Please use R&S Merge Cal with a Rohde & Schwarz instrument");
+        QMessageBox::critical(NULL,
+                              "R&S Merge Cal",
+                              error_message);
+        vna.print(error_message);
+        return true;
+    }
+    else
+        return false;
+}
+bool isSwitchMatrix(Vna &vna) {
+    if (vna.areSwitchMatrices()) {
+        QString error_message(QString("Switch matrices are not currently supported.\n")
+                              + "Please disconnect switch matrices and try again.");
         QMessageBox::critical(NULL,
                               "R&S Merge Cal",
                               error_message);

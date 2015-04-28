@@ -11,7 +11,8 @@ using namespace RsaToolbox;
 Calibration::Calibration(QObject *parent) :
     QObject(parent),
     _vna(NULL),
-    _channel(0)
+    _channel(0),
+    _interrupt(false)
 {
 
 }
@@ -26,7 +27,11 @@ void Calibration::setVna(RsaToolbox::Vna *vna) {
 }
 
 void Calibration::initialize() {
-    qDebug() << "Calibration::initialize";
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+    emit startingInitialization();
     _isMatchMeasured.fill(false, _ports.size());
     _isShortMeasured.fill(false, _ports.size());
     _isOffsetShortAMeasured.fill(QBitArray(_ports.size(), false), _kits.size());
@@ -49,9 +54,20 @@ void Calibration::initialize() {
         partial.setPorts(_ports);
         partial.setConnector(_connector);
         partial.setCalKit(kit);
-        partial.initialize();
         _partialCals << partial;
+
+        connect(&(_partialCals.last()), SIGNAL(startingMeasurement(QString,uint)),
+                this, SIGNAL(startingMeasurement(QString,uint)));
+        connect(&(_partialCals.last()), SIGNAL(finishedMeasurement()),
+                this, SIGNAL(finishedMeasurement()));
+
+        if (isInterrupt()) {
+            clearInterrupt();
+            return;
+        }
+        _partialCals.last().initialize();
     }
+    emit finishedInitialization();
 }
 
 uint Calibration::numberOfPorts() const {
@@ -146,4 +162,19 @@ void Calibration::setChannel(uint index) {
 }
 void Calibration::setCalKits(const QVector<FrequencyRange> &kits) {
     _kits = kits;
+}
+
+void Calibration::interrupt() {
+    QWriteLocker writeLocker(&_lock);
+    _interrupt = true;
+    for (int i = 0; i < _partialCals.size(); i++)
+        _partialCals[i].interrupt();
+}
+bool Calibration::isInterrupt() const {
+    QReadLocker readLocker(&_lock);
+    return _interrupt;
+}
+void Calibration::clearInterrupt() {
+    QWriteLocker writeLocker(&_lock);
+    _interrupt = false;
 }

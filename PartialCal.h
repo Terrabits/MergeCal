@@ -11,6 +11,7 @@
 
 // Qt
 #include <QObject>
+#include <QReadWriteLock>
 
 
 class PartialCal : public QObject
@@ -48,6 +49,7 @@ signals:
     void finishedMeasurement();
 
 public slots:
+    void interrupt();
 
 private:
     RsaToolbox::Vna *_vna;
@@ -62,6 +64,10 @@ private:
     void deleteChannel();
     RsaToolbox::VnaCalibrate _cal;
 
+    bool _interrupt;
+    mutable QReadWriteLock _lock;
+    bool isInterrupt() const;
+    void clearInterrupt();
 
 };
 

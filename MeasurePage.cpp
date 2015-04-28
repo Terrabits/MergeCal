@@ -25,7 +25,7 @@ void MeasurePage::initialize() {
     breadCrumbs()->hide();
     _header->setPixmap(QPixmap(":/images/Images/4 Measure.bmp"));
 
-    _statusBar->show();
+    _progressBar->show();
     buttons()->next()->setText("Apply");
     buttons()->next()->setDisabled(true);
 }
@@ -37,9 +37,9 @@ QLabel *MeasurePage::headerLabel() {
     return _header;
 }
 
-void MeasurePage::setStatusBar(QStatusBar *statusBar) {
-    _statusBar = statusBar;
+void MeasurePage::setProgressBar(TimedProgressBar *progressBar) {
+    _progressBar = progressBar;
 }
-QStatusBar *MeasurePage::statusBar() {
-    return _statusBar;
+TimedProgressBar *MeasurePage::progressBar() {
+    return _progressBar;
 }

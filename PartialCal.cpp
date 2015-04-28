@@ -13,7 +13,8 @@ PartialCal::PartialCal(QObject *parent) :
     _vna(NULL),
     _originalChannel(0),
     _channel(0),
-    _sweepTime_ms(0)
+    _sweepTime_ms(0),
+    _interrupt(false)
 {
 
 }
@@ -25,7 +26,8 @@ PartialCal::PartialCal(const PartialCal &other) :
     _calKit(other._calKit),
     _channel(other._channel),
     _sweepTime_ms(other._sweepTime_ms),
-    _cal(other._cal)
+    _cal(other._cal),
+    _interrupt(false)
 {
 
 }
@@ -52,6 +54,11 @@ void PartialCal::setCalKit(const FrequencyRange &kit) {
 }
 
 void PartialCal::initialize() {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
     deleteChannel();
     _vna->channel(_originalChannel).select();
     _channel = _vna->createChannel();
@@ -69,6 +76,8 @@ void PartialCal::initialize() {
     }
 
     _sweepTime_ms = _vna->channel(_channel).calibrationSweepTime_ms();
+    qDebug() << "calibration sweep time: " << _sweepTime_ms;
+    qDebug() << "sweep time: " << _vna->channel(_channel).sweepTime_ms();
 
     _cal = _vna->channel(_channel).calibrate();
     _cal.setConnectors(_connector);
@@ -80,26 +89,49 @@ void PartialCal::initialize() {
     _cal.keepRawData();
 
     foreach (uint port, _ports) {
-        qDebug() << "Cal kit: " << _calKit.calKit().displayNameLabel();
-        qDebug() << "Match " << port;
+        if (isInterrupt()) {
+            clearInterrupt();
+            return;
+        }
         measureMatch(port);
-        qDebug() << "Short " << port;
+        if (isInterrupt()) {
+            clearInterrupt();
+            return;
+        }
         measureShort(port);
-        qDebug() << "Offset Short A " << port;
+        if (isInterrupt()) {
+            clearInterrupt();
+            return;
+        }
         measureOffsetShortA(port);
-        qDebug() << "Offset short B " << port;
+        if (isInterrupt()) {
+            clearInterrupt();
+            return;
+        }
         measureOffsetShortB(port);
     }
     for (int i = 0; i < _ports.size(); i++) {
         for (int j = i+1; j < _ports.size(); j++) {
-            qDebug() << "Thru " << _ports[i] << _ports[j];
+            if (isInterrupt()) {
+                clearInterrupt();
+                return;
+            }
             measureThru(_ports[i], _ports[j]);
         }
+    }
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
     }
     _cal.apply();
 }
 
 void PartialCal::measureMatch(uint port) {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
     QString caption = "%1 Match";
     caption = caption.arg(this->_calKit.calKit().nameLabel().displayText());
     emit startingMeasurement(caption, _sweepTime_ms);
@@ -107,6 +139,11 @@ void PartialCal::measureMatch(uint port) {
     emit finishedMeasurement();
 }
 void PartialCal::measureShort(uint port) {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
     QString caption = "%1 Short";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
     emit startingMeasurement(caption, _sweepTime_ms);
@@ -114,6 +151,11 @@ void PartialCal::measureShort(uint port) {
     emit finishedMeasurement();
 }
 void PartialCal::measureOffsetShortA(uint port) {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
     QString caption = "%1 Offset Short %2";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
     if (_calKit.calKit().isOffsetShort1())
@@ -128,6 +170,11 @@ void PartialCal::measureOffsetShortA(uint port) {
     emit finishedMeasurement();
 }
 void PartialCal::measureOffsetShortB(uint port) {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
     QString caption = "%1 Offset Short %2";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
     if (_calKit.calKit().isOffsetShort3())
@@ -142,7 +189,12 @@ void PartialCal::measureOffsetShortB(uint port) {
     emit finishedMeasurement();
 }
 void PartialCal::measureThru(uint port1, uint port2) {
-    QString caption = "%1 Thru %3 %3";
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
+    QString caption = "%1 Thru %2 %3";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
     caption = caption.arg(port1);
     caption = caption.arg(port2);
@@ -178,10 +230,24 @@ void PartialCal::operator=(const PartialCal &other) {
     _cal = other._cal;
 }
 
+void PartialCal::interrupt() {
+    QWriteLocker writeLocker(&_lock);
+    _interrupt = true;
+}
+
 void PartialCal::deleteChannel() {
     if (_channel != 0 && _vna->isChannel(_channel)) {
         _vna->deleteChannel(_channel);
         _channel = 0;
         _cal = VnaCalibrate();
     }
+}
+
+bool PartialCal::isInterrupt() const {
+    QReadLocker readLocker(&_lock);
+    return _interrupt;
+}
+void PartialCal::clearInterrupt() {
+    QWriteLocker writeLocker(&_lock);
+    _interrupt = false;
 }

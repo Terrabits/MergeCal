@@ -5,6 +5,7 @@
 // Project
 #include "FrequencyRange.h"
 #include "Calibration.h"
+#include "TimedProgressBar.h"
 
 // RsaToolbox
 #include <WizardPage.h>
@@ -15,12 +16,9 @@
 #include <QWidget>
 #include <QLabel>
 #include <QStatusBar>
-
-
-// Project
-#include "Calibration.h"
-
-// RsaToolbox
+#include <QThread>
+#include <QProgressBar>
+#include <QTimer>
 
 
 namespace Ui {
@@ -36,12 +34,14 @@ public:
     ~SetupPage();
 
     virtual void initialize();
+    virtual bool skip();
+    virtual bool skipBackwards() const;
 
     void setHeaderLabel(QLabel *header);
     QLabel *headerLabel();
 
-    void setStatusBar(QStatusBar *statusBar);
-    QStatusBar *statusBar();
+    void setProgressBar(TimedProgressBar *progressBar);
+    TimedProgressBar *progressBar();
 
     void setVna(RsaToolbox::Vna *vna);
 
@@ -51,6 +51,10 @@ public slots:
     void setChannel(const uint &channel);
     void setCalKits(const QVector<FrequencyRange> &kits);
 
+    void measurementStarted(const QString &caption, uint time_ms);
+    void measurementFinished();
+    void initializationFinished();
+
 signals:
     void calibrationChanged(const Calibration &calibration);
 
@@ -58,7 +62,7 @@ private:
     Ui::SetupPage *ui;
 
     QLabel *_header;
-    QStatusBar *_statusBar;
+    TimedProgressBar *_progressBar;
 
     RsaToolbox::Vna *_vna;
     QVector<uint> _ports;
@@ -66,7 +70,11 @@ private:
     uint _channel;
     QVector<FrequencyRange> _kits;
 
+    QThread _measureThread;
     Calibration _calibration;
+
+    bool _isInitializing;
+    QString _setName;
 };
 
 #endif // SETUPPAGE_H

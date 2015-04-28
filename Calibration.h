@@ -16,6 +16,7 @@
 #include <QObject>
 #include <QVector>
 #include <QBitArray>
+#include <QReadWriteLock>
 
 
 class Calibration : public QObject
@@ -27,28 +28,18 @@ public:
 
     void setVna(RsaToolbox::Vna *vna);
 
-    void initialize();
-
     uint numberOfPorts() const;
     uint port(uint index);
     QVector<uint> ports() const;
 
     bool isMatchMeasured(uint port);
-    void measureMatch(uint port);
-
     bool isShortMeasured(uint port);
-    void measureShort(uint port);
-
     bool isOffsetShortAMeasured(uint kitIndex, uint port);
-    void measureOffsetShortA(uint kitIndex, uint port);
-
     bool isOffsetShortBMeasured(uint kitIndex, uint port);
-    void measureOffsetShortB(uint kitIndex, uint port);
 
     bool isThruMeasured(uint index);
     uint numberOfThrus() const;
     Thru thru(uint index) const;
-    void measureThru(uint index);
 
     uint numberOfKits() const;
     RsaToolbox::NameLabel kit(uint index) const;
@@ -56,12 +47,27 @@ public:
     QString offsetShortBName(uint kitIndex) const;
 
 signals:
+    void startingInitialization();
+    void finishedInitialization();
+
+    void startingMeasurement(const QString &caption, uint time_ms);
+    void finishedMeasurement();
 
 public slots:
     void setPorts(const QVector<uint> &ports);
     void setConnector(const RsaToolbox::Connector &connector);
     void setChannel(uint index);
     void setCalKits(const QVector<FrequencyRange> &kits);
+
+    void initialize();
+
+    void measureMatch(uint port);
+    void measureShort(uint port);
+    void measureOffsetShortA(uint kitIndex, uint port);
+    void measureOffsetShortB(uint kitIndex, uint port);
+    void measureThru(uint index);
+
+    void interrupt();
 
 private:
     RsaToolbox::Vna *_vna;
@@ -79,6 +85,10 @@ private:
 
     QVector<PartialCal> _partialCals;
 
+    bool _interrupt;
+    mutable QReadWriteLock _lock;
+    bool isInterrupt() const;
+    void clearInterrupt();
 };
 
 #endif // CALIBRATION_H
