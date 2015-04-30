@@ -93,22 +93,22 @@ void PartialCal::initialize() {
             clearInterrupt();
             return;
         }
-        measureMatch(port);
+        _measureMatch(port);
         if (isInterrupt()) {
             clearInterrupt();
             return;
         }
-        measureShort(port);
+        _measureShort(port);
         if (isInterrupt()) {
             clearInterrupt();
             return;
         }
-        measureOffsetShortA(port);
+        _measureOffsetShortA(port);
         if (isInterrupt()) {
             clearInterrupt();
             return;
         }
-        measureOffsetShortB(port);
+        _measureOffsetShortB(port);
     }
     for (int i = 0; i < _ports.size(); i++) {
         for (int j = i+1; j < _ports.size(); j++) {
@@ -116,7 +116,7 @@ void PartialCal::initialize() {
                 clearInterrupt();
                 return;
             }
-            measureThru(_ports[i], _ports[j]);
+            _measureThru(_ports[i], _ports[j]);
         }
     }
     if (isInterrupt()) {
@@ -136,6 +136,7 @@ void PartialCal::measureMatch(uint port) {
     caption = caption.arg(this->_calKit.calKit().nameLabel().displayText());
     emit startingMeasurement(caption, _sweepTime_ms);
     _cal.measureMatch(port);
+    _cal.apply();
     emit finishedMeasurement();
 }
 void PartialCal::measureShort(uint port) {
@@ -148,6 +149,7 @@ void PartialCal::measureShort(uint port) {
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
     emit startingMeasurement(caption, _sweepTime_ms);
     _cal.measureShort(port);
+    _cal.apply();
     emit finishedMeasurement();
 }
 void PartialCal::measureOffsetShortA(uint port) {
@@ -167,6 +169,7 @@ void PartialCal::measureOffsetShortA(uint port) {
         _cal.measureOffsetShort1(port);
     else
         _cal.measureOffsetShort2(port);
+    _cal.apply();
     emit finishedMeasurement();
 }
 void PartialCal::measureOffsetShortB(uint port) {
@@ -186,6 +189,7 @@ void PartialCal::measureOffsetShortB(uint port) {
         _cal.measureOffsetShort3(port);
     else
         _cal.measureOffsetShort2(port);
+    _cal.apply();
     emit finishedMeasurement();
 }
 void PartialCal::measureThru(uint port1, uint port2) {
@@ -200,6 +204,7 @@ void PartialCal::measureThru(uint port1, uint port2) {
     caption = caption.arg(port2);
     emit startingMeasurement(caption, _sweepTime_ms);
     _cal.measureThru(port1, port2);
+    _cal.apply();
     emit finishedMeasurement();
 }
 
@@ -250,4 +255,81 @@ bool PartialCal::isInterrupt() const {
 void PartialCal::clearInterrupt() {
     QWriteLocker writeLocker(&_lock);
     _interrupt = false;
+}
+
+void PartialCal::_measureMatch(uint port) {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
+    QString caption = "%1 Match";
+    caption = caption.arg(this->_calKit.calKit().nameLabel().displayText());
+    emit startingMeasurement(caption, _sweepTime_ms);
+    _cal.measureMatch(port);
+    emit finishedMeasurement();
+}
+void PartialCal::_measureShort(uint port) {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
+    QString caption = "%1 Short";
+    caption = caption.arg(_calKit.calKit().nameLabel().displayText());
+    emit startingMeasurement(caption, _sweepTime_ms);
+    _cal.measureShort(port);
+    emit finishedMeasurement();
+}
+void PartialCal::_measureOffsetShortA(uint port) {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
+    QString caption = "%1 Offset Short %2";
+    caption = caption.arg(_calKit.calKit().nameLabel().displayText());
+    if (_calKit.calKit().isOffsetShort1())
+        caption = caption.arg(1);
+    else
+        caption = caption.arg(2);
+    emit startingMeasurement(caption, _sweepTime_ms);
+    if (_calKit.calKit().isOffsetShort1())
+        _cal.measureOffsetShort1(port);
+    else
+        _cal.measureOffsetShort2(port);
+    emit finishedMeasurement();
+}
+void PartialCal::_measureOffsetShortB(uint port) {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
+    QString caption = "%1 Offset Short %2";
+    caption = caption.arg(_calKit.calKit().nameLabel().displayText());
+    if (_calKit.calKit().isOffsetShort3())
+        caption = caption.arg(3);
+    else
+        caption = caption.arg(2);
+    emit startingMeasurement(caption, _sweepTime_ms);
+    if (_calKit.calKit().isOffsetShort3())
+        _cal.measureOffsetShort3(port);
+    else
+        _cal.measureOffsetShort2(port);
+    emit finishedMeasurement();
+}
+void PartialCal::_measureThru(uint port1, uint port2) {
+    if (isInterrupt()) {
+        clearInterrupt();
+        return;
+    }
+
+    QString caption = "%1 Thru %2 %3";
+    caption = caption.arg(_calKit.calKit().nameLabel().displayText());
+    caption = caption.arg(port1);
+    caption = caption.arg(port2);
+    emit startingMeasurement(caption, _sweepTime_ms);
+    _cal.measureThru(port1, port2);
+    emit finishedMeasurement();
 }

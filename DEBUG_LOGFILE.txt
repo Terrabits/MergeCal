@@ -1,7 +1,7 @@
 R&S Merge Cal Version 1.0
 (C) 2014 Rohde & Schwarz America
 
-Mon Apr 27 21:47:35 2015
+Wed Apr 29 21:39:15 2015
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -5908,12 +5908,364 @@ Write:    ":MMEM:CDIR 'C:\Users\Public\Documents\Rohde-Schwarz\Vna'"
 Bytes: 57
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SYST:ERR?"
-Bytes: 11
+Write:    "*IDN?"
+Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "0,"No error""
-Bytes: 13
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL MATC,1"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL SHOR,1"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL OSHORT1,1"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL OSHORT2,1"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL MATC,2"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL SHOR,2"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL OSHORT1,2"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL OSHORT2,2"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL THR,1,2"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,1.93.2.45"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CONF:CHAN:CAT?"

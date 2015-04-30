@@ -21,7 +21,7 @@ Thru::~Thru()
 }
 
 QString Thru::displayText() const {
-    QString text = "Thru %1 to %2";
+    QString text = "Thru %1-%2";
     text = text.arg(port1);
     text = text.arg(port2);
     return text;

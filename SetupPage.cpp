@@ -8,6 +8,7 @@ using namespace RsaToolbox;
 // Qt
 #include <QProgressBar>
 #include <QDebug>
+#include <QMetaObject>
 
 
 SetupPage::SetupPage(QWidget *parent) :
@@ -17,27 +18,25 @@ SetupPage::SetupPage(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    _measureThread.start();
-    _calibration.moveToThread(&_measureThread);
 }
 
 SetupPage::~SetupPage()
 {
-    if (_isInitializing) {
-        _calibration.interrupt();
-        _measureThread.quit();
-        _measureThread.wait();
-        _vna->closeActiveSet();
-        _vna->openSet(_setName);
-        _vna->deleteSet(_setName);
-    }
-    else {
-        _measureThread.quit();
-        _measureThread.wait();
-    }
+//    if (_isInitializing) {
+//        _calibration->interrupt();
+//        _measureThread->quit();
+//        _measureThread->wait();
+//        _vna->closeActiveSet();
+//        _vna->openSet(_setName);
+//        _vna->deleteSet(_setName);
+//    }
+//    else {
+//        _measureThread->quit();
+//        _measureThread->wait();
+//    }
 
-    if (_vna != NULL)
-        _vna->isError();
+//    if (_vna != NULL)
+//        _vna->isError();
 
     delete ui;
 }
@@ -46,35 +45,39 @@ void SetupPage::initialize() {
     breadCrumbs()->hide();
     _header->setPixmap(QPixmap(":/images/Images/3 Setting up.bmp"));
 
-    _calibration.setVna(_vna);
-    _calibration.setPorts(_ports);
-    _calibration.setConnector(_connector);
-    _calibration.setChannel(_channel);
-    _calibration.setCalKits(_kits);
-    buttons()->next()->setDisabled(true);
-    buttons()->previous()->setDisabled(true);
+    _calibration->setVna(_vna);
+    _calibration->setPorts(_ports);
+    _calibration->setConnector(_connector);
+    _calibration->setChannel(_channel);
+    _calibration->setCalKits(_kits);
+    wizard()->setDisabled();
 }
 bool SetupPage::skip() {
-    connect(&_calibration, SIGNAL(startingMeasurement(QString,uint)),
-            this, SLOT(measurementStarted(QString,uint)));
-    connect(&_calibration, SIGNAL(finishedMeasurement()),
-            this, SLOT(measurementFinished()));
-    connect(&_calibration, SIGNAL(finishedInitialization()),
-            this, SLOT(initializationFinished()));
-
     _isInitializing = true;
     _setName = _vna->activeSet();
     _vna->saveActiveSet(_setName);
-    QMetaObject::invokeMethod(&_calibration,
+
+    connect(_calibration, SIGNAL(startingMeasurement(QString,uint)),
+            this, SLOT(measurementStarted(QString,uint)));
+    connect(_calibration, SIGNAL(finishedMeasurement()),
+            this, SLOT(measurementFinished()));
+    connect(_calibration, SIGNAL(finishedInitialization()),
+            this, SLOT(initializationFinished()));
+
+    QMetaObject::invokeMethod(_calibration,
                               "initialize",
                               Qt::QueuedConnection);
 
     return false;
 }
+bool SetupPage::isReadyForBack() {
+    qDebug() << "SetupPage::isReadyForBack " << !_isInitializing;
+    return !_isInitializing;
+}
+
 bool SetupPage::skipBackwards() const {
     return true;
 }
-
 
 void SetupPage::measurementStarted(const QString &caption, uint time_ms) {
     qDebug() << "Measurement started: " << caption << time_ms;
@@ -87,8 +90,15 @@ void SetupPage::measurementFinished() {
 void SetupPage::initializationFinished() {
     _isInitializing = false;
     _vna->deleteSet(_setName);
-    buttons()->next()->setEnabled(true);
-    buttons()->previous()->setEnabled(true);
+
+    disconnect(_calibration, SIGNAL(startingMeasurement(QString,uint)),
+            this, SLOT(measurementStarted(QString,uint)));
+    disconnect(_calibration, SIGNAL(finishedMeasurement()),
+            this, SLOT(measurementFinished()));
+    disconnect(_calibration, SIGNAL(finishedInitialization()),
+            this, SLOT(initializationFinished()));
+
+    wizard()->setEnabled();
     wizard()->next();
 }
 
@@ -109,6 +119,11 @@ TimedProgressBar *SetupPage::progressBar() {
 void SetupPage::setVna(Vna *vna) {
     _vna = vna;
 }
+void SetupPage::setCalibration(QThread *measureThread, Calibration *calibration) {
+    _measureThread = measureThread;
+    _calibration = calibration;
+}
+
 void SetupPage::setPorts(const QVector<uint> &ports) {
     _ports = ports;
 }

@@ -32,12 +32,14 @@ public:
     uint port(uint index);
     QVector<uint> ports() const;
 
-    bool isMatchMeasured(uint port);
-    bool isShortMeasured(uint port);
-    bool isOffsetShortAMeasured(uint kitIndex, uint port);
-    bool isOffsetShortBMeasured(uint kitIndex, uint port);
+    bool isPortFullyMeasured(uint port) const;
+    bool isMatchMeasured(uint port) const;
+    bool isShortMeasured(uint port) const;
+    bool isOffsetShortAMeasured(uint kitIndex, uint port) const;
+    bool isOffsetShortBMeasured(uint kitIndex, uint port) const;
 
-    bool isThruMeasured(uint index);
+    bool isAllThrusMeasured() const;
+    bool isThruMeasured(uint index) const;
     uint numberOfThrus() const;
     Thru thru(uint index) const;
 
@@ -45,6 +47,8 @@ public:
     RsaToolbox::NameLabel kit(uint index) const;
     QString offsetShortAName(uint kitIndex) const;
     QString offsetShortBName(uint kitIndex) const;
+
+    bool allMeasurementsFinished() const;
 
 signals:
     void startingInitialization();
@@ -61,13 +65,15 @@ public slots:
 
     void initialize();
 
+    void interrupt();
+
     void measureMatch(uint port);
     void measureShort(uint port);
     void measureOffsetShortA(uint kitIndex, uint port);
     void measureOffsetShortB(uint kitIndex, uint port);
     void measureThru(uint index);
 
-    void interrupt();
+    void applyCorrections();
 
 private:
     RsaToolbox::Vna *_vna;

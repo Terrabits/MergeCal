@@ -36,7 +36,6 @@ public:
 
     // Back
     virtual void backToThis();
-//    virtual bool isReadyForBack();
 
     bool isHeader() const;
     void setHeaderLabel(QLabel *header);

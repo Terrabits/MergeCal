@@ -85,12 +85,18 @@ int main(int argc, char *argv[])
                      calKitsPage, SLOT(setChannel(uint)));
     wizard.addPage(calKitsPage);
 
+    QThread measureThread;
+    Calibration calibration;
+    calibration.moveToThread(&measureThread);
+    measureThread.start();
+
     SetupPage *setupPage = new SetupPage;
     setupPage->setName("Setup");
     setupPage->setHeaderLabel(label);
     setupPage->setProgressBar(progressBar);
     setupPage->setNextIndex(3);
     setupPage->setVna(&vna);
+    setupPage->setCalibration(&measureThread, &calibration);
     QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
                      setupPage, SLOT(setPorts(QVector<uint>)));
     QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
@@ -105,10 +111,12 @@ int main(int argc, char *argv[])
     measurePage->setName("Measure");
     measurePage->setHeaderLabel(label);
     measurePage->setProgressBar(progressBar);
+    measurePage->setFinalPage(true);
+    measurePage->setVna(&vna);
+    measurePage->setCalibration(&measureThread, &calibration);
     wizard.addPage(measurePage);
 
     wizard.show();
-
 
     return a.exec();
 }

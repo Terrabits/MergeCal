@@ -36,7 +36,8 @@ HEADERS     += Settings.h \
     Calibration.h \
     Thru.h \
     PartialCal.h \
-    TimedProgressBar.h
+    TimedProgressBar.h \
+    CalibrationModel.h
 INCLUDEPATH += $$PWD
 SOURCES     += main.cpp \
     PortsPage.cpp \
@@ -55,7 +56,8 @@ SOURCES     += main.cpp \
     Calibration.cpp \
     Thru.cpp \
     PartialCal.cpp \
-    TimedProgressBar.cpp
+    TimedProgressBar.cpp \
+    CalibrationModel.cpp
 RESOURCES   += Resources.qrc
 OTHER_FILES += DEBUG_LOGFILE.txt
 

@@ -80,7 +80,21 @@ QVector<uint> Calibration::ports() const {
     return _ports;
 }
 
-bool Calibration::isMatchMeasured(uint port) {
+bool Calibration::isPortFullyMeasured(uint port) const {
+    if (!isMatchMeasured(port))
+        return false;
+    if (!isShortMeasured(port))
+        return false;
+    for (uint i = 0; i < numberOfKits(); i++) {
+        if (!isOffsetShortAMeasured(i, port))
+            return false;
+        if (!isOffsetShortBMeasured(i, port))
+            return false;
+    }
+
+    return true;
+}
+bool Calibration::isMatchMeasured(uint port) const {
     return _isMatchMeasured[_ports.indexOf(port)];
 }
 void Calibration::measureMatch(uint port) {
@@ -90,7 +104,7 @@ void Calibration::measureMatch(uint port) {
     _isMatchMeasured[_ports.indexOf(port)] = true;
 }
 
-bool Calibration::isShortMeasured(uint port) {
+bool Calibration::isShortMeasured(uint port) const {
     return _isShortMeasured[_ports.indexOf(port)];
 }
 void Calibration::measureShort(uint port) {
@@ -100,7 +114,7 @@ void Calibration::measureShort(uint port) {
     _isShortMeasured[_ports.indexOf(port)] = true;
 }
 
-bool Calibration::isOffsetShortAMeasured(uint kitIndex, uint port) {
+bool Calibration::isOffsetShortAMeasured(uint kitIndex, uint port) const {
     return _isOffsetShortAMeasured[kitIndex][_ports.indexOf(port)];
 }
 void Calibration::measureOffsetShortA(uint kitIndex, uint port) {
@@ -108,7 +122,7 @@ void Calibration::measureOffsetShortA(uint kitIndex, uint port) {
     _isOffsetShortAMeasured[kitIndex][_ports.indexOf(port)] = true;
 }
 
-bool Calibration::isOffsetShortBMeasured(uint kitIndex, uint port) {
+bool Calibration::isOffsetShortBMeasured(uint kitIndex, uint port) const {
     return _isOffsetShortBMeasured[kitIndex][_ports.indexOf(port)];
 }
 void Calibration::measureOffsetShortB(uint kitIndex, uint port) {
@@ -116,7 +130,16 @@ void Calibration::measureOffsetShortB(uint kitIndex, uint port) {
     _isOffsetShortBMeasured[kitIndex][_ports.indexOf(port)] = true;
 }
 
-bool Calibration::isThruMeasured(uint index) {
+bool Calibration::isAllThrusMeasured() const {
+    for (uint i = 0; i < numberOfThrus(); i++) {
+        if (!isThruMeasured(i))
+            return false;
+    }
+
+    return true;
+}
+
+bool Calibration::isThruMeasured(uint index) const {
     return _thrus[index].isMeasured;
 }
 uint Calibration::numberOfThrus() const {
@@ -130,6 +153,10 @@ void Calibration::measureThru(uint index) {
         _partialCals[i].measureThru(_thrus[index].port1, _thrus[index].port2);
     }
     _thrus[index].isMeasured = true;
+}
+
+void Calibration::applyCorrections() {
+    qDebug() << "Calibration::applyCorrections - need to finish!";
 }
 
 uint Calibration::numberOfKits() const {
@@ -149,6 +176,18 @@ QString Calibration::offsetShortBName(uint kitIndex) const {
         return "Offset Short 3";
     else
         return "Offset Short 2";
+}
+
+bool Calibration::allMeasurementsFinished() const {
+    foreach (uint port, _ports) {
+        if (!isPortFullyMeasured(port))
+            return false;
+    }
+
+    if (!isAllThrusMeasured())
+        return false;
+
+    return true;
 }
 
 void Calibration::setPorts(const QVector<uint> &ports) {

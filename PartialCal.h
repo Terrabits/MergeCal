@@ -69,6 +69,14 @@ private:
     bool isInterrupt() const;
     void clearInterrupt();
 
+    // For initialize()
+    // (no apply cal after measure)
+    void _measureMatch(uint port);
+    void _measureShort(uint port);
+    void _measureOffsetShortA(uint port);
+    void _measureOffsetShortB(uint port);
+    void _measureThru(uint port1, uint port2);
+
 };
 
 

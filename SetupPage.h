@@ -35,6 +35,7 @@ public:
 
     virtual void initialize();
     virtual bool skip();
+    virtual bool isReadyForBack();
     virtual bool skipBackwards() const;
 
     void setHeaderLabel(QLabel *header);
@@ -44,6 +45,7 @@ public:
     TimedProgressBar *progressBar();
 
     void setVna(RsaToolbox::Vna *vna);
+    void setCalibration(QThread *measureThread, Calibration *calibration);
 
 public slots:
     void setPorts(const QVector<uint> &ports);
@@ -54,9 +56,6 @@ public slots:
     void measurementStarted(const QString &caption, uint time_ms);
     void measurementFinished();
     void initializationFinished();
-
-signals:
-    void calibrationChanged(const Calibration &calibration);
 
 private:
     Ui::SetupPage *ui;
@@ -70,8 +69,8 @@ private:
     uint _channel;
     QVector<FrequencyRange> _kits;
 
-    QThread _measureThread;
-    Calibration _calibration;
+    QThread *_measureThread;
+    Calibration *_calibration;
 
     bool _isInitializing;
     QString _setName;
