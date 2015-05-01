@@ -156,7 +156,63 @@ void Calibration::measureThru(uint index) {
 }
 
 void Calibration::applyCorrections() {
-    qDebug() << "Calibration::applyCorrections - need to finish!";
+    qDebug() << "apply";
+    VnaChannel channel = _vna->channel(_channel);
+    channel.calibrate().setConnectors(_connector);
+    channel.calibrate().start("DefaultCal", VnaCalibrate::CalType::Tosm, _ports);
+    channel.corrections().loadDefaultCorrections();
+    return;
+
+    foreach(const uint &port1, _ports) {
+        foreach (const uint &port2, _ports) {
+            // Directivity
+            ComplexRowVector corrections;
+            for (int i = 0; i < _partialCals.size(); i++) {
+                ComplexRowVector temp = _partialCals[i].directivity(port1, port2);
+                corrections.insert(corrections.end(), temp.begin(), temp.end());
+            }
+            channel.corrections().setDirectivity(corrections, port1, port2);
+            _vna->isError();
+
+            // sourceMatch
+            corrections.clear();
+            for (int i = 0; i < _partialCals.size(); i++) {
+                ComplexRowVector temp = _partialCals[i].sourceMatch(port1, port2);
+                corrections.insert(corrections.end(), temp.begin(), temp.end());
+            }
+            channel.corrections().setSourceMatch(corrections, port1, port2);
+            _vna->isError();
+
+            // reflectionTracking
+            corrections.clear();
+            for (int i = 0; i < _partialCals.size(); i++) {
+                ComplexRowVector temp = _partialCals[i].reflectionTracking(port1, port2);
+                corrections.insert(corrections.end(), temp.begin(), temp.end());
+            }
+            channel.corrections().setReflectionTracking(corrections, port1, port2);
+            _vna->isError();
+
+            if (port1 != port2) {
+                // loadMatch
+                corrections.clear();
+                for (int i = 0; i < _partialCals.size(); i++) {
+                    ComplexRowVector temp = _partialCals[i].loadMatch(port1, port2);
+                    corrections.insert(corrections.end(), temp.begin(), temp.end());
+                }
+                channel.corrections().setLoadMatch(corrections, port1, port2);
+                _vna->isError();
+
+                // transmissionTracking
+                corrections.clear();
+                for (int i = 0; i < _partialCals.size(); i++) {
+                    ComplexRowVector temp = _partialCals[i].transmissionTracking(port1, port2);
+                    corrections.insert(corrections.end(), temp.begin(), temp.end());
+                }
+                channel.corrections().setTransmissionTracking(corrections, port1, port2);
+                _vna->isError();
+            }
+        }
+    }
 }
 
 uint Calibration::numberOfKits() const {

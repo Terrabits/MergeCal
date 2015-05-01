@@ -1,7 +1,7 @@
 My RSA App Version 1.0
 (C) 2014 Rohde & Schwarz America
 
-Thu Apr 30 20:58:27 2015
+Fri May 1 02:00:34 2015
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -268,8 +268,8 @@ Write:    ":CORR:COLL:CHAN:ALL 0"
 Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS1:CORR:CKIT:LSEL '3.5 mm','Cal Kit 1',''"
-Bytes: 46
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Cal Kit 1',''"
+Bytes: 40
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"
@@ -812,8 +812,8 @@ Write:    ":CORR:COLL:CHAN:ALL 0"
 Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:CORR:CKIT:LSEL '3.5 mm','Cal Kit 2',''"
-Bytes: 46
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Cal Kit 2',''"
+Bytes: 40
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"
@@ -1292,8 +1292,8 @@ Write:    ":CORR:COLL:CHAN:ALL 0"
 Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:CORR:CKIT:LSEL '3.5 mm','Cal Kit 1',''"
-Bytes: 46
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Cal Kit 1',''"
+Bytes: 40
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS1:AVER?"
@@ -1596,8 +1596,8 @@ Write:    ":CORR:COLL:CHAN:ALL 0"
 Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:CORR:CKIT:LSEL '3.5 mm','Cal Kit 2',''"
-Bytes: 46
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Cal Kit 2',''"
+Bytes: 40
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS2:AVER?"

@@ -7,14 +7,18 @@ using namespace RsaToolbox;
 
 
 FrequencyRange::FrequencyRange() :
+    _includeStartFrequency(false),
     _startFreq_Hz(-1),
+    _includeStopFrequency(false),
     _stopFreq_Hz(-1)
 {
 
 }
 FrequencyRange::FrequencyRange(DoubleOffsetShortKit kit) :
     _kit(kit),
+    _includeStartFrequency(false),
     _startFreq_Hz(-1),
+    _includeStopFrequency(false),
     _stopFreq_Hz(-1)
 
 {
@@ -22,7 +26,9 @@ FrequencyRange::FrequencyRange(DoubleOffsetShortKit kit) :
 }
 FrequencyRange::FrequencyRange(const FrequencyRange &other) :
     _kit(other._kit),
+    _includeStartFrequency(other._includeStartFrequency),
     _startFreq_Hz(other._startFreq_Hz),
+    _includeStopFrequency(other._includeStopFrequency),
     _stopFreq_Hz(other._stopFreq_Hz)
 {
 
@@ -50,6 +56,13 @@ void FrequencyRange::setStartFrequency(double frequency, RsaToolbox::SiPrefix pr
     _startFreq_Hz = frequency * toDouble(prefix);
 }
 
+bool FrequencyRange::isStartFrequencyInclusive() const {
+    return _includeStartFrequency;
+}
+void FrequencyRange::includeStartFrequency(bool isInclusive) {
+    _includeStartFrequency = isInclusive;
+}
+
 bool FrequencyRange::isStopFrequency() const {
     return _stopFreq_Hz != -1;
 }
@@ -58,6 +71,13 @@ double FrequencyRange::stopFrequency_Hz() const {
 }
 void FrequencyRange::setStopFrequency(double frequency, SiPrefix prefix) {
     _stopFreq_Hz = frequency * toDouble(prefix);
+}
+
+bool FrequencyRange::isStopFrequencyInclusive() const {
+    return _includeStopFrequency;
+}
+void FrequencyRange::includeStopFrequency(bool isInclusive) {
+    _includeStopFrequency = isInclusive;
 }
 
 void FrequencyRange::clearStartStop() {

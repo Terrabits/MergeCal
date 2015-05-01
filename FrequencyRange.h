@@ -23,9 +23,15 @@ public:
     double startFrequency_Hz() const;
     void setStartFrequency(double frequency, RsaToolbox::SiPrefix prefix = RsaToolbox::SiPrefix::None);
 
+    bool isStartFrequencyInclusive() const;
+    void includeStartFrequency(bool isInclusive = true);
+
     bool isStopFrequency() const;
     double stopFrequency_Hz() const;
     void setStopFrequency(double frequency, RsaToolbox::SiPrefix prefix = RsaToolbox::SiPrefix::None);
+
+    bool isStopFrequencyInclusive() const;
+    void includeStopFrequency(bool isInclusive = false);
 
     void clearStartStop();
 
@@ -35,7 +41,10 @@ public:
 private:
     DoubleOffsetShortKit _kit;
 
+    bool _includeStartFrequency;
     double _startFreq_Hz;
+
+    bool _includeStopFrequency;
     double _stopFreq_Hz;
 };
 

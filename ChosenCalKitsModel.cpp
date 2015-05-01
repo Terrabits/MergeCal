@@ -207,12 +207,14 @@ void ChosenCalKitsModel::setDefaultFrequencies() {
     for (int i = 0; i < _kits.size(); i++) {
         if (!_kits[i].isStartFrequency()) {
             // Set start
+            _kits[i].includeStartFrequency(true);
             _kits[i].setStartFrequency(_kits[i].calKit().minimumFrequency_Hz());
         }
         if (!_kits[i].isStopFrequency()) {
             // Set stop
             if (i == _kits.size() - 1) {
                 // Last kit; set to max
+                _kits[i].includeStopFrequency(true);
                 _kits[i].setStopFrequency(_kits[i].calKit().maximumFrequency_Hz());
             }
             else {
@@ -223,10 +225,12 @@ void ChosenCalKitsModel::setDefaultFrequencies() {
                         _kits[i+1].setStartFrequency(_kits[i].stopFrequency_Hz());
                     }
                     else {
+                        _kits[i].includeStopFrequency(true);
                         _kits[i].setStopFrequency(_kits[i].calKit().maximumFrequency_Hz());
                     }
                 }
                 else {
+                    _kits[i].includeStopFrequency(true);
                     _kits[i].setStopFrequency(_kits[i].calKit().maximumFrequency_Hz());
                 }
             }
