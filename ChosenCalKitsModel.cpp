@@ -113,18 +113,24 @@ bool ChosenCalKitsModel::setData(const QModelIndex &index, const QVariant &value
 
     // set data
     double _value = value.toDouble();
+    if (_value < _kits[row].calKit().minimumFrequency_Hz() || _value > _kits[row].calKit().maximumFrequency_Hz()) {
+        QString msg = "*Frequency out of range of cal kit";
+        emit error(msg);
+        return false;
+    }
+
     QModelIndex topLeft = index;
     QModelIndex bottomRight = index;
     if (column == START_COLUMN) {
         _kits[row].setStartFrequency(_value);
-        if (row != 0 && _kits[row-1].calKit().maximumFrequency_Hz() >= _value) {
+        if (row != 0 && _value <= _kits[row-1].calKit().maximumFrequency_Hz()) {
             _kits[row-1].setStopFrequency(_value);
             topLeft = this->index(row-1, STOP_COLUMN);
         }
     }
-    else {
+    else { // column == STOP_COLUMN
         _kits[row].setStopFrequency(_value);
-        if (row != _kits.size()-1 && _kits[row+1].calKit().minimumFrequency_Hz() <= _value) {
+        if (row != _kits.size()-1 && _value >= _kits[row+1].calKit().minimumFrequency_Hz()) {
             _kits[row+1].setStartFrequency(_value);
             bottomRight = this->index(row+1, START_COLUMN);
         }
@@ -180,10 +186,18 @@ void ChosenCalKitsModel::sortKits() {
     // Bubble sort :-)
     for (int i = 0; i < _kits.size() - 1; i++) {
         for (int j = 0; j < _kits.size()-1; j++) {
-            if (_kits[j].calKit().minimumFrequency_Hz() > _kits[j+1].calKit().minimumFrequency_Hz()) {
-                FrequencyRange temp = _kits[j];
+            if (_kits[j].calKit().minimumFrequency_Hz() > _kits[j+1].calKit().minimumFrequency_Hz())
+            {
+                FrequencyRange kit_j = _kits[j];
                 _kits[j] = _kits[j+1];
-                _kits[j+1] = temp;
+                _kits[j+1] = kit_j;
+            }
+            else if (_kits[j].calKit().minimumFrequency_Hz() == _kits[j+1].calKit().minimumFrequency_Hz()
+                     && _kits[j].calKit().maximumFrequency_Hz() > _kits[j+1].calKit().maximumFrequency_Hz())
+            {
+                FrequencyRange kit_j = _kits[j];
+                _kits[j] = _kits[j+1];
+                _kits[j+1] = kit_j;
             }
         }
     }
@@ -192,27 +206,25 @@ void ChosenCalKitsModel::setDefaultFrequencies() {
     sortKits();
     for (int i = 0; i < _kits.size(); i++) {
         if (!_kits[i].isStartFrequency()) {
-            if (i == 0) {
-                _kits[i].setStartFrequency(_kits[i].calKit().minimumFrequency_Hz());
-            }
-            else {
-                if (_kits[i].calKit().minimumFrequency_Hz() < _kits[i-1].calKit().maximumFrequency_Hz()) {
-                    _kits[i].setStartFrequency((_kits[i].calKit().minimumFrequency_Hz() + _kits[i-1].calKit().maximumFrequency_Hz())/2.0);
-                    _kits[i-1].setStopFrequency(_kits[i].startFrequency_Hz());
-                }
-                else {
-                    _kits[i].setStartFrequency(_kits[i].calKit().minimumFrequency_Hz());
-                }
-            }
+            // Set start
+            _kits[i].setStartFrequency(_kits[i].calKit().minimumFrequency_Hz());
         }
         if (!_kits[i].isStopFrequency()) {
+            // Set stop
             if (i == _kits.size() - 1) {
+                // Last kit; set to max
                 _kits[i].setStopFrequency(_kits[i].calKit().maximumFrequency_Hz());
             }
             else {
                 if (_kits[i].calKit().maximumFrequency_Hz() > _kits[i+1].calKit().minimumFrequency_Hz()) {
-                    _kits[i].setStopFrequency((_kits[i].calKit().maximumFrequency_Hz() + _kits[i+1].calKit().minimumFrequency_Hz())/2.0);
-                    _kits[i+1].setStartFrequency(_kits[i].stopFrequency_Hz());
+                    double average = (_kits[i].calKit().maximumFrequency_Hz() + _kits[i+1].calKit().minimumFrequency_Hz())/2.0;
+                    if (average < _kits[i+1].calKit().maximumFrequency_Hz()) {
+                        _kits[i].setStopFrequency(average);
+                        _kits[i+1].setStartFrequency(_kits[i].stopFrequency_Hz());
+                    }
+                    else {
+                        _kits[i].setStopFrequency(_kits[i].calKit().maximumFrequency_Hz());
+                    }
                 }
                 else {
                     _kits[i].setStopFrequency(_kits[i].calKit().maximumFrequency_Hz());

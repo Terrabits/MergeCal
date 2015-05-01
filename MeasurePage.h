@@ -46,6 +46,9 @@ public slots:
     void measurementStarted(const QString &caption, uint time_ms);
     void measurementFinished();
 
+private slots:
+    void formatTree();
+
 private:
     Ui::MeasurePage *ui;
 

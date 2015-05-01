@@ -76,8 +76,6 @@ void PartialCal::initialize() {
     }
 
     _sweepTime_ms = _vna->channel(_channel).calibrationSweepTime_ms();
-    qDebug() << "calibration sweep time: " << _sweepTime_ms;
-    qDebug() << "sweep time: " << _vna->channel(_channel).sweepTime_ms();
 
     _cal = _vna->channel(_channel).calibrate();
     _cal.setConnectors(_connector);
@@ -126,6 +124,10 @@ void PartialCal::initialize() {
     _cal.apply();
 }
 
+uint PartialCal::channel() const {
+    return _channel;
+}
+
 void PartialCal::measureMatch(uint port) {
     if (isInterrupt()) {
         clearInterrupt();
@@ -135,8 +137,13 @@ void PartialCal::measureMatch(uint port) {
     QString caption = "%1 Match";
     caption = caption.arg(this->_calKit.calKit().nameLabel().displayText());
     emit startingMeasurement(caption, _sweepTime_ms);
+    QString name = "Channel%1Cal";
+    name = name.arg(_channel);
+    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    _cal.keepRawData();
     _cal.measureMatch(port);
     _cal.apply();
+    _vna->isError();
     emit finishedMeasurement();
 }
 void PartialCal::measureShort(uint port) {
@@ -148,8 +155,13 @@ void PartialCal::measureShort(uint port) {
     QString caption = "%1 Short";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
     emit startingMeasurement(caption, _sweepTime_ms);
+    QString name = "Channel%1Cal";
+    name = name.arg(_channel);
+    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    _cal.keepRawData();
     _cal.measureShort(port);
     _cal.apply();
+    _vna->isError();
     emit finishedMeasurement();
 }
 void PartialCal::measureOffsetShortA(uint port) {
@@ -165,11 +177,16 @@ void PartialCal::measureOffsetShortA(uint port) {
     else
         caption = caption.arg(2);
     emit startingMeasurement(caption, _sweepTime_ms);
+    QString name = "Channel%1Cal";
+    name = name.arg(_channel);
+    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    _cal.keepRawData();
     if (_calKit.calKit().isOffsetShort1())
         _cal.measureOffsetShort1(port);
     else
         _cal.measureOffsetShort2(port);
     _cal.apply();
+    _vna->isError();
     emit finishedMeasurement();
 }
 void PartialCal::measureOffsetShortB(uint port) {
@@ -185,11 +202,16 @@ void PartialCal::measureOffsetShortB(uint port) {
     else
         caption = caption.arg(2);
     emit startingMeasurement(caption, _sweepTime_ms);
+    QString name = "Channel%1Cal";
+    name = name.arg(_channel);
+    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    _cal.keepRawData();
     if (_calKit.calKit().isOffsetShort3())
         _cal.measureOffsetShort3(port);
     else
         _cal.measureOffsetShort2(port);
     _cal.apply();
+    _vna->isError();
     emit finishedMeasurement();
 }
 void PartialCal::measureThru(uint port1, uint port2) {
@@ -203,8 +225,13 @@ void PartialCal::measureThru(uint port1, uint port2) {
     caption = caption.arg(port1);
     caption = caption.arg(port2);
     emit startingMeasurement(caption, _sweepTime_ms);
+    QString name = "Channel%1Cal";
+    name = name.arg(_channel);
+    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    _cal.keepRawData();
     _cal.measureThru(port1, port2);
     _cal.apply();
+    _vna->isError();
     emit finishedMeasurement();
 }
 
@@ -267,6 +294,7 @@ void PartialCal::_measureMatch(uint port) {
     caption = caption.arg(this->_calKit.calKit().nameLabel().displayText());
     emit startingMeasurement(caption, _sweepTime_ms);
     _cal.measureMatch(port);
+    _vna->isError();
     emit finishedMeasurement();
 }
 void PartialCal::_measureShort(uint port) {
@@ -279,6 +307,7 @@ void PartialCal::_measureShort(uint port) {
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
     emit startingMeasurement(caption, _sweepTime_ms);
     _cal.measureShort(port);
+    _vna->isError();
     emit finishedMeasurement();
 }
 void PartialCal::_measureOffsetShortA(uint port) {
@@ -298,6 +327,7 @@ void PartialCal::_measureOffsetShortA(uint port) {
         _cal.measureOffsetShort1(port);
     else
         _cal.measureOffsetShort2(port);
+    _vna->isError();
     emit finishedMeasurement();
 }
 void PartialCal::_measureOffsetShortB(uint port) {
@@ -317,6 +347,7 @@ void PartialCal::_measureOffsetShortB(uint port) {
         _cal.measureOffsetShort3(port);
     else
         _cal.measureOffsetShort2(port);
+    _vna->isError();
     emit finishedMeasurement();
 }
 void PartialCal::_measureThru(uint port1, uint port2) {
@@ -331,5 +362,6 @@ void PartialCal::_measureThru(uint port1, uint port2) {
     caption = caption.arg(port2);
     emit startingMeasurement(caption, _sweepTime_ms);
     _cal.measureThru(port1, port2);
+    _vna->isError();
     emit finishedMeasurement();
 }

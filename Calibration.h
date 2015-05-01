@@ -15,6 +15,7 @@
 // Qt
 #include <QObject>
 #include <QVector>
+#include <QList>
 #include <QBitArray>
 #include <QReadWriteLock>
 
@@ -89,7 +90,7 @@ private:
     uint _channel;
     QVector<FrequencyRange> _kits;
 
-    QVector<PartialCal> _partialCals;
+    QList<PartialCal> _partialCals;
 
     bool _interrupt;
     mutable QReadWriteLock _lock;

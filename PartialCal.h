@@ -30,6 +30,8 @@ public:
 
     void initialize();
 
+    uint channel() const;
+
     void measureMatch(uint port);
     void measureShort(uint port);
     void measureOffsetShortA(uint port);

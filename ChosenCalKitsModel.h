@@ -47,7 +47,6 @@ signals:
     void prefixEntered();
     void error(const QString &message);
 
-
 private:
     QVector<FrequencyRange> _kits;
     void sortKits();

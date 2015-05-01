@@ -7,6 +7,7 @@ using namespace RsaToolbox;
 
 // Qt
 #include <QProgressBar>
+#include <QDebug>
 
 
 MeasurePage::MeasurePage(QWidget *parent) :
@@ -38,14 +39,14 @@ void MeasurePage::initialize() {
     buttons()->next()->setText("Apply");
     buttons()->next()->setDisabled(true);
 
-    ui->measureTree->expandAll();
-    ui->measureTree->resizeColumnToContents(0);
-    ui->measureTree->resizeColumnToContents(1);
+    formatTree();
 
     connect(_calibration, SIGNAL(startingMeasurement(QString,uint)),
             this, SLOT(measurementStarted(QString,uint)));
     connect(_calibration, SIGNAL(finishedMeasurement()),
             this, SLOT(measurementFinished()));
+    connect(_calibration, SIGNAL(finishedMeasurement()),
+            this, SLOT(formatTree()));
 }
 bool MeasurePage::isReadyForNext() {
     _calibration->applyCorrections();
@@ -57,6 +58,8 @@ bool MeasurePage::isReadyForBack() {
             this, SLOT(measurementStarted(QString,uint)));
     disconnect(_calibration, SIGNAL(finishedMeasurement()),
             this, SLOT(measurementFinished()));
+    disconnect(_calibration, SIGNAL(finishedMeasurement()),
+            this, SLOT(formatTree()));
     return WizardPage::isReadyForBack();
 }
 
@@ -85,6 +88,7 @@ void MeasurePage::setCalibration(QThread *measureThread, Calibration *calibratio
 }
 
 void MeasurePage::measurementStarted(const QString &caption, uint time_ms) {
+    qDebug() << "Measurement started: " << caption << time_ms;
     _progressBar->start(caption, time_ms);
     wizard()->setDisabled();
 }
@@ -93,4 +97,10 @@ void MeasurePage::measurementFinished() {
     wizard()->setEnabled();
     if (_calibration->allMeasurementsFinished())
         buttons()->next()->setEnabled(true);
+}
+
+void MeasurePage::formatTree() {
+    ui->measureTree->expandAll();
+    ui->measureTree->resizeColumnToContents(0);
+    ui->measureTree->resizeColumnToContents(1);
 }

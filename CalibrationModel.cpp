@@ -198,6 +198,8 @@ void CalibrationModel::setCalibration(Calibration *calibration) {
 
     connect(_calibration, SIGNAL(finishedInitialization()),
             this, SIGNAL(modelReset()));
+    connect(_calibration, SIGNAL(finishedMeasurement()),
+            this, SIGNAL(modelReset()));
 }
 
 void CalibrationModel::measure(const QModelIndex &index) {

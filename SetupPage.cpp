@@ -88,6 +88,9 @@ void SetupPage::measurementFinished() {
 }
 
 void SetupPage::initializationFinished() {
+    qDebug() << "SetupPage::initializationFinished()" << QObject::sender();
+    if (QObject::sender() != NULL)
+        qDebug() << QObject::sender()->objectName();
     _isInitializing = false;
     _vna->deleteSet(_setName);
 

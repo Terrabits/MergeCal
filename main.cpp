@@ -52,6 +52,10 @@ int main(int argc, char *argv[])
     if (isSwitchMatrix(vna))
         return 0;
 
+    vna.print("Previous session errors?\n\n");
+    vna.isError();
+    vna.print("/Previous session errors\n\n");
+
     Wizard wizard;
     wizard.setWindowTitle(APP_NAME);
     wizard.setGeometry(0,0,625,500);

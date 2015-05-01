@@ -29,6 +29,8 @@ CalKitsPage::CalKitsPage(QWidget *parent) :
             &_chosenCalKitsModel, SLOT(clear()));
     connect(&_chosenCalKitsModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             ui->chosenKits, SLOT(resizeColumnsToContents()));
+    connect(&_chosenCalKitsModel, SIGNAL(error(QString)),
+            ui->error, SLOT(showMessage(QString)));
 }
 
 CalKitsPage::~CalKitsPage()

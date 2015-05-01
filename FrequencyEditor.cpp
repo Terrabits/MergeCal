@@ -5,7 +5,7 @@
 FrequencyEditor::FrequencyEditor(QWidget *parent) :
     QLineEdit(parent)
 {
-    QRegExp regex("[1-9][0-9]*\\.?[0-9]*[GMK]?", Qt::CaseInsensitive);
+    QRegExp regex("[0-9]+\\.?[0-9]*[GMK]?", Qt::CaseInsensitive);
     QRegExpValidator *validator = new QRegExpValidator(regex);
     this->setValidator(validator);
 

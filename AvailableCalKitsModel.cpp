@@ -148,8 +148,15 @@ void AvailableCalKitsModel::sort(QVector<DoubleOffsetShortKit> kits) {
     // Bubble sort!
     for (int i = 0; i < kits.size()-1; i++) {
         for (int j = 0; j < kits.size()-1; j++) {
-            if (kits[j].minimumFrequency_Hz() > kits[j+1].minimumFrequency_Hz()) {
-                // swap
+            if (kits[j].minimumFrequency_Hz() > kits[j+1].minimumFrequency_Hz())
+            {
+                DoubleOffsetShortKit kit_j = kits[j];
+                kits[j] = kits[j+1];
+                kits[j+1] = kit_j;
+            }
+            else if (kits[j].minimumFrequency_Hz() == kits[j+1].minimumFrequency_Hz()
+                     && kits[j].maximumFrequency_Hz() > kits[j+1].maximumFrequency_Hz())
+            {
                 DoubleOffsetShortKit kit_j = kits[j];
                 kits[j] = kits[j+1];
                 kits[j+1] = kit_j;
