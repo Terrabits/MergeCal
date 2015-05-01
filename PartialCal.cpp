@@ -84,7 +84,7 @@ void PartialCal::initialize() {
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
     _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    _cal.keepRawData();
+//    _cal.keepRawData();
 
     foreach (uint port, _ports) {
         if (isInterrupt()) {
@@ -140,7 +140,7 @@ void PartialCal::measureMatch(uint port) {
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
     _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    _cal.keepRawData();
+//    _cal.keepRawData();
     _cal.measureMatch(port);
     _cal.apply();
     _vna->isError();
@@ -158,7 +158,7 @@ void PartialCal::measureShort(uint port) {
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
     _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    _cal.keepRawData();
+//    _cal.keepRawData();
     _cal.measureShort(port);
     _cal.apply();
     _vna->isError();
@@ -180,7 +180,7 @@ void PartialCal::measureOffsetShortA(uint port) {
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
     _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    _cal.keepRawData();
+//    _cal.keepRawData();
     if (_calKit.calKit().isOffsetShort1())
         _cal.measureOffsetShort1(port);
     else
@@ -205,7 +205,7 @@ void PartialCal::measureOffsetShortB(uint port) {
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
     _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    _cal.keepRawData();
+//    _cal.keepRawData();
     if (_calKit.calKit().isOffsetShort3())
         _cal.measureOffsetShort3(port);
     else
@@ -228,7 +228,7 @@ void PartialCal::measureThru(uint port1, uint port2) {
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
     _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    _cal.keepRawData();
+//    _cal.keepRawData();
     _cal.measureThru(port1, port2);
     _cal.apply();
     _vna->isError();

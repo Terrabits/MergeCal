@@ -48,22 +48,37 @@ int main(int argc, char *argv[])
     sweep1.setSpacing(10, Mega);
     // Points: 101;
 
-    Connector connector(Connector::N_50_OHM_CONNECTOR);
+    Connector connector(Connector::Type::mm_3_5_CONNECTOR, Connector::Gender::Male);
     VnaCalibrate cal1 = channel1.calibrate();
     cal1.setConnector(1, connector);
     cal1.setConnector(2, connector);
+    cal1.selectKit("Cal Kit 1","");
+    if (vna.isError()) {
+        qDebug() << "Error (1)";
+        return 0;
+    }
 
     cal1.start("Test",VnaCalibrate::CalType::Tosm, QVector<uint>() << 1 << 2);
     cal1.keepRawData();
+    if (vna.isError()) {
+        qDebug() << "Error (2)";
+        return 0;
+    }
+
     cal1.measureMatch(1);
-    cal1.measureOpen(1);
     cal1.measureShort(1);
+    cal1.measureOffsetShort1(1);
+    cal1.measureOffsetShort2(1);
     cal1.measureMatch(2);
-    cal1.measureOpen(2);
     cal1.measureShort(2);
+    cal1.measureOffsetShort1(2);
+    cal1.measureOffsetShort2(2);
     cal1.measureThru(1,2);
     cal1.apply();
-    qDebug() << "is error? " << vna.isError();
+    if (vna.isError()) {
+        qDebug() << "Error (3)";
+        return 0;
+    }
 
     qDebug() << "Channel 2 dummy data";
     vna.createChannel(2);
@@ -78,32 +93,55 @@ int main(int argc, char *argv[])
     VnaCalibrate cal2 = channel2.calibrate();
     cal2.setConnector(1, connector);
     cal2.setConnector(2, connector);
+    cal2.selectKit("Cal Kit 2","");
+    if (vna.isError()) {
+        qDebug() << "Error (4)";
+        return 0;
+    }
 
     cal2.start("Test2",VnaCalibrate::CalType::Tosm, QVector<uint>() << 1 << 2);
     cal2.keepRawData();
+    if (vna.isError()) {
+        qDebug() << "Error (5)";
+        return 0;
+    }
+
     cal2.measureMatch(1);
-    cal2.measureOpen(1);
     cal2.measureShort(1);
+    cal2.measureOffsetShort2(1);
+    cal2.measureOffsetShort3(1);
     cal2.measureMatch(2);
-    cal2.measureOpen(2);
     cal2.measureShort(2);
+    cal2.measureOffsetShort2(2);
+    cal2.measureOffsetShort3(2);
     cal2.measureThru(1,2);
     cal2.apply();
-    qDebug() << "is error? " << vna.isError();
+    if (vna.isError()) {
+        qDebug() << "Error (6)";
+        return 0;
+    }
 
     qDebug() << "Channel 1: Measure match on port 1";
+    cal2.selectKit("Cal Kit 1","");
     cal1.start("Test1", VnaCalibrate::CalType::Tosm, QVector<uint>() << 1 << 2);
     cal1.keepRawData();
     cal1.measureMatch(1);
     cal1.apply();
-    qDebug() << "is error? " << vna.isError();
+    if (vna.isError()) {
+        qDebug() << "Error (7)";
+        return 0;
+    }
 
     qDebug() << "Channel 2: Measure match on port 1";
+    cal2.selectKit("Cal Kit 2","");
     cal2.start("Test1", VnaCalibrate::CalType::Tosm, QVector<uint>() << 1 << 2);
     cal2.keepRawData();
     cal2.measureMatch(1);
     cal2.apply();
-    qDebug() << "is error? " << vna.isError();
+    if (vna.isError()) {
+        qDebug() << "Error (8)";
+        return 0;
+    }
 
     // Measure rest of the standards
     // ...
