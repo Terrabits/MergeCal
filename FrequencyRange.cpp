@@ -87,7 +87,9 @@ void FrequencyRange::clearStartStop() {
 
 void FrequencyRange::operator=(const FrequencyRange &other) {
     _kit = other._kit;
+    _includeStartFrequency = other._includeStartFrequency;
     _startFreq_Hz = other._startFreq_Hz;
+    _includeStopFrequency = other._includeStopFrequency;
     _stopFreq_Hz = other._stopFreq_Hz;
 }
 bool FrequencyRange::operator==(const FrequencyRange &other) {

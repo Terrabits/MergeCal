@@ -163,8 +163,6 @@ bool ChosenCalKitsModel::addCalKit(FrequencyRange frequencyRange) {
         resetFrequencies();
         // sortKits();
         setDefaultFrequencies(); // includes sort
-        qDebug() << "Adding kit: " << frequencyRange.calKit().displayNameLabel();
-        qDebug() << "chosen kits: " << _kits.size();
         endResetModel();
         return true;
     }
@@ -222,6 +220,7 @@ void ChosenCalKitsModel::setDefaultFrequencies() {
                     double average = (_kits[i].calKit().maximumFrequency_Hz() + _kits[i+1].calKit().minimumFrequency_Hz())/2.0;
                     if (average < _kits[i+1].calKit().maximumFrequency_Hz()) {
                         _kits[i].setStopFrequency(average);
+                        _kits[i+1].includeStartFrequency(true);
                         _kits[i+1].setStartFrequency(_kits[i].stopFrequency_Hz());
                     }
                     else {

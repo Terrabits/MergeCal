@@ -75,13 +75,15 @@ void PartialCal::initialize() {
         int start = 0;
         while (frequencies[start] < _calKit.startFrequency_Hz())
             start++;
-        if (!_calKit.isStartFrequencyInclusive() && frequencies[start] == _calKit.startFrequency_Hz())
+        if (!_calKit.isStartFrequencyInclusive() && frequencies[start] == _calKit.startFrequency_Hz()) {
             start++;
+        }
         int stop = frequencies.size()-1;
         while (frequencies[stop] > _calKit.stopFrequency_Hz())
             stop--;
-        if (!_calKit.isStopFrequencyInclusive() && frequencies[stop] == _calKit.stopFrequency_Hz())
+        if (!_calKit.isStopFrequencyInclusive() && frequencies[stop] == _calKit.stopFrequency_Hz()) {
             stop--;
+        }
         if (start > stop) {
             // ERROR!
             // Should I handle this?
@@ -93,9 +95,8 @@ void PartialCal::initialize() {
         else {
             channel.linearSweep().setStart(frequencies[start]);
             channel.linearSweep().setStop(frequencies[stop]);
-            channel.linearSweep().setSpacing(spacing);
+            channel.linearSweep().setPoints(round((frequencies[stop] - frequencies[start])/spacing) + 1);
         }
-
     }
     else if (sweepType == VnaChannel::SweepType::Segmented)
     {
@@ -110,7 +111,10 @@ void PartialCal::initialize() {
 
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
-    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    if (_ports.size() > 1)
+        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    else
+        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
     _cal.keepRawData();
 
     foreach (uint port, _ports) {
@@ -167,7 +171,10 @@ void PartialCal::measureMatch(uint port) {
     _cal.selectKit(_calKit.calKit().nameLabel());
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
-    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    if (_ports.size() > 1)
+        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    else
+        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
     _cal.keepRawData();
     _cal.measureMatch(port);
     _cal.apply();
@@ -186,7 +193,10 @@ void PartialCal::measureShort(uint port) {
     _cal.selectKit(_calKit.calKit().nameLabel());
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
-    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    if (_ports.size() > 1)
+        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    else
+        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
     _cal.keepRawData();
     _cal.measureShort(port);
     _cal.apply();
@@ -209,7 +219,10 @@ void PartialCal::measureOffsetShortA(uint port) {
     _cal.selectKit(_calKit.calKit().nameLabel());
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
-    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    if (_ports.size() > 1)
+        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    else
+        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
     _cal.keepRawData();
     if (_calKit.calKit().isOffsetShort1())
         _cal.measureOffsetShort1(port);
@@ -235,7 +248,10 @@ void PartialCal::measureOffsetShortB(uint port) {
     _cal.selectKit(_calKit.calKit().nameLabel());
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
-    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    if (_ports.size() > 1)
+        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    else
+        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
     _cal.keepRawData();
     if (_calKit.calKit().isOffsetShort3())
         _cal.measureOffsetShort3(port);
@@ -259,7 +275,10 @@ void PartialCal::measureThru(uint port1, uint port2) {
     _cal.selectKit(_calKit.calKit().nameLabel());
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
-    _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    if (_ports.size() > 1)
+        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+    else
+        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
     _cal.keepRawData();
     _cal.measureThru(port1, port2);
     _cal.apply();

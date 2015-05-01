@@ -156,12 +156,15 @@ void Calibration::measureThru(uint index) {
 }
 
 void Calibration::applyCorrections() {
-    qDebug() << "apply";
+    qDebug() << "applyCorrections";
     VnaChannel channel = _vna->channel(_channel);
     channel.calibrate().setConnectors(_connector);
-    channel.calibrate().start("DefaultCal", VnaCalibrate::CalType::Tosm, _ports);
+    if (_ports.size() > 1)
+        channel.calibrate().start("DefaultCal", VnaCalibrate::CalType::Tosm, _ports);
+    else
+        channel.calibrate().start("DefaultCal", VnaCalibrate::CalType::Osm, _ports);
+    channel.calibrate().keepRawData(false);
     channel.corrections().loadDefaultCorrections();
-    return;
 
     foreach(const uint &port1, _ports) {
         foreach (const uint &port2, _ports) {
