@@ -9,9 +9,11 @@
 
 // Application settings
 const QString APP_NAME = "R&S Merge Cal";
-const QString APP_VERSION = "1.0";
+const QString APP_VERSION = "0.9";
 const QString MANUFACTURER_FOLDER = "Rohde-Schwarz";
 const QString APP_FOLDER = "Merge Cal";
+const QString APP_DESCRIPTION = "Calibrate using offset short pairs from multiple cal kits";
+const QString CONTACT_INFO = "<html><head/><body><p>Nick Lalic<br/>VNA Software Developer<br/>Cupertino, CA USA<br/>+1 424 200 2846<br/>nick.lalic@rsa.rohde-schwarz.com<br/><a href=\"http://vna.rs-us.net\"><span style=\"text-decoration: underline; color:#0000ff;\">http://vna.rs-us.net</span></a></p></body></html>";
 
 // Log, Key
 #ifdef DEBUG_MODE

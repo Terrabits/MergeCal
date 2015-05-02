@@ -13,6 +13,7 @@
 #include <Vna.h>
 #include <Keys.h>
 #include <Wizard.h>
+#include <About.h>
 using namespace RsaToolbox;
 
 // Qt
@@ -26,6 +27,7 @@ using namespace RsaToolbox;
 #include <QSpacerItem>
 
 
+bool isAboutMenu(int argc, char *argv[]);
 bool isNoConnection(Vna &vna);
 bool isUnknownModel(Vna &vna);
 bool isSwitchMatrix(Vna &vna);
@@ -33,6 +35,9 @@ bool isSwitchMatrix(Vna &vna);
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    if (isAboutMenu(argc, argv))
+                return 0;
 
     Log log(LOG_FILENAME, APP_NAME, APP_VERSION);
     log.printHeader();
@@ -47,7 +52,7 @@ int main(int argc, char *argv[])
         return 0;
     if (vna.sets().isEmpty()) {
         vna.preset();
-        vna.wait();
+        vna.pause();
     }
     if (isSwitchMatrix(vna))
         return 0;
@@ -126,6 +131,25 @@ int main(int argc, char *argv[])
 }
 
 
+bool isAboutMenu(int argc, char *argv[]) {
+    if (argc != 2)
+        return false;
+
+    QString arg(argv[1]);
+    arg = arg.trimmed().toUpper();
+    if (arg == "-ABOUT" || arg == "--ABOUT") {
+        Q_INIT_RESOURCE(AboutResources);
+        About about;
+        about.setAppName(APP_NAME);
+        about.setVersion(APP_VERSION);
+        about.setDescription(APP_DESCRIPTION);
+        about.setContactInfo(CONTACT_INFO);
+        about.exec();
+        return true;
+    }
+
+    return false;
+}
 bool isNoConnection(Vna &vna) {
     if (vna.isDisconnected()) {
         QString error_message
