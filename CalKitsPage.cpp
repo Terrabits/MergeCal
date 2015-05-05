@@ -17,6 +17,7 @@ CalKitsPage::CalKitsPage(QWidget *parent) :
     WizardPage(parent),
     _header(NULL),
     _vna(NULL),
+    _keys(NULL),
     ui(new ::Ui::CalKitsPage)
 {
     ui->setupUi(this);
@@ -26,11 +27,16 @@ CalKitsPage::CalKitsPage(QWidget *parent) :
     ui->chosenKits->setModel(&_chosenCalKitsModel);
 
     connect(&_availableCalKitsModel, SIGNAL(modelReset()),
+            ui->availableKits, SLOT(resizeColumnsToContents()));
+    connect(&_availableCalKitsModel, SIGNAL(modelReset()),
             &_chosenCalKitsModel, SLOT(clear()));
     connect(&_chosenCalKitsModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             ui->chosenKits, SLOT(resizeColumnsToContents()));
     connect(&_chosenCalKitsModel, SIGNAL(error(QString)),
             ui->error, SLOT(showMessage(QString)));
+
+    ui->availableKits->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    ui->availableKits->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
 }
 
 CalKitsPage::~CalKitsPage()
@@ -92,8 +98,24 @@ bool CalKitsPage::isReadyForNext() {
             ui->error->showMessage("*Cal kits do not cover entire frequency range");
             return false;
         }
+
+        QRowVector frequencies = _vna->channel(_channel).linearSweep().frequencies_Hz();
+        if (!isFrequencyPoint(frequencies,
+                             _chosenCalKitsModel.calKits()[i].isStartFrequencyInclusive(),
+                             _chosenCalKitsModel.calKits()[i].startFrequency_Hz(),
+                             _chosenCalKitsModel.calKits()[i].isStopFrequencyInclusive(),
+                             _chosenCalKitsModel.calKits()[i].stopFrequency_Hz()))
+        {
+            ui->chosenKits->selectRow(i);
+            ui->chosenKits->setFocus();
+            QString msg = "*\'%1\' does not cover any calibration points";
+            msg = msg.arg(_chosenCalKitsModel.calKits()[i].calKit().displayNameLabel());
+            ui->error->showMessage(msg);
+            return false;
+        }
     }
 
+    saveKeys();
     emit calKitsSelected(_chosenCalKitsModel.calKits());
     return true;
 }
@@ -121,13 +143,26 @@ void CalKitsPage::setVna(Vna *vna) {
 
     _vna = vna;
     _availableCalKitsModel.setVna(_vna);
+    ui->availableKits->resizeColumnsToContents();
+    ui->availableKits->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    ui->availableKits->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+
+    loadKeys();
 }
+void CalKitsPage::setKeys(Keys *keys) {
+    _keys = keys;
+    loadKeys();
+}
+
 Connector CalKitsPage::connectorType() const {
     return _connectorType;
 }
 void CalKitsPage::setPorts(const QVector<uint> &ports) {
     _ports = ports;
     _availableCalKitsModel.setPorts(_ports);
+    ui->availableKits->resizeColumnsToContents();
+    ui->availableKits->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    ui->availableKits->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
 }
 
 void CalKitsPage::setConnectorType(const Connector &type) {
@@ -137,10 +172,16 @@ void CalKitsPage::setConnectorType(const Connector &type) {
     _connectorType = type;
     _availableCalKitsModel.setConnectorType(_connectorType);
     ui->availableKits->resizeColumnsToContents();
+    ui->availableKits->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    ui->availableKits->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
 }
 void CalKitsPage::setChannel(const uint &index) {
     _channel = index;
     updateChannelInfo();
+}
+
+void CalKitsPage::displayError(const QString &message) {
+    ui->error->showMessage(message);
 }
 
 void CalKitsPage::cancel() {
@@ -156,6 +197,7 @@ void CalKitsPage::on_addKit_clicked()
     DoubleOffsetShortKit kit = _availableCalKitsModel.calKit(index);
     _chosenCalKitsModel.addCalKit(FrequencyRange(kit));
     ui->chosenKits->resizeColumnsToContents();
+    ui->availableKits->resizeColumnsToContents();
 }
 
 void CalKitsPage::on_removeKit_clicked()
@@ -180,4 +222,53 @@ void CalKitsPage::updateChannelInfo() {
     text = text.arg(formatValue(_channelStartFreq_Hz, 3, Units::Hertz));
     text = text.arg(formatValue(_channelStopFreq_Hz, 3, Units::Hertz));
     ui->channelInfo->setText(text);
+}
+
+bool CalKitsPage::isFrequencyPoint(QRowVector &frequencies, bool isStartInclusive, double start, bool isStopInclusive, double stop) {
+    while (!frequencies.isEmpty() && frequencies.first() < start)
+        frequencies.removeFirst();
+    if (!isStartInclusive && !frequencies.isEmpty() && frequencies.first() == start)
+        frequencies.removeFirst();
+    while (!frequencies.isEmpty() && frequencies.last() > stop)
+        frequencies.removeLast();
+    if (!isStopInclusive && !frequencies.isEmpty() && frequencies.last() == stop)
+        frequencies.removeLast();
+
+    return !frequencies.isEmpty();
+}
+
+void CalKitsPage::loadKeys() {
+    if (_vna == NULL || _keys == NULL)
+        return;
+
+    if (_keys->exists("CalKitsPage_Ports")) {
+        QVector<uint> ports;
+        _keys->get("CalKitsPage_Ports", ports);
+        setPorts(ports);
+    }
+    if (_keys->exists("CalKitsPage_ConnectorType")) {
+        Connector connectorType;
+        _keys->get("CalKitsPage_ConnectorType", connectorType);
+        setConnectorType(connectorType);
+    }
+    if (_keys->exists("CalKitsPage_ChosenKits")) {
+        QVector<FrequencyRange> calKits;
+        _keys->get("CalKitsPage_ChosenKits", calKits);
+        foreach (FrequencyRange kit, calKits) {
+            if (_availableCalKitsModel.hasCalKit(kit.calKit())) {
+                _chosenCalKitsModel.addCalKit(kit);
+            }
+            else {
+            }
+        }
+        ui->chosenKits->resizeColumnsToContents();
+    }
+}
+void CalKitsPage::saveKeys() {
+    if (_vna == NULL || _keys == NULL)
+        return;
+
+    _keys->set("CalKitsPage_Ports", _ports);
+    _keys->set("CalKitsPage_ConnectorType", _connectorType);
+    _keys->set("CalKitsPage_ChosenKits", _chosenCalKitsModel.calKits());
 }

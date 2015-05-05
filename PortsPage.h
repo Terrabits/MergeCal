@@ -9,6 +9,7 @@
 #include <Connector.h>
 #include <Vna.h>
 #include <WizardPage.h>
+#include <Keys.h>
 
 // Qt
 #include <QWidget>
@@ -37,6 +38,8 @@ public:
     void setVna(RsaToolbox::Vna *vna);
     RsaToolbox::Vna *vna() const;
 
+    void setKeys(RsaToolbox::Keys *keys);
+
     QVector<uint> ports() const;
     RsaToolbox::Connector connector() const;
     uint channel() const;
@@ -54,7 +57,9 @@ private:
     QLabel *_header;
 
     RsaToolbox::Vna *_vna;
-    PortsModel _model;
+    PortsModel _portsModel;
+
+    RsaToolbox::Keys *_keys;
 
     void updateConnectors();
     QVector<RsaToolbox::Connector> _connectors;
@@ -64,7 +69,8 @@ private:
     void updateChannels();
     QVector<uint> _channels;
 
-
+    void loadKeys();
+    void saveKeys();
 
 };
 

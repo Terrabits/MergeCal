@@ -122,15 +122,20 @@ bool ChosenCalKitsModel::setData(const QModelIndex &index, const QVariant &value
     QModelIndex topLeft = index;
     QModelIndex bottomRight = index;
     if (column == START_COLUMN) {
+        _kits[row].includeStartFrequency(true);
         _kits[row].setStartFrequency(_value);
         if (row != 0 && _value <= _kits[row-1].calKit().maximumFrequency_Hz()) {
+            _kits[row-1].includeStopFrequency(false);
             _kits[row-1].setStopFrequency(_value);
             topLeft = this->index(row-1, STOP_COLUMN);
         }
     }
     else { // column == STOP_COLUMN
+        _kits[row].includeStopFrequency(true);
         _kits[row].setStopFrequency(_value);
         if (row != _kits.size()-1 && _value >= _kits[row+1].calKit().minimumFrequency_Hz()) {
+            _kits[row].includeStopFrequency(false);
+            _kits[row+1].includeStartFrequency(true);
             _kits[row+1].setStartFrequency(_value);
             bottomRight = this->index(row+1, START_COLUMN);
         }

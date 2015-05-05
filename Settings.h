@@ -9,7 +9,7 @@
 
 // Application settings
 const QString APP_NAME = "R&S Merge Cal";
-const QString APP_VERSION = "0.9";
+const QString APP_VERSION = "1.0";
 const QString MANUFACTURER_FOLDER = "Rohde-Schwarz";
 const QString APP_FOLDER = "Merge Cal";
 const QString APP_DESCRIPTION = "Calibrate using offset short pairs from multiple cal kits";

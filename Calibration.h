@@ -45,9 +45,14 @@ public:
     Thru thru(uint index) const;
 
     uint numberOfKits() const;
-    RsaToolbox::NameLabel kit(uint index) const;
+    RsaToolbox::NameLabel kitNameLabel(uint index) const;
+    QString matchLabel() const;
+    QString shortLabel() const;
     QString offsetShortAName(uint kitIndex) const;
+    QString offsetShortALabel(uint kitIndex) const;
     QString offsetShortBName(uint kitIndex) const;
+    QString offsetShortBLabel(uint kitIndex) const;
+    QString thruLabel() const;
 
     bool allMeasurementsFinished() const;
 
@@ -57,6 +62,8 @@ signals:
 
     void startingMeasurement(const QString &caption, uint time_ms);
     void finishedMeasurement();
+
+    void error(const QString &message);
 
 public slots:
     void setPorts(const QVector<uint> &ports);

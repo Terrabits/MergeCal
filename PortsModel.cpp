@@ -100,6 +100,15 @@ QVector<uint> PortsModel::ports() const {
             result << i + 1;
     return result;
 }
+void PortsModel::setPorts(const QVector<uint> &ports) {
+    beginResetModel();
+    _isSelected.fill(false);
+    foreach (uint port, ports) {
+        if (port <= _numberOfPorts)
+            _isSelected[port-1] = true;
+    }
+    endResetModel();
+}
 
 // Private
 bool PortsModel::isVna() const {

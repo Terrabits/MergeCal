@@ -65,7 +65,10 @@ int main(int argc, char *argv[])
     wizard.setWindowTitle(APP_NAME);
     wizard.setGeometry(0,0,625,500);
     wizard.move(QApplication::desktop()->screen()->rect().center() - wizard.rect().center());
-    wizard.setWindowFlags(wizard.windowFlags() | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowStaysOnTopHint);
+    wizard.setWindowFlags((wizard.windowFlags()
+                           | Qt::MSWindowsFixedSizeDialogHint
+                           | Qt::WindowStaysOnTopHint)
+                          & ~Qt::WindowMinimizeButtonHint);
 
     QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(wizard.layout());
     QLabel *label = new QLabel;
@@ -79,6 +82,7 @@ int main(int argc, char *argv[])
     portsPage->setNextIndex(1);
     portsPage->setHeaderLabel(label);
     portsPage->setVna(&vna);
+    portsPage->setKeys(&keys);
     wizard.addPage(portsPage);
 
     CalKitsPage *calKitsPage = new CalKitsPage;
@@ -86,6 +90,7 @@ int main(int argc, char *argv[])
     calKitsPage->setHeaderLabel(label);
     calKitsPage->setNextIndex(2);
     calKitsPage->setVna(&vna);
+    calKitsPage->setKeys(&keys);
     QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
                      calKitsPage, SLOT(setPorts(QVector<uint>)));
     QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
@@ -114,6 +119,8 @@ int main(int argc, char *argv[])
                      setupPage, SLOT(setChannel(uint)));
     QObject::connect(calKitsPage, SIGNAL(calKitsSelected(QVector<FrequencyRange>)),
                      setupPage, SLOT(setCalKits(QVector<FrequencyRange>)));
+//    QObject::connect(setupPage, SIGNAL(setupAborted(QString)),
+//                     calKitsPage, SLOT(displayError(QString)));
     wizard.addPage(setupPage);
 
     MeasurePage *measurePage = new MeasurePage;
@@ -127,7 +134,10 @@ int main(int argc, char *argv[])
 
     wizard.show();
 
-    return a.exec();
+    int result = a.exec();
+    measureThread.quit();
+    measureThread.wait();
+    return result;
 }
 
 

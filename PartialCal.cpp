@@ -70,37 +70,15 @@ void PartialCal::initialize() {
     if (sweepType == VnaChannel::SweepType::Linear
             || sweepType == VnaChannel::SweepType::Log)
     {
-        double spacing = channel.linearSweep().spacing_Hz();
-        QRowVector frequencies = channel.linearSweep().frequencies_Hz();
-        int start = 0;
-        while (frequencies[start] < _calKit.startFrequency_Hz())
-            start++;
-        if (!_calKit.isStartFrequencyInclusive() && frequencies[start] == _calKit.startFrequency_Hz()) {
-            start++;
-        }
-        int stop = frequencies.size()-1;
-        while (frequencies[stop] > _calKit.stopFrequency_Hz())
-            stop--;
-        if (!_calKit.isStopFrequencyInclusive() && frequencies[stop] == _calKit.stopFrequency_Hz()) {
-            stop--;
-        }
-        if (start > stop) {
-            // ERROR!
-            // Should I handle this?
-        }
-        else if (start == stop) {
-            channel.linearSweep().setPoints(1);
-            channel.linearSweep().setStart(frequencies[start]);
-        }
-        else {
-            channel.linearSweep().setStart(frequencies[start]);
-            channel.linearSweep().setStop(frequencies[stop]);
-            channel.linearSweep().setPoints(round((frequencies[stop] - frequencies[start])/spacing) + 1);
-        }
+        processLinearLogFrequencies();
     }
     else if (sweepType == VnaChannel::SweepType::Segmented)
     {
-        // How the funk and wagnalls do I handle this?
+        processSegmentedFrequencies();
+    }
+    else {
+        // This should never happen
+        return;
     }
 
     _sweepTime_ms = channel.calibrationSweepTime_ms();
@@ -333,6 +311,75 @@ bool PartialCal::isInterrupt() const {
 void PartialCal::clearInterrupt() {
     QWriteLocker writeLocker(&_lock);
     _interrupt = false;
+}
+
+bool PartialCal::processLinearLogFrequencies() {
+    VnaChannel channel = _vna->channel(_channel);
+    QRowVector frequencies = channel.linearSweep().frequencies_Hz();
+    if (!frequencyList(frequencies,
+                       _calKit.isStartFrequencyInclusive(), _calKit.startFrequency_Hz(),
+                       _calKit.isStopFrequencyInclusive(), _calKit.stopFrequency_Hz()))
+    {
+        // No frequency points!
+        QString msg = "Cal Kit \'%1\' covers none of the cal frequencies.";
+        msg = msg.arg(_calKit.calKit().displayNameLabel());
+        qDebug() << msg;
+        emit error(msg);
+        return false;
+    }
+    if (frequencies.size() == 1) {
+        channel.linearSweep().setPoints(1);
+        channel.linearSweep().setStart(frequencies.first());
+        channel.linearSweep().setStop(frequencies.last());
+        return true;
+    }
+    else {
+        channel.linearSweep().setStart(frequencies.first());
+        channel.linearSweep().setStop(frequencies.last());
+        channel.linearSweep().setPoints(frequencies.size());
+        return true;
+    }
+}
+bool PartialCal::processSegmentedFrequencies() {
+    VnaChannel channel = _vna->channel(_channel);
+    uint segments = channel.segmentedSweep().segments();
+    for (uint i = 1; i <= segments; i++) {
+        VnaSweepSegment segment = channel.segmentedSweep().segment(i);
+        QRowVector frequencies = linearSpacing(segment.start_Hz(), segment.stop_Hz(), segment.points());
+        if (!frequencyList(frequencies,
+                           _calKit.isStartFrequencyInclusive(), _calKit.startFrequency_Hz(),
+                           _calKit.isStopFrequencyInclusive(), _calKit.stopFrequency_Hz()))
+        {
+            if (segments == 1)
+                return false;
+
+            channel.segmentedSweep().deleteSegment(i);
+            i--;
+            segments--;
+        }
+        else if (frequencies.size() == 1) {
+            segment.setSingleFrequency(frequencies.first());
+        }
+        else {
+            segment.setStart(frequencies.first());
+            segment.setStop(frequencies.last());
+            segment.setPoints(frequencies.size());
+        }
+    }
+
+    return true;
+}
+bool PartialCal::frequencyList(QRowVector &frequencies, bool isStartInclusive, double start, bool isStopInclusive, double stop) {
+    while (!frequencies.isEmpty() && frequencies.first() < start)
+        frequencies.removeFirst();
+    if (!isStartInclusive && !frequencies.isEmpty() && frequencies.first() == start)
+        frequencies.removeFirst();
+    while (!frequencies.isEmpty() && frequencies.last() > stop)
+        frequencies.removeLast();
+    if (!isStopInclusive && !frequencies.isEmpty() && frequencies.last() == stop)
+        frequencies.removeLast();
+
+    return !frequencies.isEmpty();
 }
 
 void PartialCal::_measureMatch(uint port) {

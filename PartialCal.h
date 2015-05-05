@@ -50,6 +50,8 @@ signals:
     void startingMeasurement(const QString &caption, uint time_ms);
     void finishedMeasurement();
 
+    void error(const QString &message);
+
 public slots:
     void interrupt();
 
@@ -72,6 +74,10 @@ private:
     void clearInterrupt();
 
     // For initialize()
+    bool processLinearLogFrequencies();
+    bool processSegmentedFrequencies();
+    static bool frequencyList(RsaToolbox::QRowVector &frequencies, bool isStartInclusive, double start, bool isStopInclusive, double stop);
+
     // (no apply cal after measure)
     void _measureMatch(uint port);
     void _measureShort(uint port);

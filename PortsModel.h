@@ -32,6 +32,7 @@ public:
     RsaToolbox::Vna *vna() const;
 
     QVector<uint> ports() const;
+    void setPorts(const QVector<uint> &ports);
 
 signals:
     void portsChanged(QVector<uint> ports);

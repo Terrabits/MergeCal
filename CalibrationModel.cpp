@@ -73,6 +73,7 @@ int CalibrationModel::rowCount(const QModelIndex &parent) const {
     }
 }
 int CalibrationModel::columnCount(const QModelIndex &parent) const {
+    Q_UNUSED(parent);
     return COLUMNS;
 }
 QVariant CalibrationModel::data(const QModelIndex &index, int role) const {
@@ -121,12 +122,18 @@ QVariant CalibrationModel::data(const QModelIndex &index, int role) const {
             uint port = _calibration->port(index.internalId());
             if (index.row() == MATCH_ROW) {
                 if (index.column() == NAME_COLUMN) {
-                    if (role == Qt::DisplayRole)
-                        return "Match";
-                    else if (_calibration->isMatchMeasured(port))
+                    if (role == Qt::DisplayRole) {
+                        if (!_calibration->matchLabel().isEmpty())
+                            return QString("Match (%1)").arg(_calibration->matchLabel());
+                        else
+                            return "Match";
+                    }
+                    else if (_calibration->isMatchMeasured(port)) {
                         return QIcon(":/images/Images/Measured Button.bmp");
-                    else
+                    }
+                    else {
                         return QIcon(":/images/Images/Unmeasured Button.bmp");
+                    }
                 }
                 else {
                     return QVariant();
@@ -134,12 +141,18 @@ QVariant CalibrationModel::data(const QModelIndex &index, int role) const {
             }
             else if (index.row() == SHORT_ROW) {
                 if (index.column() == NAME_COLUMN) {
-                    if (role == Qt::DisplayRole)
-                        return "Short";
-                    else if (_calibration->isShortMeasured(port))
+                    if (role == Qt::DisplayRole) {
+                        if (!_calibration->shortLabel().isEmpty())
+                            return QString("Short (%1)").arg(_calibration->shortLabel());
+                        else
+                            return "Short";
+                    }
+                    else if (_calibration->isShortMeasured(port)) {
                         return QIcon(":/images/Images/Measured Button.bmp");
-                    else
+                    }
+                    else {
                         return QIcon(":/images/Images/Unmeasured Button.bmp");
+                    }
                 }
                 else {
                     return QVariant();
@@ -152,7 +165,15 @@ QVariant CalibrationModel::data(const QModelIndex &index, int role) const {
                 if (index.column() == NAME_COLUMN) {
                     if (isOffsetA) {
                         if (role == Qt::DisplayRole) {
-                            return _calibration->offsetShortAName(kitIndex);
+                            if (!_calibration->offsetShortALabel(kitIndex).isEmpty()) {
+                                QString s = "%1 (%2)";
+                                s = s.arg(_calibration->offsetShortAName(kitIndex));
+                                s = s.arg(_calibration->offsetShortALabel(kitIndex));
+                                return s;
+                            }
+                            else {
+                                return _calibration->offsetShortAName(kitIndex);
+                            }
                         }
                         else if (_calibration->isOffsetShortAMeasured(kitIndex, port)) {
                             return QIcon(":/images/Images/Measured Button.bmp");
@@ -162,17 +183,28 @@ QVariant CalibrationModel::data(const QModelIndex &index, int role) const {
                         }
                     }
                     else {
-                        if (role == Qt::DisplayRole)
-                            return _calibration->offsetShortBName(kitIndex);
-                        else if (_calibration->isOffsetShortBMeasured(kitIndex, port))
+                        if (role == Qt::DisplayRole) {
+                            if (!_calibration->offsetShortBLabel(kitIndex).isEmpty()) {
+                                QString s = "%1 (%2)";
+                                s = s.arg(_calibration->offsetShortBName(kitIndex));
+                                s = s.arg(_calibration->offsetShortBLabel(kitIndex));
+                                return s;
+                            }
+                            else {
+                                return _calibration->offsetShortBName(kitIndex);
+                            }
+                        }
+                        else if (_calibration->isOffsetShortBMeasured(kitIndex, port)) {
                             return QIcon(":/images/Images/Measured Button.bmp");
-                        else
+                        }
+                        else {
                             return QIcon(":/images/Images/Unmeasured Button.bmp");
+                        }
                     }
                 }
                 else {
                     // Kit column
-                    return _calibration->kit(kitIndex).displayText();
+                    return _calibration->kitNameLabel(kitIndex).displayText();
                 }
             }
         }

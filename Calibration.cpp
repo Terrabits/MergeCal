@@ -27,6 +27,7 @@ void Calibration::setVna(RsaToolbox::Vna *vna) {
 }
 
 void Calibration::initialize() {
+    qDebug() << "Calibration initialize";
     if (isInterrupt()) {
         clearInterrupt();
         return;
@@ -60,6 +61,10 @@ void Calibration::initialize() {
                 this, SIGNAL(startingMeasurement(QString,uint)));
         connect(&(_partialCals.last()), SIGNAL(finishedMeasurement()),
                 this, SIGNAL(finishedMeasurement()));
+//        connect(&(_partialCals.last()), SIGNAL(error(QString)),
+//                this, SLOT(interrupt()));
+//        connect(&(_partialCals.last()), SIGNAL(error(QString)),
+//                this, SIGNAL(error(QString)));
 
         if (isInterrupt()) {
             clearInterrupt();
@@ -221,8 +226,24 @@ void Calibration::applyCorrections() {
 uint Calibration::numberOfKits() const {
     return _kits.size();
 }
-NameLabel Calibration::kit(uint index) const {
+NameLabel Calibration::kitNameLabel(uint index) const {
     return _kits[index].calKit().nameLabel();
+}
+QString Calibration::matchLabel() const {
+    for (int i = 0; i < _kits.size(); i++) {
+        if (!_kits[i].calKit().matchLabel().isEmpty())
+            return _kits[i].calKit().matchLabel();
+    }
+
+    return QString();
+}
+QString Calibration::shortLabel() const {
+    for (int i = 0; i < _kits.size(); i++) {
+        if (!_kits[i].calKit().shortLabel().isEmpty())
+            return _kits[i].calKit().shortLabel();
+    }
+
+    return QString();
 }
 QString Calibration::offsetShortAName(uint kitIndex) const {
     if (_kits[kitIndex].calKit().isOffsetShort1())
@@ -230,11 +251,25 @@ QString Calibration::offsetShortAName(uint kitIndex) const {
     else
         return "Offset Short 2";
 }
+QString Calibration::offsetShortALabel(uint kitIndex) const {
+    return _kits[kitIndex].calKit().offsetShortALabel();
+}
 QString Calibration::offsetShortBName(uint kitIndex) const {
     if (_kits[kitIndex].calKit().isOffsetShort3())
         return "Offset Short 3";
     else
         return "Offset Short 2";
+}
+QString Calibration::offsetShortBLabel(uint kitIndex) const {
+    return _kits[kitIndex].calKit().offsetShortBLabel();
+}
+QString Calibration::thruLabel() const {
+    for (int i = 0; i < _kits.size(); i++) {
+        if (!_kits[i].calKit().thruLabel().isEmpty())
+            return _kits[i].calKit().thruLabel();
+    }
+
+    return QString();
 }
 
 bool Calibration::allMeasurementsFinished() const {
@@ -263,6 +298,7 @@ void Calibration::setCalKits(const QVector<FrequencyRange> &kits) {
 }
 
 void Calibration::interrupt() {
+    qDebug() << "Cal interrupt!" << QObject::sender();
     QWriteLocker writeLocker(&_lock);
     _interrupt = true;
     for (int i = 0; i < _partialCals.size(); i++)

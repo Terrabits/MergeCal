@@ -85,6 +85,25 @@ void FrequencyRange::clearStartStop() {
     _stopFreq_Hz = -1;
 }
 
+void FrequencyRange::read(QDataStream &stream) {
+    stream >> _kit;
+
+    stream >> _includeStartFrequency;
+    stream >> _startFreq_Hz;
+
+    stream >> _includeStopFrequency;
+    stream >> _stopFreq_Hz;
+}
+void FrequencyRange::write(QDataStream &stream) const {
+    stream << _kit;
+
+    stream << _includeStartFrequency;
+    stream << _startFreq_Hz;
+
+    stream << _includeStopFrequency;
+    stream << _stopFreq_Hz;
+}
+
 void FrequencyRange::operator=(const FrequencyRange &other) {
     _kit = other._kit;
     _includeStartFrequency = other._includeStartFrequency;
@@ -94,4 +113,13 @@ void FrequencyRange::operator=(const FrequencyRange &other) {
 }
 bool FrequencyRange::operator==(const FrequencyRange &other) {
     return _kit == other._kit;
+}
+
+QDataStream& operator<<(QDataStream &stream, const FrequencyRange &kit) {
+    kit.write(stream);
+    return stream;
+}
+QDataStream& operator>>(QDataStream &stream, FrequencyRange &kit) {
+    kit.read(stream);
+    return stream;
 }

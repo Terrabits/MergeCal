@@ -1,7 +1,7 @@
-R&S Merge Cal Version 1.0
+R&S Merge Cal Version 0.9
 (C) 2014 Rohde & Schwarz America
 
-Fri May 1 03:18:48 2015
+Mon May 4 18:49:18 2015
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -10,7 +10,7 @@ Make:             Rohde & Schwarz
 Model:            ZNB
 Serial No:        1311601044100104
 Firmware Version: 2.50
-Min Frequency:    9.0 KHz
+Min Frequency:    9 KHz
 Max Frequency:    8.5 GHz
 Number of Ports:  4
 Options:          ZNB-K2
@@ -200,20 +200,12 @@ Read:     "'1,Ch1'"
 Bytes: 8
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS1:SWE:TYPE?"
-Bytes: 17
-Status: 0x0 Operation completed successfully.
-
-Read:     "LIN"
-Bytes: 4
-Status: 0x0 Operation completed successfully.
-
 Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
 Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -349,7 +341,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -485,7 +477,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? '3.5 mm Ideal Kit',''"
@@ -853,7 +845,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -989,7 +981,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? '3650-1',''"
@@ -1237,7 +1229,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -1373,7 +1365,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? '85052D',''"
@@ -1589,7 +1581,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -1725,7 +1717,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? 'Maury 8050',''"
@@ -1949,7 +1941,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -2085,7 +2077,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? 'ZV-Z132',''"
@@ -2301,7 +2293,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -2437,7 +2429,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? 'ZV-Z135',''"
@@ -2653,7 +2645,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -2789,7 +2781,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? 'ZV-Z32 typical',''"
@@ -3021,7 +3013,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -3157,7 +3149,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? 'ZV-Z33 typical',''"
@@ -3389,7 +3381,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -3525,7 +3517,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? '85033D/E',''"
@@ -3725,7 +3717,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -3861,7 +3853,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? '85052B',''"
@@ -4077,7 +4069,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -4213,7 +4205,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? '85052C',''"
@@ -4429,7 +4421,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -4565,103 +4557,103 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:STAN:LCAT? 'Cal Kit 1',''"
-Bytes: 37
+Write:    ":CORR:CKIT:STAN:LCAT? 'Low Band Kit','Ideal'"
+Bytes: 45
 Status: 0x0 Operation completed successfully.
 
 Read:     "'MSH,FSH,MMMT,FMMT,FOSHORT1,MOSHORT1,FOSHORT2,MOSHORT2,MMTH,MFTH,FFTH'"
 Bytes: 71
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MSH:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 45
+Write:    ":CORR:CKIT:MSH:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 53
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','Low Band Kit','Ideal','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 74
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FSH:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 45
+Write:    ":CORR:CKIT:FSH:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 53
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',0,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 63
+Read:     "'3.5 mm','Low Band Kit','Ideal','',0,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 71
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MMTC:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 46
+Write:    ":CORR:CKIT:MMTC:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 54
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','Low Band Kit','Ideal','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 74
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FMTC:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 46
+Write:    ":CORR:CKIT:FMTC:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 54
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','Low Band Kit','Ideal','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 74
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FOSH:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 46
+Write:    ":CORR:CKIT:FOSH:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 54
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','Low Band Kit','Ideal','SN 1',9000,5000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 78
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MOSH:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 46
+Write:    ":CORR:CKIT:MOSH:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 54
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','Low Band Kit','Ideal','SN 1',9000,5000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 78
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FOSHORT2:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 50
+Write:    ":CORR:CKIT:FOSHORT2:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 58
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','Low Band Kit','Ideal','SN 2',9000,5000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 78
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MOSHORT2:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 50
+Write:    ":CORR:CKIT:MOSHORT2:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 58
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','Low Band Kit','Ideal','SN 2',9000,5000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 78
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MMTH:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 46
+Write:    ":CORR:CKIT:MMTH:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 54
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50"
-Bytes: 50
+Read:     "'3.5 mm','Low Band Kit','Ideal','',9000,8500000000,0,0,50"
+Bytes: 58
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MFTH:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 46
+Write:    ":CORR:CKIT:MFTH:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 54
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50"
-Bytes: 50
+Read:     "'3.5 mm','Low Band Kit','Ideal','',9000,8500000000,0,0,50"
+Bytes: 58
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FFTH:WLAB? '3.5 mm','Cal Kit 1',''"
-Bytes: 46
+Write:    ":CORR:CKIT:FFTH:WLAB? '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 54
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 1','','',9000,8500000000,0,0,50"
-Bytes: 50
+Read:     "'3.5 mm','Low Band Kit','Ideal','',9000,8500000000,0,0,50"
+Bytes: 58
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -4797,7 +4789,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -4933,471 +4925,387 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:STAN:LCAT? 'Cal Kit 2',''"
-Bytes: 37
+Write:    ":CORR:CKIT:STAN:LCAT? 'High Band Kit','Ideal'"
+Bytes: 46
 Status: 0x0 Operation completed successfully.
 
 Read:     "'MSH,FSH,MMMT,FMMT,FOSHORT3,MOSHORT2,FOSHORT2,MOSHORT3,MMTH,MFTH,FFTH'"
 Bytes: 71
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MSH:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 45
+Write:    ":CORR:CKIT:MSH:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 54
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','High Band Kit','Ideal','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 75
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FSH:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 45
+Write:    ":CORR:CKIT:FSH:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 54
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',0,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 63
+Read:     "'3.5 mm','High Band Kit','Ideal','',0,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 72
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MMTC:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 46
+Write:    ":CORR:CKIT:MMTC:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 55
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','High Band Kit','Ideal','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 75
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FMTC:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 46
+Write:    ":CORR:CKIT:FMTC:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 55
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','High Band Kit','Ideal','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 75
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FOSHORT3:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 50
+Write:    ":CORR:CKIT:FOSHORT3:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 59
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','High Band Kit','Ideal','SN 4',4000000000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 85
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MOSHORT2:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 50
+Write:    ":CORR:CKIT:MOSHORT2:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 59
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','High Band Kit','Ideal','SN 3',4000000000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 85
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FOSHORT2:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 50
+Write:    ":CORR:CKIT:FOSHORT2:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 59
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','High Band Kit','Ideal','SN 3',4000000000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 85
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MOSHORT3:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 50
+Write:    ":CORR:CKIT:MOSHORT3:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 59
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Read:     "'3.5 mm','High Band Kit','Ideal','SN 4',4000000000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 85
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MMTH:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 46
+Write:    ":CORR:CKIT:MMTH:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 55
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50"
-Bytes: 50
+Read:     "'3.5 mm','High Band Kit','Ideal','',9000,8500000000,0,0,50"
+Bytes: 59
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MFTH:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 46
+Write:    ":CORR:CKIT:MFTH:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 55
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50"
-Bytes: 50
+Read:     "'3.5 mm','High Band Kit','Ideal','',9000,8500000000,0,0,50"
+Bytes: 59
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FFTH:WLAB? '3.5 mm','Cal Kit 2',''"
-Bytes: 46
+Write:    ":CORR:CKIT:FFTH:WLAB? '3.5 mm','High Band Kit','Ideal'"
+Bytes: 55
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 2','','',9000,8500000000,0,0,50"
-Bytes: 50
+Read:     "'3.5 mm','High Band Kit','Ideal','',9000,8500000000,0,0,50"
+Bytes: 59
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CONN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
-Bytes: 98
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'N 50 Ohm'"
-Bytes: 22
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'N 75 Ohm'"
-Bytes: 22
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '7 mm'"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7 mm',TEM,NGEN,1.00062,50"
-Bytes: 27
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '3.5 mm'"
-Bytes: 20
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm',TEM,GEND,1.00062,50"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '2.92 mm'"
-Bytes: 21
-Status: 0x0 Operation completed successfully.
-
-Read:     "'2.92 mm',TEM,GEND,1.00062,50"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '2.4 mm'"
-Bytes: 20
-Status: 0x0 Operation completed successfully.
-
-Read:     "'2.4 mm',TEM,GEND,1.00062,50"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '1.85 mm'"
-Bytes: 21
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1.85 mm',TEM,GEND,1.00062,50"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '7-16'"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7-16',TEM,GEND,1.00062,50"
-Bytes: 27
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'Type F (75)'"
-Bytes: 25
-Status: 0x0 Operation completed successfully.
-
-Read:     "'Type F (75)',TEM,GEND,1.00062,75"
-Bytes: 34
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 50 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 75 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'SMA'"
+Write:    ":SENS1:SWE:TYPE?"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Read:     "'SMA',TEM,GEND,1.00062,50"
-Bytes: 26
+Read:     "LIN"
+Bytes: 4
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
-Bytes: 28
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
-Bytes: 109
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
-Bytes: 28
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
-Bytes: 45
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? '7 mm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
-Bytes: 58
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CONN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
-Bytes: 98
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'N 50 Ohm'"
-Bytes: 22
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'N 75 Ohm'"
-Bytes: 22
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '7 mm'"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7 mm',TEM,NGEN,1.00062,50"
-Bytes: 27
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '3.5 mm'"
-Bytes: 20
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm',TEM,GEND,1.00062,50"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '2.92 mm'"
-Bytes: 21
-Status: 0x0 Operation completed successfully.
-
-Read:     "'2.92 mm',TEM,GEND,1.00062,50"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '2.4 mm'"
-Bytes: 20
-Status: 0x0 Operation completed successfully.
-
-Read:     "'2.4 mm',TEM,GEND,1.00062,50"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '1.85 mm'"
-Bytes: 21
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1.85 mm',TEM,GEND,1.00062,50"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '7-16'"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7-16',TEM,GEND,1.00062,50"
-Bytes: 27
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'Type F (75)'"
-Bytes: 25
-Status: 0x0 Operation completed successfully.
-
-Read:     "'Type F (75)',TEM,GEND,1.00062,75"
-Bytes: 34
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 50 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 75 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'SMA'"
+Write:    ":SENS1:SWE:POIN?"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Read:     "'SMA',TEM,GEND,1.00062,50"
-Bytes: 26
+Read:     "201"
+Bytes: 4
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
-Bytes: 28
+Write:    ":FORM?"
+Bytes: 7
 Status: 0x0 Operation completed successfully.
 
-Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
-Bytes: 109
+Read:     "ASC,0"
+Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
-Bytes: 28
+Write:    ":FORM?"
+Bytes: 7
 Status: 0x0 Operation completed successfully.
 
-Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
-Bytes: 45
+Read:     "ASC,0"
+Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? '7 mm'"
-Bytes: 24
+Write:    ":FORM:BORD?"
+Bytes: 12
 Status: 0x0 Operation completed successfully.
 
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
-Bytes: 58
+Read:     "SWAP"
+Bytes: 5
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
-Bytes: 26
+Write:    ":FORM REAL,64"
+Bytes: 14
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:STAN:LCAT? 'Cal Kit 3',''"
-Bytes: 37
+Write:    ":CALC1:DATA:STIM?"
+Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Read:     "'MSH,FSH,MMMT,FMMT,FOSHORT3,MOSHORT2,FOSHORT2,MOSHORT3,MMTH,MFTH,FFTH'"
-Bytes: 71
+Read:     "#41608..."
+Bytes: 1615
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MSH:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 45
+Write:    ":FORM ASC"
+Bytes: 10
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Write:    ":SENS1:SWE:TYPE?"
+Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FSH:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 45
+Read:     "LIN"
+Bytes: 4
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',0,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 63
+Write:    ":SENS1:SWE:POIN?"
+Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MMTC:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 46
+Read:     "201"
+Bytes: 4
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Write:    ":FORM?"
+Bytes: 7
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FMTC:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 46
+Read:     "ASC,0"
+Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Write:    ":FORM?"
+Bytes: 7
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FOSHORT3:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 50
+Read:     "ASC,0"
+Bytes: 6
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Write:    ":FORM:BORD?"
+Bytes: 12
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MOSHORT2:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 50
+Read:     "SWAP"
+Bytes: 5
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Write:    ":FORM REAL,64"
+Bytes: 14
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FOSHORT2:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 50
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Write:    ":CALC1:DATA:STIM?"
+Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MOSHORT3:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 50
+Read:     "#41608..."
+Bytes: 1615
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 66
+Write:    ":FORM ASC"
+Bytes: 10
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MMTH:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 46
+Write:    ":SENS1:SWE:TYPE?"
+Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50"
-Bytes: 50
+Read:     "LIN"
+Bytes: 4
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:MFTH:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 46
+Write:    ":SENS1:SWE:POIN?"
+Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50"
-Bytes: 50
+Read:     "201"
+Bytes: 4
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FFTH:WLAB? '3.5 mm','Cal Kit 3',''"
-Bytes: 46
+Write:    ":FORM?"
+Bytes: 7
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm','Cal Kit 3','','',9000,8500000000,0,0,50"
-Bytes: 50
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:DATA:STIM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "#41608..."
+Bytes: 1615
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:SWE:POIN?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:DATA:STIM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "#41608..."
+Bytes: 1615
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:SWE:POIN?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:DATA:STIM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "#41608..."
+Bytes: 1615
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS1:SWE:POIN?"
@@ -5556,14 +5464,6 @@ Read:     "LIN"
 Bytes: 4
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:SWE:STEP?"
-Bytes: 17
-Status: 0x0 Operation completed successfully.
-
-Read:     "42499500.000"
-Bytes: 13
-Status: 0x0 Operation completed successfully.
-
 Write:    ":SENS2:SWE:POIN?"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
@@ -5620,8 +5520,8 @@ Write:    ":SENS2:FREQ:STAR 100000Hz"
 Bytes: 26
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:FREQ:STOP 8.5e+09Hz"
-Bytes: 27
+Write:    ":SENS2:FREQ:STOP 4e+09Hz"
+Bytes: 25
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS2:SWE:POIN 201"
@@ -5905,7 +5805,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -5928,8 +5828,8 @@ Write:    ":CORR:COLL:CHAN:ALL 0"
 Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LSEL '3.5 mm','Cal Kit 1',''"
-Bytes: 40
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS2:AVER?"
@@ -5992,8 +5892,8 @@ Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',FOP,1"
-Bytes: 46
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -6122,6 +6022,146 @@ Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS2:CORR:COLL:SEL OSHORT2,1"
 Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL MATC,2"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL SHOR,2"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL OSHORT1,2"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL OSHORT2,2"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL THR,1,2"
+Bytes: 29
 Status: 0x0 Operation completed successfully.
 
 Write:    "*OPC?"
@@ -6325,7 +6365,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -6348,8 +6388,8 @@ Write:    ":CORR:COLL:CHAN:ALL 0"
 Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LSEL '3.5 mm','Cal Kit 1',''"
-Bytes: 40
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS2:AVER?"
@@ -6372,8 +6412,8 @@ Write:    ":SENS2:SWE:TIME?"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Read:     "0.0175875"
-Bytes: 10
+Read:     "0.035175"
+Bytes: 9
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -6412,8 +6452,8 @@ Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',FOP,1"
-Bytes: 46
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -6629,7 +6669,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -6652,8 +6692,8 @@ Write:    ":CORR:COLL:CHAN:ALL 0"
 Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LSEL '3.5 mm','Cal Kit 1',''"
-Bytes: 40
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS2:AVER?"
@@ -6676,8 +6716,8 @@ Write:    ":SENS2:SWE:TIME?"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Read:     "0.0175875"
-Bytes: 10
+Read:     "0.035175"
+Bytes: 9
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -6716,8 +6756,8 @@ Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',FOP,1"
-Bytes: 46
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -6933,7 +6973,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -6956,8 +6996,8 @@ Write:    ":CORR:COLL:CHAN:ALL 0"
 Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LSEL '3.5 mm','Cal Kit 1',''"
-Bytes: 40
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS2:AVER?"
@@ -6980,8 +7020,8 @@ Write:    ":SENS2:SWE:TIME?"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Read:     "0.0175875"
-Bytes: 10
+Read:     "0.035175"
+Bytes: 9
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -7020,8 +7060,8 @@ Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',FOP,1"
-Bytes: 46
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -7237,7 +7277,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 157
+Bytes: 163
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -7260,8 +7300,8 @@ Write:    ":CORR:COLL:CHAN:ALL 0"
 Bytes: 22
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LSEL '3.5 mm','Cal Kit 1',''"
-Bytes: 40
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS2:AVER?"
@@ -7284,8 +7324,8 @@ Write:    ":SENS2:SWE:TIME?"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Read:     "0.0175875"
-Bytes: 10
+Read:     "0.035175"
+Bytes: 9
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -7324,8 +7364,8 @@ Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',FOP,1"
-Bytes: 46
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -7370,6 +7410,1526 @@ Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS2:CORR:COLL:SEL OSHORT2,1"
 Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
+Bytes: 98
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7 mm'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '3.5 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'Type F (75)'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '7 mm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 163
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:AVER?"
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TYPE?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TIME?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.035175"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:FREQ? MAX"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "8500000000"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:RSAV 1"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL MATC,2"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
+Bytes: 98
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7 mm'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '3.5 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'Type F (75)'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '7 mm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 163
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:AVER?"
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TYPE?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TIME?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.035175"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:FREQ? MAX"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "8500000000"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:RSAV 1"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL SHOR,2"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
+Bytes: 98
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7 mm'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '3.5 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'Type F (75)'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '7 mm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 163
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:AVER?"
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TYPE?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TIME?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.035175"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:FREQ? MAX"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "8500000000"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:RSAV 1"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL OSHORT1,2"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
+Bytes: 98
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7 mm'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '3.5 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'Type F (75)'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '7 mm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 163
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:AVER?"
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TYPE?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TIME?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.035175"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:FREQ? MAX"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "8500000000"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:RSAV 1"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL OSHORT2,2"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SAVE:SEL"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
+Bytes: 98
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7 mm'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '3.5 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'Type F (75)'"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Type F (75)',TEM,GEND,1.00062,75"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 50 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'BNC 75 Ohm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '7 mm'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 163
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LSEL '3.5 mm','Low Band Kit','Ideal'"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:AVER?"
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TYPE?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:SWE:TIME?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.035175"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:FREQ? MAX"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "8500000000"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:METH:DEF 'Channel2Cal',TOSM,1,2"
+Bytes: 49
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:COLL:CHAN:ALL 0"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:RSAV 1"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:COLL:SEL THR,1,2"
+Bytes: 29
 Status: 0x0 Operation completed successfully.
 
 Write:    "*OPC?"
@@ -7572,8 +9132,8 @@ Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
 Bytes: 47
 Status: 0x0 Operation completed successfully.
 
-Write:    ":SENS1:CORR:COLL:METH:DEF 'DefaultCal',FOP,1"
-Bytes: 45
+Write:    ":SENS1:CORR:COLL:METH:DEF 'DefaultCal',TOSM,1,2"
+Bytes: 48
 Status: 0x0 Operation completed successfully.
 
 Write:    "*IDN?"
@@ -7861,6 +9421,1150 @@ Bytes: 14
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SENS1:CORR:CDAT 'REFLTRACK',1,1, #43216"
+Bytes: 3257
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'DIRECTIVITY',2,1"
+Bytes: 36
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'DIRECTIVITY',2,1, #43216"
+Bytes: 3259
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'SRCMATCH',2,1"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'SRCMATCH',2,1, #43216"
+Bytes: 3256
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'REFLTRACK',2,1"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'REFLTRACK',2,1, #43216"
+Bytes: 3257
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'LOADMATCH',2,1"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'LOADMATCH',2,1, #43216"
+Bytes: 3257
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'TRANSTRACK',2,1"
+Bytes: 35
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'TRANSTRACK',2,1, #43216"
+Bytes: 3258
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'DIRECTIVITY',1,2"
+Bytes: 36
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'DIRECTIVITY',1,2, #43216"
+Bytes: 3259
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'SRCMATCH',1,2"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'SRCMATCH',1,2, #43216"
+Bytes: 3256
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'REFLTRACK',1,2"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'REFLTRACK',1,2, #43216"
+Bytes: 3257
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'LOADMATCH',1,2"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'LOADMATCH',1,2, #43216"
+Bytes: 3257
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'TRANSTRACK',1,2"
+Bytes: 35
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'TRANSTRACK',1,2, #43216"
+Bytes: 3258
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'DIRECTIVITY',2,2"
+Bytes: 36
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'DIRECTIVITY',2,2, #43216"
+Bytes: 3259
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'SRCMATCH',2,2"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'SRCMATCH',2,2, #43216"
+Bytes: 3256
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:DATA:PAR? POIN"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS2:CORR:CDAT? 'REFLTRACK',2,2"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Read:     "#43216..."
+Bytes: 3223
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:CORR:CDAT 'REFLTRACK',2,2, #43216"
 Bytes: 3257
 Status: 0x0 Operation completed successfully.
 

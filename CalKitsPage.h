@@ -9,9 +9,11 @@
 #include "ChosenCalKitsModel.h"
 
 // RsaToolbox
+#include <Definitions.h>
 #include <Connector.h>
 #include <Vna.h>
 #include <WizardPage.h>
+#include <Keys.h>
 
 // Qt
 #include <QWidget>
@@ -42,17 +44,16 @@ public:
     QLabel *headerLabel();
 
     void setVna(RsaToolbox::Vna *vna);
+    void setKeys(RsaToolbox::Keys *keys);
 
     RsaToolbox::Connector connectorType() const;
-
-    // Something like this...
-    // QVector<CalsAndKits> calibrations() const;
 
 public slots:
     void setPorts(const QVector<uint> &ports);
     void setConnectorType(const RsaToolbox::Connector &type);
     void setChannel(const uint &index);
 
+    virtual void displayError(const QString &message);
     void cancel();
 
 signals:
@@ -68,6 +69,7 @@ private:
     QLabel *_header;
 
     RsaToolbox::Vna *_vna;
+    RsaToolbox::Keys *_keys;
 
     QVector<uint> _ports;
     RsaToolbox::Connector _connectorType;
@@ -76,9 +78,13 @@ private:
 
     double _channelStartFreq_Hz;
     double _channelStopFreq_Hz;
+    static bool isFrequencyPoint(RsaToolbox::QRowVector &frequencies, bool isStartInclusive, double start, bool isStopInclusive, double stop);
 
     AvailableCalKitsModel _availableCalKitsModel;
     ChosenCalKitsModel _chosenCalKitsModel;
+
+    void loadKeys();
+    void saveKeys();
 };
 
 #endif // CALKITSPAGE_H

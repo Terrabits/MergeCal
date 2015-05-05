@@ -125,7 +125,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Chosen Cal Kits:</string>
+         <string>Selected Cal Kits:</string>
         </property>
        </widget>
       </item>

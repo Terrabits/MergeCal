@@ -12,11 +12,13 @@ using namespace RsaToolbox;
 
 PortsPage::PortsPage(QWidget *parent) :
     WizardPage(parent),
-    ui(new ::Ui::PortsPage)
+    ui(new ::Ui::PortsPage),
+    _vna(NULL),
+    _keys(NULL)
 {
     ui->setupUi(this);
 
-    ui->ports->setModel(&_model);
+    ui->ports->setModel(&_portsModel);
 }
 
 PortsPage::~PortsPage()
@@ -39,10 +41,10 @@ void PortsPage::backToThis() {
 }
 
 bool PortsPage::isReadyForNext() {
-    if (_model.ports().isEmpty()) {
+    if (_portsModel.ports().isEmpty()) {
         ui->error->showMessage("*No ports selected");
         ui->ports->setFocus();
-        ui->ports->setCurrentIndex(_model.index(0));
+        ui->ports->setCurrentIndex(_portsModel.index(0));
         return false;
     }
 
@@ -56,10 +58,10 @@ bool PortsPage::isReadyForNext() {
         return false;
     }
 
-    emit portsSelected(_model.ports());
+    saveKeys();
+    emit portsSelected(_portsModel.ports());
     emit connectorSelected(connector());
     emit channelSelected(channel());
-
     return true;
 }
 
@@ -72,17 +74,23 @@ QLabel *PortsPage::headerLabel() {
 
 void PortsPage::setVna(Vna *vna) {
     _vna = vna;
-    _model.setVna(vna);
+    _portsModel.setVna(vna);
     updateConnectors();
     updateGender();
     updateChannels();
+    loadKeys();
 }
 Vna *PortsPage::vna() const {
     return _vna;
 }
 
+void PortsPage::setKeys(Keys *keys) {
+    _keys = keys;
+    loadKeys();
+}
+
 QVector<uint> PortsPage::ports() const {
-    return _model.ports();
+    return _portsModel.ports();
 }
 Connector PortsPage::connector() const {
     const int typeIndex = ui->connectorType->currentIndex();
@@ -140,4 +148,51 @@ void PortsPage::on_connectorType_currentIndexChanged(int index)
 {
     Q_UNUSED(index);
     updateGender();
+}
+
+void PortsPage::loadKeys() {
+    if (_vna == NULL || _keys == NULL)
+        return;
+
+    if (_keys->exists("PortsPage_Ports")) {
+        QVector<uint> ports;
+        _keys->get("PortsPage_Ports", ports);
+        _portsModel.setPorts(ports);
+    }
+    if (_keys->exists("PortsPage_ConnectorType")) {
+        Connector connector;
+        _keys->get("PortsPage_ConnectorType", connector);
+        int connectorIndex = _connectors.indexOf(connector);
+        if (connectorIndex != -1) {
+            ui->connectorType->setCurrentIndex(connectorIndex);
+            updateGender(); // Necessary?
+            if (_keys->exists("PortsPage_ConnectorGender")) {
+                int genderIndex;
+                _keys->get("PortsPage_ConnectorGender", genderIndex);
+                if (genderIndex < ui->connectorGender->count())
+                    ui->connectorGender->setCurrentIndex(genderIndex);
+            }
+        }
+    }
+    if (_keys->exists("PortsPage_Channel")) {
+        uint channel;
+        _keys->get("PortsPage_Channel", channel);
+        int index = _channels.indexOf(channel);
+        if (index != -1)
+            ui->channel->setCurrentIndex(index);
+    }
+}
+void PortsPage::saveKeys() {
+    if (_vna == NULL || _keys == NULL)
+        return;
+
+    _keys->set("PortsPage_Ports", ports());
+
+    const int typeIndex = ui->connectorType->currentIndex();
+    Connector connector(_connectors[typeIndex]);
+    _keys->set("PortsPage_ConnectorType", connector);
+
+    _keys->set("PortsPage_ConnectorGender", ui->connectorGender->currentIndex());
+
+    _keys->set("PortsPage_Channel", channel());
 }

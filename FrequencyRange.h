@@ -8,6 +8,9 @@
 // RsaToolbox
 #include <General.h>
 
+// Qt
+#include <QDataStream>
+
 class FrequencyRange
 {
 public:
@@ -35,6 +38,9 @@ public:
 
     void clearStartStop();
 
+    void read(QDataStream &stream);
+    void write(QDataStream &stream) const;
+
     void operator=(const FrequencyRange &other);
     bool operator==(const FrequencyRange &other);
 
@@ -47,5 +53,8 @@ private:
     bool _includeStopFrequency;
     double _stopFreq_Hz;
 };
+
+QDataStream& operator<<(QDataStream &stream, const FrequencyRange &kit);
+QDataStream& operator>>(QDataStream &stream, FrequencyRange &kit);
 
 #endif // FREQUENCYRANGE_H

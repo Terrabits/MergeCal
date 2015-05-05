@@ -9,6 +9,9 @@
 #include <Vna.h>
 #include <VnaCalKit.h>
 
+// Qt
+#include <QDataStream>
+
 
 class DoubleOffsetShortKit
 {
@@ -32,14 +35,30 @@ public:
     QString displayNameLabel() const;
     QString displayFrequencyRange() const;
 
+    // Labels
+    QString matchLabel() const;
+    QString shortLabel() const;
+    QString offsetShortALabel() const;
+    QString offsetShortBLabel() const;
+    QString thruLabel() const;
+
     void operator=(const DoubleOffsetShortKit &other);
     bool operator==(const DoubleOffsetShortKit &other);
+
+    void read(QDataStream &stream);
+    void write(QDataStream &stream) const;
 
 private:
     bool _isValid;
 
     RsaToolbox::NameLabel _nameLabel;
-//    RsaToolbox::Connector _connector;
+
+    QString _matchLabel;
+    QString _shortLabel;
+    QString _offsetShort1Label;
+    QString _offsetShort2Label;
+    QString _offsetShort3Label;
+    QString _thruLabel;
 
     bool _isOShort1;
     bool _isOShort2;
@@ -50,5 +69,9 @@ private:
 
     bool getOffsetShortsAndValidate(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender, bool needThru);
 };
+
+QDataStream& operator<<(QDataStream &stream, const DoubleOffsetShortKit &kit);
+QDataStream& operator>>(QDataStream &stream, DoubleOffsetShortKit &kit);
+
 
 #endif // DOUBLEOFFSETSHORTKIT_H
