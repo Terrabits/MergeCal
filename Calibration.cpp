@@ -61,16 +61,20 @@ void Calibration::initialize() {
                 this, SIGNAL(startingMeasurement(QString,uint)));
         connect(&(_partialCals.last()), SIGNAL(finishedMeasurement()),
                 this, SIGNAL(finishedMeasurement()));
-//        connect(&(_partialCals.last()), SIGNAL(error(QString)),
-//                this, SLOT(interrupt()));
-//        connect(&(_partialCals.last()), SIGNAL(error(QString)),
-//                this, SIGNAL(error(QString)));
 
+        // ---------------------------------
+        // SHOULD THIS BE COMMENTED OUT???!?
+        // ---------------------------------
+        connect(&(_partialCals.last()), SIGNAL(error(QString)),
+                this, SLOT(interrupt()));
+        connect(&(_partialCals.last()), SIGNAL(error(QString)),
+                this, SIGNAL(error(QString)));
+
+        _partialCals.last().initialize();
         if (isInterrupt()) {
             clearInterrupt();
             return;
         }
-        _partialCals.last().initialize();
     }
     emit finishedInitialization();
 }

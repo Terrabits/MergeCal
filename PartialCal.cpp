@@ -59,6 +59,9 @@ void PartialCal::initialize() {
         return;
     }
 
+    _vna->isError();
+    _vna->clearStatus();
+
     deleteChannel();
     _vna->channel(_originalChannel).select();
     _channel = _vna->createChannel();
@@ -130,7 +133,14 @@ void PartialCal::initialize() {
         clearInterrupt();
         return;
     }
+
+    _vna->isError();
+    _vna->clearStatus();
     _cal.apply();
+    if (_vna->isError()) {
+        _vna->clearStatus();
+        emit error("*Could not initialize calibration");
+    }
 }
 
 uint PartialCal::channel() const {
@@ -321,7 +331,7 @@ bool PartialCal::processLinearLogFrequencies() {
                        _calKit.isStopFrequencyInclusive(), _calKit.stopFrequency_Hz()))
     {
         // No frequency points!
-        QString msg = "Cal Kit \'%1\' covers none of the cal frequencies.";
+        QString msg = "*Cal Kit \'%1\' covers none of the cal frequencies.";
         msg = msg.arg(_calKit.calKit().displayNameLabel());
         qDebug() << msg;
         emit error(msg);

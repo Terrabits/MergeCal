@@ -22,21 +22,17 @@ SetupPage::SetupPage(QWidget *parent) :
 
 SetupPage::~SetupPage()
 {
-//    if (_isInitializing) {
+    if (_isInitializing) {
 //        _calibration->interrupt();
 //        _measureThread->quit();
 //        _measureThread->wait();
-//        _vna->closeActiveSet();
-//        _vna->openSet(_setName);
-//        _vna->deleteSet(_setName);
-//    }
-//    else {
-//        _measureThread->quit();
-//        _measureThread->wait();
-//    }
+        _vna->closeActiveSet();
+        _vna->openSet(_setName);
+        _vna->deleteSet(_setName);
+    }
 
-//    if (_vna != NULL)
-//        _vna->isError();
+    if (_vna != NULL)
+        _vna->isError();
 
     delete ui;
 }
@@ -63,8 +59,12 @@ bool SetupPage::skip() {
             this, SLOT(measurementFinished()));
     connect(_calibration, SIGNAL(finishedInitialization()),
             this, SLOT(initializationFinished()));
-//    connect(_calibration, SIGNAL(error(QString)),
-//               this, SLOT(initializationError(QString)));
+
+    // ----------------
+    // REMOVE THIS???!?
+    // ----------------
+    connect(_calibration, SIGNAL(error(QString)),
+               this, SLOT(initializationError(QString)));
 
     QMetaObject::invokeMethod(_calibration,
                               "initialize",
@@ -100,8 +100,12 @@ void SetupPage::initializationFinished() {
             this, SLOT(measurementFinished()));
     disconnect(_calibration, SIGNAL(finishedInitialization()),
             this, SLOT(initializationFinished()));
-//    disconnect(_calibration, SIGNAL(error(QString)),
-//               this, SLOT(initializationError(QString)));
+
+    // ----------------
+    // REMOVE THIS???!?
+    // ----------------
+    disconnect(_calibration, SIGNAL(error(QString)),
+               this, SLOT(initializationError(QString)));
 
     wizard()->setEnabled();
     wizard()->next();
@@ -118,8 +122,12 @@ void SetupPage::initializationError(const QString &message) {
             this, SLOT(measurementFinished()));
     disconnect(_calibration, SIGNAL(finishedInitialization()),
             this, SLOT(initializationFinished()));
-//    disconnect(_calibration, SIGNAL(error(QString)),
-//               this, SLOT(initializationError(QString)));
+
+    // ----------------
+    // REMOVE THIS???!?
+    // ----------------
+    disconnect(_calibration, SIGNAL(error(QString)),
+               this, SLOT(initializationError(QString)));
 
     _vna->isError();
     _vna->clearStatus();
