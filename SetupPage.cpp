@@ -22,14 +22,14 @@ SetupPage::SetupPage(QWidget *parent) :
 
 SetupPage::~SetupPage()
 {
-    if (_isInitializing) {
+//    if (_isInitializing) {
 //        _calibration->interrupt();
 //        _measureThread->quit();
 //        _measureThread->wait();
-        _vna->closeActiveSet();
-        _vna->openSet(_setName);
-        _vna->deleteSet(_setName);
-    }
+//        _vna->closeActiveSet();
+//        _vna->openSet(_setName);
+//        _vna->deleteSet(_setName);
+//    }
 
     if (_vna != NULL)
         _vna->isError();
@@ -49,6 +49,7 @@ void SetupPage::initialize() {
     wizard()->setDisabled();
 }
 bool SetupPage::skip() {
+    qDebug() << "SetupPage::skip";
     _isInitializing = true;
     _setName = _vna->activeSet();
     _vna->saveActiveSet(_setName);
@@ -59,13 +60,11 @@ bool SetupPage::skip() {
             this, SLOT(measurementFinished()));
     connect(_calibration, SIGNAL(finishedInitialization()),
             this, SLOT(initializationFinished()));
-
-    // ----------------
-    // REMOVE THIS???!?
-    // ----------------
     connect(_calibration, SIGNAL(error(QString)),
                this, SLOT(initializationError(QString)));
 
+    _vna->settings().displayOff();
+    _vna->settings().errorDisplayOff();
     QMetaObject::invokeMethod(_calibration,
                               "initialize",
                               Qt::QueuedConnection);
@@ -91,7 +90,12 @@ void SetupPage::measurementFinished() {
 
 void SetupPage::initializationFinished() {
     qDebug() << "SetupPage::initializationFinished";
+    if (!_isInitializing)
+        return;
+
     _isInitializing = false;
+    _vna->settings().displayOn();
+    _vna->settings().errorDisplayOn();
     _vna->deleteSet(_setName);
 
     disconnect(_calibration, SIGNAL(startingMeasurement(QString,uint)),
@@ -100,10 +104,6 @@ void SetupPage::initializationFinished() {
             this, SLOT(measurementFinished()));
     disconnect(_calibration, SIGNAL(finishedInitialization()),
             this, SLOT(initializationFinished()));
-
-    // ----------------
-    // REMOVE THIS???!?
-    // ----------------
     disconnect(_calibration, SIGNAL(error(QString)),
                this, SLOT(initializationError(QString)));
 
@@ -114,7 +114,6 @@ void SetupPage::initializationFinished() {
 void SetupPage::initializationError(const QString &message) {
     qDebug() << "SetupPage init error " << QObject::sender();
     _isInitializing = false;
-    _vna->deleteSet(_setName);
 
     disconnect(_calibration, SIGNAL(startingMeasurement(QString,uint)),
             this, SLOT(measurementStarted(QString,uint)));
@@ -122,10 +121,6 @@ void SetupPage::initializationError(const QString &message) {
             this, SLOT(measurementFinished()));
     disconnect(_calibration, SIGNAL(finishedInitialization()),
             this, SLOT(initializationFinished()));
-
-    // ----------------
-    // REMOVE THIS???!?
-    // ----------------
     disconnect(_calibration, SIGNAL(error(QString)),
                this, SLOT(initializationError(QString)));
 
@@ -135,9 +130,11 @@ void SetupPage::initializationError(const QString &message) {
     _vna->openSet(_setName);
     _vna->deleteSet(_setName);
 
+    _vna->settings().errorDisplayOn();
+
     wizard()->setEnabled();
-    emit setupAborted(message);
     wizard()->back();
+    emit setupAborted(message);
 }
 
 void SetupPage::setHeaderLabel(QLabel *header) {

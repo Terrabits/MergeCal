@@ -32,7 +32,6 @@ public:
 
     uint channel() const;
 
-    void measureMatch(uint port);
     void measureShort(uint port);
     void measureOffsetShortA(uint port);
     void measureOffsetShortB(uint port);
@@ -79,7 +78,6 @@ private:
     static bool frequencyList(RsaToolbox::QRowVector &frequencies, bool isStartInclusive, double start, bool isStopInclusive, double stop);
 
     // (no apply cal after measure)
-    void _measureMatch(uint port);
     void _measureShort(uint port);
     void _measureOffsetShortA(uint port);
     void _measureOffsetShortB(uint port);

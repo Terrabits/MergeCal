@@ -80,7 +80,7 @@ void PartialCal::initialize() {
         processSegmentedFrequencies();
     }
     else {
-        // This should never happen
+        emit error("*Cannot calibrate time or cw sweeps.");
         return;
     }
 
@@ -99,11 +99,6 @@ void PartialCal::initialize() {
     _cal.keepRawData();
 
     foreach (uint port, _ports) {
-        if (isInterrupt()) {
-            clearInterrupt();
-            return;
-        }
-        _measureMatch(port);
         if (isInterrupt()) {
             clearInterrupt();
             return;
@@ -140,6 +135,7 @@ void PartialCal::initialize() {
     if (_vna->isError()) {
         _vna->clearStatus();
         emit error("*Could not initialize calibration");
+        return;
     }
 }
 
@@ -147,28 +143,6 @@ uint PartialCal::channel() const {
     return _channel;
 }
 
-void PartialCal::measureMatch(uint port) {
-    if (isInterrupt()) {
-        clearInterrupt();
-        return;
-    }
-
-    QString caption = "%1 Match";
-    caption = caption.arg(this->_calKit.calKit().nameLabel().displayText());
-    emit startingMeasurement(caption, _sweepTime_ms);
-    _cal.selectKit(_calKit.calKit().nameLabel());
-    QString name = "Channel%1Cal";
-    name = name.arg(_channel);
-    if (_ports.size() > 1)
-        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    else
-        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-    _cal.keepRawData();
-    _cal.measureMatch(port);
-    _cal.apply();
-    _vna->isError();
-    emit finishedMeasurement();
-}
 void PartialCal::measureShort(uint port) {
     if (isInterrupt()) {
         clearInterrupt();
@@ -392,19 +366,6 @@ bool PartialCal::frequencyList(QRowVector &frequencies, bool isStartInclusive, d
     return !frequencies.isEmpty();
 }
 
-void PartialCal::_measureMatch(uint port) {
-    if (isInterrupt()) {
-        clearInterrupt();
-        return;
-    }
-
-    QString caption = "%1 Match";
-    caption = caption.arg(this->_calKit.calKit().nameLabel().displayText());
-    emit startingMeasurement(caption, _sweepTime_ms);
-    _cal.measureMatch(port);
-    _vna->isError();
-    emit finishedMeasurement();
-}
 void PartialCal::_measureShort(uint port) {
     if (isInterrupt()) {
         clearInterrupt();

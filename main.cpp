@@ -119,8 +119,8 @@ int main(int argc, char *argv[])
                      setupPage, SLOT(setChannel(uint)));
     QObject::connect(calKitsPage, SIGNAL(calKitsSelected(QVector<FrequencyRange>)),
                      setupPage, SLOT(setCalKits(QVector<FrequencyRange>)));
-//    QObject::connect(setupPage, SIGNAL(setupAborted(QString)),
-//                     calKitsPage, SLOT(displayError(QString)));
+    QObject::connect(setupPage, SIGNAL(setupAborted(QString)),
+                     calKitsPage, SLOT(displayError(QString)));
     wizard.addPage(setupPage);
 
     MeasurePage *measurePage = new MeasurePage;

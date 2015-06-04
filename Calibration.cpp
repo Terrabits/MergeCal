@@ -33,7 +33,6 @@ void Calibration::initialize() {
         return;
     }
     emit startingInitialization();
-    _isMatchMeasured.fill(false, _ports.size());
     _isShortMeasured.fill(false, _ports.size());
     _isOffsetShortAMeasured.fill(QBitArray(_ports.size(), false), _kits.size());
     _isOffsetShortBMeasured.fill(QBitArray(_ports.size(), false), _kits.size());
@@ -62,9 +61,6 @@ void Calibration::initialize() {
         connect(&(_partialCals.last()), SIGNAL(finishedMeasurement()),
                 this, SIGNAL(finishedMeasurement()));
 
-        // ---------------------------------
-        // SHOULD THIS BE COMMENTED OUT???!?
-        // ---------------------------------
         connect(&(_partialCals.last()), SIGNAL(error(QString)),
                 this, SLOT(interrupt()));
         connect(&(_partialCals.last()), SIGNAL(error(QString)),
@@ -90,8 +86,6 @@ QVector<uint> Calibration::ports() const {
 }
 
 bool Calibration::isPortFullyMeasured(uint port) const {
-    if (!isMatchMeasured(port))
-        return false;
     if (!isShortMeasured(port))
         return false;
     for (uint i = 0; i < numberOfKits(); i++) {
@@ -102,15 +96,6 @@ bool Calibration::isPortFullyMeasured(uint port) const {
     }
 
     return true;
-}
-bool Calibration::isMatchMeasured(uint port) const {
-    return _isMatchMeasured[_ports.indexOf(port)];
-}
-void Calibration::measureMatch(uint port) {
-    for (int i = 0; i < _partialCals.size(); i++) {
-        _partialCals[i].measureMatch(port);
-    }
-    _isMatchMeasured[_ports.indexOf(port)] = true;
 }
 
 bool Calibration::isShortMeasured(uint port) const {
@@ -232,14 +217,6 @@ uint Calibration::numberOfKits() const {
 }
 NameLabel Calibration::kitNameLabel(uint index) const {
     return _kits[index].calKit().nameLabel();
-}
-QString Calibration::matchLabel() const {
-    for (int i = 0; i < _kits.size(); i++) {
-        if (!_kits[i].calKit().matchLabel().isEmpty())
-            return _kits[i].calKit().matchLabel();
-    }
-
-    return QString();
 }
 QString Calibration::shortLabel() const {
     for (int i = 0; i < _kits.size(); i++) {

@@ -36,7 +36,6 @@ public:
     QString displayFrequencyRange() const;
 
     // Labels
-    QString matchLabel() const;
     QString shortLabel() const;
     QString offsetShortALabel() const;
     QString offsetShortBLabel() const;
@@ -53,7 +52,6 @@ private:
 
     RsaToolbox::NameLabel _nameLabel;
 
-    QString _matchLabel;
     QString _shortLabel;
     QString _offsetShort1Label;
     QString _offsetShort2Label;

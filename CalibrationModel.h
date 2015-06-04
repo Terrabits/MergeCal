@@ -19,8 +19,7 @@ public:
     ~CalibrationModel();
 
     // Port rows
-    static const int MATCH_ROW = 0;
-    static const int SHORT_ROW = 1;
+    static const int SHORT_ROW = 0;
     // Offsets A, B for each kit
 
     // Columns

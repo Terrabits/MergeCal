@@ -120,26 +120,7 @@ QVariant CalibrationModel::data(const QModelIndex &index, int role) const {
         if (index.internalId() < _calibration->numberOfPorts()) {
             // Single Port
             uint port = _calibration->port(index.internalId());
-            if (index.row() == MATCH_ROW) {
-                if (index.column() == NAME_COLUMN) {
-                    if (role == Qt::DisplayRole) {
-                        if (!_calibration->matchLabel().isEmpty())
-                            return QString("Match (%1)").arg(_calibration->matchLabel());
-                        else
-                            return "Match";
-                    }
-                    else if (_calibration->isMatchMeasured(port)) {
-                        return QIcon(":/images/Images/Measured Button.bmp");
-                    }
-                    else {
-                        return QIcon(":/images/Images/Unmeasured Button.bmp");
-                    }
-                }
-                else {
-                    return QVariant();
-                }
-            }
-            else if (index.row() == SHORT_ROW) {
+            if (index.row() == SHORT_ROW) {
                 if (index.column() == NAME_COLUMN) {
                     if (role == Qt::DisplayRole) {
                         if (!_calibration->shortLabel().isEmpty())
@@ -160,8 +141,8 @@ QVariant CalibrationModel::data(const QModelIndex &index, int role) const {
             }
             else {
                 // OffsetShort
-                uint kitIndex= int((index.row()-2)/2);
-                bool isOffsetA = (index.row() % 2) == 0;
+                uint kitIndex= uint((index.row()-1)/2);
+                bool isOffsetA = ((index.row()-1) % 2) == 0;
                 if (index.column() == NAME_COLUMN) {
                     if (isOffsetA) {
                         if (role == Qt::DisplayRole) {
@@ -245,21 +226,15 @@ void CalibrationModel::measure(const QModelIndex &index) {
     if (index.internalId() < _calibration->numberOfPorts()) {
         // Single port
         uint port = _calibration->port(index.internalId());
-        if (index.row() == MATCH_ROW) {
-            QMetaObject::invokeMethod(_calibration,
-                                      "measureMatch",
-                                      Qt::QueuedConnection,
-                                      Q_ARG(uint, port));
-        }
-        else if (index.row() == SHORT_ROW) {
+        if (index.row() == SHORT_ROW) {
             QMetaObject::invokeMethod(_calibration,
                                       "measureShort",
                                       Qt::QueuedConnection,
                                       Q_ARG(uint, port));
         }
         else {
-            uint kitIndex= int((index.row()-2)/2);
-            bool isOffsetA = (index.row() % 2) == 0;
+            uint kitIndex= uint((index.row()-1)/2);
+            bool isOffsetA = ((index.row()-1) % 2) == 0;
             if (isOffsetA)
                 QMetaObject::invokeMethod(_calibration,
                                           "measureOffsetShortA",
@@ -285,5 +260,5 @@ void CalibrationModel::measure(const QModelIndex &index) {
 }
 
 int CalibrationModel::portRows() const {
-    return 2 + 2 * _calibration->numberOfKits();
+    return 1 + 2 * _calibration->numberOfKits();
 }

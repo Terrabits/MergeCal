@@ -24,7 +24,6 @@ DoubleOffsetShortKit::DoubleOffsetShortKit(const DoubleOffsetShortKit &other) {
 
     _nameLabel = other._nameLabel;
 
-    _matchLabel = other._matchLabel;
     _shortLabel = other._shortLabel;
     _offsetShort1Label = other._offsetShort1Label;
     _offsetShort2Label = other._offsetShort2Label;
@@ -92,9 +91,6 @@ QString DoubleOffsetShortKit::displayFrequencyRange() const {
     return text;
 }
 
-QString DoubleOffsetShortKit::matchLabel() const {
-    return _matchLabel;
-}
 QString DoubleOffsetShortKit::shortLabel() const {
     return _shortLabel;
 }
@@ -119,7 +115,6 @@ void DoubleOffsetShortKit::operator=(const DoubleOffsetShortKit &other) {
 
     _nameLabel = other._nameLabel;
 
-    _matchLabel = other._matchLabel;
     _shortLabel = other._shortLabel;
     _offsetShort1Label = other._offsetShort1Label;
     _offsetShort2Label = other._offsetShort2Label;
@@ -166,7 +161,6 @@ void DoubleOffsetShortKit::read(QDataStream &stream) {
 
     stream >> _nameLabel;
 
-    stream >> _matchLabel;
     stream >> _shortLabel;
     stream >> _offsetShort1Label;
     stream >> _offsetShort2Label;
@@ -185,7 +179,6 @@ void DoubleOffsetShortKit::write(QDataStream &stream) const {
 
     stream << _nameLabel;
 
-    stream << _matchLabel;
     stream << _shortLabel;
     stream << _offsetShort1Label;
     stream << _offsetShort2Label;
@@ -203,17 +196,12 @@ void DoubleOffsetShortKit::write(QDataStream &stream) const {
 bool DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connector::Gender gender, bool needThru) {
     QVector<VnaCalStandard> standards = calKit.standards();
 
-    bool isMatch = false;
     bool isShort = false;
     bool isThru = false;
     VnaCalStandard os1, os2, os3;
 
     if (gender == Connector::Gender::Neutral) {
         foreach (VnaCalStandard s, standards) {
-            if (s.isMatch()) {
-                _matchLabel = s.label();
-                isMatch = true;
-            }
             if (s.isShort()) {
                 _shortLabel = s.label();
                 isShort = true;
@@ -241,10 +229,6 @@ bool DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connect
     }
     else if (gender == Connector::Gender::Female) {
         foreach (VnaCalStandard s, standards) {
-            if (s.isMaleMatch()) {
-                _matchLabel = s.label();
-                isMatch = true;
-            }
             if (s.isMaleShort()) {
                 _shortLabel = s.label();
                 isShort = true;
@@ -272,10 +256,6 @@ bool DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connect
     }
     else {
         foreach (VnaCalStandard s, standards) {
-            if (s.isFemaleMatch()) {
-                _matchLabel = s.label();
-                isMatch = true;
-            }
             if (s.isFemaleShort()) {
                 _shortLabel = s.label();
                 isShort = true;
@@ -302,7 +282,7 @@ bool DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connect
         }
     }
 
-    if (!isMatch || !isShort)
+    if (!isShort)
         return false;
     if (needThru && !isThru)
         return false;
