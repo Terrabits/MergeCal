@@ -7,6 +7,7 @@ using namespace RsaToolbox;
 
 // Qt
 #include <QProgressBar>
+#include <QMessageBox>
 #include <QDebug>
 
 
@@ -45,8 +46,12 @@ void MeasurePage::initialize() {
             this, SLOT(measurementStarted(QString,uint)));
     connect(_calibration, SIGNAL(finishedMeasurement()),
             this, SLOT(measurementFinished()));
-    connect(_calibration, SIGNAL(finishedMeasurement()),
+    connect(_calibration, SIGNAL(error(QString)),
+               this, SLOT(displayError(QString)));
+    connect(_calibration, SIGNAL(measurementStatusUpdated()),
             this, SLOT(formatTree()));
+    connect(_calibration, SIGNAL(measurementStatusUpdated()),
+            this, SLOT(updateApplyButton()));
 }
 bool MeasurePage::isReadyForNext() {
     _calibration->applyCorrections();
@@ -58,8 +63,12 @@ bool MeasurePage::isReadyForBack() {
             this, SLOT(measurementStarted(QString,uint)));
     disconnect(_calibration, SIGNAL(finishedMeasurement()),
             this, SLOT(measurementFinished()));
-    disconnect(_calibration, SIGNAL(finishedMeasurement()),
+    disconnect(_calibration, SIGNAL(error(QString)),
+               this, SLOT(displayError(QString)));
+    disconnect(_calibration, SIGNAL(measurementStatusUpdated()),
             this, SLOT(formatTree()));
+    disconnect(_calibration, SIGNAL(measurementStatusUpdated()),
+            this, SLOT(updateApplyButton()));
     return WizardPage::isReadyForBack();
 }
 
@@ -95,12 +104,20 @@ void MeasurePage::measurementStarted(const QString &caption, uint time_ms) {
 void MeasurePage::measurementFinished() {
     _progressBar->stop();
     wizard()->setEnabled();
-    if (_calibration->allMeasurementsFinished())
-        buttons()->next()->setEnabled(true);
+}
+void MeasurePage::displayError(const QString &message) {
+    qDebug() << "MeasurePage::dispayError";
+    QMessageBox::critical(this,
+                          "Measurement error",
+                          message);
 }
 
 void MeasurePage::formatTree() {
     ui->measureTree->expandAll();
     ui->measureTree->resizeColumnToContents(0);
     ui->measureTree->resizeColumnToContents(1);
+}
+void MeasurePage::updateApplyButton() {
+    if (_calibration->allMeasurementsFinished())
+        buttons()->next()->setEnabled(true);
 }

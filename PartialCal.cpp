@@ -143,15 +143,22 @@ uint PartialCal::channel() const {
     return _channel;
 }
 
-void PartialCal::measureShort(uint port) {
+bool PartialCal::measureShort(uint port) {
     if (isInterrupt()) {
         clearInterrupt();
-        return;
+        return false;
     }
+
+    _vna->isError();
+    _vna->clearStatus();
 
     QString caption = "%1 Short";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
+    if (!_calKit.calKit().shortLabel().trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().shortLabel().trimmed());
+    caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
+
     _cal.selectKit(_calKit.calKit().nameLabel());
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
@@ -162,14 +169,25 @@ void PartialCal::measureShort(uint port) {
     _cal.keepRawData();
     _cal.measureShort(port);
     _cal.apply();
-    _vna->isError();
     emit finishedMeasurement();
+
+    if (_vna->isError()) {
+        _vna->clearStatus();
+        return false;
+    }
+    else {
+        return true;
+    }
+
 }
-void PartialCal::measureOffsetShortA(uint port) {
+bool PartialCal::measureOffsetShortA(uint port) {
     if (isInterrupt()) {
         clearInterrupt();
-        return;
+        return false;
     }
+
+    _vna->isError();
+    _vna->clearStatus();
 
     QString caption = "%1 Offset Short %2";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
@@ -177,7 +195,11 @@ void PartialCal::measureOffsetShortA(uint port) {
         caption = caption.arg(1);
     else
         caption = caption.arg(2);
+    if (!_calKit.calKit().offsetShortALabel().trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortALabel().trimmed());
+    caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
+
     _cal.selectKit(_calKit.calKit().nameLabel());
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
@@ -191,14 +213,24 @@ void PartialCal::measureOffsetShortA(uint port) {
     else
         _cal.measureOffsetShort2(port);
     _cal.apply();
-    _vna->isError();
     emit finishedMeasurement();
+
+    if (_vna->isError()) {
+        _vna->clearStatus();
+        return false;
+    }
+    else {
+        return true;
+    }
 }
-void PartialCal::measureOffsetShortB(uint port) {
+bool PartialCal::measureOffsetShortB(uint port) {
     if (isInterrupt()) {
         clearInterrupt();
-        return;
+        return false;
     }
+
+    _vna->isError();
+    _vna->clearStatus();
 
     QString caption = "%1 Offset Short %2";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
@@ -206,7 +238,11 @@ void PartialCal::measureOffsetShortB(uint port) {
         caption = caption.arg(3);
     else
         caption = caption.arg(2);
+    if (!_calKit.calKit().offsetShortBLabel().trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortBLabel().trimmed());
+    caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
+
     _cal.selectKit(_calKit.calKit().nameLabel());
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
@@ -220,20 +256,34 @@ void PartialCal::measureOffsetShortB(uint port) {
     else
         _cal.measureOffsetShort2(port);
     _cal.apply();
-    _vna->isError();
     emit finishedMeasurement();
+
+    if (_vna->isError()) {
+        _vna->clearStatus();
+        return false;
+    }
+    else {
+        return true;
+    }
 }
-void PartialCal::measureThru(uint port1, uint port2) {
+bool PartialCal::measureThru(uint port1, uint port2) {
     if (isInterrupt()) {
         clearInterrupt();
-        return;
+        return false;
     }
 
-    QString caption = "%1 Thru %2 %3";
+    _vna->isError();
+    _vna->clearStatus();
+
+    QString caption = "%1 Thru";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
+    if (!_calKit.calKit().thruLabel().trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().thruLabel().trimmed());
+    caption += " Port %1-%2";
     caption = caption.arg(port1);
     caption = caption.arg(port2);
     emit startingMeasurement(caption, _sweepTime_ms);
+
     _cal.selectKit(_calKit.calKit().nameLabel());
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
@@ -244,8 +294,15 @@ void PartialCal::measureThru(uint port1, uint port2) {
     _cal.keepRawData();
     _cal.measureThru(port1, port2);
     _cal.apply();
-    _vna->isError();
     emit finishedMeasurement();
+
+    if (_vna->isError()) {
+        _vna->clearStatus();
+        return false;
+    }
+    else {
+        return true;
+    }
 }
 
 ComplexRowVector PartialCal::directivity(uint outputPort, uint inputPort) {
@@ -374,7 +431,11 @@ void PartialCal::_measureShort(uint port) {
 
     QString caption = "%1 Short";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
+    if (!_calKit.calKit().shortLabel().trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().shortLabel().trimmed());
+    caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
+
     _cal.measureShort(port);
     _vna->isError();
     emit finishedMeasurement();
@@ -391,7 +452,11 @@ void PartialCal::_measureOffsetShortA(uint port) {
         caption = caption.arg(1);
     else
         caption = caption.arg(2);
+    if (!_calKit.calKit().offsetShortALabel().trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortALabel().trimmed());
+    caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
+
     if (_calKit.calKit().isOffsetShort1())
         _cal.measureOffsetShort1(port);
     else
@@ -411,7 +476,11 @@ void PartialCal::_measureOffsetShortB(uint port) {
         caption = caption.arg(3);
     else
         caption = caption.arg(2);
+    if (!_calKit.calKit().offsetShortBLabel().trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortBLabel().trimmed());
+    caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
+
     if (_calKit.calKit().isOffsetShort3())
         _cal.measureOffsetShort3(port);
     else
@@ -425,11 +494,15 @@ void PartialCal::_measureThru(uint port1, uint port2) {
         return;
     }
 
-    QString caption = "%1 Thru %2 %3";
+    QString caption = "%1 Thru";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
+    if (!_calKit.calKit().thruLabel().trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().thruLabel().trimmed());
+    caption += " Port %1-%2";
     caption = caption.arg(port1);
     caption = caption.arg(port2);
     emit startingMeasurement(caption, _sweepTime_ms);
+
     _cal.measureThru(port1, port2);
     _vna->isError();
     emit finishedMeasurement();

@@ -60,6 +60,7 @@ signals:
 
     void startingMeasurement(const QString &caption, uint time_ms);
     void finishedMeasurement();
+    void measurementStatusUpdated();
 
     void error(const QString &message);
 
@@ -73,10 +74,10 @@ public slots:
 
     void interrupt();
 
-    void measureShort(uint port);
-    void measureOffsetShortA(uint kitIndex, uint port);
-    void measureOffsetShortB(uint kitIndex, uint port);
-    void measureThru(uint index);
+    bool measureShort(uint port);
+    bool measureOffsetShortA(uint kitIndex, uint port);
+    bool measureOffsetShortB(uint kitIndex, uint port);
+    bool measureThru(uint index);
 
     void applyCorrections();
 

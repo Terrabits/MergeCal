@@ -101,27 +101,69 @@ bool Calibration::isPortFullyMeasured(uint port) const {
 bool Calibration::isShortMeasured(uint port) const {
     return _isShortMeasured[_ports.indexOf(port)];
 }
-void Calibration::measureShort(uint port) {
+bool Calibration::measureShort(uint port) {
+    QString setName = _vna->activeSet();
+    _vna->saveActiveSet(setName);
+
     for (int i = 0; i < _partialCals.size(); i++) {
-        _partialCals[i].measureShort(port);
+        if (!_partialCals[i].measureShort(port)) {
+            _vna->closeActiveSet();
+            _vna->openSet(setName);
+            _vna->deleteSet(setName);
+            emit error("Error measuring short.\nPlease check your connections and try again.");
+            return false;
+        }
     }
+
+    _vna->deleteSet(setName);
+
     _isShortMeasured[_ports.indexOf(port)] = true;
+    emit measurementStatusUpdated();
+    return true;
 }
 
 bool Calibration::isOffsetShortAMeasured(uint kitIndex, uint port) const {
     return _isOffsetShortAMeasured[kitIndex][_ports.indexOf(port)];
 }
-void Calibration::measureOffsetShortA(uint kitIndex, uint port) {
-    _partialCals[kitIndex].measureOffsetShortA(port);
+bool Calibration::measureOffsetShortA(uint kitIndex, uint port) {
+    QString setName = _vna->activeSet();
+    _vna->saveActiveSet(setName);
+
+    if (!_partialCals[kitIndex].measureOffsetShortA(port)) {
+        _vna->closeActiveSet();
+        _vna->openSet(setName);
+        _vna->deleteSet(setName);
+        emit error("Error measuring offset short.\nPlease check your connections and try again.");
+        return false;
+    }
+
+    _vna->deleteSet(setName);
+
     _isOffsetShortAMeasured[kitIndex][_ports.indexOf(port)] = true;
+    emit measurementStatusUpdated();
+    return true;
 }
 
 bool Calibration::isOffsetShortBMeasured(uint kitIndex, uint port) const {
     return _isOffsetShortBMeasured[kitIndex][_ports.indexOf(port)];
 }
-void Calibration::measureOffsetShortB(uint kitIndex, uint port) {
-    _partialCals[kitIndex].measureOffsetShortB(port);
+bool Calibration::measureOffsetShortB(uint kitIndex, uint port) {
+    QString setName = _vna->activeSet();
+    _vna->saveActiveSet(setName);
+
+    if (!_partialCals[kitIndex].measureOffsetShortB(port)) {
+        _vna->closeActiveSet();
+        _vna->openSet(setName);
+        _vna->deleteSet(setName);
+        emit error("Error measuring offset short.\nPlease check your connections and try again.");
+        return false;
+    }
+
+    _vna->deleteSet(setName);
+
     _isOffsetShortBMeasured[kitIndex][_ports.indexOf(port)] = true;
+    emit measurementStatusUpdated();
+    return true;
 }
 
 bool Calibration::isAllThrusMeasured() const {
@@ -142,11 +184,25 @@ uint Calibration::numberOfThrus() const {
 Thru Calibration::thru(uint index) const {
     return _thrus[index];
 }
-void Calibration::measureThru(uint index) {
+bool Calibration::measureThru(uint index) {
+    QString setName = _vna->activeSet();
+    _vna->saveActiveSet(setName);
+
     for (int i = 0; i < _partialCals.size(); i++) {
-        _partialCals[i].measureThru(_thrus[index].port1, _thrus[index].port2);
+        if (!_partialCals[i].measureThru(_thrus[index].port1, _thrus[index].port2)) {
+            _vna->closeActiveSet();
+            _vna->openSet(setName);
+            _vna->deleteSet(setName);
+            emit error("Error measuring thru.\nPlease check your connections and try again.");
+            return false;
+        }
     }
+
+    _vna->deleteSet(setName);
+
     _thrus[index].isMeasured = true;
+    emit measurementStatusUpdated();
+    return true;
 }
 
 void Calibration::applyCorrections() {

@@ -32,10 +32,10 @@ public:
 
     uint channel() const;
 
-    void measureShort(uint port);
-    void measureOffsetShortA(uint port);
-    void measureOffsetShortB(uint port);
-    void measureThru(uint port1, uint port2);
+    bool measureShort(uint port);
+    bool measureOffsetShortA(uint port);
+    bool measureOffsetShortB(uint port);
+    bool measureThru(uint port1, uint port2);
 
     RsaToolbox::ComplexRowVector directivity(uint outputPort, uint inputPort);
     RsaToolbox::ComplexRowVector sourceMatch(uint outputPort, uint inputPort);

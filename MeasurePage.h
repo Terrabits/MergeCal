@@ -45,9 +45,11 @@ public:
 public slots:
     void measurementStarted(const QString &caption, uint time_ms);
     void measurementFinished();
+    void displayError(const QString &message);
 
 private slots:
     void formatTree();
+    void updateApplyButton();
 
 private:
     Ui::MeasurePage *ui;
