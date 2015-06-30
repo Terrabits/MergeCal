@@ -1,0 +1,15 @@
+********* Start testing of TestDoubleOffsetShortKit *********
+Config: Using QtTest library 5.2.1, Qt 5.2.1
+PASS   : TestDoubleOffsetShortKit::initTestCase()
+PASS   : TestDoubleOffsetShortKit::test1(Three Offset Shorts)
+PASS   : TestDoubleOffsetShortKit::test1(Offsets 1 and 2)
+PASS   : TestDoubleOffsetShortKit::test1(Offsets 1 and 3)
+PASS   : TestDoubleOffsetShortKit::test1(Offsets 2 and 3)
+PASS   : TestDoubleOffsetShortKit::test1(Wrong Gender)
+FAIL!  : TestDoubleOffsetShortKit::test1(Port Specific - two ports) Compared values are not the same
+   Actual   (doubleOffsetShortKit.isValid()): 0
+   Expected (isValid)                       : 1
+..\..\MergeCal\Test\TestDoubleOffsetShortKit.cpp(207) : failure location
+PASS   : TestDoubleOffsetShortKit::cleanupTestCase()
+Totals: 7 passed, 1 failed, 0 skipped
+********* Finished testing of TestDoubleOffsetShortKit *********

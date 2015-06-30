@@ -12,4 +12,7 @@ CONFIG   += console \
 		    testcase
 
 include(../core.pri)
-SOURCES += TestClass.cpp
+SOURCES += \
+    TestDoubleOffsetShortKit.cpp
+
+DEFINES     += SOURCE_DIR=\\\"$$PWD\\\"

@@ -1,0 +1,38 @@
+Test DoubleOffsetShortKit Version 0
+(C) 2014 Rohde & Schwarz America
+
+Tue Jun 30 00:02:56 2015
+
+VNA INSTRUMENT INFO
+Connection:       TCPIP
+Address:          127.0.0.1
+Make:             Rohde & Schwarz
+Model:            ZNB
+Serial No:        1311601044100104
+Firmware Version: 2.50
+Min Frequency:    9 KHz
+Max Frequency:    8.5 GHz
+Number of Ports:  4
+Options:          ZNB-K2
+                  ZNB-K4
+                  ZNB-K14
+                  ZNB-K17
+                  ZNB-K19
+                  ZNB8-B24
+                  ZNB8-B31
+                  ZNB8-B32
+                  ZNB8-B33
+                  ZNB8-B34
+                  ZNB-B81
+                  ZNB-B2
+                  ZN-B15
+
+
+Write:    "*RST"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
