@@ -2,6 +2,9 @@
 #define DOUBLEOFFSETSHORTKIT_H
 
 
+// Project
+#include "Ports.h"
+
 // RsaToolbox
 #include <Definitions.h>
 #include <NameLabel.h>
@@ -18,7 +21,7 @@ class DoubleOffsetShortKit
 public:
     DoubleOffsetShortKit();
     DoubleOffsetShortKit(const DoubleOffsetShortKit &other);
-    DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender, bool needThru);
+    DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender vnaGender, QVector<uint> ports);
 
     bool isValid() const;
 
@@ -36,10 +39,15 @@ public:
     QString displayFrequencyRange() const;
 
     // Labels
-    QString shortLabel() const;
-    QString offsetShortALabel() const;
-    QString offsetShortBLabel() const;
-    QString thruLabel() const;
+    QString shortLabel(uint port) const;
+    QStringList shortLabels() const;
+    QString offsetShortALabel(uint port) const;
+    QStringList offsetShortALabels() const;
+    QString offsetShortBLabel(uint port) const;
+    QStringList offsetShortBLabels() const;
+    QString thruLabel(const uint &index) const;
+    QString thruLabel(uint port1, uint port2) const;
+    QStringList thruLabels() const;
 
     void operator=(const DoubleOffsetShortKit &other);
     bool operator==(const DoubleOffsetShortKit &other);
@@ -52,11 +60,12 @@ private:
 
     RsaToolbox::NameLabel _nameLabel;
 
-    QString _shortLabel;
-    QString _offsetShort1Label;
-    QString _offsetShort2Label;
-    QString _offsetShort3Label;
-    QString _thruLabel;
+    QVector<uint> _ports;
+    QVector<QString> _shortLabels;
+    QVector<QString> _offsetShort1Labels;
+    QVector<QString> _offsetShort2Labels;
+    QVector<QString> _offsetShort3Labels;
+    mutable ThruValues _thruLabels;
 
     bool _isOShort1;
     bool _isOShort2;
@@ -65,7 +74,8 @@ private:
     double _minFreq_Hz;
     double _maxFreq_Hz;
 
-    bool getOffsetShortsAndValidate(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender, bool needThru);
+    void getOffsetShortsAndValidate(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender vnaPortGenders, QVector<uint> ports);
+    void compareFrequencyRange(const double &min_Hz, const double &max_Hz);
 };
 
 QDataStream& operator<<(QDataStream &stream, const DoubleOffsetShortKit &kit);

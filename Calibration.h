@@ -4,7 +4,7 @@
 
 // Project
 #include "FrequencyRange.h"
-#include "Thru.h"
+#include "Ports.h"
 #include "PartialCal.h"
 
 // RsaToolbox
@@ -45,12 +45,12 @@ public:
 
     uint numberOfKits() const;
     RsaToolbox::NameLabel kitNameLabel(uint index) const;
-    QString shortLabel() const;
+    QString shortLabel(uint port) const;
     QString offsetShortAName(uint kitIndex) const;
-    QString offsetShortALabel(uint kitIndex) const;
+    QString offsetShortALabel(uint kitIndex, uint port) const;
     QString offsetShortBName(uint kitIndex) const;
-    QString offsetShortBLabel(uint kitIndex) const;
-    QString thruLabel() const;
+    QString offsetShortBLabel(uint kitIndex, uint port) const;
+    QString thruLabel(uint index) const;
 
     bool allMeasurementsFinished() const;
 
@@ -87,9 +87,10 @@ private:
     QBitArray _isShortMeasured;
     QVector<QBitArray> _isOffsetShortAMeasured;
     QVector<QBitArray> _isOffsetShortBMeasured;
-    QVector<Thru> _thrus;
+    ThruValues _isThruMeasured;
 
     QVector<uint> _ports;
+    Thrus _thrus;
     RsaToolbox::Connector _connector;
     uint _channel;
     QVector<FrequencyRange> _kits;

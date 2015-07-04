@@ -22,10 +22,10 @@ HEADERS += Settings.h \
            FrequencyDelegate.h \
            FrequencyEditor.h \
            Calibration.h \
-           Thru.h \
            PartialCal.h \
            TimedProgressBar.h \
-           CalibrationModel.h
+           CalibrationModel.h \
+    Ports.h
 SOURCES += PortsPage.cpp \
            CalKitsPage.cpp \
            SetupPage.cpp \
@@ -40,10 +40,10 @@ SOURCES += PortsPage.cpp \
            FrequencyDelegate.cpp \
            FrequencyEditor.cpp \
            Calibration.cpp \
-           Thru.cpp \
            PartialCal.cpp \
            TimedProgressBar.cpp \
-           CalibrationModel.cpp
+           CalibrationModel.cpp \
+    Ports.cpp
 FORMS   += PortsPage.ui \
            CalKitsPage.ui \
            SetupPage.ui \

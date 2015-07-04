@@ -1,7 +1,7 @@
 Test DoubleOffsetShortKit Version 0
 (C) 2014 Rohde & Schwarz America
 
-Fri Jul 3 19:26:14 2015
+Fri Jul 3 19:26:20 2015
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -156,8 +156,8 @@ Write:    ":CORR:CKIT:LCAT? '7 mm'"
 Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
-Bytes: 58
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,,New Cal Kit,'"
+Bytes: 71
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
@@ -165,7 +165,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 182
+Bytes: 169
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? '2.92 mm'"
@@ -236,20 +236,28 @@ Write:    ":CORR:CKIT:LDEL 'New Cal Kit', ''"
 Bytes: 34
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FSH:WLAB '3.5 mm','New Cal Kit','','',0,1e+12,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 80
+Write:    ":CORR:CKIT:MSH:WLAB '7 mm','New Cal Kit','','',0,1e+12,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 78
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FOSHORT2:WLAB '3.5 mm','New Cal Kit','','',0,1e+12,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 85
+Write:    ":CORR:CKIT:MOSH:WLAB '7 mm','New Cal Kit','','',0,1e+12,0,0,50,0,0,0,0,0,0,0,0,0,1"
+Bytes: 83
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FOSHORT3:WLAB '3.5 mm','New Cal Kit','','',0,1e+12,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 85
+Write:    ":CORR:CKIT:MOSH:WLAB '7 mm','New Cal Kit','','',0,1e+12,0,0,50,0,0,0,0,0,0,0,0,0,2"
+Bytes: 83
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FFTH:WLAB '3.5 mm','New Cal Kit','','',0,1e+12,0,0,50"
-Bytes: 65
+Write:    ":CORR:CKIT:MOSHORT2:WLAB '7 mm','New Cal Kit','','',0,1e+12,0,0,50,0,0,0,0,0,0,0,0,0,1"
+Bytes: 87
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOSHORT2:WLAB '7 mm','New Cal Kit','','',0,1e+12,0,0,50,0,0,0,0,0,0,0,0,0,2"
+Bytes: 87
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB '7 mm','New Cal Kit','','',0,1e+12,0,0,50"
+Bytes: 63
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -376,8 +384,8 @@ Write:    ":CORR:CKIT:LCAT? '7 mm'"
 Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
-Bytes: 58
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,,New Cal Kit,'"
+Bytes: 71
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
@@ -385,7 +393,7 @@ Bytes: 26
 Status: 0x0 Operation completed successfully.
 
 Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 182
+Bytes: 169
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? '2.92 mm'"
@@ -576,16 +584,8 @@ Write:    ":CORR:CKIT:LCAT? '7 mm'"
 Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
-Bytes: 58
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 182
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,,New Cal Kit,'"
+Bytes: 71
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CONN:CAT?"
@@ -712,56 +712,32 @@ Write:    ":CORR:CKIT:LCAT? '7 mm'"
 Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
-Bytes: 58
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 182
+Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,,New Cal Kit,'"
+Bytes: 71
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:STAN:LCAT? 'New Cal Kit',''"
 Bytes: 39
 Status: 0x0 Operation completed successfully.
 
-Read:     "'FSH,FOSHORT2,FOSHORT3,FFTH'"
-Bytes: 29
+Read:     "'MSH,MOSHORT1(P1),MOSHORT1(P2),MOSHORT2(P1),MOSHORT2(P2),MMTH'"
+Bytes: 63
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:FSH:WLAB? '3.5 mm','New Cal Kit',''"
-Bytes: 47
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm','New Cal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 61
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:FOSHORT2:WLAB? '3.5 mm','New Cal Kit',''"
-Bytes: 52
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm','New Cal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 61
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:FOSHORT3:WLAB? '3.5 mm','New Cal Kit',''"
-Bytes: 52
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm','New Cal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 61
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:FFTH:WLAB? '3.5 mm','New Cal Kit',''"
-Bytes: 48
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm','New Cal Kit','','',0,1E+012,0,0,50"
+Write:    ":CORR:CKIT:MSH:WLAB? '7 mm','New Cal Kit',''"
 Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm','New Cal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 59
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB? '7 mm','New Cal Kit',''"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7 mm','New Cal Kit','','',0,1E+012,0,0,50"
+Bytes: 43
 Status: 0x0 Operation completed successfully.
 
 Write:    ":SYST:ERR?"

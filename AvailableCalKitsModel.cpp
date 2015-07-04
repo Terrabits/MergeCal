@@ -132,7 +132,7 @@ void AvailableCalKitsModel::initializeKits() {
     kits.clear();
     QVector<NameLabel> nameLabels = _vna->calKits(_connectorType);
     foreach (NameLabel nl, nameLabels) {
-        DoubleOffsetShortKit kit(_vna->calKit(nl), _connectorType.gender(), _needThru);
+        DoubleOffsetShortKit kit(_vna->calKit(nl), _connectorType.gender(), _ports);
         if (kit.isValid())
             kits << kit;
     }

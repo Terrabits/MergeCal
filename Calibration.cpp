@@ -36,15 +36,8 @@ void Calibration::initialize() {
     _isShortMeasured.fill(false, _ports.size());
     _isOffsetShortAMeasured.fill(QBitArray(_ports.size(), false), _kits.size());
     _isOffsetShortBMeasured.fill(QBitArray(_ports.size(), false), _kits.size());
-    _thrus.clear();
-    for (int i = 0; i < _ports.size(); i++) {
-        for (int j = i+1; j < _ports.size(); j++) {
-            Thru thru;
-            thru.port1 = _ports[i];
-            thru.port2 = _ports[j];
-            _thrus << thru;
-        }
-    }
+    _isThruMeasured.resize(_ports);
+    _isThruMeasured.fill(false);
 
     _partialCals.clear();
     foreach (FrequencyRange kit, _kits) {
@@ -176,7 +169,7 @@ bool Calibration::isAllThrusMeasured() const {
 }
 
 bool Calibration::isThruMeasured(uint index) const {
-    return _thrus[index].isMeasured;
+    return _isThruMeasured[index].toBool();
 }
 uint Calibration::numberOfThrus() const {
     return _thrus.size();
@@ -200,7 +193,7 @@ bool Calibration::measureThru(uint index) {
 
     _vna->deleteSet(setName);
 
-    _thrus[index].isMeasured = true;
+    _isThruMeasured[index] = true;
     emit measurementStatusUpdated();
     return true;
 }
@@ -274,10 +267,10 @@ uint Calibration::numberOfKits() const {
 NameLabel Calibration::kitNameLabel(uint index) const {
     return _kits[index].calKit().nameLabel();
 }
-QString Calibration::shortLabel() const {
+QString Calibration::shortLabel(uint port) const {
     for (int i = 0; i < _kits.size(); i++) {
-        if (!_kits[i].calKit().shortLabel().isEmpty())
-            return _kits[i].calKit().shortLabel();
+        if (!_kits[i].calKit().shortLabel(port).isEmpty())
+            return _kits[i].calKit().shortLabel(port);
     }
 
     return QString();
@@ -288,8 +281,8 @@ QString Calibration::offsetShortAName(uint kitIndex) const {
     else
         return "Offset Short 2";
 }
-QString Calibration::offsetShortALabel(uint kitIndex) const {
-    return _kits[kitIndex].calKit().offsetShortALabel();
+QString Calibration::offsetShortALabel(uint kitIndex, uint port) const {
+    return _kits[kitIndex].calKit().offsetShortALabel(port);
 }
 QString Calibration::offsetShortBName(uint kitIndex) const {
     if (_kits[kitIndex].calKit().isOffsetShort3())
@@ -297,13 +290,13 @@ QString Calibration::offsetShortBName(uint kitIndex) const {
     else
         return "Offset Short 2";
 }
-QString Calibration::offsetShortBLabel(uint kitIndex) const {
-    return _kits[kitIndex].calKit().offsetShortBLabel();
+QString Calibration::offsetShortBLabel(uint kitIndex, uint port) const {
+    return _kits[kitIndex].calKit().offsetShortBLabel(port);
 }
-QString Calibration::thruLabel() const {
+QString Calibration::thruLabel(uint index) const {
     for (int i = 0; i < _kits.size(); i++) {
-        if (!_kits[i].calKit().thruLabel().isEmpty())
-            return _kits[i].calKit().thruLabel();
+        if (!_kits[i].calKit().thruLabel(index).isEmpty())
+            return _kits[i].calKit().thruLabel(index);
     }
 
     return QString();
@@ -323,6 +316,7 @@ bool Calibration::allMeasurementsFinished() const {
 
 void Calibration::setPorts(const QVector<uint> &ports) {
     _ports = ports;
+    _thrus = thrus(_ports);
 }
 void Calibration::setConnector(const Connector &connector) {
     _connector = connector;

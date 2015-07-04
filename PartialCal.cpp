@@ -154,8 +154,8 @@ bool PartialCal::measureShort(uint port) {
 
     QString caption = "%1 Short";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
-    if (!_calKit.calKit().shortLabel().trimmed().isEmpty())
-        caption += QString(" (%1)").arg(_calKit.calKit().shortLabel().trimmed());
+    if (!_calKit.calKit().shortLabel(port).trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().shortLabel(port).trimmed());
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
@@ -195,8 +195,8 @@ bool PartialCal::measureOffsetShortA(uint port) {
         caption = caption.arg(1);
     else
         caption = caption.arg(2);
-    if (!_calKit.calKit().offsetShortALabel().trimmed().isEmpty())
-        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortALabel().trimmed());
+    if (!_calKit.calKit().offsetShortALabel(port).trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortALabel(port).trimmed());
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
@@ -238,8 +238,8 @@ bool PartialCal::measureOffsetShortB(uint port) {
         caption = caption.arg(3);
     else
         caption = caption.arg(2);
-    if (!_calKit.calKit().offsetShortBLabel().trimmed().isEmpty())
-        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortBLabel().trimmed());
+    if (!_calKit.calKit().offsetShortBLabel(port).trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortBLabel(port).trimmed());
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
@@ -277,8 +277,8 @@ bool PartialCal::measureThru(uint port1, uint port2) {
 
     QString caption = "%1 Thru";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
-    if (!_calKit.calKit().thruLabel().trimmed().isEmpty())
-        caption += QString(" (%1)").arg(_calKit.calKit().thruLabel().trimmed());
+    if (!_calKit.calKit().thruLabel(port1, port2).trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().thruLabel(port1, port2).trimmed());
     caption += " Port %1-%2";
     caption = caption.arg(port1);
     caption = caption.arg(port2);
@@ -431,8 +431,8 @@ void PartialCal::_measureShort(uint port) {
 
     QString caption = "%1 Short";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
-    if (!_calKit.calKit().shortLabel().trimmed().isEmpty())
-        caption += QString(" (%1)").arg(_calKit.calKit().shortLabel().trimmed());
+    if (!_calKit.calKit().shortLabel(port).trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().shortLabel(port).trimmed());
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
@@ -452,8 +452,8 @@ void PartialCal::_measureOffsetShortA(uint port) {
         caption = caption.arg(1);
     else
         caption = caption.arg(2);
-    if (!_calKit.calKit().offsetShortALabel().trimmed().isEmpty())
-        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortALabel().trimmed());
+    if (!_calKit.calKit().offsetShortALabel(port).trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortALabel(port).trimmed());
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
@@ -476,8 +476,8 @@ void PartialCal::_measureOffsetShortB(uint port) {
         caption = caption.arg(3);
     else
         caption = caption.arg(2);
-    if (!_calKit.calKit().offsetShortBLabel().trimmed().isEmpty())
-        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortBLabel().trimmed());
+    if (!_calKit.calKit().offsetShortBLabel(port).trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().offsetShortBLabel(port).trimmed());
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
@@ -496,8 +496,8 @@ void PartialCal::_measureThru(uint port1, uint port2) {
 
     QString caption = "%1 Thru";
     caption = caption.arg(_calKit.calKit().nameLabel().displayText());
-    if (!_calKit.calKit().thruLabel().trimmed().isEmpty())
-        caption += QString(" (%1)").arg(_calKit.calKit().thruLabel().trimmed());
+    if (!_calKit.calKit().thruLabel(port1, port2).trimmed().isEmpty())
+        caption += QString(" (%1)").arg(_calKit.calKit().thruLabel(port1, port2).trimmed());
     caption += " Port %1-%2";
     caption = caption.arg(port1);
     caption = caption.arg(port2);

@@ -2,10 +2,12 @@
 
 
 // RsaToolbox
+#include <Definitions.h>
 #include <General.h>
 using namespace RsaToolbox;
 
 // Qt
+#include <QBitArray>
 #include <QDebug>
 
 
@@ -15,42 +17,37 @@ DoubleOffsetShortKit::DoubleOffsetShortKit() :
     _isOShort2(false),
     _isOShort3(false),
     _minFreq_Hz(0),
-    _maxFreq_Hz(1.0E12)
+    _maxFreq_Hz(RsaToolbox::DBL_INF)
 {
 }
 
-DoubleOffsetShortKit::DoubleOffsetShortKit(const DoubleOffsetShortKit &other) {
-    _isValid = other._isValid;
+DoubleOffsetShortKit::DoubleOffsetShortKit(const DoubleOffsetShortKit &other) :
+    _isValid(other._isValid),
+    _nameLabel(other._nameLabel),
+    _shortLabels(other._shortLabels),
+    _offsetShort1Labels(other._offsetShort1Labels),
+    _offsetShort2Labels(other._offsetShort2Labels),
+    _offsetShort3Labels(other._offsetShort3Labels),
+    _thruLabels(other._thruLabels),
+    _isOShort1(other._isOShort1),
+    _isOShort2(other._isOShort2),
+    _isOShort3(other._isOShort3),
+    _minFreq_Hz(other._minFreq_Hz),
+    _maxFreq_Hz(other._maxFreq_Hz)
+{
 
-    _nameLabel = other._nameLabel;
-
-    _shortLabel = other._shortLabel;
-    _offsetShort1Label = other._offsetShort1Label;
-    _offsetShort2Label = other._offsetShort2Label;
-    _offsetShort3Label = other._offsetShort3Label;
-    _thruLabel = other._thruLabel;
-
-    _isOShort1 = other._isOShort1;
-    _isOShort2 = other._isOShort2;
-    _isOShort3 = other._isOShort3;
-
-    _minFreq_Hz = other._minFreq_Hz;
-    _maxFreq_Hz = other._maxFreq_Hz;
 }
 
-DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender gender, bool needThru) :
+DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender vnaGender, QVector<uint> ports) :
     _isValid(false),
     _isOShort1(false),
     _isOShort2(false),
     _isOShort3(false),
     _minFreq_Hz(0),
-    _maxFreq_Hz(1.0E12)
+    _maxFreq_Hz(DBL_INF)
 {
     _nameLabel = calKit.nameLabel();
-//    _connector = calKit.connectorType();
-    if (getOffsetShortsAndValidate(calKit, gender, needThru)) {
-        _isValid = true;
-    }
+    getOffsetShortsAndValidate(calKit, vnaGender, ports);
 }
 
 bool DoubleOffsetShortKit::isValid() const {
@@ -91,23 +88,50 @@ QString DoubleOffsetShortKit::displayFrequencyRange() const {
     return text;
 }
 
-QString DoubleOffsetShortKit::shortLabel() const {
-    return _shortLabel;
+QString DoubleOffsetShortKit::shortLabel(uint port) const {
+    const int i = _ports.indexOf(port);
+    return _shortLabels[i];
 }
-QString DoubleOffsetShortKit::offsetShortALabel() const {
+QStringList DoubleOffsetShortKit::shortLabels() const {
+    return _shortLabels.toList();
+}
+QString DoubleOffsetShortKit::offsetShortALabel(uint port) const {
+    const int i = _ports.indexOf(port);
     if (isOffsetShort1())
-        return _offsetShort1Label;
+        return _offsetShort1Labels[i];
     else
-        return _offsetShort2Label;
+        return _offsetShort2Labels[i];
 }
-QString DoubleOffsetShortKit::offsetShortBLabel() const {
+QStringList DoubleOffsetShortKit::offsetShortALabels() const {
+    if (isOffsetShort1())
+        return _offsetShort1Labels.toList();
+    else
+        return _offsetShort2Labels.toList();
+}
+QString DoubleOffsetShortKit::offsetShortBLabel(uint port) const {
+    const int i = _ports.indexOf(port);
     if (isOffsetShort3())
-        return _offsetShort3Label;
+        return _offsetShort3Labels[i];
     else
-        return _offsetShort2Label;
+        return _offsetShort2Labels[i];
 }
-QString DoubleOffsetShortKit::thruLabel() const {
-    return _thruLabel;
+QStringList DoubleOffsetShortKit::offsetShortBLabels() const {
+    if (isOffsetShort3())
+        return _offsetShort3Labels.toList();
+    else
+        return _offsetShort2Labels.toList();
+}
+QString DoubleOffsetShortKit::thruLabel(const uint &index) const {
+    return _thruLabels.value(index).toString();
+}
+QString DoubleOffsetShortKit::thruLabel(uint port1, uint port2) const {
+    return _thruLabels.value(port1, port2).toString();
+}
+QStringList DoubleOffsetShortKit::thruLabels() const {
+    QStringList list;
+    for (int i = 0; i < _thruLabels.size(); i++)
+        list << _thruLabels[i].toString();
+    return list;
 }
 
 void DoubleOffsetShortKit::operator=(const DoubleOffsetShortKit &other) {
@@ -115,11 +139,11 @@ void DoubleOffsetShortKit::operator=(const DoubleOffsetShortKit &other) {
 
     _nameLabel = other._nameLabel;
 
-    _shortLabel = other._shortLabel;
-    _offsetShort1Label = other._offsetShort1Label;
-    _offsetShort2Label = other._offsetShort2Label;
-    _offsetShort3Label = other._offsetShort3Label;
-    _thruLabel = other._thruLabel;
+    _shortLabels = other._shortLabels;
+    _offsetShort1Labels = other._offsetShort1Labels;
+    _offsetShort2Labels = other._offsetShort2Labels;
+    _offsetShort3Labels = other._offsetShort3Labels;
+    _thruLabels = other._thruLabels;
 
     _isOShort1 = other._isOShort1;
     _isOShort2 = other._isOShort2;
@@ -161,11 +185,11 @@ void DoubleOffsetShortKit::read(QDataStream &stream) {
 
     stream >> _nameLabel;
 
-    stream >> _shortLabel;
-    stream >> _offsetShort1Label;
-    stream >> _offsetShort2Label;
-    stream >> _offsetShort3Label;
-    stream >> _thruLabel;
+    stream >> _shortLabels;
+    stream >> _offsetShort1Labels;
+    stream >> _offsetShort2Labels;
+    stream >> _offsetShort3Labels;
+    stream >> _thruLabels;
 
     stream >> _isOShort1;
     stream >> _isOShort2;
@@ -179,11 +203,11 @@ void DoubleOffsetShortKit::write(QDataStream &stream) const {
 
     stream << _nameLabel;
 
-    stream << _shortLabel;
-    stream << _offsetShort1Label;
-    stream << _offsetShort2Label;
-    stream << _offsetShort3Label;
-    stream << _thruLabel;
+    stream << _shortLabels;
+    stream << _offsetShort1Labels;
+    stream << _offsetShort2Labels;
+    stream << _offsetShort3Labels;
+    stream << _thruLabels;
 
     stream << _isOShort1;
     stream << _isOShort2;
@@ -193,100 +217,185 @@ void DoubleOffsetShortKit::write(QDataStream &stream) const {
     stream << _maxFreq_Hz;
 }
 
-bool DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connector::Gender gender, bool needThru) {
+void DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connector::Gender vnaPortGenders, QVector<uint> ports) {
+    if (ports.isEmpty()) {
+        _isValid = false;
+        return;
+    }
     QVector<VnaCalStandard> standards = calKit.standards();
+    if (standards.isEmpty()) {
+        _isValid = false;
+        return;
+    }
 
-    bool isShort = false;
-    bool isThru = false;
-    VnaCalStandard os1, os2, os3;
 
-    if (gender == Connector::Gender::Neutral) {
-        foreach (VnaCalStandard s, standards) {
-            if (s.isShort()) {
-                _shortLabel = s.label();
-                isShort = true;
+    QBitArray isShort(ports.size(), false);
+    _shortLabels.clear();
+    _shortLabels.resize(ports.size());
+
+    QBitArray isOffsetShort1(ports.size(), false);
+    _offsetShort1Labels.clear();
+    _offsetShort1Labels.resize(ports.size());
+
+    QBitArray isOffsetShort2(ports.size(), false);
+    _offsetShort2Labels.clear();
+    _offsetShort2Labels.resize(ports.size());
+
+    QBitArray isOffsetShort3(ports.size(), false);
+    _offsetShort3Labels.clear();
+    _offsetShort3Labels.resize(ports.size());
+
+    const bool needThru = ports.size() > 1;
+    ThruValues isThru(ports, false);
+    _thruLabels.clear();
+    _thruLabels.resize(ports);
+
+    foreach(VnaCalStandard s, standards) {
+        qDebug() << "Comparing standard with label " << s.label();
+        if (s.isSinglePort()) {
+            if (s.isPortSpecific()) {
+                if (ports.contains(s.port())) {
+                    const int i = ports.indexOf(s.port());
+                    if (s.isShort()) {
+                        isShort[i] = true;
+                        _shortLabels[i] = s.label();
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isOffsetShort1()) {
+                        isOffsetShort1[i] = true;
+                        _offsetShort1Labels[i] = s.label();
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isOffsetShort2()) {
+                        isOffsetShort2[i] = true;
+                        _offsetShort2Labels[i] = s.label();
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isOffsetShort3()) {
+                        isOffsetShort3[i] = true;
+                        _offsetShort3Labels[i] = s.label();
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                }
             }
-            if (s.isThru()) {
-                _thruLabel = s.label();
-                isThru = true;
+            else {
+                if (vnaPortGenders == Connector::Gender::Neutral) {
+                    if (s.isShort()) {
+                        isShort.fill(true);
+                        _shortLabels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isOffsetShort1()) {
+                        isOffsetShort1.fill(true);
+                        _offsetShort1Labels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isOffsetShort2()) {
+                        isOffsetShort2.fill(true);
+                        _offsetShort2Labels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isOffsetShort3()) {
+                        isOffsetShort3.fill(true);
+                        _offsetShort3Labels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                }
+                else if (vnaPortGenders == Connector::Gender::Male) {
+                    // Need female port
+                    if (s.isFemaleShort()) {
+                        isShort.fill(true);
+                        _shortLabels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isFemaleOffsetShort1()) {
+                        isOffsetShort1.fill(true);
+                        _offsetShort1Labels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isFemaleOffsetShort2()) {
+                        isOffsetShort2.fill(true);
+                        _offsetShort2Labels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isFemaleOffsetShort3()) {
+                        isOffsetShort3.fill(true);
+                        _offsetShort3Labels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                }
+                else {
+                    // Need male port
+                    if (s.isMaleShort()) {
+                        isShort.fill(true);
+                        _shortLabels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isMaleOffsetShort1()) {
+                        isOffsetShort1.fill(true);
+                        _offsetShort1Labels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isMaleOffsetShort2()) {
+                        isOffsetShort2.fill(true);
+                        _offsetShort2Labels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                    else if (s.isMaleOffsetShort3()) {
+                        isOffsetShort3.fill(true);
+                        _offsetShort3Labels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                }
             }
-            if (s.isOffsetShort1()) {
-                _offsetShort1Label = s.label();
-                _isOShort1 = true;
-                os1 = s;
+        }
+        else if (needThru) {
+            if (s.isPortSpecific()) {
+                if (isThru.contains(s.port1(), s.port2())) {
+                    isThru.value(s.port1(), s.port2()) = true;
+                    _thruLabels.value(s.port1(), s.port2()) = s.label();
+                    compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                }
             }
-            if (s.isOffsetShort2()) {
-                _offsetShort2Label = s.label();
-                _isOShort2 = true;
-                os2 = s;
-            }
-            if (s.isOffsetShort3()) {
-                _offsetShort3Label = s.label();
-                _isOShort3 = true;
-                os3 = s;
+            else {
+                if (vnaPortGenders == Connector::Gender::Neutral) {
+                    // Gender neutral connectors
+                    if (s.isThru()) {
+                        isThru.fill(true);
+                        _thruLabels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                }
+                else if (vnaPortGenders == Connector::Gender::Male) {
+                    // Need female ports
+                    if (s.isThruFF()) {
+                        isThru.fill(true);
+                        _thruLabels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                }
+                else {
+                    // Need male ports
+                    if (s.isThruMM()) {
+                        isThru.fill(true);
+                        _thruLabels.fill(s.label());
+                        compareFrequencyRange(s.minimumFrequency_Hz(), s.maximumFrequency_Hz());
+                    }
+                }
             }
         }
     }
-    else if (gender == Connector::Gender::Female) {
-        foreach (VnaCalStandard s, standards) {
-            if (s.isMaleShort()) {
-                _shortLabel = s.label();
-                isShort = true;
-            }
-            if (s.isThruMM()) {
-                _thruLabel = s.label();
-                isThru = true;
-            }
-            if (s.isMaleOffsetShort1()) {
-                _offsetShort1Label = s.label();
-                _isOShort1 = true;
-                os1 = s;
-            }
-            if (s.isMaleOffsetShort2()) {
-                _offsetShort2Label = s.label();
-                _isOShort2 = true;
-                os2 = s;
-            }
-            if (s.isMaleOffsetShort3()) {
-                _offsetShort3Label = s.label();
-                _isOShort3 = true;
-                os3 = s;
-            }
-        }
-    }
-    else {
-        foreach (VnaCalStandard s, standards) {
-            if (s.isFemaleShort()) {
-                _shortLabel = s.label();
-                isShort = true;
-            }
-            if (s.isThruFF()) {
-                _thruLabel = s.label();
-                isThru = true;
-            }
-            if (s.isFemaleOffsetShort1()) {
-                _offsetShort1Label = s.label();
-                _isOShort1 = true;
-                os1 = s;
-            }
-            if (s.isFemaleOffsetShort2()) {
-                _offsetShort2Label = s.label();
-                _isOShort2 = true;
-                os2 = s;
-            }
-            if (s.isFemaleOffsetShort3()) {
-                _offsetShort3Label = s.label();
-                _isOShort3 = true;
-                os3 = s;
-            }
-        }
+
+    // Shorts?
+    if (isShort.count(false) != 0) {
+        _isValid = false;
+        return;
     }
 
-    if (!isShort)
-        return false;
-    if (needThru && !isThru)
-        return false;
-
+    // Offset shorts?
+    _isOShort1 = isOffsetShort1.count(false) == 0;
+    _isOShort2 = isOffsetShort2.count(false) == 0;
+    _isOShort3 = isOffsetShort3.count(false) == 0;
     uint numOShorts = 0;
     if (_isOShort1)
         numOShorts++;
@@ -294,29 +403,31 @@ bool DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connect
         numOShorts++;
     if (_isOShort3)
         numOShorts++;
-
-    if (numOShorts != 2)
-        return false;
-
-    if (_isOShort1) {
-        _minFreq_Hz = os1.minimumFrequency_Hz();
-        _maxFreq_Hz = os1.maximumFrequency_Hz();
-    }
-    else {
-        _minFreq_Hz = os2.minimumFrequency_Hz();
-        _maxFreq_Hz = os2.maximumFrequency_Hz();
+    if (numOShorts != 2) {
+        _isValid = false;
+        return;
     }
 
-    if (_isOShort3) {
-        _minFreq_Hz = std::max(_minFreq_Hz, os3.minimumFrequency_Hz());
-        _maxFreq_Hz = std::min(_maxFreq_Hz, os3.maximumFrequency_Hz());
-    }
-    else {
-        _minFreq_Hz = std::max(_minFreq_Hz, os2.minimumFrequency_Hz());
-        _maxFreq_Hz = std::min(_maxFreq_Hz, os2.maximumFrequency_Hz());
+    // Thrus?
+    if (needThru && !isThru.areAllValues(true)) {
+        _isValid = false;
+        return;
     }
 
-    return true;
+    // Valid frequency ranges?
+    if (_minFreq_Hz >= _maxFreq_Hz) {
+        _isValid = false;
+        return;
+    }
+
+    // Valid
+    _isValid = true;
+}
+void DoubleOffsetShortKit::compareFrequencyRange(const double &min_Hz, const double &max_Hz) {
+    if (_minFreq_Hz < min_Hz)
+        _minFreq_Hz = min_Hz;
+    if (_maxFreq_Hz > max_Hz)
+        _maxFreq_Hz = max_Hz;
 }
 
 QDataStream& operator<<(QDataStream &stream, const DoubleOffsetShortKit &kit) {

@@ -1,7 +1,7 @@
 Test DoubleOffsetShortKit Version 0
 (C) 2014 Rohde & Schwarz America
 
-Fri Jul 3 19:26:13 2015
+Fri Jul 3 19:26:22 2015
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
@@ -27,26 +27,6 @@ Options:          ZNB-K2
                   ZNB-B2
                   ZN-B15
 
-
-Write:    "*RST"
-Bytes: 5
-Status: 0x0 Operation completed successfully.
-
-Write:    "*IDN?"
-Bytes: 6
-Status: 0x0 Operation completed successfully.
-
-Read:     "Rohde-Schwarz,ZNB8-4Port,1311601044100104,2.50"
-Bytes: 47
-Status: 0x0 Operation completed successfully.
-
-Write:    ":INST:TPORT:COUN?"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "24"
-Bytes: 3
-Status: 0x0 Operation completed successfully.
 
 Write:    "*CLS"
 Bytes: 5

@@ -1,7 +1,7 @@
 Test DoubleOffsetShortKit Version 0
 (C) 2014 Rohde & Schwarz America
 
-Fri Jul 3 19:26:13 2015
+Fri Jul 3 19:26:18 2015
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
