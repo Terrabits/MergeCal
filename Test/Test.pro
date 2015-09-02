@@ -5,14 +5,13 @@
 #-------------------------------------------------
 
 QT       += core testlib
-TEMPLATE = app
-TARGET = Test
+TEMPLATE  = app
+TARGET    = Test
 CONFIG   -= app_bundle
 CONFIG   += console \
-		    testcase
+            testcase
 
 include(../core.pri)
-SOURCES += \
-    TestDoubleOffsetShortKit.cpp
+SOURCES += TestDoubleOffsetShortKit.cpp
 
-DEFINES     += SOURCE_DIR=\\\"$$PWD\\\"
+DEFINES += SOURCE_DIR=\\\"$$PWD\\\"

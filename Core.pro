@@ -25,7 +25,7 @@ HEADERS += Settings.h \
            PartialCal.h \
            TimedProgressBar.h \
            CalibrationModel.h \
-    Ports.h
+           Ports.h
 SOURCES += PortsPage.cpp \
            CalKitsPage.cpp \
            SetupPage.cpp \
@@ -43,7 +43,7 @@ SOURCES += PortsPage.cpp \
            PartialCal.cpp \
            TimedProgressBar.cpp \
            CalibrationModel.cpp \
-    Ports.cpp
+           Ports.cpp
 FORMS   += PortsPage.ui \
            CalKitsPage.ui \
            SetupPage.ui \
