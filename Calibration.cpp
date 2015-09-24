@@ -198,8 +198,18 @@ bool Calibration::measureThru(uint index) {
     return true;
 }
 
-void Calibration::applyCorrections() {
+bool Calibration::applyCorrections() {
     qDebug() << "applyCorrections";
+
+    // Apply calibration in each channel
+    for (int i = 0; i < _partialCals.size(); i++) {
+        if (!_partialCals[i].apply()) {
+            emit error("Error calculating corrections. Please try again.");
+            return false;
+        }
+    }
+
+
     VnaChannel channel = _vna->channel(_channel);
     channel.calibrate().setConnectors(_connector);
     if (_ports.size() > 1)
@@ -259,6 +269,9 @@ void Calibration::applyCorrections() {
             }
         }
     }
+
+    _vna->multiChannelCalibrationOff();
+    return true;
 }
 
 uint Calibration::numberOfKits() const {

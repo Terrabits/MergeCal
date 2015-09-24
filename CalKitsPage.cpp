@@ -51,6 +51,7 @@ void CalKitsPage::initialize() {
         _header->setPixmap(QPixmap(":/images/Images/2 Cal Kits.bmp"));
 }
 bool CalKitsPage::isReadyForNext() {
+    qDebug() << "CalKitsPage::isReadyForNext";
     if (_chosenCalKitsModel.calKits().isEmpty()) {
         ui->availableKits->selectRow(0);
         ui->addKit->setFocus();
@@ -58,6 +59,7 @@ bool CalKitsPage::isReadyForNext() {
         return false;
     }
     for (int i = 0; i < _chosenCalKitsModel.calKits().size(); i++) {
+        qDebug() << "Cal Kit " << i;
         if (!_chosenCalKitsModel.calKits()[i].isStartFrequency()) {
             ui->chosenKits->edit(_chosenCalKitsModel.index(i, ChosenCalKitsModel::START_COLUMN));
             ui->error->showMessage("*Enter a start frequency");
@@ -99,6 +101,7 @@ bool CalKitsPage::isReadyForNext() {
             return false;
         }
 
+        qDebug() << "  Dividing up frequency points...";
         QRowVector frequencies = _vna->channel(_channel).linearSweep().frequencies_Hz();
         if (!isFrequencyPoint(frequencies,
                              _chosenCalKitsModel.calKits()[i].isStartFrequencyInclusive(),
@@ -115,8 +118,22 @@ bool CalKitsPage::isReadyForNext() {
         }
     }
 
+    qDebug() << "Saving keys...";
     saveKeys();
+
+    qDebug() << "Emitting chosen cal kits...";
     emit calKitsSelected(_chosenCalKitsModel.calKits());
+
+    // Initialize calibration
+    qDebug() << "CalKitsPage is running calibration initialization steps...";
+    _calibration->setVna(_vna);
+    _calibration->setPorts(_ports);
+    _calibration->setConnector(_connectorType);
+    _calibration->setChannel(_channel);
+    _calibration->setCalKits(_chosenCalKitsModel.calKits());
+    _calibration->initialize();
+
+    qDebug() << "CalKitsPage::isReadyForNext returning true";
     return true;
 }
 
@@ -152,6 +169,9 @@ void CalKitsPage::setVna(Vna *vna) {
 void CalKitsPage::setKeys(Keys *keys) {
     _keys = keys;
     loadKeys();
+}
+void CalKitsPage::setCalibration(Calibration *calibration) {
+    _calibration = calibration;
 }
 
 Connector CalKitsPage::connectorType() const {

@@ -36,31 +36,39 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    qDebug() << "About menu?";
     if (isAboutMenu(argc, argv))
                 return 0;
 
+    qDebug() << "Init log file";
     Log log(LOG_FILENAME, APP_NAME, APP_VERSION);
     log.printHeader();
 
+    qDebug() << "Init vna";
     Vna vna(CONNECTION_TYPE, INSTRUMENT_ADDRESS);
     vna.useLog(&log);
     vna.printInfo();
 
+    qDebug() << "Init keys";
     Keys keys(KEY_PATH);
 
+    qDebug() << "Is connected, known model?";
     if (isNoConnection(vna) || isUnknownModel(vna))
         return 0;
     if (vna.sets().isEmpty()) {
         vna.preset();
         vna.pause();
     }
+    qDebug() << "Is switch matrix?";
     if (isSwitchMatrix(vna))
         return 0;
 
+    qDebug() << "Check for preexisting vna errors";
     vna.print("Previous session errors?\n\n");
     vna.isError();
     vna.print("/Previous session errors\n\n");
 
+    qDebug() << "init wizard";
     Wizard wizard;
     wizard.setWindowTitle(APP_NAME);
     wizard.setGeometry(0,0,625,500);
@@ -77,6 +85,7 @@ int main(int argc, char *argv[])
     TimedProgressBar *progressBar = new TimedProgressBar;
     layout->insertWidget(-1, progressBar);
 
+    qDebug() << "init PortsPage";
     PortsPage *portsPage = new PortsPage;
     portsPage->setName("Ports");
     portsPage->setNextIndex(1);
@@ -85,12 +94,20 @@ int main(int argc, char *argv[])
     portsPage->setKeys(&keys);
     wizard.addPage(portsPage);
 
+    qDebug() << "Init measureThread";
+    QThread measureThread;
+    Calibration calibration;
+    calibration.moveToThread(&measureThread);
+    measureThread.start();
+
+    qDebug() << "Init CalKitsPage";
     CalKitsPage *calKitsPage = new CalKitsPage;
     calKitsPage->setName("Cal Kits");
     calKitsPage->setHeaderLabel(label);
     calKitsPage->setNextIndex(2);
     calKitsPage->setVna(&vna);
     calKitsPage->setKeys(&keys);
+    calKitsPage->setCalibration(&calibration);
     QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
                      calKitsPage, SLOT(setPorts(QVector<uint>)));
     QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
@@ -99,30 +116,27 @@ int main(int argc, char *argv[])
                      calKitsPage, SLOT(setChannel(uint)));
     wizard.addPage(calKitsPage);
 
-    QThread measureThread;
-    Calibration calibration;
-    calibration.moveToThread(&measureThread);
-    measureThread.start();
+//    qDebug() << "Init SetupPage";
+//    SetupPage *setupPage = new SetupPage;
+//    setupPage->setName("Setup");
+//    setupPage->setHeaderLabel(label);
+//    setupPage->setProgressBar(progressBar);
+//    setupPage->setNextIndex(3);
+//    setupPage->setVna(&vna);
+//    setupPage->setCalibration(&measureThread, &calibration);
+//    QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
+//                     setupPage, SLOT(setPorts(QVector<uint>)));
+//    QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
+//                     setupPage, SLOT(setConnector(RsaToolbox::Connector)));
+//    QObject::connect(portsPage, SIGNAL(channelSelected(uint)),
+//                     setupPage, SLOT(setChannel(uint)));
+//    QObject::connect(calKitsPage, SIGNAL(calKitsSelected(QVector<FrequencyRange>)),
+//                     setupPage, SLOT(setCalKits(QVector<FrequencyRange>)));
+//    QObject::connect(setupPage, SIGNAL(setupAborted(QString)),
+//                     calKitsPage, SLOT(displayError(QString)));
+//    wizard.addPage(setupPage);
 
-    SetupPage *setupPage = new SetupPage;
-    setupPage->setName("Setup");
-    setupPage->setHeaderLabel(label);
-    setupPage->setProgressBar(progressBar);
-    setupPage->setNextIndex(3);
-    setupPage->setVna(&vna);
-    setupPage->setCalibration(&measureThread, &calibration);
-    QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
-                     setupPage, SLOT(setPorts(QVector<uint>)));
-    QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
-                     setupPage, SLOT(setConnector(RsaToolbox::Connector)));
-    QObject::connect(portsPage, SIGNAL(channelSelected(uint)),
-                     setupPage, SLOT(setChannel(uint)));
-    QObject::connect(calKitsPage, SIGNAL(calKitsSelected(QVector<FrequencyRange>)),
-                     setupPage, SLOT(setCalKits(QVector<FrequencyRange>)));
-    QObject::connect(setupPage, SIGNAL(setupAborted(QString)),
-                     calKitsPage, SLOT(displayError(QString)));
-    wizard.addPage(setupPage);
-
+    qDebug() << "Init MeasurePage";
     MeasurePage *measurePage = new MeasurePage;
     measurePage->setName("Measure");
     measurePage->setHeaderLabel(label);
@@ -132,8 +146,10 @@ int main(int argc, char *argv[])
     measurePage->setCalibration(&measureThread, &calibration);
     wizard.addPage(measurePage);
 
+    qDebug() << "Show wizard";
     wizard.show();
 
+    qDebug() << "Start application";
     int result = a.exec();
     measureThread.quit();
     measureThread.wait();

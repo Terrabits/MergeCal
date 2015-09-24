@@ -1,31 +1,37 @@
 Test DoubleOffsetShortKit Version 0
-(C) 2014 Rohde & Schwarz America
+(C) 2015 Rohde & Schwarz North America
 
-Fri Jul 3 19:26:13 2015
+Wed Sep 23 19:31:17 2015
 
 VNA INSTRUMENT INFO
 Connection:       TCPIP
 Address:          127.0.0.1
 Make:             Rohde & Schwarz
-Model:            ZNB
-Serial No:        1311601044100104
-Firmware Version: 2.50
-Min Frequency:    9 KHz
-Max Frequency:    8.5 GHz
+Model:            ZVA
+Serial No:        1145101099999999
+Firmware Version: 3.50
+Min Frequency:    300 KHz
+Max Frequency:    8 GHz
 Number of Ports:  4
-Options:          ZNB-K2
-                  ZNB-K4
-                  ZNB-K14
-                  ZNB-K17
-                  ZNB-K19
-                  ZNB8-B24
-                  ZNB8-B31
-                  ZNB8-B32
-                  ZNB8-B33
-                  ZNB8-B34
-                  ZNB-B81
-                  ZNB-B2
-                  ZN-B15
+Options:          ZVA-K7
+                  ZVA-K17
+                  ZVAB-SIM
+                  ZVT8-B63
+                  ZVT8-B64
+                  ZVT8-B65
+                  ZVT8-B66
+                  ZVT8-B68
+                  ZVA8-B16
+                  ZVA8-B21
+                  ZVA8-B22
+                  ZVA8-B23
+                  ZVA8-B24
+                  ZVA8-B31
+                  ZVA8-B32
+                  ZVA8-B33
+                  ZVA8-B34
+                  ZVT8-B67
+                  ZVA-B7
 
 
 Write:    "*RST"
@@ -36,8 +42,8 @@ Write:    ":CORR:CONN:CAT?"
 Bytes: 16
 Status: 0x0 Operation completed successfully.
 
-Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
-Bytes: 98
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA,WM-864,WM-1295,WM-1651,WM-2032,WM-254..."
+Bytes: 103
 Status: 0x0 Operation completed successfully.
 
 Write:    "CORR:CONN? 'N 50 Ohm'"
@@ -56,19 +62,19 @@ Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
 Bytes: 31
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? '7 mm'"
+Write:    "CORR:CONN? 'PC 7'"
 Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
 Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? '3.5 mm'"
+Write:    "CORR:CONN? 'PC 3.5'"
 Bytes: 20
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
 Bytes: 29
 Status: 0x0 Operation completed successfully.
 
@@ -104,30 +110,6 @@ Read:     "'7-16',TEM,GEND,1.00062,50"
 Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? 'Type F (75)'"
-Bytes: 25
-Status: 0x0 Operation completed successfully.
-
-Read:     "'Type F (75)',TEM,GEND,1.00062,75"
-Bytes: 34
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 50 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 75 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
 Write:    "CORR:CONN? 'SMA'"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
@@ -136,12 +118,52 @@ Read:     "'SMA',TEM,GEND,1.00062,50"
 Bytes: 26
 Status: 0x0 Operation completed successfully.
 
+Write:    "CORR:CONN? 'WM-864'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-864',WGU,NGEN,1.00062,173515100000"
+Bytes: 39
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'WM-1295'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-1295',WGU,NGEN,1.00062,115676700000"
+Bytes: 40
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'WM-1651'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-1651',WGU,NGEN,1.00062,90761700000"
+Bytes: 39
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'WM-2032'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-2032',WGU,NGEN,1.00062,73743900000"
+Bytes: 39
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'WM-2540'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-2540',WGU,NGEN,1.00062,58995100000"
+Bytes: 39
+Status: 0x0 Operation completed successfully.
+
 Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
 Bytes: 28
 Status: 0x0 Operation completed successfully.
 
-Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
-Bytes: 109
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
@@ -152,20 +174,20 @@ Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
 Bytes: 45
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? '7 mm'"
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
 Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
 Bytes: 58
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
 Bytes: 26
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 182
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 132
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? '2.92 mm'"
@@ -188,8 +210,8 @@ Write:    ":CORR:CKIT:LCAT? '1.85 mm'"
 Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Read:     "'1.85 mm Ideal Kit,,85058B Poly,,85058EP,'"
-Bytes: 43
+Read:     "'1.85 mm Ideal Kit,,3654D,,85058B Poly,'"
+Bytes: 41
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? '7-16'"
@@ -200,30 +222,6 @@ Read:     "'7-16 Ideal Kit,,85038A,'"
 Bytes: 26
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? 'Type F (75)'"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Read:     "'Type F (75) Ideal Kit,,85039B,'"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? 'BNC 50 Ohm'"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 50 Ohm Ideal Kit,'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? 'BNC 75 Ohm'"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 75 Ohm Ideal Kit,'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
 Write:    ":CORR:CKIT:LCAT? 'SMA'"
 Bytes: 23
 Status: 0x0 Operation completed successfully.
@@ -232,8 +230,44 @@ Read:     "'SMA Ideal Kit,'"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LDEL 'New Cal Kit', ''"
-Bytes: 34
+Write:    ":CORR:CKIT:LCAT? 'WM-864'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-864 Ideal Kit,,ZV-WR03 (WM-864),'"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'WM-1295'"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-1295 Ideal Kit,,ZV-WR05 (WM-1295),'"
+Bytes: 40
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'WM-1651'"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-1651 Ideal Kit,,ZV-WR06 (WM-1651),'"
+Bytes: 40
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'WM-2032'"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-2032 Ideal Kit,,ZV-WR08 (WM-2032),'"
+Bytes: 40
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'WM-2540'"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-2540 Ideal Kit,,ZV-WR10 (WM-2540),'"
+Bytes: 40
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:MSH:WLAB '3.5 mm','New Cal Kit','','',0,1e+12,0,0,50,0,0,0,0,0,0,0,0"
@@ -256,8 +290,8 @@ Write:    ":CORR:CONN:CAT?"
 Bytes: 16
 Status: 0x0 Operation completed successfully.
 
-Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
-Bytes: 98
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA,WM-864,WM-1295,WM-1651,WM-2032,WM-254..."
+Bytes: 103
 Status: 0x0 Operation completed successfully.
 
 Write:    "CORR:CONN? 'N 50 Ohm'"
@@ -276,19 +310,19 @@ Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
 Bytes: 31
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? '7 mm'"
+Write:    "CORR:CONN? 'PC 7'"
 Bytes: 18
 Status: 0x0 Operation completed successfully.
 
-Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
 Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? '3.5 mm'"
+Write:    "CORR:CONN? 'PC 3.5'"
 Bytes: 20
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm',TEM,GEND,1.00062,50"
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
 Bytes: 29
 Status: 0x0 Operation completed successfully.
 
@@ -324,30 +358,6 @@ Read:     "'7-16',TEM,GEND,1.00062,50"
 Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? 'Type F (75)'"
-Bytes: 25
-Status: 0x0 Operation completed successfully.
-
-Read:     "'Type F (75)',TEM,GEND,1.00062,75"
-Bytes: 34
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 50 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 75 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
 Write:    "CORR:CONN? 'SMA'"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
@@ -356,12 +366,52 @@ Read:     "'SMA',TEM,GEND,1.00062,50"
 Bytes: 26
 Status: 0x0 Operation completed successfully.
 
+Write:    "CORR:CONN? 'WM-864'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-864',WGU,NGEN,1.00062,173515100000"
+Bytes: 39
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'WM-1295'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-1295',WGU,NGEN,1.00062,115676700000"
+Bytes: 40
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'WM-1651'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-1651',WGU,NGEN,1.00062,90761700000"
+Bytes: 39
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'WM-2032'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-2032',WGU,NGEN,1.00062,73743900000"
+Bytes: 39
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'WM-2540'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'WM-2540',WGU,NGEN,1.00062,58995100000"
+Bytes: 39
+Status: 0x0 Operation completed successfully.
+
 Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
 Bytes: 28
 Status: 0x0 Operation completed successfully.
 
-Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
-Bytes: 109
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
@@ -372,20 +422,20 @@ Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
 Bytes: 45
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? '7 mm'"
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
 Bytes: 24
 Status: 0x0 Operation completed successfully.
 
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
 Bytes: 58
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
 Bytes: 26
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 182
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 132
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? '2.92 mm'"
@@ -408,8 +458,8 @@ Write:    ":CORR:CKIT:LCAT? '1.85 mm'"
 Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Read:     "'1.85 mm Ideal Kit,,85058B Poly,,85058EP,'"
-Bytes: 43
+Read:     "'1.85 mm Ideal Kit,,3654D,,85058B Poly,'"
+Bytes: 41
 Status: 0x0 Operation completed successfully.
 
 Write:    ":CORR:CKIT:LCAT? '7-16'"
@@ -420,30 +470,6 @@ Read:     "'7-16 Ideal Kit,,85038A,'"
 Bytes: 26
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? 'Type F (75)'"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Read:     "'Type F (75) Ideal Kit,,85039B,'"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? 'BNC 50 Ohm'"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 50 Ohm Ideal Kit,'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? 'BNC 75 Ohm'"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 75 Ohm Ideal Kit,'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
 Write:    ":CORR:CKIT:LCAT? 'SMA'"
 Bytes: 23
 Status: 0x0 Operation completed successfully.
@@ -452,323 +478,43 @@ Read:     "'SMA Ideal Kit,'"
 Bytes: 17
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CONN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
-Bytes: 98
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'N 50 Ohm'"
-Bytes: 22
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'N 75 Ohm'"
-Bytes: 22
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '7 mm'"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7 mm',TEM,NGEN,1.00062,50"
-Bytes: 27
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '3.5 mm'"
-Bytes: 20
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm',TEM,GEND,1.00062,50"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '2.92 mm'"
-Bytes: 21
-Status: 0x0 Operation completed successfully.
-
-Read:     "'2.92 mm',TEM,GEND,1.00062,50"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '2.4 mm'"
-Bytes: 20
-Status: 0x0 Operation completed successfully.
-
-Read:     "'2.4 mm',TEM,GEND,1.00062,50"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '1.85 mm'"
-Bytes: 21
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1.85 mm',TEM,GEND,1.00062,50"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '7-16'"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7-16',TEM,GEND,1.00062,50"
-Bytes: 27
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'Type F (75)'"
-Bytes: 25
-Status: 0x0 Operation completed successfully.
-
-Read:     "'Type F (75)',TEM,GEND,1.00062,75"
-Bytes: 34
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 50 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'BNC 75 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'SMA'"
-Bytes: 17
-Status: 0x0 Operation completed successfully.
-
-Read:     "'SMA',TEM,GEND,1.00062,50"
+Write:    ":CORR:CKIT:LCAT? 'WM-864'"
 Bytes: 26
 Status: 0x0 Operation completed successfully.
 
-Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
-Bytes: 28
+Read:     "'WM-864 Ideal Kit,,ZV-WR03 (WM-864),'"
+Bytes: 38
 Status: 0x0 Operation completed successfully.
 
-Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
-Bytes: 109
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
-Bytes: 28
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
-Bytes: 45
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? '7 mm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
-Bytes: 58
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 182
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CONN:CAT?"
-Bytes: 16
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm,N 75 Ohm,7 mm,3.5 mm,2.92 mm,2.4 mm,1.85 mm,7-16,Type F (75),BNC 50 Ohm,BNC 75 Ohm,SMA'"
-Bytes: 98
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'N 50 Ohm'"
-Bytes: 22
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'N 75 Ohm'"
-Bytes: 22
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 31
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '7 mm'"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7 mm',TEM,NGEN,1.00062,50"
+Write:    ":CORR:CKIT:LCAT? 'WM-1295'"
 Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? '3.5 mm'"
-Bytes: 20
+Read:     "'WM-1295 Ideal Kit,,ZV-WR05 (WM-1295),'"
+Bytes: 40
 Status: 0x0 Operation completed successfully.
 
-Read:     "'3.5 mm',TEM,GEND,1.00062,50"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '2.92 mm'"
-Bytes: 21
-Status: 0x0 Operation completed successfully.
-
-Read:     "'2.92 mm',TEM,GEND,1.00062,50"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '2.4 mm'"
-Bytes: 20
-Status: 0x0 Operation completed successfully.
-
-Read:     "'2.4 mm',TEM,GEND,1.00062,50"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '1.85 mm'"
-Bytes: 21
-Status: 0x0 Operation completed successfully.
-
-Read:     "'1.85 mm',TEM,GEND,1.00062,50"
-Bytes: 30
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? '7-16'"
-Bytes: 18
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7-16',TEM,GEND,1.00062,50"
+Write:    ":CORR:CKIT:LCAT? 'WM-1651'"
 Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? 'Type F (75)'"
-Bytes: 25
+Read:     "'WM-1651 Ideal Kit,,ZV-WR06 (WM-1651),'"
+Bytes: 40
 Status: 0x0 Operation completed successfully.
 
-Read:     "'Type F (75)',TEM,GEND,1.00062,75"
-Bytes: 34
+Write:    ":CORR:CKIT:LCAT? 'WM-2032'"
+Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? 'BNC 50 Ohm'"
-Bytes: 24
+Read:     "'WM-2032 Ideal Kit,,ZV-WR08 (WM-2032),'"
+Bytes: 40
 Status: 0x0 Operation completed successfully.
 
-Read:     "'BNC 50 Ohm',TEM,GEND,1.00062,50"
-Bytes: 33
+Write:    ":CORR:CKIT:LCAT? 'WM-2540'"
+Bytes: 27
 Status: 0x0 Operation completed successfully.
 
-Write:    "CORR:CONN? 'BNC 75 Ohm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'BNC 75 Ohm',TEM,GEND,1.00062,75"
-Bytes: 33
-Status: 0x0 Operation completed successfully.
-
-Write:    "CORR:CONN? 'SMA'"
-Bytes: 17
-Status: 0x0 Operation completed successfully.
-
-Read:     "'SMA',TEM,GEND,1.00062,50"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
-Bytes: 28
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 50 Ohm Ideal Kit,,3653,,85054D,,ZV-Z121,,ZV-Z170,,ZCAN 50 Ohm,,ZV-Z21 typical,,85032B/E,,85032F,,..."
-Bytes: 109
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
-Bytes: 28
-Status: 0x0 Operation completed successfully.
-
-Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
-Bytes: 45
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? '7 mm'"
-Bytes: 24
-Status: 0x0 Operation completed successfully.
-
-Read:     "'7 mm Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
-Bytes: 58
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:LCAT? '3.5 mm'"
-Bytes: 26
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm Ideal Kit,,3650-1,,85052D,,Maury 8050,,ZV-Z132,,ZV-Z135,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
-Bytes: 182
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:STAN:LCAT? 'New Cal Kit',''"
-Bytes: 39
-Status: 0x0 Operation completed successfully.
-
-Read:     "'MSH,MOSHORT1,MOSHORT3,MMTH'"
-Bytes: 29
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:MSH:WLAB? '3.5 mm','New Cal Kit',''"
-Bytes: 47
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm','New Cal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 61
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:MOSH:WLAB? '3.5 mm','New Cal Kit',''"
-Bytes: 48
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm','New Cal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 61
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:MOSHORT3:WLAB? '3.5 mm','New Cal Kit',''"
-Bytes: 52
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm','New Cal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
-Bytes: 61
-Status: 0x0 Operation completed successfully.
-
-Write:    ":CORR:CKIT:MMTH:WLAB? '3.5 mm','New Cal Kit',''"
-Bytes: 48
-Status: 0x0 Operation completed successfully.
-
-Read:     "'3.5 mm','New Cal Kit','','',0,1E+012,0,0,50"
-Bytes: 45
-Status: 0x0 Operation completed successfully.
-
-Write:    ":SYST:ERR?"
-Bytes: 11
-Status: 0x0 Operation completed successfully.
-
-Read:     "0,"No error""
-Bytes: 13
+Read:     "'WM-2540 Ideal Kit,,ZV-WR10 (WM-2540),'"
+Bytes: 40
 Status: 0x0 Operation completed successfully.
 

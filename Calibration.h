@@ -79,7 +79,7 @@ public slots:
     bool measureOffsetShortB(uint kitIndex, uint port);
     bool measureThru(uint index);
 
-    void applyCorrections();
+    bool applyCorrections();
 
 private:
     RsaToolbox::Vna *_vna;

@@ -33,15 +33,19 @@ MeasurePage::~MeasurePage()
 }
 
 void MeasurePage::initialize() {
+    qDebug() << "MeasurePage::initialize";
     breadCrumbs()->hide();
     _header->setPixmap(QPixmap(":/images/Images/4 Measure.bmp"));
 
+    qDebug() << "Showing progress bar";
     _progressBar->show();
     buttons()->next()->setText("Apply");
     buttons()->next()->setDisabled(true);
 
+    qDebug() << "calling formatTree()";
     formatTree();
 
+    qDebug() << "Connecting";
     connect(_calibration, SIGNAL(startingMeasurement(QString,uint)),
             this, SLOT(measurementStarted(QString,uint)));
     connect(_calibration, SIGNAL(finishedMeasurement()),
@@ -52,6 +56,7 @@ void MeasurePage::initialize() {
             this, SLOT(formatTree()));
     connect(_calibration, SIGNAL(measurementStatusUpdated()),
             this, SLOT(updateApplyButton()));
+    qDebug() << "end MeasurePage::initialize";
 }
 bool MeasurePage::isReadyForNext() {
     _calibration->applyCorrections();
@@ -113,9 +118,11 @@ void MeasurePage::displayError(const QString &message) {
 }
 
 void MeasurePage::formatTree() {
-    ui->measureTree->expandAll();
-    ui->measureTree->resizeColumnToContents(0);
-    ui->measureTree->resizeColumnToContents(1);
+    qDebug() << "MeasurePage::formatTree()";
+//    ui->measureTree->expandAll();
+//    ui->measureTree->resizeColumnToContents(0);
+//    ui->measureTree->resizeColumnToContents(1);
+    qDebug() << "end MeasurePage::formatTree()";
 }
 void MeasurePage::updateApplyButton() {
     if (_calibration->allMeasurementsFinished())

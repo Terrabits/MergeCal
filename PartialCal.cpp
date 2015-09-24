@@ -98,40 +98,45 @@ void PartialCal::initialize() {
         _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
     _cal.keepRawData();
 
-    foreach (uint port, _ports) {
-        if (isInterrupt()) {
-            clearInterrupt();
-            return;
-        }
-        _measureShort(port);
-        if (isInterrupt()) {
-            clearInterrupt();
-            return;
-        }
-        _measureOffsetShortA(port);
-        if (isInterrupt()) {
-            clearInterrupt();
-            return;
-        }
-        _measureOffsetShortB(port);
-    }
-    for (int i = 0; i < _ports.size(); i++) {
-        for (int j = i+1; j < _ports.size(); j++) {
-            if (isInterrupt()) {
-                clearInterrupt();
-                return;
-            }
-            _measureThru(_ports[i], _ports[j]);
-        }
-    }
+    // Do not run dummy sweeps, send SCPI
+    // command for calibrating channels in parallel
+    // instead.
+    _vna->multiChannelCalibrationOn();
+
+//    foreach (uint port, _ports) {
+//        if (isInterrupt()) {
+//            clearInterrupt();
+//            return;
+//        }
+//        _measureShort(port);
+//        if (isInterrupt()) {
+//            clearInterrupt();
+//            return;
+//        }
+//        _measureOffsetShortA(port);
+//        if (isInterrupt()) {
+//            clearInterrupt();
+//            return;
+//        }
+//        _measureOffsetShortB(port);
+//    }
+//    for (int i = 0; i < _ports.size(); i++) {
+//        for (int j = i+1; j < _ports.size(); j++) {
+//            if (isInterrupt()) {
+//                clearInterrupt();
+//                return;
+//            }
+//            _measureThru(_ports[i], _ports[j]);
+//        }
+//    }
     if (isInterrupt()) {
         clearInterrupt();
         return;
     }
 
-    _vna->isError();
-    _vna->clearStatus();
-    _cal.apply();
+//    _vna->isError();
+//    _vna->clearStatus();
+//    _cal.apply();
     if (_vna->isError()) {
         _vna->clearStatus();
         emit error("*Could not initialize calibration");
@@ -159,16 +164,16 @@ bool PartialCal::measureShort(uint port) {
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-    _cal.selectKit(_calKit.calKit().nameLabel());
-    QString name = "Channel%1Cal";
-    name = name.arg(_channel);
-    if (_ports.size() > 1)
-        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    else
-        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-    _cal.keepRawData();
+//    _cal.selectKit(_calKit.calKit().nameLabel());
+//    QString name = "Channel%1Cal";
+//    name = name.arg(_channel);
+//    if (_ports.size() > 1)
+//        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+//    else
+//        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
+//    _cal.keepRawData();
     _cal.measureShort(port);
-    _cal.apply();
+//    _cal.apply();
     emit finishedMeasurement();
 
     if (_vna->isError()) {
@@ -200,19 +205,19 @@ bool PartialCal::measureOffsetShortA(uint port) {
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-    _cal.selectKit(_calKit.calKit().nameLabel());
-    QString name = "Channel%1Cal";
-    name = name.arg(_channel);
-    if (_ports.size() > 1)
-        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    else
-        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-    _cal.keepRawData();
+//    _cal.selectKit(_calKit.calKit().nameLabel());
+//    QString name = "Channel%1Cal";
+//    name = name.arg(_channel);
+//    if (_ports.size() > 1)
+//        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+//    else
+//        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
+//    _cal.keepRawData();
     if (_calKit.calKit().isOffsetShort1())
         _cal.measureOffsetShort1(port);
     else
         _cal.measureOffsetShort2(port);
-    _cal.apply();
+//    _cal.apply();
     emit finishedMeasurement();
 
     if (_vna->isError()) {
@@ -243,19 +248,19 @@ bool PartialCal::measureOffsetShortB(uint port) {
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-    _cal.selectKit(_calKit.calKit().nameLabel());
-    QString name = "Channel%1Cal";
-    name = name.arg(_channel);
-    if (_ports.size() > 1)
-        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    else
-        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-    _cal.keepRawData();
+//    _cal.selectKit(_calKit.calKit().nameLabel());
+//    QString name = "Channel%1Cal";
+//    name = name.arg(_channel);
+//    if (_ports.size() > 1)
+//        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+//    else
+//        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
+//    _cal.keepRawData();
     if (_calKit.calKit().isOffsetShort3())
         _cal.measureOffsetShort3(port);
     else
         _cal.measureOffsetShort2(port);
-    _cal.apply();
+//    _cal.apply();
     emit finishedMeasurement();
 
     if (_vna->isError()) {
@@ -284,18 +289,30 @@ bool PartialCal::measureThru(uint port1, uint port2) {
     caption = caption.arg(port2);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-    _cal.selectKit(_calKit.calKit().nameLabel());
-    QString name = "Channel%1Cal";
-    name = name.arg(_channel);
-    if (_ports.size() > 1)
-        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-    else
-        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-    _cal.keepRawData();
+//    _cal.selectKit(_calKit.calKit().nameLabel());
+//    QString name = "Channel%1Cal";
+//    name = name.arg(_channel);
+//    if (_ports.size() > 1)
+//        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
+//    else
+//        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
+//    _cal.keepRawData();
     _cal.measureThru(port1, port2);
-    _cal.apply();
+//    _cal.apply();
     emit finishedMeasurement();
 
+    if (_vna->isError()) {
+        _vna->clearStatus();
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+bool PartialCal::apply() {
+    _vna->isError();
+    _vna->clearStatus();
+    _cal.apply();
     if (_vna->isError()) {
         _vna->clearStatus();
         return false;

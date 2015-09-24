@@ -207,12 +207,16 @@ QVariant CalibrationModel::data(const QModelIndex &index, int role) const {
 }
 
 void CalibrationModel::setCalibration(Calibration *calibration) {
+    qDebug() << "CalibrationModel::setCalibration";
     _calibration = calibration;
 
     connect(_calibration, SIGNAL(finishedInitialization()),
             this, SIGNAL(modelReset()));
     connect(_calibration, SIGNAL(measurementStatusUpdated()),
             this, SIGNAL(modelReset()));
+
+    qDebug() << "row count: " << rowCount();
+    qDebug() << "column count: " << columnCount();
 }
 
 void CalibrationModel::measure(const QModelIndex &index) {

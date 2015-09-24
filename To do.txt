@@ -1,0 +1,26 @@
+What does SetupPage do:
+
+// Initialize
+_calibration->setVna(_vna);
+_calibration->setPorts(_ports);
+_calibration->setConnector(_connector);
+_calibration->setChannel(_channel);
+_calibration->setCalKits(_kits);
+
+// Skip
+_setName = _vna.activeSet();
+_vna.saveActiveSet(_setName);
+invokeMethod: _calibration.initialize();
+
+// initializationFinished
+_vna.deleteSet(_setName);
+
+// initializationError
+_vna.closeActiveSet();
+_vna.openSet(_setName);
+_vna.deleteSet(_setName);
+
+How to divide this work?
+
+ - Do initialize in CalKitsPage
+ - Do skip, initializationFinished, initializationError in MeasurePage

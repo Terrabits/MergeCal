@@ -1,5 +1,5 @@
 Test DoubleOffsetShortKit Version 0
-(C) 2014 Rohde & Schwarz America
+(C) 2015 Rohde & Schwarz North America
 
-Fri Jul 3 13:23:54 2015
+Wed Sep 23 19:35:50 2015
 

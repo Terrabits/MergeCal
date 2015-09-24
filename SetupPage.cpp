@@ -107,8 +107,10 @@ void SetupPage::initializationFinished() {
     disconnect(_calibration, SIGNAL(error(QString)),
                this, SLOT(initializationError(QString)));
 
+    qDebug() << "SetupPage::initializationFinished - enable wizard, next";
     wizard()->setEnabled();
     wizard()->next();
+    qDebug() << "/SetupPage::initializationFinished";
 }
 
 void SetupPage::initializationError(const QString &message) {

@@ -36,6 +36,7 @@ public:
     bool measureOffsetShortA(uint port);
     bool measureOffsetShortB(uint port);
     bool measureThru(uint port1, uint port2);
+    bool apply();
 
     RsaToolbox::ComplexRowVector directivity(uint outputPort, uint inputPort);
     RsaToolbox::ComplexRowVector sourceMatch(uint outputPort, uint inputPort);

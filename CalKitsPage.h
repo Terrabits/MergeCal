@@ -7,6 +7,7 @@
 #include "AvailableCalKitsModel.h"
 #include "FrequencyRange.h"
 #include "ChosenCalKitsModel.h"
+#include "Calibration.h"
 
 // RsaToolbox
 #include <Definitions.h>
@@ -45,6 +46,7 @@ public:
 
     void setVna(RsaToolbox::Vna *vna);
     void setKeys(RsaToolbox::Keys *keys);
+    void setCalibration(Calibration *calibration);
 
     RsaToolbox::Connector connectorType() const;
 
@@ -70,6 +72,7 @@ private:
 
     RsaToolbox::Vna *_vna;
     RsaToolbox::Keys *_keys;
+    Calibration *_calibration;
 
     QVector<uint> _ports;
     RsaToolbox::Connector _connectorType;
