@@ -27,7 +27,6 @@ void Calibration::setVna(RsaToolbox::Vna *vna) {
 }
 
 void Calibration::initialize() {
-    qDebug() << "Calibration initialize";
     if (isInterrupt()) {
         clearInterrupt();
         return;
@@ -199,8 +198,6 @@ bool Calibration::measureThru(uint index) {
 }
 
 bool Calibration::applyCorrections() {
-    qDebug() << "applyCorrections";
-
     // Apply calibration in each channel
     for (int i = 0; i < _partialCals.size(); i++) {
         if (!_partialCals[i].apply()) {
@@ -281,9 +278,13 @@ NameLabel Calibration::kitNameLabel(uint index) const {
     return _kits[index].calKit().nameLabel();
 }
 QString Calibration::shortLabel(uint port) const {
+    qDebug() << "  Calibration::shortLabel, port: " << port;
     for (int i = 0; i < _kits.size(); i++) {
-        if (!_kits[i].calKit().shortLabel(port).isEmpty())
+        qDebug() << "    Checking cal kit " << i << ": " << _kits[i].calKit().nameLabel();
+        if (!_kits[i].calKit().shortLabel(port).isEmpty()) {
+            qDebug() << "    short label found: " << _kits[i].calKit().shortLabel(port);
             return _kits[i].calKit().shortLabel(port);
+        }
     }
 
     return QString();
@@ -342,7 +343,6 @@ void Calibration::setCalKits(const QVector<FrequencyRange> &kits) {
 }
 
 void Calibration::interrupt() {
-    qDebug() << "Cal interrupt!" << QObject::sender();
     QWriteLocker writeLocker(&_lock);
     _interrupt = true;
     for (int i = 0; i < _partialCals.size(); i++)

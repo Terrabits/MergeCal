@@ -9,6 +9,9 @@
 #include <QObject>
 #include <QAbstractItemModel>
 
+// C++ std lib
+#include <limits>
+
 
 class CalibrationModel : public QAbstractItemModel
 {
@@ -39,6 +42,7 @@ public slots:
     void measure(const QModelIndex &index);
 
 private:
+    const quintptr NO_PARENT;
     Calibration *_calibration;
 
     int portRows() const;

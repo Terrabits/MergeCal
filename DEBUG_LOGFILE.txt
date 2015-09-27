@@ -1,14 +1,6016 @@
 R&S Merge Cal Version 1.0.1
 (C) 2015 Rohde & Schwarz North America
 
-Wed Sep 23 22:03:24 2015
+Sat Sep 26 17:38:41 2015
 
 VNA INSTRUMENT INFO
-Instrument not found
-Connection:       No Connection
-Address:          
+Connection:       TCPIP
+Address:          127.0.0.1
+Make:             Rohde & Schwarz
+Model:            ZVA
+Serial No:        1145101099999999
+Firmware Version: 3.20
+Min Frequency:    300 KHz
+Max Frequency:    8 GHz
+Number of Ports:  4
+Options:          ZVA-K7
+                  ZVA-K17
+                  ZVAB-SIM
+                  ZVA-B7
 
 
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
 
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
 
-Instrument not found. Please run this application on a Rohde & Schwarz VNA.
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Previous session errors?
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+/Previous session errors
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":INST:PORT:COUN?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "4"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4,5,Ch5,6,Ch6,7,Ch7,8,Ch8,9,Ch9,10,Ch10,11,Ch11,12,Ch12,13,Ch13,14,Ch14,15,Ch..."
+Bytes: 184
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:SWE:TYPE?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'PC 3.5 Ideal Kit',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOP,FOP,MSH,FSH,MMMT,FMMT,MSM,FSM,MREF,FREF,MMTH,MFTH,FFTH,MMLINE1,MFLINE1,FFLINE1,MMAT,MFAT,FFAT,M..."
+Bytes: 163
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSM:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSM:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MREF:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FREF:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMLINE1:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 56
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0.01,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFLINE1:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 56
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0.01,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFLINE1:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 56
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0.01,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMAT:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFAT:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFAT:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMSN:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFSN:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFSN:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 66
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMLINE2:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 56
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0.01,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFLINE2:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 56
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0.01,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFLINE2:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 56
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0.01,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMLINE3:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 56
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0.01,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFLINE3:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 56
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0.01,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFLINE3:WLAB? 'PC 3.5','PC 3.5 Ideal Kit',''"
+Bytes: 56
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','PC 3.5 Ideal Kit','','',0,1E+012,0.01,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? '3650-1',''"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOP,FOP,MSH,FSH,MREF,FREF,MMMT,FMMT,MSM,FSM,MMTH,FFTH,MFTH'"
+Bytes: 61
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0.0049999,0,50,26,-0.55,0.01,0.0005,0,0,0,0"
+Bytes: 82
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0.0049999,0,50,23,-0.55,0.01,0.0007,0,0,0,0"
+Bytes: 82
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0.0049999,0,50,0,0,0,0,0,0,0,0"
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0.0049999,0,50,0,0,0,0,0,0,0,0"
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MREF:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0.0049999,0,50,0,0,0,0,0,0,0,0"
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FREF:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0.0049999,0,50,0,0,0,0,0,0,0,0"
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 61
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 61
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSM:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',2500000000,26500000000"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSM:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',2500000000,26500000000"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0.0218501,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0.0218501,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','3650-1',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','3650-1','','',0,26500000000,0,0,50"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'Maury 8050',''"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MSH,FSH,FMMT,MMMT,FSM,MSM,MOP,FOP,MMTH,FFTH'"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',0,34000000000,0.005002,0.00379999603342,50,0,0,0,0,0,0,0,0"
+Bytes: 87
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',0,34000000000,0.005002,0.00379999603342,50,0,0,0,0,0,0,0,0"
+Bytes: 87
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',0,34000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 65
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',0,34000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 65
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSM:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',2000000000,34000000000"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSM:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',2000000000,34000000000"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',0,34000000000,0.004344,0.00330001094123,50,62.54,-1.284,0.1076,-0.001886..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',0,34000000000,0.004344,0.00330001094123,50,63.17,-1.178,0.1096,-0.002146..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',0,34000000000,0.0173751,0.00650000546149,50"
+Bytes: 72
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','Maury 8050',''"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','Maury 8050','','',0,34000000000,0.0173751,0.00650000546149,50"
+Bytes: 72
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'ZV-Z132',''"
+Bytes: 35
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOP,FOP,MSH,FSH,MMMT,FMMT,MMTH,MFTH,FFTH'"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','ZV-Z132',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z132','','',0,15000000000,0.0085099,0,50,50,0.15,-0.008,0.00036,0,0,0,0"
+Bytes: 85
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','ZV-Z132',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z132','','',0,15000000000,0.0085099,0,50,50,0.15,-0.008,0.00036,0,0,0,0"
+Bytes: 85
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','ZV-Z132',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z132','','',0,15000000000,0.00915,0,50,0,0,0,0,14,-0.08,0.003,-2E-005"
+Bytes: 83
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','ZV-Z132',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z132','','',0,15000000000,0.00915,0,50,0,0,0,0,8.5,0,0,0"
+Bytes: 70
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','ZV-Z132',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z132','','',0,15000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 62
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','ZV-Z132',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z132','','',0,15000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 62
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB? 'PC 3.5','ZV-Z132',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z132','','',0,15000000000,0.0379999,0.0100000118137,50"
+Bytes: 68
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','ZV-Z132',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z132','','',0,15000000000,0,0,50"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','ZV-Z132',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z132','','',0,15000000000,0.0379999,0.0100000118137,50"
+Bytes: 68
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'ZV-Z135 typical',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'FOP,FSH,FMMT,MOP,MSH,MMMT,FFTH,MMTH,MFTH'"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','ZV-Z135 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z135 typical','','',0,15000000000,0.00924,0.0100000083908,50,-7.425,2.47,-0.226,0.00618..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','ZV-Z135 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z135 typical','','',0,15000000000,0.0092,0.0100000063048,50,0,0,0,0,27.98,-5.01,0.3038,..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','ZV-Z135 typical',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z135 typical','','',0,15000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 70
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','ZV-Z135 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z135 typical','','',0,15000000000,0.00924,0.0100000083908,50,3.434,-0.3752,-0.000676,0...."
+Bytes: 115
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','ZV-Z135 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z135 typical','','',0,15000000000,0.009217,0.0100000051169,50,0,0,0,0,22.44,-4.568,0.29..."
+Bytes: 112
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','ZV-Z135 typical',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z135 typical','','',0,15000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 70
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','ZV-Z135 typical',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z135 typical','','',0,15000000000,0.03825,0.0200000030485,50"
+Bytes: 74
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB? 'PC 3.5','ZV-Z135 typical',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z135 typical','','',0,15000000000,0.03825,0.0200000030485,50"
+Bytes: 74
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','ZV-Z135 typical',''"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z135 typical','','',0,15000000000,0,0,50"
+Bytes: 54
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'ZV-Z32 typical',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOP,FOP,MSH,FSH,MMMT,FMMT,MSM,FSM,MMTH,FFTH,MFTH'"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',0,34000000000,0.004344,0.00469999371506,50,62.54,-1.284,0.1088,-0.00..."
+Bytes: 113
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',0,34000000000,0.0043,0.0047000038672,50,63.2,-1.1771,0.115,-0.002146..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',0,34000000000,0.005045,0.00540000283671,50,0,0,0,0,0,0,0,0"
+Bytes: 91
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',0,34000000000,0.005,0.00539998945118,50,0,0,0,0,0,0,0,0"
+Bytes: 88
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',0,34000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',0,34000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSM:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',2000000000,34000000000"
+Bytes: 55
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSM:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',2000000000,34000000000"
+Bytes: 55
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',0,34000000000,0.017375,0.00949997663988,50"
+Bytes: 75
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',0,34000000000,0.017375,0.00949997663988,50"
+Bytes: 75
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','ZV-Z32 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z32 typical','','',0,34000000000,0,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'ZV-Z33 typical',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOP,FOP,MSH,FSH,MMMT,FMMT,MSM,FSM,MMTH,FFTH,MFTH'"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',0,34000000000,0.004344,0.00469999371506,50,62.54,-1.284,0.1088,-0.00..."
+Bytes: 113
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',0,34000000000,0.0043,0.0047000038672,50,63.2,-1.1771,0.115,-0.002146..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',0,34000000000,0.005045,0.00540000283671,50,0,0,0,0,0,0,0,0"
+Bytes: 91
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',0,34000000000,0.005,0.00539998945118,50,0,0,0,0,0,0,0,0"
+Bytes: 88
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',0,34000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',0,34000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSM:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',2000000000,34000000000"
+Bytes: 55
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSM:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 50
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',2000000000,34000000000"
+Bytes: 55
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',0,34000000000,0.017375,0.00949997663988,50"
+Bytes: 75
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',0,34000000000,0.017375,0.00949997663988,50"
+Bytes: 75
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','ZV-Z33 typical',''"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','ZV-Z33 typical','','',0,34000000000,0,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? '85033D/E',''"
+Bytes: 36
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOP,FOP,MSH,FSH,MMMT,FMMT,MFTH'"
+Bytes: 33
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','85033D/E',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85033D/E','','',0,9000000000,0.0087668,0.0111760647102,50,49.433,-0.31013,0.023168,-0.0001..."
+Bytes: 113
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','85033D/E',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85033D/E','','',0,9000000000,0.0087668,0.0116840676516,50,49.433,-0.31013,0.0231168,-0.000..."
+Bytes: 114
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','85033D/E',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85033D/E','','',0,9000000000,0.0095289,0.0130310233013,50,0,0,0,0,2.0765,-0.10854,0.002170..."
+Bytes: 110
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','85033D/E',''"
+Bytes: 44
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85033D/E','','',0,9000000000,0.0095289,0.0130310233013,50,0,0,0,0,2.0765,-0.10854,0.002170..."
+Bytes: 110
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','85033D/E',''"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85033D/E','','',0,9000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 62
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','85033D/E',''"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85033D/E','','',0,9000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 62
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','85033D/E',''"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85033D/E','','',0,9000000000,0,0,50"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? '85052B',''"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOP,FOP,MSH,FSH,MMMT,MSM,FMMT,FSM,MFTH'"
+Bytes: 41
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','85052B',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052B','','',0,26500000000,0.0087668,0.0111760647102,50,49.433,-0.31013,0.023168,-0.00015..."
+Bytes: 112
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','85052B',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052B','','',0,26500000000,0.0087668,0.0111760647102,50,49.433,-0.31013,0.023168,-0.00015..."
+Bytes: 112
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','85052B',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052B','','',0,26500000000,0.0095289,0.0130310233013,50,0,0,0,0,2.0765,-0.10854,0.0021705..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','85052B',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052B','','',0,26500000000,0.0095289,0.0130310233013,50,0,0,0,0,2.0765,-0.10854,0.0021705..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','85052B',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052B','','',0,26500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 61
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSM:WLAB? 'PC 3.5','85052B',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052B','','',2990000000,26500000000"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','85052B',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052B','','',0,26500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 61
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSM:WLAB? 'PC 3.5','85052B',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052B','','',2999000000,26500000000"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','85052B',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052B','','',0,26500000000,0,0,50"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? '85052C',''"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOP,FOP,MSH,FSH,MMMT,FMMT,MFTH,MFLINE1,MFLINE2'"
+Bytes: 49
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','85052C',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052C','','',0,26500000000,0.0087668,0.0111760647102,50,49.433,-0.31013,0.023168,-0.00015..."
+Bytes: 112
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','85052C',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052C','','',0,26500000000,0.0087668,0.0116840676516,50,49.433,-0.31013,0.023168,-0.00015..."
+Bytes: 112
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','85052C',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052C','','',0,26500000000,0.0095289,0.0130310233013,50,0,0,0,0,2.0765,-0.10854,0.0021705..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','85052C',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052C','','',0,26500000000,0.0095289,0.0130310233013,50,0,0,0,0,2.0765,-0.10854,0.0021705..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','85052C',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052C','','',0,26500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 61
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','85052C',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052C','','',0,26500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 61
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','85052C',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052C','','',0,26500000000,0,0,50"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFLINE1:WLAB? 'PC 3.5','85052C',''"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052C','','',6999000000,32001000000,0.0039012,0.00146938326418,50"
+Bytes: 77
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFLINE2:WLAB? 'PC 3.5','85052C',''"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052C','','',1000000000,7001000000,0.0161852,0.00609613952714,50"
+Bytes: 76
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? '85052D',''"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Read:     "'MOP,FOP,MSH,FSH,MMMT,FMMT,MFTH,FFTH,MMTH'"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MOP:WLAB? 'PC 3.5','85052D',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052D','','',0,26500000000,0.0087668,0.0111760647102,50,49.433,-0.31013,0.023168,-0.00015..."
+Bytes: 112
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOP:WLAB? 'PC 3.5','85052D',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052D','','',0,26500000000,0.0087668,0.0111760647102,50,49.433,-0.31013,0.023168,-0.00015..."
+Bytes: 112
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MSH:WLAB? 'PC 3.5','85052D',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052D','','',0,26500000000,0.0095289,0.0130310233013,50,0,0,0,0,2.0765,-0.10854,0.0021705..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','85052D',''"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052D','','',0,26500000000,0.0095289,0.0130310233013,50,0,0,0,0,2.0765,-0.10854,0.0021705..."
+Bytes: 109
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTC:WLAB? 'PC 3.5','85052D',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052D','','',0,26500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 61
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FMTC:WLAB? 'PC 3.5','85052D',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052D','','',0,26500000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 61
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MFTH:WLAB? 'PC 3.5','85052D',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052D','','',0,26500000000,0,0,50"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','85052D',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052D','','',0,26500000000,0.0284053,0.0206569998845,50"
+Bytes: 67
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:MMTH:WLAB? 'PC 3.5','85052D',''"
+Bytes: 43
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','85052D','','',0,26500000000,0.0284053,0.0206569998845,50"
+Bytes: 67
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'HighBand','123'"
+Bytes: 39
+Status: 0x0 Operation completed successfully.
+
+Read:     "'FSH,FOSHORT1,FOSHORT2,FFTH'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','HighBand','123'"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','HighBand','123','Wideband',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 69
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOSH:WLAB? 'PC 3.5','HighBand','123'"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','HighBand','123','HighBand A',4000000000,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 80
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOSHORT2:WLAB? 'PC 3.5','HighBand','123'"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','HighBand','123','HighBand B',4000000000,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 80
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','HighBand','123'"
+Bytes: 48
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','HighBand','123','Wideband',0,1E+012,0,0,50"
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:STAN:LCAT? 'LowBand','456'"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Read:     "'FSH,FOSHORT1,FOSHORT2,FFTH'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FSH:WLAB? 'PC 3.5','LowBand','456'"
+Bytes: 46
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','LowBand','456','Wideband',0,1E+012,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 68
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOSH:WLAB? 'PC 3.5','LowBand','456'"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','LowBand','456','LowBand A',0,4000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 73
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FOSHORT2:WLAB? 'PC 3.5','LowBand','456'"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','LowBand','456','LowBand B',0,4000000000,0,0,50,0,0,0,0,0,0,0,0"
+Bytes: 73
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:FFTH:WLAB? 'PC 3.5','LowBand','456'"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5','LowBand','456','Wideband',0,1E+012,0,0,50"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:SWE:POIN?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:DATA:STIM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "#41608..."
+Bytes: 1615
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:SWE:POIN?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:DATA:STIM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "#41608..."
+Bytes: 1615
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS1:SWE:POIN?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC1:DATA:STIM?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "#41608..."
+Bytes: 1615
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN1 1"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4,5,Ch5,6,Ch6,7,Ch7,8,Ch8,9,Ch9,10,Ch10,11,Ch11,12,Ch12,13,Ch13,14,Ch14,15,Ch..."
+Bytes: 184
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN26 1"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Trc1,2,Trc2,3,Trc3,4,Trc4,5,Trc5,6,Trc6,7,Trc7,8,Trc8,9,Trc9,10,Trc10,11,Trc11,12,Trc12,13,Trc13,..."
+Bytes: 209
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR26:LPOR1?"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC26:PAR:SDEF 'Trc26', 'S11'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:SWE:TYPE?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:SWE:POIN?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC26:DATA:STIM?"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "#41608..."
+Bytes: 1615
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:FREQ:STAR 300000Hz"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:FREQ:STOP 3.96015e+09Hz"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:SWE:POIN 100"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:AVER?"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:SWE:TYPE?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:SWE:TIME?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.0135"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":INST:PORT:COUN?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "4"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:CORR:COLL:SCON1 'PC 3.5',MALE"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:CORR:COLL:SCON2 'PC 3.5',MALE"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:CORR:COLL:SCON3 'PC 3.5',MALE"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:CORR:COLL:SCON4 'PC 3.5',MALE"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LSEL 'PC 3.5','LowBand','456'"
+Bytes: 41
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:AVER?"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:SWE:TYPE?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:SWE:TIME?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.0135"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:CORR:COLL:METH:DEF 'Channel26Cal',TOSM,1,2"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:CORR:COLL:RSAV 1"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Note:
+Multi-channel calibration enabled by default on ZVA.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN1 1"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4,5,Ch5,6,Ch6,7,Ch7,8,Ch8,9,Ch9,10,Ch10,11,Ch11,12,Ch12,13,Ch13,14,Ch14,15,Ch..."
+Bytes: 192
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN27 1"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:TRAC:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Trc1,2,Trc2,3,Trc3,4,Trc4,5,Trc5,6,Trc6,7,Trc7,8,Trc8,9,Trc9,10,Trc10,11,Trc11,12,Trc12,13,Trc13,..."
+Bytes: 218
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SOUR27:LPOR1?"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC27:PAR:SDEF 'Trc27', 'S11'"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:SWE:TYPE?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:SWE:POIN?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "201"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM?"
+Bytes: 7
+Status: 0x0 Operation completed successfully.
+
+Read:     "ASC,0"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "SWAP"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM REAL,64"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM:BORD SWAP"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CALC27:DATA:STIM?"
+Bytes: 19
+Status: 0x0 Operation completed successfully.
+
+Read:     "#41608..."
+Bytes: 1615
+Status: 0x0 Operation completed successfully.
+
+Write:    ":FORM ASC"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:FREQ:STAR 4.00015e+09Hz"
+Bytes: 32
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:FREQ:STOP 8e+09Hz"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:SWE:POIN 101"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:AVER?"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:SWE:TYPE?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:SWE:TIME?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.013635"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":INST:PORT:COUN?"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "4"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:CORR:COLL:SCON1 'PC 3.5',MALE"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:CORR:COLL:SCON2 'PC 3.5',MALE"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:CORR:COLL:SCON3 'PC 3.5',MALE"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:CORR:COLL:SCON4 'PC 3.5',MALE"
+Bytes: 38
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CONN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm,N 75 Ohm,PC 7,PC 3.5,2.92 mm,2.4 mm,1.85 mm,7-16,SMA'"
+Bytes: 64
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 50 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm',TEM,GEND,1.00062,50"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'N 75 Ohm'"
+Bytes: 22
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm',TEM,GEND,1.00062,75"
+Bytes: 31
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 7'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7',TEM,NGEN,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'PC 3.5'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.92 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.92 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '2.4 mm'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Read:     "'2.4 mm',TEM,GEND,1.00062,50"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '1.85 mm'"
+Bytes: 21
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1.85 mm',TEM,GEND,1.00062,50"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? '7-16'"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "'7-16',TEM,GEND,1.00062,50"
+Bytes: 27
+Status: 0x0 Operation completed successfully.
+
+Write:    "CORR:CONN? 'SMA'"
+Bytes: 17
+Status: 0x0 Operation completed successfully.
+
+Read:     "'SMA',TEM,GEND,1.00062,50"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 50 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 50 Ohm Ideal Kit,,3653,,ZV-Z121,,ZCAN 50 Ohm,,ZV-Z170 typical,,ZV-Z21 typical,,85032B/E,,85032F,,..."
+Bytes: 117
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'N 75 Ohm'"
+Bytes: 28
+Status: 0x0 Operation completed successfully.
+
+Read:     "'N 75 Ohm Ideal Kit,,ZCAN 75 Ohm,,85036B/E,'"
+Bytes: 45
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 7'"
+Bytes: 24
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 7 Ideal Kit,,3651-1,,85031B,,85050B,,85050C,,85050D,'"
+Bytes: 58
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LCAT? 'PC 3.5'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Read:     "'PC 3.5 Ideal Kit,,3650-1,,Maury 8050,,ZV-Z132,,ZV-Z135 typical,,ZV-Z32 typical,,ZV-Z33 typical,,850..."
+Bytes: 157
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CORR:CKIT:LSEL 'PC 3.5','HighBand','123'"
+Bytes: 42
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:AVER?"
+Bytes: 14
+Status: 0x0 Operation completed successfully.
+
+Read:     "0"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:SWE:TYPE?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "LIN"
+Bytes: 4
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:SWE:TIME?"
+Bytes: 18
+Status: 0x0 Operation completed successfully.
+
+Read:     "0.013635"
+Bytes: 9
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:CORR:COLL:METH:DEF 'Channel27Cal',TOSM,1,2"
+Bytes: 51
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS27:CORR:COLL:RSAV 1"
+Bytes: 25
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Note:
+Multi-channel calibration enabled by default on ZVA.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:SEL 'Set1.zvx'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "'C:\Rohde&Schwarz\Nwa'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR DEF"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR '.\RecallSets'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4,5,Ch5,6,Ch6,7,Ch7,8,Ch8,9,Ch9,10,Ch10,11,Ch11,12,Ch12,13,Ch13,14,Ch14,15,Ch..."
+Bytes: 200
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN28 1"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN28 0"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:STOR:STAT 1,'Set1.zvx'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR 'C:\Rohde&Schwarz\Nwa'"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+SCPI Errors:
+-200: Execution error;:SENS26:CORR:COLL:SEL SHOR,1
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:CORR:COLL:SEL SHOR,1"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "-200,"Execution error;:SENS26:CORR:COLL:SEL SHOR,1""
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:DEL 'Set1.zvx'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "'C:\Rohde&Schwarz\Nwa'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR DEF"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR '.\RecallSets'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:LOAD:STAT 1,'Set1.zvx'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR 'C:\Rohde&Schwarz\Nwa'"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "'C:\Rohde&Schwarz\Nwa'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR DEF"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR '.\RecallSets'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:DEL 'Set1.zvx',FORC"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR 'C:\Rohde&Schwarz\Nwa'"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:SEL 'Set1.zvx'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "'C:\Rohde&Schwarz\Nwa'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR DEF"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR '.\RecallSets'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4,5,Ch5,6,Ch6,7,Ch7,8,Ch8,9,Ch9,10,Ch10,11,Ch11,12,Ch12,13,Ch13,14,Ch14,15,Ch..."
+Bytes: 200
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN28 1"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN28 0"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:STOR:STAT 1,'Set1.zvx'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR 'C:\Rohde&Schwarz\Nwa'"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+SCPI Errors:
+-200: Execution error;:SENS26:CORR:COLL:SEL THR,1,2
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:CORR:COLL:SEL THR,1,2"
+Bytes: 30
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "-200,"Execution error;:SENS26:CORR:COLL:SEL THR,1,2""
+Bytes: 53
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:DEL 'Set1.zvx'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "'C:\Rohde&Schwarz\Nwa'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR DEF"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR '.\RecallSets'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:LOAD:STAT 1,'Set1.zvx'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR 'C:\Rohde&Schwarz\Nwa'"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "'C:\Rohde&Schwarz\Nwa'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR DEF"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR '.\RecallSets'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:DEL 'Set1.zvx',FORC"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR 'C:\Rohde&Schwarz\Nwa'"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:SEL 'Set1.zvx'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "'C:\Rohde&Schwarz\Nwa'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR DEF"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR '.\RecallSets'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4,5,Ch5,6,Ch6,7,Ch7,8,Ch8,9,Ch9,10,Ch10,11,Ch11,12,Ch12,13,Ch13,14,Ch14,15,Ch..."
+Bytes: 200
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN28 1"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN28 0"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:STOR:STAT 1,'Set1.zvx'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR 'C:\Rohde&Schwarz\Nwa'"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SENS26:CORR:COLL:SEL SHOR,1"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    "*OPC?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+SCPI Errors:
+-200: Execution error;:SENS26:CORR:COLL:SEL SHOR,1
+
+Read:     "1"
+Bytes: 2
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "-200,"Execution error;:SENS26:CORR:COLL:SEL SHOR,1""
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Write:    ":SYST:ERR?"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Read:     "0,"No error""
+Bytes: 13
+Status: 0x0 Operation completed successfully.
+
+Write:    "*CLS"
+Bytes: 5
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:CAT?"
+Bytes: 10
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Set1.zvx'"
+Bytes: 11
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MEM:DEL 'Set1.zvx'"
+Bytes: 20
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "'C:\Rohde&Schwarz\Nwa'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR DEF"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR '.\RecallSets'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:LOAD:STAT 1,'Set1.zvx'"
+Bytes: 29
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR 'C:\Rohde&Schwarz\Nwa'"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    "*IDN?"
+Bytes: 6
+Status: 0x0 Operation completed successfully.
+
+Read:     "Rohde&Schwarz,ZVA8-4Port,1145101099999999,3.20"
+Bytes: 47
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR?"
+Bytes: 12
+Status: 0x0 Operation completed successfully.
+
+Read:     "'C:\Rohde&Schwarz\Nwa'"
+Bytes: 23
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR DEF"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR '.\RecallSets'"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:DEL 'Set1.zvx',FORC"
+Bytes: 26
+Status: 0x0 Operation completed successfully.
+
+Write:    ":MMEM:CDIR 'C:\Rohde&Schwarz\Nwa'"
+Bytes: 34
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4,5,Ch5,6,Ch6,7,Ch7,8,Ch8,9,Ch9,10,Ch10,11,Ch11,12,Ch12,13,Ch13,14,Ch14,15,Ch..."
+Bytes: 200
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN27 0"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN:CAT?"
+Bytes: 16
+Status: 0x0 Operation completed successfully.
+
+Read:     "'1,Ch1,2,Ch2,3,Ch3,4,Ch4,5,Ch5,6,Ch6,7,Ch7,8,Ch8,9,Ch9,10,Ch10,11,Ch11,12,Ch12,13,Ch13,14,Ch14,15,Ch..."
+Bytes: 192
+Status: 0x0 Operation completed successfully.
+
+Write:    ":CONF:CHAN26 0"
+Bytes: 15
+Status: 0x0 Operation completed successfully.
+

@@ -24,6 +24,7 @@ DoubleOffsetShortKit::DoubleOffsetShortKit() :
 DoubleOffsetShortKit::DoubleOffsetShortKit(const DoubleOffsetShortKit &other) :
     _isValid(other._isValid),
     _nameLabel(other._nameLabel),
+    _ports(other._ports),
     _shortLabels(other._shortLabels),
     _offsetShort1Labels(other._offsetShort1Labels),
     _offsetShort2Labels(other._offsetShort2Labels),
@@ -35,7 +36,7 @@ DoubleOffsetShortKit::DoubleOffsetShortKit(const DoubleOffsetShortKit &other) :
     _minFreq_Hz(other._minFreq_Hz),
     _maxFreq_Hz(other._maxFreq_Hz)
 {
-
+    qDebug() << "DoubleOffsetShortKit copy constructor. Ports: " << _ports;
 }
 
 DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender vnaGender, QVector<uint> ports) :
@@ -46,8 +47,10 @@ DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToo
     _minFreq_Hz(0),
     _maxFreq_Hz(DBL_INF)
 {
+    qDebug() << "DoubleOffsetShortKit constructor. Ports: " << ports;
     _nameLabel = calKit.nameLabel();
-    getOffsetShortsAndValidate(calKit, vnaGender, ports);
+    _ports = ports;
+    getOffsetShortsAndValidate(calKit, vnaGender);
 }
 
 bool DoubleOffsetShortKit::isValid() const {
@@ -89,7 +92,11 @@ QString DoubleOffsetShortKit::displayFrequencyRange() const {
 }
 
 QString DoubleOffsetShortKit::shortLabel(uint port) const {
+    qDebug() << "      DoubleOffsetShortKit::shortLabel, port: " << port;
     const int i = _ports.indexOf(port);
+    qDebug() << "      _ports: " << _ports;
+    qDebug() << "      index of port: " << i;
+    qDebug() << "      _shortLabels.size: " << _shortLabels.size();
     return _shortLabels[i];
 }
 QStringList DoubleOffsetShortKit::shortLabels() const {
@@ -135,9 +142,12 @@ QStringList DoubleOffsetShortKit::thruLabels() const {
 }
 
 void DoubleOffsetShortKit::operator=(const DoubleOffsetShortKit &other) {
+    qDebug() << "DoubleOffsetShortKit::operator=, ports: " << other._ports;
     _isValid = other._isValid;
 
     _nameLabel = other._nameLabel;
+
+    _ports = other._ports;
 
     _shortLabels = other._shortLabels;
     _offsetShort1Labels = other._offsetShort1Labels;
@@ -217,8 +227,8 @@ void DoubleOffsetShortKit::write(QDataStream &stream) const {
     stream << _maxFreq_Hz;
 }
 
-void DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connector::Gender vnaPortGenders, QVector<uint> ports) {
-    if (ports.isEmpty()) {
+void DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connector::Gender vnaPortGenders) {
+    if (_ports.isEmpty()) {
         _isValid = false;
         return;
     }
@@ -228,34 +238,32 @@ void DoubleOffsetShortKit::getOffsetShortsAndValidate(VnaCalKit &calKit, Connect
         return;
     }
 
-
-    QBitArray isShort(ports.size(), false);
+    QBitArray isShort(_ports.size(), false);
     _shortLabels.clear();
-    _shortLabels.resize(ports.size());
+    _shortLabels.resize(_ports.size());
 
-    QBitArray isOffsetShort1(ports.size(), false);
+    QBitArray isOffsetShort1(_ports.size(), false);
     _offsetShort1Labels.clear();
-    _offsetShort1Labels.resize(ports.size());
+    _offsetShort1Labels.resize(_ports.size());
 
-    QBitArray isOffsetShort2(ports.size(), false);
+    QBitArray isOffsetShort2(_ports.size(), false);
     _offsetShort2Labels.clear();
-    _offsetShort2Labels.resize(ports.size());
+    _offsetShort2Labels.resize(_ports.size());
 
-    QBitArray isOffsetShort3(ports.size(), false);
+    QBitArray isOffsetShort3(_ports.size(), false);
     _offsetShort3Labels.clear();
-    _offsetShort3Labels.resize(ports.size());
+    _offsetShort3Labels.resize(_ports.size());
 
-    const bool needThru = ports.size() > 1;
-    ThruValues isThru(ports, false);
+    const bool needThru = _ports.size() > 1;
+    ThruValues isThru(_ports, false);
     _thruLabels.clear();
-    _thruLabels.resize(ports);
+    _thruLabels.resize(_ports);
 
     foreach(VnaCalStandard s, standards) {
-        qDebug() << "Comparing standard with label " << s.label();
         if (s.isSinglePort()) {
             if (s.isPortSpecific()) {
-                if (ports.contains(s.port())) {
-                    const int i = ports.indexOf(s.port());
+                if (_ports.contains(s.port())) {
+                    const int i = _ports.indexOf(s.port());
                     if (s.isShort()) {
                         isShort[i] = true;
                         _shortLabels[i] = s.label();

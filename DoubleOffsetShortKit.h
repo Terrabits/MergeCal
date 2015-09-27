@@ -74,7 +74,7 @@ private:
     double _minFreq_Hz;
     double _maxFreq_Hz;
 
-    void getOffsetShortsAndValidate(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender vnaPortGenders, QVector<uint> ports);
+    void getOffsetShortsAndValidate(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender vnaPortGenders);
     void compareFrequencyRange(const double &min_Hz, const double &max_Hz);
 };
 
