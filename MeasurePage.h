@@ -10,6 +10,7 @@
 // RsaToolbox
 #include <WizardPage.h>
 #include <Vna.h>
+#include <VnaUndo.h>
 
 // Qt
 #include <QWidget>
@@ -63,6 +64,7 @@ private:
     CalibrationModel _model;
 
     bool _isMeasuring;
+    RsaToolbox::VnaUndo _undo;
 };
 
 #endif // MEASUREPAGE_H

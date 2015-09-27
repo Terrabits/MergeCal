@@ -164,16 +164,10 @@ bool PartialCal::measureShort(uint port) {
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-//    _cal.selectKit(_calKit.calKit().nameLabel());
-//    QString name = "Channel%1Cal";
-//    name = name.arg(_channel);
-//    if (_ports.size() > 1)
-//        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-//    else
-//        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-//    _cal.keepRawData();
+    // May need to change/get rid of this:
+    _cal.selectKit(_calKit.calKit().nameLabel());
+
     _cal.measureShort(port);
-//    _cal.apply();
     emit finishedMeasurement();
 
     if (_vna->isError()) {
@@ -205,19 +199,13 @@ bool PartialCal::measureOffsetShortA(uint port) {
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-//    _cal.selectKit(_calKit.calKit().nameLabel());
-//    QString name = "Channel%1Cal";
-//    name = name.arg(_channel);
-//    if (_ports.size() > 1)
-//        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-//    else
-//        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-//    _cal.keepRawData();
+    // May need to change/delete this
+    _cal.selectKit(_calKit.calKit().nameLabel());
+
     if (_calKit.calKit().isOffsetShort1())
         _cal.measureOffsetShort1(port);
     else
         _cal.measureOffsetShort2(port);
-//    _cal.apply();
     emit finishedMeasurement();
 
     if (_vna->isError()) {
@@ -248,19 +236,13 @@ bool PartialCal::measureOffsetShortB(uint port) {
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-//    _cal.selectKit(_calKit.calKit().nameLabel());
-//    QString name = "Channel%1Cal";
-//    name = name.arg(_channel);
-//    if (_ports.size() > 1)
-//        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-//    else
-//        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-//    _cal.keepRawData();
+    // May need to change/delete this:
+    _cal.selectKit(_calKit.calKit().nameLabel());
+
     if (_calKit.calKit().isOffsetShort3())
         _cal.measureOffsetShort3(port);
     else
         _cal.measureOffsetShort2(port);
-//    _cal.apply();
     emit finishedMeasurement();
 
     if (_vna->isError()) {
@@ -289,16 +271,10 @@ bool PartialCal::measureThru(uint port1, uint port2) {
     caption = caption.arg(port2);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-//    _cal.selectKit(_calKit.calKit().nameLabel());
-//    QString name = "Channel%1Cal";
-//    name = name.arg(_channel);
-//    if (_ports.size() > 1)
-//        _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
-//    else
-//        _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-//    _cal.keepRawData();
+    // May need to change/delete this;
+    _cal.selectKit(_calKit.calKit().nameLabel());
+
     _cal.measureThru(port1, port2);
-//    _cal.apply();
     emit finishedMeasurement();
 
     if (_vna->isError()) {

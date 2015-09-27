@@ -90,7 +90,7 @@ bool CalKitsPage::isReadyForNext() {
             ui->error->showMessage("*Cal kits must cover a continuous frequency range");
             return false;
         }
-        if (_chosenCalKitsModel.calKits()[0].startFrequency_Hz() > _channelStartFreq_Hz) {
+        if (_chosenCalKitsModel.calKits().first().startFrequency_Hz() > _channelStartFreq_Hz) {
             ui->error->showMessage("*Cal kits do not cover entire frequency range");
             return false;
         }
@@ -119,13 +119,13 @@ bool CalKitsPage::isReadyForNext() {
 
     emit calKitsSelected(_chosenCalKitsModel.calKits());
 
-    // Initialize calibration
+    // Set _calibration properties
     _calibration->setVna(_vna);
     _calibration->setPorts(_ports);
     _calibration->setConnector(_connectorType);
     _calibration->setChannel(_channel);
     _calibration->setCalKits(_chosenCalKitsModel.calKits());
-    _calibration->initialize();
+//    _calibration->initialize();
 
     return true;
 }

@@ -23,22 +23,32 @@ MeasurePage::MeasurePage(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    qDebug() << "MeasurePage constructor";
     connect(ui->measureTree, SIGNAL(clicked(QModelIndex)),
             &_model, SLOT(measure(QModelIndex)));
 }
 
 MeasurePage::~MeasurePage()
 {
+    qDebug() << "MeasurePage destructor";
+    qDebug() << "MeasurePage: _undo.recall()";
+    _undo.recall();
     delete ui;
 }
 
 void MeasurePage::initialize() {
+    qDebug() << "MeasurePage::initialize";
     breadCrumbs()->hide();
     _header->setPixmap(QPixmap(":/images/Images/4 Measure.bmp"));
 
     _progressBar->show();
     buttons()->next()->setText("Apply");
     buttons()->next()->setDisabled(true);
+
+    _undo.setRecallOnDestruction(true);
+    _undo.save();
+
+    _calibration->initialize();
 
     formatTree();
 
@@ -54,11 +64,20 @@ void MeasurePage::initialize() {
             this, SLOT(updateApplyButton()));
 }
 bool MeasurePage::isReadyForNext() {
-    _calibration->applyCorrections();
-    wizard()->close();
-    return true;
+    qDebug() << "MeasurePage::isReadyForNext";
+    if (_calibration->applyCorrections()) {
+        qDebug() << "Applying corrections...";
+        qDebug() << "MeasurePage: _undo.discard()";
+        _undo.discard();
+        wizard()->close();
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 bool MeasurePage::isReadyForBack() {
+    qDebug() << "MeasurePage::isReadyForBack()";
     disconnect(_calibration, SIGNAL(startingMeasurement(QString,uint)),
             this, SLOT(measurementStarted(QString,uint)));
     disconnect(_calibration, SIGNAL(finishedMeasurement()),
@@ -69,6 +88,8 @@ bool MeasurePage::isReadyForBack() {
             this, SLOT(formatTree()));
     disconnect(_calibration, SIGNAL(measurementStatusUpdated()),
             this, SLOT(updateApplyButton()));
+    qDebug() << "MeasurePage: _undo.recall()";
+    _undo.recall();
     return WizardPage::isReadyForBack();
 }
 
@@ -88,6 +109,7 @@ TimedProgressBar *MeasurePage::progressBar() {
 
 void MeasurePage::setVna(Vna *vna) {
     _vna = vna;
+    _undo.setVna(vna);
 }
 void MeasurePage::setCalibration(QThread *measureThread, Calibration *calibration) {
     _measureThread = measureThread;

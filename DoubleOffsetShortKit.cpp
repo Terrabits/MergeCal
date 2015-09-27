@@ -36,7 +36,6 @@ DoubleOffsetShortKit::DoubleOffsetShortKit(const DoubleOffsetShortKit &other) :
     _minFreq_Hz(other._minFreq_Hz),
     _maxFreq_Hz(other._maxFreq_Hz)
 {
-    qDebug() << "DoubleOffsetShortKit copy constructor. Ports: " << _ports;
 }
 
 DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToolbox::Connector::Gender vnaGender, QVector<uint> ports) :
@@ -47,7 +46,6 @@ DoubleOffsetShortKit::DoubleOffsetShortKit(RsaToolbox::VnaCalKit &calKit, RsaToo
     _minFreq_Hz(0),
     _maxFreq_Hz(DBL_INF)
 {
-    qDebug() << "DoubleOffsetShortKit constructor. Ports: " << ports;
     _nameLabel = calKit.nameLabel();
     _ports = ports;
     getOffsetShortsAndValidate(calKit, vnaGender);
@@ -92,11 +90,7 @@ QString DoubleOffsetShortKit::displayFrequencyRange() const {
 }
 
 QString DoubleOffsetShortKit::shortLabel(uint port) const {
-    qDebug() << "      DoubleOffsetShortKit::shortLabel, port: " << port;
     const int i = _ports.indexOf(port);
-    qDebug() << "      _ports: " << _ports;
-    qDebug() << "      index of port: " << i;
-    qDebug() << "      _shortLabels.size: " << _shortLabels.size();
     return _shortLabels[i];
 }
 QStringList DoubleOffsetShortKit::shortLabels() const {
@@ -142,7 +136,6 @@ QStringList DoubleOffsetShortKit::thruLabels() const {
 }
 
 void DoubleOffsetShortKit::operator=(const DoubleOffsetShortKit &other) {
-    qDebug() << "DoubleOffsetShortKit::operator=, ports: " << other._ports;
     _isValid = other._isValid;
 
     _nameLabel = other._nameLabel;
@@ -194,6 +187,7 @@ void DoubleOffsetShortKit::read(QDataStream &stream) {
     stream >> _isValid;
 
     stream >> _nameLabel;
+    stream >> _ports;
 
     stream >> _shortLabels;
     stream >> _offsetShort1Labels;
@@ -212,6 +206,7 @@ void DoubleOffsetShortKit::write(QDataStream &stream) const {
     stream << _isValid;
 
     stream << _nameLabel;
+    stream << _ports;
 
     stream << _shortLabels;
     stream << _offsetShort1Labels;
