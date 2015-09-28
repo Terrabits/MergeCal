@@ -88,7 +88,9 @@ void PartialCal::initialize() {
 
     _cal = channel.calibrate();
     _cal.setConnectors(_connector);
-    _cal.selectKit(_calKit.calKit().nameLabel());
+
+    // Fix later?
+//    _cal.selectKit(_calKit.calKit().nameLabel());
 
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
@@ -96,7 +98,7 @@ void PartialCal::initialize() {
         _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
     else
         _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-    _cal.keepRawData();
+//    _cal.keepRawData();
 
     // Do not run dummy sweeps, send SCPI
     // command for calibrating channels in parallel
