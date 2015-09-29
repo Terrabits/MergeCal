@@ -71,6 +71,7 @@ public slots:
     void setCalKits(const QVector<FrequencyRange> &kits);
 
     void initialize();
+    void clearPartialCals();
 
     void interrupt();
 

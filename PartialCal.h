@@ -29,6 +29,7 @@ public:
     void setCalKit(const FrequencyRange &kit);
 
     void initialize();
+    void resetCalibration();
 
     uint channel() const;
 
@@ -64,8 +65,14 @@ private:
     FrequencyRange _calKit;
 
     uint _channel;
-    uint _sweepTime_ms;
+    RsaToolbox::Connector _tempConnector;
+    RsaToolbox::NameLabel _tempCalKit;
     void deleteChannel();
+    void deleteCalKit();
+    void deleteConnector();
+    static QString generateUniqueName();
+
+    uint _sweepTime_ms;
     RsaToolbox::VnaCalibrate _cal;
 
     bool _interrupt;

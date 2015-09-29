@@ -66,6 +66,9 @@ void Calibration::initialize() {
     }
     emit finishedInitialization();
 }
+void Calibration::clearPartialCals() {
+    _partialCals.clear();
+}
 
 uint Calibration::numberOfPorts() const {
     return _ports.size();

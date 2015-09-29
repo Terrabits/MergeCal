@@ -5,6 +5,7 @@
 using namespace RsaToolbox;
 
 // Qt
+#include <QUuid>
 #include <QDebug>
 
 
@@ -34,7 +35,7 @@ PartialCal::PartialCal(const PartialCal &other) :
 
 PartialCal::~PartialCal()
 {
-    deleteChannel();
+    resetCalibration();
 }
 
 void PartialCal::setVna(RsaToolbox::Vna *vna) {
@@ -61,8 +62,8 @@ void PartialCal::initialize() {
 
     _vna->isError();
     _vna->clearStatus();
+    resetCalibration();
 
-    deleteChannel();
     _vna->channel(_originalChannel).select();
     _channel = _vna->createChannel();
     VnaChannel channel = _vna->channel(_channel);
@@ -83,14 +84,28 @@ void PartialCal::initialize() {
         emit error("*Cannot calibrate time or cw sweeps.");
         return;
     }
-
     _sweepTime_ms = channel.calibrationSweepTime_ms();
 
-    _cal = channel.calibrate();
-    _cal.setConnectors(_connector);
+    // Make temp cal kit, connector
+    // FIX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if (_calKit.calKit().nameLabel().name().contains("High", Qt::CaseInsensitive))
+        _tempCalKit.setName("TempHighBandKit");
+    else
+        _tempCalKit.setName("TempLowBandKit");
+    // _tempCalKit.setName(generateUniqueName());
+    _vna->calKit(_calKit.calKit().nameLabel()).copy(_tempCalKit);
+    _tempConnector = _connector;
+    if (_calKit.calKit().nameLabel().name().contains("Low", Qt::CaseInsensitive))
+        _tempConnector.setCustomType("TempLowConnector");
+    else
+        _tempConnector.setCustomType("TempHighConnector");
+//    _tempConnector.setCustomType(generateUniqueName());
+    _vna->defineCustomConnector(_tempConnector);
+    _vna->calKit(_tempCalKit).setConnectorType(_tempConnector);
 
-    // Fix later?
-//    _cal.selectKit(_calKit.calKit().nameLabel());
+    _cal = channel.calibrate();
+    _cal.setConnectors(_tempConnector);
+    _cal.selectKit(_tempCalKit);
 
     QString name = "Channel%1Cal";
     name = name.arg(_channel);
@@ -99,51 +114,23 @@ void PartialCal::initialize() {
     else
         _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
 //    _cal.keepRawData();
-
-    // Do not run dummy sweeps, send SCPI
-    // command for calibrating channels in parallel
-    // instead.
     _vna->multiChannelCalibrationOn();
 
-//    foreach (uint port, _ports) {
-//        if (isInterrupt()) {
-//            clearInterrupt();
-//            return;
-//        }
-//        _measureShort(port);
-//        if (isInterrupt()) {
-//            clearInterrupt();
-//            return;
-//        }
-//        _measureOffsetShortA(port);
-//        if (isInterrupt()) {
-//            clearInterrupt();
-//            return;
-//        }
-//        _measureOffsetShortB(port);
-//    }
-//    for (int i = 0; i < _ports.size(); i++) {
-//        for (int j = i+1; j < _ports.size(); j++) {
-//            if (isInterrupt()) {
-//                clearInterrupt();
-//                return;
-//            }
-//            _measureThru(_ports[i], _ports[j]);
-//        }
-//    }
     if (isInterrupt()) {
         clearInterrupt();
         return;
     }
 
-//    _vna->isError();
-//    _vna->clearStatus();
-//    _cal.apply();
     if (_vna->isError()) {
         _vna->clearStatus();
         emit error("*Could not initialize calibration");
         return;
     }
+}
+void PartialCal::resetCalibration() {
+    deleteChannel();
+    deleteCalKit();
+    deleteConnector();
 }
 
 uint PartialCal::channel() const {
@@ -165,9 +152,6 @@ bool PartialCal::measureShort(uint port) {
         caption += QString(" (%1)").arg(_calKit.calKit().shortLabel(port).trimmed());
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
-
-    // May need to change/get rid of this:
-    _cal.selectKit(_calKit.calKit().nameLabel());
 
     _cal.measureShort(port);
     emit finishedMeasurement();
@@ -201,8 +185,6 @@ bool PartialCal::measureOffsetShortA(uint port) {
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-    // May need to change/delete this
-    _cal.selectKit(_calKit.calKit().nameLabel());
 
     if (_calKit.calKit().isOffsetShort1())
         _cal.measureOffsetShort1(port);
@@ -238,9 +220,6 @@ bool PartialCal::measureOffsetShortB(uint port) {
     caption += QString(" Port %1").arg(port);
     emit startingMeasurement(caption, _sweepTime_ms);
 
-    // May need to change/delete this:
-    _cal.selectKit(_calKit.calKit().nameLabel());
-
     if (_calKit.calKit().isOffsetShort3())
         _cal.measureOffsetShort3(port);
     else
@@ -272,9 +251,6 @@ bool PartialCal::measureThru(uint port1, uint port2) {
     caption = caption.arg(port1);
     caption = caption.arg(port2);
     emit startingMeasurement(caption, _sweepTime_ms);
-
-    // May need to change/delete this;
-    _cal.selectKit(_calKit.calKit().nameLabel());
 
     _cal.measureThru(port1, port2);
     emit finishedMeasurement();
@@ -338,6 +314,21 @@ void PartialCal::deleteChannel() {
         _channel = 0;
         _cal = VnaCalibrate();
     }
+}
+void PartialCal::deleteCalKit() {
+    if (!_tempCalKit.isEmpty()) {
+        _vna->deleteCalKit(_tempCalKit);
+        _tempCalKit.clear();
+    }
+}
+void PartialCal::deleteConnector() {
+    if (!_tempConnector.isType(Connector::Type::UNKNOWN_CONNECTOR)) {
+        _vna->deleteConnector(_tempConnector);
+        _tempConnector = Connector();
+    }
+}
+QString PartialCal::generateUniqueName() {
+    return QUuid::createUuid().toString().remove('{').remove('}').remove('-');
 }
 
 bool PartialCal::isInterrupt() const {

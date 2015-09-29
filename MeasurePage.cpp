@@ -89,7 +89,10 @@ bool MeasurePage::isReadyForBack() {
     disconnect(_calibration, SIGNAL(measurementStatusUpdated()),
             this, SLOT(updateApplyButton()));
     qDebug() << "MeasurePage: _undo.recall()";
+    _calibration->clearPartialCals();
     _undo.recall();
+    _vna->isError();
+    _vna->clearStatus();
     return WizardPage::isReadyForBack();
 }
 
