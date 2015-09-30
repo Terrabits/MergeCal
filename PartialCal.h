@@ -28,7 +28,12 @@ public:
     void setConnector(const RsaToolbox::Connector &connector);
     void setCalKit(const FrequencyRange &kit);
 
+    // Initialization steps
+    void createChannel();
+    void createCalKit();
     void initialize();
+
+    // Cancel calibration
     void resetCalibration();
 
     uint channel() const;

@@ -54,22 +54,14 @@ void PartialCal::setCalKit(const FrequencyRange &kit) {
     _calKit = kit;
 }
 
-void PartialCal::initialize() {
-    if (isInterrupt()) {
-        clearInterrupt();
-        return;
-    }
-
-    _vna->isError();
-    _vna->clearStatus();
-    resetCalibration();
-
+void PartialCal::createChannel() {
     _vna->channel(_originalChannel).select();
     _channel = _vna->createChannel();
     VnaChannel channel = _vna->channel(_channel);
-    _vna->createTrace(_channel);
+    QString trace = _vna->createTrace(_channel);
+    uint diagram = _vna->createDiagram();
+    _vna->trace(trace).setDiagram(diagram);
 
-    // Set frequency points
     VnaChannel::SweepType sweepType = channel.sweepType();
     if (sweepType == VnaChannel::SweepType::Linear
             || sweepType == VnaChannel::SweepType::Log)
@@ -85,7 +77,8 @@ void PartialCal::initialize() {
         return;
     }
     _sweepTime_ms = channel.calibrationSweepTime_ms();
-
+}
+void PartialCal::createCalKit() {
     // Make temp cal kit, connector
     // FIX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if (_calKit.calKit().nameLabel().name().contains("High", Qt::CaseInsensitive))
@@ -102,8 +95,12 @@ void PartialCal::initialize() {
 //    _tempConnector.setCustomType(generateUniqueName());
     _vna->defineCustomConnector(_tempConnector);
     _vna->calKit(_tempCalKit).setConnectorType(_tempConnector);
+}
+void PartialCal::initialize() {
+    _vna->isError();
+    _vna->clearStatus();
 
-    _cal = channel.calibrate();
+    _cal = _vna->channel(_channel).calibrate();
     _cal.setConnectors(_tempConnector);
     _cal.selectKit(_tempCalKit);
 
@@ -113,13 +110,7 @@ void PartialCal::initialize() {
         _cal.start(name, VnaCalibrate::CalType::Tosm, _ports);
     else
         _cal.start(name, VnaCalibrate::CalType::Osm, _ports);
-//    _cal.keepRawData();
-    _vna->multiChannelCalibrationOn();
-
-    if (isInterrupt()) {
-        clearInterrupt();
-        return;
-    }
+    _cal.keepRawData();
 
     if (_vna->isError()) {
         _vna->clearStatus();
@@ -310,7 +301,16 @@ void PartialCal::interrupt() {
 
 void PartialCal::deleteChannel() {
     if (_channel != 0 && _vna->isChannel(_channel)) {
+        // Cannot delete channel while calibrating.
+        // Ignore this
+        _vna->settings().errorDisplayOff();
+
         _vna->deleteChannel(_channel);
+
+        _vna->isError();
+        _vna->clearStatus();
+        _vna->settings().errorDisplayOn();
+
         _channel = 0;
         _cal = VnaCalibrate();
     }

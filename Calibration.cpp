@@ -20,6 +20,7 @@ Calibration::Calibration(QObject *parent) :
 Calibration::~Calibration()
 {
     _partialCals.clear();
+    _vna->multiChannelCalibrationOff();
 }
 
 void Calibration::setVna(RsaToolbox::Vna *vna) {
@@ -27,11 +28,8 @@ void Calibration::setVna(RsaToolbox::Vna *vna) {
 }
 
 void Calibration::initialize() {
-    if (isInterrupt()) {
-        clearInterrupt();
-        return;
-    }
     emit startingInitialization();
+
     _isShortMeasured.fill(false, _ports.size());
     _isOffsetShortAMeasured.fill(QBitArray(_ports.size(), false), _kits.size());
     _isOffsetShortBMeasured.fill(QBitArray(_ports.size(), false), _kits.size());
@@ -47,23 +45,24 @@ void Calibration::initialize() {
         partial.setConnector(_connector);
         partial.setCalKit(kit);
         _partialCals << partial;
-
         connect(&(_partialCals.last()), SIGNAL(startingMeasurement(QString,uint)),
                 this, SIGNAL(startingMeasurement(QString,uint)));
         connect(&(_partialCals.last()), SIGNAL(finishedMeasurement()),
                 this, SIGNAL(finishedMeasurement()));
-
         connect(&(_partialCals.last()), SIGNAL(error(QString)),
                 this, SLOT(interrupt()));
         connect(&(_partialCals.last()), SIGNAL(error(QString)),
                 this, SIGNAL(error(QString)));
-
-        _partialCals.last().initialize();
-        if (isInterrupt()) {
-            clearInterrupt();
-            return;
-        }
     }
+
+    _vna->multiChannelCalibrationOn();
+    for (int i = 0; i < _partialCals.size(); i++)
+        _partialCals[i].createChannel();
+    for (int i = 0; i < _partialCals.size(); i++)
+        _partialCals[i].createCalKit();
+    for (int i = 0; i < _partialCals.size(); i++)
+        _partialCals[i].initialize();
+
     emit finishedInitialization();
 }
 void Calibration::clearPartialCals() {
