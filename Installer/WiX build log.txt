@@ -1,10 +1,10 @@
-RSA Create Installer Version 1.2
+RSA Create Installer Version 1.1
 (C) 2014 Rohde & Schwarz America
 
-Sun Sep 27 16:41:24 2015
+Thu Oct 1 20:06:06 2015
 
 Application Name:    R&S Merge Cal
-Version:             1.0.2
+Version:             1.0.3
 Manufacturer:        Rohde & Schwarz
 Author:              Nick Lalic
 Description:         Calibrate with Offset Short pairs in multiple cal kits
@@ -12,29 +12,29 @@ Manufacturer Folder: Rohde-Schwarz
 Installation Folder: Merge Cal
 Start Menu Folder:   R&S Merge Cal
 Add About Link?      true
-Executable:          C:\Users\lalic\Documents\Qt\build-MergeCal-Desktop_Qt_5_2_1_MSVC2010_32bit-Release\release\MergeCal.exe
+Executable:          C:\Users\Lalic\Documents\Qt\build-MergeCal-Desktop_Qt_5_2_1_MSVC2010_32bit-Release\release\MergeCal.exe
 Instrument Shortcut: Merge Cal
 Msvc Runtime:        C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\Msvc2010_32
 Qt Runtime:          C:\Qt\5.2.1\msvc2010\bin
 Create Installer:    C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer
 
 Upgrade Code:        242E8525-F335-40A4-AB46-2CA745E4DE5F
-Product Guid:        C65DBC69-146B-4BD9-8D17-D026F7DD14E6
-Executable Guid:     F9188ACF-741D-47A1-AB76-F669638F2EB3
-Licenses Guid:       2E37E4D9-63B1-4598-9694-C97743FBACFE
-Msvc Runtime Guid:   00DED3BB-B769-41EF-8C42-85CA4C7CE9B7
-Qt Runtime Guid:     BBBE4452-D842-4BA9-BABB-F051FA2518D0
-Qt Platform Guid:    E3B243C8-3D0F-4FCF-8E3B-1B35D5374742
-Logs/Settings Guid:  56697952-FFAE-4138-BF30-A7CD4AA19B58
-Shortcuts Guid:      34EED173-AE32-4F83-A596-B31DFB14EF5E
-RsVisa Guid:         032891A0-D070-4600-8207-F74E84E39652
-QCustomPlots Guid:   A410DB0C-E50F-4244-B2E7-3927164D131B
-QuaZIP Guid:         92521E78-3D1D-4BBA-BABA-A4359C2E7827
+Product Guid:        6E4958C0-6C98-4C84-ADB5-36FCFBE893FC
+Executable Guid:     5310F6D6-A7E0-4732-83CE-1DD5E76BAD6C
+Licenses Guid:       F101707C-DF10-4C93-AF9C-522D175C7FE1
+Msvc Runtime Guid:   7B86CE59-BBD8-49AC-982C-42EC30F0D268
+Qt Runtime Guid:     E21FA3E7-681A-4804-9174-A964807C2270
+Qt Platform Guid:    626F220D-6648-497D-90C2-F0C5D8DAFC93
+Logs/Settings Guid:  6109EADC-317D-4C4D-AFA6-B29006B53BA0
+Shortcuts Guid:      E7A931DB-DF0B-454A-B36D-196D4927A2D8
+RsVisa Guid:         03FD1178-7E41-41FE-BE62-88AB48BF171B
+QCustomPlots Guid:   3715CA6D-DAFF-4D45-B80A-87D1EBE9EA44
+QuaZIP Guid:         F1B21A0B-003D-40E2-8F98-0D051469E946
 
 Wxs Template:        RsaToolbox DirectX with About Link 1.0
 Template exists?     true
 Wxs File:            Product.wxs
-Installer:           C:\Users\lalic\Documents\Qt\MergeCal\Installer\R&S Merge Cal 1.0.2.msi
+Installer:           C:\Users\lalic\Documents\Qt\MergeCal\Installer\R&S Merge Cal 1.0.3.msi
 Add Version?         true
 WiX Tools:           C:\Program Files (x86)\WiX Toolset v3.9\bin
 
@@ -48,8 +48,8 @@ WXS FILE:
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Product Id="C65DBC69-146B-4BD9-8D17-D026F7DD14E6" Name="R&amp;S Merge Cal" Language="1033"
-    Version="1.0.2" Manufacturer="Rohde &amp; Schwarz"
+	<Product Id="6E4958C0-6C98-4C84-ADB5-36FCFBE893FC" Name="R&amp;S Merge Cal" Language="1033"
+    Version="1.0.3" Manufacturer="Rohde &amp; Schwarz"
     UpgradeCode="242E8525-F335-40A4-AB46-2CA745E4DE5F">
 		
 		<Package InstallerVersion="200"
@@ -121,17 +121,17 @@ WXS FILE:
   <Fragment>
     <!-- Application files -->
     <Icon Id="Rs.ico" SourceFile="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer/Icons/Rs.ico" />
-    <Component Id="ExecutableComponent" Guid="F9188ACF-741D-47A1-AB76-F669638F2EB3"
+    <Component Id="ExecutableComponent" Guid="5310F6D6-A7E0-4732-83CE-1DD5E76BAD6C"
       Directory="INSTALLFOLDER">
       <File Id="AppExecutable" Name="R&amp;S Merge Cal.exe"
-        Source="C:\Users\lalic\Documents\Qt\build-MergeCal-Desktop_Qt_5_2_1_MSVC2010_32bit-Release\release\MergeCal.exe" KeyPath="yes">
+        Source="C:\Users\Lalic\Documents\Qt\build-MergeCal-Desktop_Qt_5_2_1_MSVC2010_32bit-Release\release\MergeCal.exe" KeyPath="yes">
         <Shortcut Id="ZNBShortcut" Name="Merge Cal"
           Directory="ZNBExternalToolsFolder" Advertise="yes" Icon="Rs.ico" />
         <Shortcut Id="ZVAShortcut" Name="Merge Cal"
           Directory="ZVAExternalToolsFolder" Advertise="yes" Icon="Rs.ico" />
       </File>
     </Component>
-    <Component Id="Licenses" Guid="2E37E4D9-63B1-4598-9694-C97743FBACFE" Directory="LicensesFolder">
+    <Component Id="Licenses" Guid="F101707C-DF10-4C93-AF9C-522D175C7FE1" Directory="LicensesFolder">
       <File Id="RsaLicense"
         Name="R&amp;S Terms and Conditions for Royalty-Free Products.txt"
         Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\Licenses\R&amp;S Terms and Conditions for Royalty-Free Products.txt"
@@ -152,31 +152,31 @@ WXS FILE:
         Name="ZLib Copyright and Terms and Conditions.txt"
         Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\Licenses\ZLib Copyright and Terms and Conditions.txt" />
     </Component>
-    <Component Id="RsVisa" Guid="032891A0-D070-4600-8207-F74E84E39652"
+    <Component Id="RsVisa" Guid="03FD1178-7E41-41FE-BE62-88AB48BF171B"
       Directory="INSTALLFOLDER">
       <File Id="RsVisa32.dll" Name="RsVisa32.dll"
-        Source="..\RsaToolbox\Bus\Visa\RsVisa32.dll" KeyPath="yes" />
+        Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\RsVisa\RsVisa32.dll" KeyPath="yes" />
     </Component>
-    <Component Id="QCustomPlots" Guid="A410DB0C-E50F-4244-B2E7-3927164D131B"
+    <Component Id="QCustomPlots" Guid="3715CA6D-DAFF-4D45-B80A-87D1EBE9EA44"
       Directory="INSTALLFOLDER">
     	<File Id="qcustomplot.dll" Name="qcustomplot.dll"
-        Source="..\RsaToolbox\QCustomPlot\qcustomplot.dll" KeyPath="yes" />
+        Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\QCustomPlots\qcustomplot.dll" KeyPath="yes" />
     </Component>
-    <Component Id="QuaZip" Guid="92521E78-3D1D-4BBA-BABA-A4359C2E7827"
+    <Component Id="QuaZip" Guid="F1B21A0B-003D-40E2-8F98-0D051469E946"
       Directory="INSTALLFOLDER">
       <File Id="quazip.dll" Name="quazip.dll"
-        Source="..\RsaToolbox\QuaZIP\quazip.dll" KeyPath="yes" />
+        Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\QuaZIP\quazip.dll" KeyPath="yes" />
       <File Id="zlib1.dll" Name="zlib1.dll"
-        Source="..\RsaToolbox\QuaZIP\ZLib\zlib1.dll" />
+        Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\QuaZIP\zlib1.dll" />
     </Component>
-    <Component Id="MsvcRuntime" Guid="00DED3BB-B769-41EF-8C42-85CA4C7CE9B7"
+    <Component Id="MsvcRuntime" Guid="7B86CE59-BBD8-49AC-982C-42EC30F0D268"
       Directory="INSTALLFOLDER">
       <File Id="msvcr100.dll" Name="msvcr100.dll"
         Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\Msvc2010_32\msvcr100.dll" KeyPath="yes" />
       <File Id="msvcp100.dll" Name="msvcp100.dll"
         Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\Msvc2010_32\msvcp100.dll" />
     </Component>
-    <Component Id="QtRuntime" Guid="BBBE4452-D842-4BA9-BABB-F051FA2518D0"
+    <Component Id="QtRuntime" Guid="E21FA3E7-681A-4804-9174-A964807C2270"
       Directory="INSTALLFOLDER">
       <File Id="Qt5Core.dll" Name="Qt5Core.dll"
         Source="C:\Qt\5.2.1\msvc2010\bin\Qt5Core.dll" KeyPath="yes" />
@@ -201,12 +201,12 @@ WXS FILE:
       <File Id="icuuc51.dll" Name="icuuc51.dll"
         Source="C:\Qt\5.2.1\msvc2010\bin\icuuc51.dll" />
     </Component>
-    <Component Id="QtPlatformPlugin" Guid="E3B243C8-3D0F-4FCF-8E3B-1B35D5374742"
+    <Component Id="QtPlatformPlugin" Guid="626F220D-6648-497D-90C2-F0C5D8DAFC93"
       Directory="PlatformsFolder">
       <File Id="qwindows.dll" Name="qwindows.dll"
         Source="C:\Qt\5.2.1\msvc2010\bin\..\plugins\platforms\qwindows.dll" KeyPath="yes" />
     </Component>
-    <Component Id="LogsAndSettings" Guid="56697952-FFAE-4138-BF30-A7CD4AA19B58"
+    <Component Id="LogsAndSettings" Guid="6109EADC-317D-4C4D-AFA6-B29006B53BA0"
       Directory="MyAppDataFolder" KeyPath="yes">
       <CreateFolder Directory="SettingsFolder" />
       <RemoveFile Id="PurgeLogs"
@@ -217,7 +217,7 @@ WXS FILE:
       <RemoveFolder Id="RemoveSettingsFolder"
       Directory="SettingsFolder" On="uninstall" />
     </Component>
-    <Component Id="ShortcutsComponent" Guid="34EED173-AE32-4F83-A596-B31DFB14EF5E"
+    <Component Id="ShortcutsComponent" Guid="E7A931DB-DF0B-454A-B36D-196D4927A2D8"
       Directory="ApplicationStartMenuFolder">
       <RegistryKey Root="HKCU"
         Key="Software\Rohde-Schwarz\R&amp;S Merge Cal\Uninstall">
@@ -255,7 +255,7 @@ Copyright (c) Outercurve Foundation. All rights reserved.
 Product.wxs
 
 LINKER:
-Generating C:\Users\lalic\Documents\Qt\MergeCal\Installer\R&S Merge Cal 1.0.2.msi
+Generating C:\Users\lalic\Documents\Qt\MergeCal\Installer\R&S Merge Cal 1.0.3.msi
 Windows Installer XML Toolset Linker version 3.9.1006.0
 Copyright (c) Outercurve Foundation. All rights reserved.
 

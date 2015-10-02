@@ -30,9 +30,9 @@ MeasurePage::MeasurePage(QWidget *parent) :
 
 MeasurePage::~MeasurePage()
 {
-    qDebug() << "MeasurePage destructor";
-    qDebug() << "MeasurePage: _undo.recall()";
-    _undo.recall();
+    _calibration->reset();
+    _vna->isError();
+    _vna->clearStatus();
     delete ui;
 }
 
@@ -44,9 +44,6 @@ void MeasurePage::initialize() {
     _progressBar->show();
     buttons()->next()->setText("Apply");
     buttons()->next()->setDisabled(true);
-
-    _undo.setRecallOnDestruction(true);
-    _undo.save();
 
     _calibration->initialize();
 
@@ -65,10 +62,7 @@ void MeasurePage::initialize() {
 }
 bool MeasurePage::isReadyForNext() {
     qDebug() << "MeasurePage::isReadyForNext";
-    if (_calibration->applyCorrections()) {
-        qDebug() << "Applying corrections...";
-        qDebug() << "MeasurePage: _undo.discard()";
-        _undo.discard();
+    if (_calibration->apply()) {
         wizard()->close();
         return true;
     }
@@ -88,9 +82,7 @@ bool MeasurePage::isReadyForBack() {
             this, SLOT(formatTree()));
     disconnect(_calibration, SIGNAL(measurementStatusUpdated()),
             this, SLOT(updateApplyButton()));
-    qDebug() << "MeasurePage: _undo.recall()";
-    _calibration->clearPartialCals();
-    _undo.recall();
+    _calibration->reset();
     _vna->isError();
     _vna->clearStatus();
     return WizardPage::isReadyForBack();
@@ -112,7 +104,6 @@ TimedProgressBar *MeasurePage::progressBar() {
 
 void MeasurePage::setVna(Vna *vna) {
     _vna = vna;
-    _undo.setVna(vna);
 }
 void MeasurePage::setCalibration(QThread *measureThread, Calibration *calibration) {
     _measureThread = measureThread;

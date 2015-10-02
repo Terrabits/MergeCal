@@ -11,6 +11,7 @@
 #include <NameLabel.h>
 #include <Connector.h>
 #include <Vna.h>
+#include <VnaUndo.h>
 
 // Qt
 #include <QObject>
@@ -18,7 +19,10 @@
 #include <QList>
 #include <QBitArray>
 #include <QReadWriteLock>
+#include <QHash>
 
+
+typedef QHash<int, QHash<int, QHash<QString, RsaToolbox::ComplexRowVector>>> CorrectionsHash;
 
 class Calibration : public QObject
 {
@@ -71,7 +75,7 @@ public slots:
     void setCalKits(const QVector<FrequencyRange> &kits);
 
     void initialize();
-    void clearPartialCals();
+    void reset();
 
     void interrupt();
 
@@ -80,7 +84,7 @@ public slots:
     bool measureOffsetShortB(uint kitIndex, uint port);
     bool measureThru(uint index);
 
-    bool applyCorrections();
+    bool apply();
 
 private:
     RsaToolbox::Vna *_vna;
@@ -96,7 +100,11 @@ private:
     uint _channel;
     QVector<FrequencyRange> _kits;
 
+    RsaToolbox::VnaUndo _undo;
     QList<PartialCal> _partialCals;
+
+    CorrectionsHash getCorrections();
+    void applyCorrections(const CorrectionsHash &corrections);
 
     bool _interrupt;
     mutable QReadWriteLock _lock;

@@ -13,6 +13,7 @@ using namespace RsaToolbox;
 PortsPage::PortsPage(QWidget *parent) :
     WizardPage(parent),
     ui(new ::Ui::PortsPage),
+    _header(NULL),
     _vna(NULL),
     _keys(NULL)
 {

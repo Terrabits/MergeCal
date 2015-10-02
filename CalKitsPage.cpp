@@ -15,10 +15,11 @@ using namespace RsaToolbox;
 
 CalKitsPage::CalKitsPage(QWidget *parent) :
     WizardPage(parent),
+    ui(new ::Ui::CalKitsPage),
     _header(NULL),
     _vna(NULL),
     _keys(NULL),
-    ui(new ::Ui::CalKitsPage)
+    _calibration(NULL)
 {
     ui->setupUi(this);
 
@@ -262,7 +263,10 @@ void CalKitsPage::loadKeys() {
     if (_keys->exists("CalKitsPage_ConnectorType")) {
         Connector connectorType;
         _keys->get("CalKitsPage_ConnectorType", connectorType);
-        setConnectorType(connectorType);
+        if (!_vna->isConnectorType(connectorType))
+            return;
+        else
+            setConnectorType(connectorType);
     }
     if (_keys->exists("CalKitsPage_ChosenKits")) {
         QVector<FrequencyRange> calKits;

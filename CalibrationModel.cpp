@@ -213,7 +213,10 @@ QVariant CalibrationModel::data(const QModelIndex &index, int role) const {
             // Thru
             if (index.column() == NAME_COLUMN) {
                 if (role == Qt::DisplayRole) {
-                    return "Thru " + _calibration->thru(index.row()).toString();
+                    QString s = "Thru %1 (%2)";
+                    s = s.arg(_calibration->thru(index.row()).toString());
+                    s = s.arg(_calibration->thruLabel(index.row()));
+                    return s;
                 }
                 else if (_calibration->isThruMeasured(index.row())) {
                     return QIcon(":/images/Images/Measured Button.bmp");

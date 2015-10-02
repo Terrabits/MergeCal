@@ -35,7 +35,7 @@ PartialCal::PartialCal(const PartialCal &other) :
 
 PartialCal::~PartialCal()
 {
-    resetCalibration();
+    deleteCustomCalKit();
 }
 
 void PartialCal::setVna(RsaToolbox::Vna *vna) {
@@ -80,19 +80,10 @@ void PartialCal::createChannel() {
 }
 void PartialCal::createCalKit() {
     // Make temp cal kit, connector
-    // FIX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    if (_calKit.calKit().nameLabel().name().contains("High", Qt::CaseInsensitive))
-        _tempCalKit.setName("TempHighBandKit");
-    else
-        _tempCalKit.setName("TempLowBandKit");
-    // _tempCalKit.setName(generateUniqueName());
+     _tempCalKit.setName(generateUniqueName());
     _vna->calKit(_calKit.calKit().nameLabel()).copy(_tempCalKit);
     _tempConnector = _connector;
-    if (_calKit.calKit().nameLabel().name().contains("Low", Qt::CaseInsensitive))
-        _tempConnector.setCustomType("TempLowConnector");
-    else
-        _tempConnector.setCustomType("TempHighConnector");
-//    _tempConnector.setCustomType(generateUniqueName());
+    _tempConnector.setCustomType(generateUniqueName());
     _vna->defineCustomConnector(_tempConnector);
     _vna->calKit(_tempCalKit).setConnectorType(_tempConnector);
 }
@@ -118,8 +109,7 @@ void PartialCal::initialize() {
         return;
     }
 }
-void PartialCal::resetCalibration() {
-    deleteChannel();
+void PartialCal::deleteCustomCalKit() {
     deleteCalKit();
     deleteConnector();
 }
@@ -154,7 +144,6 @@ bool PartialCal::measureShort(uint port) {
     else {
         return true;
     }
-
 }
 bool PartialCal::measureOffsetShortA(uint port) {
     if (isInterrupt()) {
@@ -299,22 +288,6 @@ void PartialCal::interrupt() {
     _interrupt = true;
 }
 
-void PartialCal::deleteChannel() {
-    if (_channel != 0 && _vna->isChannel(_channel)) {
-        // Cannot delete channel while calibrating.
-        // Ignore this
-        _vna->settings().errorDisplayOff();
-
-        _vna->deleteChannel(_channel);
-
-        _vna->isError();
-        _vna->clearStatus();
-        _vna->settings().errorDisplayOn();
-
-        _channel = 0;
-        _cal = VnaCalibrate();
-    }
-}
 void PartialCal::deleteCalKit() {
     if (!_tempCalKit.isEmpty()) {
         _vna->deleteCalKit(_tempCalKit);

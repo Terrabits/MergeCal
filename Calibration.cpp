@@ -19,12 +19,13 @@ Calibration::Calibration(QObject *parent) :
 
 Calibration::~Calibration()
 {
-    _partialCals.clear();
-    _vna->multiChannelCalibrationOff();
+    qDebug() << "Calibration destructor";
+    qDebug() << "Leaving calibration destructor";
 }
 
 void Calibration::setVna(RsaToolbox::Vna *vna) {
     _vna = vna;
+    _undo.setVna(vna);
 }
 
 void Calibration::initialize() {
@@ -35,6 +36,9 @@ void Calibration::initialize() {
     _isOffsetShortBMeasured.fill(QBitArray(_ports.size(), false), _kits.size());
     _isThruMeasured.resize(_ports);
     _isThruMeasured.fill(false);
+
+    _undo.save();
+    _undo.setRecallOnDestruction(true);
 
     _partialCals.clear();
     foreach (FrequencyRange kit, _kits) {
@@ -56,17 +60,34 @@ void Calibration::initialize() {
     }
 
     _vna->multiChannelCalibrationOn();
-    for (int i = 0; i < _partialCals.size(); i++)
+
+    // Create channels
+    QVector<uint> calChannels;
+    for (int i = 0; i < _partialCals.size(); i++) {
         _partialCals[i].createChannel();
+        calChannels << _partialCals[i].channel();
+    }
+
+    // Create kits, connectors
     for (int i = 0; i < _partialCals.size(); i++)
         _partialCals[i].createCalKit();
+
+    // Start calibration
     for (int i = 0; i < _partialCals.size(); i++)
         _partialCals[i].initialize();
 
+    // Delete extra channels
+    foreach (uint c, _vna->channels()) {
+        if (!calChannels.contains(c))
+            _vna->deleteChannel(c);
+    }
+
     emit finishedInitialization();
 }
-void Calibration::clearPartialCals() {
+void Calibration::reset() {
     _partialCals.clear();
+    _undo.recall();
+    _vna->multiChannelCalibrationOff();
 }
 
 uint Calibration::numberOfPorts() const {
@@ -168,25 +189,30 @@ bool Calibration::measureThru(uint index) {
     return true;
 }
 
-bool Calibration::applyCorrections() {
-    // Apply calibration in each channel
-    for (int i = 0; i < _partialCals.size(); i++) {
-        if (!_partialCals[i].apply()) {
-            emit error("Error calculating corrections. Please try again.");
-            return false;
-        }
+bool Calibration::apply() {
+    // Apply calibration
+    if (!_partialCals.first().apply()) {
+        emit error("Error calculating corrections. Please try again.");
+        return false;
     }
 
+//    for (int i = 0; i < _partialCals.size(); i++) {
+//        if (!_partialCals[i].apply()) {
+//            // Don't need to do each one
+//        }
+//    }
 
-    VnaChannel channel = _vna->channel(_channel);
-    channel.calibrate().setConnectors(_connector);
-    if (_ports.size() > 1)
-        channel.calibrate().start("DefaultCal", VnaCalibrate::CalType::Tosm, _ports);
-    else
-        channel.calibrate().start("DefaultCal", VnaCalibrate::CalType::Osm, _ports);
-    channel.calibrate().keepRawData(false);
-    channel.corrections().loadDefaultCorrections();
+    CorrectionsHash corrections = getCorrections();
+    _undo.recall();
+    applyCorrections(corrections);
 
+    _partialCals.clear();
+    _vna->multiChannelCalibrationOff();
+    _undo.discard();
+    return true;
+}
+CorrectionsHash Calibration::getCorrections() {
+    CorrectionsHash hash;
     foreach(const uint &port1, _ports) {
         foreach (const uint &port2, _ports) {
             // Directivity
@@ -195,7 +221,7 @@ bool Calibration::applyCorrections() {
                 ComplexRowVector temp = _partialCals[i].directivity(port1, port2);
                 corrections.insert(corrections.end(), temp.begin(), temp.end());
             }
-            channel.corrections().setDirectivity(corrections, port1, port2);
+            hash[port1][port2]["directivity"] = corrections;
             _vna->isError();
 
             // sourceMatch
@@ -204,7 +230,7 @@ bool Calibration::applyCorrections() {
                 ComplexRowVector temp = _partialCals[i].sourceMatch(port1, port2);
                 corrections.insert(corrections.end(), temp.begin(), temp.end());
             }
-            channel.corrections().setSourceMatch(corrections, port1, port2);
+            hash[port1][port2]["sourceMatch"] = corrections;
             _vna->isError();
 
             // reflectionTracking
@@ -213,7 +239,7 @@ bool Calibration::applyCorrections() {
                 ComplexRowVector temp = _partialCals[i].reflectionTracking(port1, port2);
                 corrections.insert(corrections.end(), temp.begin(), temp.end());
             }
-            channel.corrections().setReflectionTracking(corrections, port1, port2);
+            hash[port1][port2]["reflectionTracking"] = corrections;
             _vna->isError();
 
             if (port1 != port2) {
@@ -223,7 +249,7 @@ bool Calibration::applyCorrections() {
                     ComplexRowVector temp = _partialCals[i].loadMatch(port1, port2);
                     corrections.insert(corrections.end(), temp.begin(), temp.end());
                 }
-                channel.corrections().setLoadMatch(corrections, port1, port2);
+                hash[port1][port2]["loadMatch"] = corrections;
                 _vna->isError();
 
                 // transmissionTracking
@@ -232,14 +258,41 @@ bool Calibration::applyCorrections() {
                     ComplexRowVector temp = _partialCals[i].transmissionTracking(port1, port2);
                     corrections.insert(corrections.end(), temp.begin(), temp.end());
                 }
-                channel.corrections().setTransmissionTracking(corrections, port1, port2);
+                hash[port1][port2]["transmissionTracking"] = corrections;
                 _vna->isError();
             }
         }
     }
+    return hash;
+}
+void Calibration::applyCorrections(const CorrectionsHash &corrections) {
+    // Set up original channel for corrections
+    VnaChannel channel = _vna->channel(_channel);
+    channel.calibrate().setConnectors(_connector);
+    if (_ports.size() > 1)
+        channel.calibrate().start("DefaultCal", VnaCalibrate::CalType::Tosm, _ports);
+    else
+        channel.calibrate().start("DefaultCal", VnaCalibrate::CalType::Osm, _ports);
+    channel.calibrate().keepRawData(false);
+    channel.corrections().loadDefaultCorrections();
+    _vna->isError();
 
-    _vna->multiChannelCalibrationOff();
-    return true;
+    foreach(const uint &port1, _ports) {
+        foreach (const uint &port2, _ports) {
+            channel.corrections().setDirectivity(corrections[port1][port2]["directivity"], port1, port2);
+            _vna->isError();
+            channel.corrections().setSourceMatch(corrections[port1][port2]["sourceMatch"], port1, port2);
+            _vna->isError();
+            channel.corrections().setReflectionTracking(corrections[port1][port2]["reflectionTracking"], port1, port2);
+            _vna->isError();
+            if (port1 != port2) {
+                channel.corrections().setLoadMatch(corrections[port1][port2]["loadMatch"], port1, port2);
+                _vna->isError();
+                channel.corrections().setTransmissionTracking(corrections[port1][port2]["transmissionTracking"], port1, port2);
+                _vna->isError();
+            }
+        }
+    }
 }
 
 uint Calibration::numberOfKits() const {

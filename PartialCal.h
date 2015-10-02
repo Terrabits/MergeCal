@@ -34,7 +34,7 @@ public:
     void initialize();
 
     // Cancel calibration
-    void resetCalibration();
+    void deleteCustomCalKit();
 
     uint channel() const;
 
@@ -72,7 +72,6 @@ private:
     uint _channel;
     RsaToolbox::Connector _tempConnector;
     RsaToolbox::NameLabel _tempCalKit;
-    void deleteChannel();
     void deleteCalKit();
     void deleteConnector();
     static QString generateUniqueName();

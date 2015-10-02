@@ -25,6 +25,7 @@ using namespace RsaToolbox;
 #include <QDesktopWidget>
 #include <QStatusBar>
 #include <QSpacerItem>
+#include <QScopedPointer>
 
 
 bool isAboutMenu(int argc, char *argv[]);
@@ -36,123 +37,95 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    qDebug() << "About menu?";
     if (isAboutMenu(argc, argv))
                 return 0;
 
-    qDebug() << "Init log file";
     Log log(LOG_FILENAME, APP_NAME, APP_VERSION);
     log.printHeader();
 
-    qDebug() << "Init vna";
     Vna vna(CONNECTION_TYPE, INSTRUMENT_ADDRESS);
     vna.useLog(&log);
     vna.printInfo();
 
-    qDebug() << "Init keys";
     Keys keys(KEY_PATH);
 
-    qDebug() << "Is connected, known model?";
     if (isNoConnection(vna) || isUnknownModel(vna))
         return 0;
     if (vna.sets().isEmpty()) {
         vna.preset();
         vna.pause();
     }
-    qDebug() << "Is switch matrix?";
     if (isSwitchMatrix(vna))
         return 0;
 
-    qDebug() << "Check for preexisting vna errors";
     vna.print("Previous session errors?\n\n");
     vna.isError();
     vna.print("/Previous session errors\n\n");
 
-    qDebug() << "init wizard";
-    Wizard wizard;
-    wizard.setWindowTitle(APP_NAME);
-    wizard.setGeometry(0,0,625,500);
-    wizard.move(QApplication::desktop()->screen()->rect().center() - wizard.rect().center());
-    wizard.setWindowFlags((wizard.windowFlags()
+    QScopedPointer<Wizard> wizard(new Wizard);
+    wizard->setWindowTitle(APP_NAME);
+    wizard->setGeometry(0,0,625,500);
+    wizard->move(QApplication::desktop()->screen()->rect().center() - wizard->rect().center());
+    wizard->setWindowFlags((wizard->windowFlags()
                            | Qt::MSWindowsFixedSizeDialogHint
                            | Qt::WindowStaysOnTopHint)
                           & ~Qt::WindowMinimizeButtonHint);
 
-    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(wizard.layout());
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(wizard->layout());
     QLabel *label = new QLabel;
     layout->insertWidget(1, label);
 
     TimedProgressBar *progressBar = new TimedProgressBar;
     layout->insertWidget(-1, progressBar);
 
-    qDebug() << "init PortsPage";
     PortsPage *portsPage = new PortsPage;
     portsPage->setName("Ports");
     portsPage->setNextIndex(1);
     portsPage->setHeaderLabel(label);
     portsPage->setVna(&vna);
     portsPage->setKeys(&keys);
-    wizard.addPage(portsPage);
+    wizard->addPage(portsPage);
 
-    qDebug() << "Init measureThread";
-    QThread measureThread;
-    Calibration calibration;
-    calibration.moveToThread(&measureThread);
-    measureThread.start();
+    QScopedPointer<QThread> measureThread(new QThread);
+    QScopedPointer<Calibration> calibration(new Calibration);
+    calibration->moveToThread(measureThread.data());
+    measureThread->start();
 
-    qDebug() << "Init CalKitsPage";
     CalKitsPage *calKitsPage = new CalKitsPage;
     calKitsPage->setName("Cal Kits");
     calKitsPage->setHeaderLabel(label);
     calKitsPage->setNextIndex(2);
     calKitsPage->setVna(&vna);
     calKitsPage->setKeys(&keys);
-    calKitsPage->setCalibration(&calibration);
+    calKitsPage->setCalibration(calibration.data());
     QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
                      calKitsPage, SLOT(setPorts(QVector<uint>)));
     QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
                      calKitsPage, SLOT(setConnectorType(RsaToolbox::Connector)));
     QObject::connect(portsPage, SIGNAL(channelSelected(uint)),
                      calKitsPage, SLOT(setChannel(uint)));
-    wizard.addPage(calKitsPage);
+    wizard->addPage(calKitsPage);
 
-//    qDebug() << "Init SetupPage";
-//    SetupPage *setupPage = new SetupPage;
-//    setupPage->setName("Setup");
-//    setupPage->setHeaderLabel(label);
-//    setupPage->setProgressBar(progressBar);
-//    setupPage->setNextIndex(3);
-//    setupPage->setVna(&vna);
-//    setupPage->setCalibration(&measureThread, &calibration);
-//    QObject::connect(portsPage, SIGNAL(portsSelected(QVector<uint>)),
-//                     setupPage, SLOT(setPorts(QVector<uint>)));
-//    QObject::connect(portsPage, SIGNAL(connectorSelected(RsaToolbox::Connector)),
-//                     setupPage, SLOT(setConnector(RsaToolbox::Connector)));
-//    QObject::connect(portsPage, SIGNAL(channelSelected(uint)),
-//                     setupPage, SLOT(setChannel(uint)));
-//    QObject::connect(calKitsPage, SIGNAL(calKitsSelected(QVector<FrequencyRange>)),
-//                     setupPage, SLOT(setCalKits(QVector<FrequencyRange>)));
-//    QObject::connect(setupPage, SIGNAL(setupAborted(QString)),
-//                     calKitsPage, SLOT(displayError(QString)));
-//    wizard.addPage(setupPage);
-
-    qDebug() << "Init MeasurePage";
     MeasurePage *measurePage = new MeasurePage;
     measurePage->setName("Measure");
     measurePage->setHeaderLabel(label);
     measurePage->setProgressBar(progressBar);
     measurePage->setFinalPage(true);
     measurePage->setVna(&vna);
-    measurePage->setCalibration(&measureThread, &calibration);
-    wizard.addPage(measurePage);
+    measurePage->setCalibration(measureThread.data(), calibration.data());
+    wizard->addPage(measurePage);
 
-    qDebug() << "Show wizard";
-    wizard.show();
-
-    qDebug() << "Start application";
+    // Start Gui
+    wizard->show();
     int result = a.exec();
-    measureThread.quit();
-    measureThread.wait();
+
+    // Quit
+    wizard.reset();
+    QMetaObject::invokeMethod(calibration.take(),
+                              "deleteLater",
+                              Qt::QueuedConnection);
+    measureThread->quit();
+    measureThread->wait();
     return result;
 }
 
