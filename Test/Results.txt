@@ -1,5 +1,0 @@
-********* Start testing of TestDoubleOffsetShortKit *********
-Config: Using QtTest library 5.2.1, Qt 5.2.1
-PASS   : TestDoubleOffsetShortKit::initTestCase()
-FAIL!  : TestDoubleOffsetShortKit::test1(Too many Offset Shorts) 'vna.testPorts() >= 4' returned FALSE. ()
-..\..\MergeCal\Test\TestDoubleOffsetShortKit.cpp(73) : failure location
