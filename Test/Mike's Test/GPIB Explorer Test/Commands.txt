@@ -1,0 +1,34 @@
+Write:    ":CORR:CKIT:MSH:WLAB? 'Boeing','HighBand','Boeing',2"
+Bytes: 52
+Status: 0x0 Operation completed successfully.
+
+Read:     "'Boeing','HighBand','Boeing','WideBand P2',0,20000000000,9200630536.02,12000979283.7,50,0,0,0,0,-3.4..."
+Bytes: 140
+Status: 0x0 Operation completed successfully.
+
+
+
+
+Write:    ":CORR:CKIT:MSH:WLAB 'Boeing','HighBand','Test','WideBand P2',0,2e+10,9.20063e+09,1.2001e+10,50,0,0,0..."
+Bytes: 147
+Status: 0x0 Operation completed successfully.
+
+
+
+Data out of range:
+:CORR:CKIT:MSH:WLAB 'Boeing','HighBand','Test','WideBand P2',0,2e+10,9.20063e+09,1.2001e+10,50,0,0,0,0,-3.417,-0.160917,-0.00740
+
+-------------------------
+
+Query:
+:CORR:CKIT:MSH:WLAB? 'Boeing','HighBand','Boeing',2
+
+'Boeing','HighBand','Boeing','WideBand P2',0,20000000000,9200630536.02,12000979283.7,50,0,0,0,0,-3.417,-0.160917,-0.007402,0.000352,SHORT,2
+'Boeing','HighBand','Boeing','WideBand P2',0,20000000000,9200630536.02,12000979283.7,50,0,0,0,0,-3.417,-0.160917,-0.007402,0.000352,SHORT,2
+'Boeing','HighBand','Boeing','WideBand P2',0,20000000000,9200630536.02,12000979283.7,50,0,0,0,0,-3.417,-0.160917,-0.007402,0.000352,SHORT,2
+
+
+Write:
+:CORR:CKIT:MSH:WLAB 'Boeing','HighBand','Test','WideBand P2',0,20000000000,9200630536.02,12000979283.7,50,0,0,0,0,-3.417,-0.160917,-0.007402,0.000352,SHORT,2
+Compare:            'Boeing','HighBand','____','WideBand P2',0,20000000000,9200630536.02,12000979283.7,50,0,0,0,0,-3.417,-0.160917,-0.007402,0.000352,SHORT,2
+Compare:            'Boeing','HighBand','____','WideBand P2',0,20000000000,9200630536.02,12000979283.7,50,0,0,0,0,-3.417,-0.160917,-0.007402,0.000352,SHORT,2
