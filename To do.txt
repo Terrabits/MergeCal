@@ -1,5 +1,0 @@
-Two outstanding issues:
-
-1. Cal standard parameters not copied correctly
-2. "Calibration not complete" message. Test this.
-

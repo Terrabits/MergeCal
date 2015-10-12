@@ -127,14 +127,14 @@ void TestDoubleOffsetShortKit::test1_data() {
     offsetShortALabels.clear();
     offsetShortBLabels.clear();
     thruLabels.clear();
-    standards << VnaCalStandard(VnaStandardType::SHORT_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Short, kitConnector);
     shortLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT1_STANDARD_TYPE, kitConnector);
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT2_STANDARD_TYPE, kitConnector);
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT3_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort1, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort2, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort3, kitConnector);
     offsetShortALabels << "" << "";
     offsetShortBLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::THRU_STANDARD_TYPE, kitConnector, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Thru, kitConnector, kitConnector);
     thruLabels << "";
     QTest::newRow("Too many Offset Shorts") << NameLabel("Three Offset Shorts", "")
                                          << vnaConnector
@@ -161,13 +161,13 @@ void TestDoubleOffsetShortKit::test1_data() {
     offsetShortALabels.clear();
     offsetShortBLabels.clear();
     thruLabels.clear();
-    standards << VnaCalStandard(VnaStandardType::SHORT_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Short, kitConnector);
     shortLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT1_STANDARD_TYPE, kitConnector);
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT2_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort1, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort2, kitConnector);
     offsetShortALabels << "" << "";
     offsetShortBLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::THRU_STANDARD_TYPE, kitConnector, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Thru, kitConnector, kitConnector);
     thruLabels << "";
     QTest::newRow("Offsets 1 and 2") << NameLabel("Offsets 1 and 2", "")
                                      << vnaConnector
@@ -194,13 +194,13 @@ void TestDoubleOffsetShortKit::test1_data() {
     offsetShortALabels.clear();
     offsetShortBLabels.clear();
     thruLabels.clear();
-    standards << VnaCalStandard(VnaStandardType::SHORT_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Short, kitConnector);
     shortLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT1_STANDARD_TYPE, kitConnector);
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT3_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort1, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort3, kitConnector);
     offsetShortALabels << "" << "";
     offsetShortBLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::THRU_STANDARD_TYPE, kitConnector, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Thru, kitConnector, kitConnector);
     thruLabels << "";
     QTest::newRow("Offsets 1 and 3") << NameLabel("Offsets 1 and 3", "")
                                      << vnaConnector
@@ -227,13 +227,13 @@ void TestDoubleOffsetShortKit::test1_data() {
     offsetShortALabels.clear();
     offsetShortBLabels.clear();
     thruLabels.clear();
-    standards << VnaCalStandard(VnaStandardType::SHORT_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Short, kitConnector);
     shortLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT2_STANDARD_TYPE, kitConnector);
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT3_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort2, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort3, kitConnector);
     offsetShortALabels << "" << "";
     offsetShortBLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::THRU_STANDARD_TYPE, kitConnector, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Thru, kitConnector, kitConnector);
     thruLabels << "";
     QTest::newRow("Offsets 2 and 3") << NameLabel("Offsets 2 and 3", "")
                                      << vnaConnector
@@ -260,13 +260,13 @@ void TestDoubleOffsetShortKit::test1_data() {
     offsetShortALabels.clear();
     offsetShortBLabels.clear();
     thruLabels.clear();
-    standards << VnaCalStandard(VnaStandardType::SHORT_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Short, kitConnector);
     shortLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT1_STANDARD_TYPE, kitConnector);
-    standards << VnaCalStandard(VnaStandardType::OFFSET_SHORT2_STANDARD_TYPE, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort1, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::OffsetShort2, kitConnector);
     offsetShortALabels << "" << "";
     offsetShortBLabels << "" << "";
-    standards << VnaCalStandard(VnaStandardType::THRU_STANDARD_TYPE, kitConnector, kitConnector);
+    standards << VnaCalStandard(VnaCalStandard::Type::Thru, kitConnector, kitConnector);
     thruLabels << "";
     QTest::newRow("Wrong Gender") << NameLabel("Wrong Gender", "")
                                   << vnaConnector
@@ -294,26 +294,26 @@ void TestDoubleOffsetShortKit::test1_data() {
     offsetShortBLabels.clear();
     thruLabels.clear();
     VnaCalStandard s;
-    s.setType(VnaStandardType::SHORT_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::Short);
     s.setConnector(kitConnector);
     s.setPort(1);
     standards << s;
     s.setPort(2);
     standards << s;
     shortLabels << "" << "";
-    s.setType(VnaStandardType::OFFSET_SHORT1_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::OffsetShort1);
     s.setPort(1);
     standards << s;
     s.setPort(2);
     standards << s;
     offsetShortALabels << "" << "";
-    s.setType(VnaStandardType::OFFSET_SHORT2_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::OffsetShort2);
     s.setPort(1);
     standards << s;
     s.setPort(2);
     standards << s;
     offsetShortBLabels << "" << "";
-    s.setType(VnaStandardType::THRU_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::Thru);
     s.setConnectors(kitConnector, kitConnector);
     s.setPorts(1, 2);
     standards << s;
@@ -344,23 +344,23 @@ void TestDoubleOffsetShortKit::test1_data() {
     offsetShortBLabels.clear();
     thruLabels.clear();
     s.clear();
-    s.setType(VnaStandardType::SHORT_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::Short);
     s.setConnector(kitConnector);
     standards << s;
     shortLabels << "" << "";
-    s.setType(VnaStandardType::OFFSET_SHORT1_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::OffsetShort1);
     s.setPort(2);
     standards << s;
     s.setPort(3);
     standards << s;
     offsetShortALabels << "" << "";
-    s.setType(VnaStandardType::OFFSET_SHORT2_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::OffsetShort2);
     s.setPort(2);
     standards << s;
     s.setPort(3);
     standards << s;
     offsetShortBLabels << "" << "";
-    s.setType(VnaStandardType::THRU_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::Thru);
     s.setConnectors(kitConnector, kitConnector);
     standards << s;
     thruLabels << "";
@@ -390,23 +390,23 @@ void TestDoubleOffsetShortKit::test1_data() {
     offsetShortBLabels.clear();
     thruLabels.clear();
     s.clear();
-    s.setType(VnaStandardType::SHORT_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::Short);
     s.setConnector(kitConnector);
     standards << s;
     shortLabels << "" << "";
-    s.setType(VnaStandardType::OFFSET_SHORT1_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::OffsetShort1);
     s.setPort(1);
     standards << s;
     s.setPort(2);
     standards << s;
     offsetShortALabels << "" << "";
-    s.setType(VnaStandardType::OFFSET_SHORT2_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::OffsetShort2);
     s.setPort(1);
     standards << s;
     s.setPort(2);
     standards << s;
     offsetShortBLabels << "" << "";
-    s.setType(VnaStandardType::THRU_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::Thru);
     s.setConnectors(kitConnector, kitConnector);
     standards << s;
     thruLabels << "";
@@ -436,7 +436,7 @@ void TestDoubleOffsetShortKit::test1_data() {
     offsetShortBLabels.clear();
     thruLabels.clear();
     s.clear();
-    s.setType(VnaStandardType::SHORT_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::Short);
     s.setConnector(kitConnector);
     s.setPort(1);
     s.setLabel("Short P1");
@@ -451,7 +451,7 @@ void TestDoubleOffsetShortKit::test1_data() {
     s.setLabel("Short P4");
     standards << s;
     shortLabels << "Short P1" << "Short P2" << "Short P3" << "Short P4";
-    s.setType(VnaStandardType::OFFSET_SHORT1_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::OffsetShort1);
     s.setPort(1);
     s.setLabel("OS1 P1");
     standards << s;
@@ -465,7 +465,7 @@ void TestDoubleOffsetShortKit::test1_data() {
     s.setLabel("OS1 P4");
     standards << s;
     offsetShortALabels << "OS1 P1" << "OS1 P2" << "OS1 P3" << "OS1 P4";
-    s.setType(VnaStandardType::OFFSET_SHORT2_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::OffsetShort2);
     s.setPort(1);
     s.setLabel("OS2 P1");
     standards << s;
@@ -479,7 +479,7 @@ void TestDoubleOffsetShortKit::test1_data() {
     s.setLabel("OS2 P4");
     standards << s;
     offsetShortBLabels << "OS2 P1" << "OS2 P2" << "OS2 P3" << "OS2 P4";
-    s.setType(VnaStandardType::THRU_STANDARD_TYPE);
+    s.setType(VnaCalStandard::Type::Thru);
     s.setConnectors(kitConnector, kitConnector);
     s.setPorts(1,2);
     s.setLabel("Thru 1-2");

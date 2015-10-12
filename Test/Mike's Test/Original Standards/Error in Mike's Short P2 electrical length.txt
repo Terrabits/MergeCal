@@ -1,0 +1,7 @@
+In both kits, the electrical length of the Short P2 standard is:
+
+30.69 seconds
+
+Should be:
+
+30.69 ps
