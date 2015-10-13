@@ -11,7 +11,6 @@
 
 // Qt
 #include <QList>
-#include <QTimer>
 #include <QCoreApplication>
 #include <QtTest>
 
@@ -31,7 +30,7 @@ private slots:
 
 private:
     QList<QObject*> _tests;
-    int _globalResult;
+    bool _allTestsPassed;
 
     void doRunTests();
 };
