@@ -30,10 +30,14 @@ MeasurePage::MeasurePage(QWidget *parent) :
 
 MeasurePage::~MeasurePage()
 {
+    qDebug() << "~MeasurePage";
     _calibration->reset();
+    qDebug() << "  vna.isError";
     _vna->isError();
+    qDebug() << "  vna.clearStatus";
     _vna->clearStatus();
     delete ui;
+    qDebug() << "  Leaving ~MeasurePage";
 }
 
 void MeasurePage::initialize() {

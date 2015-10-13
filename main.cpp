@@ -118,14 +118,21 @@ int main(int argc, char *argv[])
     // Start Gui
     wizard->show();
     int result = a.exec();
+    qDebug() << "a.exec: " << result;
 
     // Quit
+    qDebug() << "Resetting wizard";
     wizard.reset();
+    qDebug() << "Queuing calibration for deletion";
     QMetaObject::invokeMethod(calibration.take(),
                               "deleteLater",
                               Qt::QueuedConnection);
+
+    qDebug() << "Calling measureThread->quit";
     measureThread->quit();
+    qDebug() << "Calling measureThread->wait";
     measureThread->wait();
+    qDebug() << "Returning";
     return result;
 }
 

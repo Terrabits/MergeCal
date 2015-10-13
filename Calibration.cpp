@@ -19,8 +19,7 @@ Calibration::Calibration(QObject *parent) :
 
 Calibration::~Calibration()
 {
-    qDebug() << "Calibration destructor";
-    qDebug() << "Leaving calibration destructor";
+
 }
 
 void Calibration::setVna(RsaToolbox::Vna *vna) {
@@ -85,9 +84,14 @@ void Calibration::initialize() {
     emit finishedInitialization();
 }
 void Calibration::reset() {
+    qDebug() << "  Calibration::reset";
+    qDebug() << "    partialCals.clear";
     _partialCals.clear();
+    qDebug() << "    undo.recall";
     _undo.recall();
+    qDebug() << "    _vna.multiChannelCalibrationOff";
     _vna->multiChannelCalibrationOff();
+    qDebug() << "    Done.";
 }
 
 uint Calibration::numberOfPorts() const {

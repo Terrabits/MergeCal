@@ -1,51 +1,25 @@
+#include "testdoubleoffsetshortkit.h"
+
 
 // Project
 #include "DoubleOffsetShortKit.h"
 
+
 // RsaToolbox
 #include <NameLabel.h>
 #include <Connector.h>
-#include <Vna.h>
 #include <VnaCalStandard.h>
-#include <Log.h>
 #include <VisaBus.h>
 using namespace RsaToolbox;
 
 // Qt
-#include <QTest>
-#include <QString>
 #include <QVector>
 #include <QStringList>
 #include <QDebug>
 
-// Test
+
 typedef QVector<VnaCalStandard> Standards;
 typedef QVector<uint> Ports;
-
-
-class TestDoubleOffsetShortKit : public QObject
-{
-    Q_OBJECT
-
-public:
-    TestDoubleOffsetShortKit();
-
-private:
-    Vna vna;
-    QScopedPointer<Log> log;
-
-    int cycle;
-    QString appName;
-    QString appVersion;
-    QString filename;
-
-private slots:
-    void init();
-    void cleanup();
-
-    void test1_data();
-    void test1();
-};
 
 TestDoubleOffsetShortKit::TestDoubleOffsetShortKit() {
     cycle = 0;
@@ -574,5 +548,3 @@ void TestDoubleOffsetShortKit::test1() {
     vna.disconnectLog();
 }
 
-QTEST_MAIN(TestDoubleOffsetShortKit)
-#include "TestDoubleOffsetShortKit.moc"
