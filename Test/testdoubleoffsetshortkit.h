@@ -21,7 +21,7 @@ public:
 
 private:
     RsaToolbox::Vna vna;
-    QScopedPointer<Log> log;
+    QScopedPointer<RsaToolbox::Log> log;
 
     int cycle;
     QString appName;

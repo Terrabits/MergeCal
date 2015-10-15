@@ -20,17 +20,19 @@ class TestRunner: public QObject
     Q_OBJECT
 
 public:
-    TestRunner(QObject *parent);
+    TestRunner(QObject *parent = 0);
+    ~TestRunner();
 
-    void addTest(QObject * test);
+    void addTest(QObject * test, const QStringList &args = QStringList());
     bool runTests();
 
 private slots:
     void run();
 
 private:
-    QList<QObject*> _tests;
     bool _allTestsPassed;
+    QList<QObject*> _tests;
+    QList<QStringList> _args;
 
     void doRunTests();
 };

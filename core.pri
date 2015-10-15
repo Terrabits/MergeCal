@@ -1,7 +1,7 @@
 
 QT          += core gui widgets
 
-include(RsaToolbox/rsatoolbox.pri)
+include($$PWD/RsaToolbox/rsatoolbox.pri)
 INCLUDEPATH += $$PWD
 DEPENDPATH  += $$PWD
 RESOURCES   += $$PWD/Resources.qrc

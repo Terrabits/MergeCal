@@ -195,16 +195,13 @@ bool Calibration::measureThru(uint index) {
 
 bool Calibration::apply() {
     // Apply calibration
+    // Note: Applying any calibration
+    // applies them all with ZVA,
+    // ZNB parallel calibration mode
     if (!_partialCals.first().apply()) {
         emit error("Error calculating corrections. Please try again.");
         return false;
     }
-
-//    for (int i = 0; i < _partialCals.size(); i++) {
-//        if (!_partialCals[i].apply()) {
-//            // Don't need to do each one
-//        }
-//    }
 
     CorrectionsHash corrections = getCorrections();
     _undo.recall();

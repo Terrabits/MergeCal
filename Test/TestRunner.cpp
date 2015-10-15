@@ -17,16 +17,17 @@ TestRunner::~TestRunner()
 
 }
 
-void TestRunner::addTest(QObject *test) {
+void TestRunner::addTest(QObject *test, const QStringList &args) {
     test->setParent(this);
     _tests.append(test);
+    _args.append(args);
 }
 
 bool TestRunner::runTests() {
     int argc =0;
     char * argv[] = {0};
     QCoreApplication app(argc, argv);
-    QMetaObject::invokeMethod(this, SLOT(run()),
+    QMetaObject::invokeMethod(this, "run",
                               Qt::QueuedConnection);
 //    QTimer::singleShot(0, this, SLOT(run()) );
     app.exec();
@@ -39,7 +40,9 @@ void TestRunner::run() {
 }
 
 void TestRunner::doRunTests() {
-    foreach (QObject * test, _tests) {
-        _allTestsPassed |= (QTest::qExec(test) == 0);
+    _allTestsPassed = true;
+    for (int i = 0; i < _tests.size(); i++) {
+        int result = QTest::qExec(_tests[i], _args[i]);
+        _allTestsPassed &= (result == 0);
     }
 }

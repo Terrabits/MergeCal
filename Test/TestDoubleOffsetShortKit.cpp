@@ -27,7 +27,7 @@ TestDoubleOffsetShortKit::TestDoubleOffsetShortKit() {
     appVersion = "0";
 
     QDir src(SOURCE_DIR);
-    src.cd("Results");
+    src.cd("TestDoubleOffsetShortKit Results");
     filename = src.filePath("%1 %2 Log.txt");
 }
 

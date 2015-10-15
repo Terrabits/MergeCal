@@ -12,14 +12,15 @@ CONFIG   += console \
             testcase
 
 include(../core.pri)
-SOURCES += TestDoubleOffsetShortKit.cpp \
-           TestPartialCal.cpp \
-    testdoubleoffsetshortkit.cpp \
-    main.cpp \
-    TestRunner.cpp
+HEADERS     += TestRunner.h \
+               TestDoubleOffsetShortKit.h \
+               TestPartialCal.h \
+               TestCalibration.h
+INCLUDEPATH += $$PWD
+SOURCES     += main.cpp \
+               TestRunner.cpp \
+               TestDoubleOffsetShortKit.cpp \
+               TestPartialCal.cpp \
+               TestCalibration.cpp
 
 DEFINES += SOURCE_DIR=\\\"$$PWD\\\"
-
-HEADERS += \
-    testdoubleoffsetshortkit.h \
-    TestRunner.h

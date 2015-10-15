@@ -1,0 +1,87 @@
+
+// Project
+#include "PartialCal.h"
+
+// RsaToolbox
+#include <NameLabel.h>
+#include <Connector.h>
+#include <Vna.h>
+#include <VnaCalStandard.h>
+#include <Log.h>
+#include <VisaBus.h>
+using namespace RsaToolbox;
+
+// Qt
+#include <QTest>
+#include <QString>
+#include <QVector>
+#include <QDebug>
+
+
+typedef QVector<VnaCalStandard> Standards;
+typedef QVector<uint> Ports;
+
+TestPartialCal::TestPartialCal() {
+    cycle = 0;
+    appName = "Test PartialCal";
+    appVersion = "0";
+
+    QDir src(SOURCE_DIR);
+    src.cd("TestPartialCal Results");
+    filename = src.filePath("%1 %2 Log.txt");
+}
+
+void TestPartialCal::init() {
+    log.reset(new Log(filename.arg(cycle++).arg("init"), appName, appVersion));
+    log->printHeader();
+    vna.resetBus(new VisaBus(TCPIP_CONNECTION, "127.0.0.1", 1000));
+    QVERIFY(vna.isConnected());
+    if (vna.isConnected()) {
+        QVERIFY(!vna.idString().isEmpty());
+    }
+    vna.useLog(log.data());
+    vna.printInfo();
+    vna.preset();
+
+    // Init
+
+    vna.clearStatus();
+    vna.disconnectLog();
+}
+void TestPartialCal::cleanup() {
+    vna.disconnectLog();
+    log.reset(new Log(filename.arg(cycle++).arg("cleanup"), appName, appVersion));
+    log->printHeader();
+    vna.useLog(log.data());
+    vna.printInfo();
+
+    // Cleanup
+
+    vna.clearStatus();
+    vna.resetBus();
+    vna.disconnectLog();
+}
+
+void TestPartialCal::test1_data() {
+     // Data
+}
+void TestPartialCal::test1() {
+    log.reset(new Log(filename.arg(cycle++).arg("test"), appName, appVersion));
+    log->printHeader();
+    vna.resetBus(new VisaBus(TCPIP_CONNECTION, "127.0.0.1", 1000));
+    QVERIFY(vna.isConnected());
+    if (vna.isConnected()) {
+        QVERIFY(!vna.idString().isEmpty());
+    }
+    vna.useLog(log.data());
+    vna.printInfo();
+    vna.preset();
+
+    // Test
+
+    QVERIFY(!vna.isError());
+    vna.disconnectLog();
+}
+
+QTEST_MAIN(TestPartialCal)
+#include "TestPartialCal.moc"
