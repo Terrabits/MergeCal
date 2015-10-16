@@ -1,9 +1,6 @@
-#ifndef TESTCALIBRATION_H
-#define TESTCALIBRATION_H
+#ifndef TESTMEASUREPAGE_H
+#define TESTMEASUREPAGE_H
 
-
-// Project
-//#include "PartialCal.h"
 
 // RsaToolbox
 #include <NameLabel.h>
@@ -19,25 +16,19 @@
 
 typedef QVector<uint> Ports;
 
-class TestCalibration : public QObject
+class TestMeasurePage : public QObject
 {
     Q_OBJECT
 public:
-    TestCalibration();
-    ~TestCalibration();
+    TestMeasurePage(QObject *parent = 0);
+    ~TestMeasurePage();
 
 private slots:
     void init();
     void cleanup();
 
     void createAndDelete();
-    void setVnaAndDelete();
-    void setVnaResetAndDelete();
-    void setPortsPageAndDelete();
-    void setCalKitsAndDelete();
-    void initializeAndDelete();
-    void measureAndDelete();
-    void applyAndDelete();
+    void setPropertiesAndDelete();
 
 private:
     RsaToolbox::Vna vna;
@@ -63,4 +54,4 @@ private:
     QString highBandFile;
 };
 
-#endif // TESTCALIBRATION_H
+#endif // TESTMEASUREPAGE_H

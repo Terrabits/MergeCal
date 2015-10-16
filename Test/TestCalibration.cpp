@@ -133,6 +133,28 @@ void TestCalibration::setVnaAndDelete() {
     QVERIFY(!vna.isError());
     vna.disconnectLog();
 }
+void TestCalibration::setVnaResetAndDelete() {
+    log.reset(new Log(filename.arg(cycle++).arg("setVnaResetAndDelete"), appName, appVersion));
+    log->printHeader();
+    vna.resetBus(new VisaBus(TCPIP_CONNECTION, "127.0.0.1", 1000));
+    QVERIFY(vna.isConnected());
+    if (vna.isConnected()) {
+        QVERIFY(!vna.idString().isEmpty());
+    }
+    vna.useLog(log.data());
+    vna.printInfo();
+    vna.preset();
+    vna.pause();
+
+    // Vna only
+    QScopedPointer<Calibration> calibration(new Calibration);
+    calibration->setVna(&vna);
+    calibration->reset();
+    calibration.reset();
+
+    QVERIFY(!vna.isError());
+    vna.disconnectLog();
+}
 void TestCalibration::setPortsPageAndDelete() {
     log.reset(new Log(filename.arg(cycle++).arg("setPortsPageAndDelete"), appName, appVersion));
     log->printHeader();

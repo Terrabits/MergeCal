@@ -11,7 +11,7 @@
 
 // Qt
 #include <QList>
-#include <QCoreApplication>
+#include <QApplication>
 #include <QtTest>
 
 

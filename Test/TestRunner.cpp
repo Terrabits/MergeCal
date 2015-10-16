@@ -1,10 +1,6 @@
 #include "TestRunner.h"
 
 
-// Qt
-#include <QTimer>
-
-
 TestRunner::TestRunner(QObject *parent) :
     QObject(parent),
     _allTestsPassed(true)
@@ -26,10 +22,9 @@ void TestRunner::addTest(QObject *test, const QStringList &args) {
 bool TestRunner::runTests() {
     int argc =0;
     char * argv[] = {0};
-    QCoreApplication app(argc, argv);
+    QApplication app(argc, argv);
     QMetaObject::invokeMethod(this, "run",
                               Qt::QueuedConnection);
-//    QTimer::singleShot(0, this, SLOT(run()) );
     app.exec();
     return _allTestsPassed;
 }
