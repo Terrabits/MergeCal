@@ -7,7 +7,7 @@
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Product Id="47D6198A-4D68-421E-BE74-0AAA56F76540" Name="R&amp;S Merge Cal" Language="1033"
+	<Product Id="48575215-C84D-4576-A85F-05EC4277C3A0" Name="R&amp;S Merge Cal" Language="1033"
     Version="1.0.6" Manufacturer="Rohde &amp; Schwarz"
     UpgradeCode="242E8525-F335-40A4-AB46-2CA745E4DE5F">
 		
@@ -80,7 +80,7 @@
   <Fragment>
     <!-- Application files -->
     <Icon Id="Rs.ico" SourceFile="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer/Icons/Rs.ico" />
-    <Component Id="ExecutableComponent" Guid="47CABF46-1713-4595-9658-74CD90BB4EDB"
+    <Component Id="ExecutableComponent" Guid="D693DDDF-8ABC-47DA-BEAB-06BB5936F559"
       Directory="INSTALLFOLDER">
       <File Id="AppExecutable" Name="R&amp;S Merge Cal.exe"
         Source="C:\Users\Lalic\Documents\Qt\build-MergeCal-Desktop_Qt_5_2_1_MSVC2010_32bit-Release\release\MergeCal.exe" KeyPath="yes">
@@ -90,7 +90,7 @@
           Directory="ZVAExternalToolsFolder" Advertise="yes" Icon="Rs.ico" />
       </File>
     </Component>
-    <Component Id="Licenses" Guid="4B945424-BB25-4158-A349-6DE02F80CABD" Directory="LicensesFolder">
+    <Component Id="Licenses" Guid="6290EB00-9E22-4F15-A5C1-8AB871D2F5BE" Directory="LicensesFolder">
       <File Id="RsaLicense"
         Name="R&amp;S Terms and Conditions for Royalty-Free Products.txt"
         Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\Licenses\R&amp;S Terms and Conditions for Royalty-Free Products.txt"
@@ -111,31 +111,31 @@
         Name="ZLib Copyright and Terms and Conditions.txt"
         Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\Licenses\ZLib Copyright and Terms and Conditions.txt" />
     </Component>
-    <Component Id="RsVisa" Guid="A11786D6-162E-470E-8634-1E09D06FE1C8"
+    <Component Id="RsVisa" Guid="A6BBF7CA-2E34-49BF-A297-E9268DB06441"
       Directory="INSTALLFOLDER">
       <File Id="RsVisa32.dll" Name="RsVisa32.dll"
         Source="..\RsaToolbox\Bus\Visa\RsVisa32.dll" KeyPath="yes" />
     </Component>
-    <Component Id="QCustomPlots" Guid="177F325D-F148-40E5-9CAB-9EC1C2585E2F"
+    <Component Id="QCustomPlots" Guid="761EFDFD-D264-4A81-B465-DF411101B18B"
       Directory="INSTALLFOLDER">
     	<File Id="qcustomplot.dll" Name="qcustomplot.dll"
         Source="..\RsaToolbox\QCustomPlot\qcustomplot.dll" KeyPath="yes" />
     </Component>
-    <Component Id="QuaZip" Guid="723099D1-04B2-4E65-8D6E-9BA1F45920E7"
+    <Component Id="QuaZip" Guid="51FAC49B-B3DB-4C21-A38C-BCF836FCBF41"
       Directory="INSTALLFOLDER">
       <File Id="quazip.dll" Name="quazip.dll"
         Source="..\RsaToolbox\QuaZIP\quazip.dll" KeyPath="yes" />
       <File Id="zlib1.dll" Name="zlib1.dll"
         Source="..\RsaToolbox\QuaZIP\ZLib\zlib1.dll" />
     </Component>
-    <Component Id="MsvcRuntime" Guid="F677A715-3471-4654-A1B6-DEB5A6C9112B"
+    <Component Id="MsvcRuntime" Guid="5CD38C5F-5C19-408F-8285-FA7F8238BAB0"
       Directory="INSTALLFOLDER">
       <File Id="msvcr100.dll" Name="msvcr100.dll"
         Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\Msvc2010_32\msvcr100.dll" KeyPath="yes" />
       <File Id="msvcp100.dll" Name="msvcp100.dll"
         Source="C:\Program Files (x86)\Rohde-Schwarz\RSA Create Installer\Msvc2010_32\msvcp100.dll" />
     </Component>
-    <Component Id="QtRuntime" Guid="70166606-5C85-421F-807A-B41A7567B7D7"
+    <Component Id="QtRuntime" Guid="2221F01C-F906-4ACF-9D64-28CD6E38004B"
       Directory="INSTALLFOLDER">
       <File Id="Qt5Core.dll" Name="Qt5Core.dll"
         Source="C:\Qt\5.2.1\msvc2010\bin\Qt5Core.dll" KeyPath="yes" />
@@ -160,12 +160,12 @@
       <File Id="icuuc51.dll" Name="icuuc51.dll"
         Source="C:\Qt\5.2.1\msvc2010\bin\icuuc51.dll" />
     </Component>
-    <Component Id="QtPlatformPlugin" Guid="E720DDF2-04A2-4357-AA47-3F19CB2640F2"
+    <Component Id="QtPlatformPlugin" Guid="E61A24A2-541B-4562-A230-FEF3DF2421F9"
       Directory="PlatformsFolder">
       <File Id="qwindows.dll" Name="qwindows.dll"
         Source="C:\Qt\5.2.1\msvc2010\bin\..\plugins\platforms\qwindows.dll" KeyPath="yes" />
     </Component>
-    <Component Id="LogsAndSettings" Guid="2A1DD1EC-7F3C-4D99-8A49-30106D3D3526"
+    <Component Id="LogsAndSettings" Guid="0515F0C2-A071-452E-8D7B-5F5D1E21FB3D"
       Directory="MyAppDataFolder" KeyPath="yes">
       <CreateFolder Directory="SettingsFolder" />
       <RemoveFile Id="PurgeLogs"
@@ -176,7 +176,7 @@
       <RemoveFolder Id="RemoveSettingsFolder"
       Directory="SettingsFolder" On="uninstall" />
     </Component>
-    <Component Id="ShortcutsComponent" Guid="F303A5C8-F630-4C01-AE5E-2557E0D99204"
+    <Component Id="ShortcutsComponent" Guid="F6644235-615C-4699-B245-5782AAF62159"
       Directory="ApplicationStartMenuFolder">
       <RegistryKey Root="HKCU"
         Key="Software\Rohde-Schwarz\R&amp;S Merge Cal\Uninstall">
