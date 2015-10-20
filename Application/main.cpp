@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 
     QScopedPointer<Wizard> wizard(new Wizard);
     wizard->setWindowTitle(APP_NAME);
-    wizard->setGeometry(0,0,625,500);
+    wizard->setGeometry(0,0,683,517);
     wizard->move(QApplication::desktop()->screen()->rect().center() - wizard->rect().center());
     wizard->setWindowFlags((wizard->windowFlags()
                            | Qt::MSWindowsFixedSizeDialogHint
