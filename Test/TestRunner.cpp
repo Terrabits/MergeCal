@@ -20,7 +20,7 @@ void TestRunner::addTest(QObject *test, const QStringList &args) {
 }
 
 bool TestRunner::runTests() {
-    int argc =0;
+    int argc = 0;
     char * argv[] = {0};
     QApplication app(argc, argv);
     QMetaObject::invokeMethod(this, "run",

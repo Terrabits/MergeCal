@@ -19,7 +19,6 @@ using namespace RsaToolbox;
 
 
 typedef QVector<VnaCalStandard> Standards;
-typedef QVector<uint> Ports;
 
 TestDoubleOffsetShortKit::TestDoubleOffsetShortKit() {
     cycle = 0;

@@ -2,13 +2,14 @@
 #define PORTS_H
 
 
+// RsaToolbox
+#include <General.h>
 // Qt
 #include <QVector>
 #include <QVariant>
 #include <QDataStream>
 
 
-typedef QVector<uint> Ports;
 typedef QMap<uint, uint> PortMap;
 
 class Thru {
@@ -39,8 +40,8 @@ typedef QVector<Thru> Thrus;
 class ThruValues {
 public:
     ThruValues();
-    ThruValues(const Ports &ports);
-    ThruValues(const Ports &ports, QVariant value);
+    ThruValues(const RsaToolbox::Ports &ports);
+    ThruValues(const RsaToolbox::Ports &ports, QVariant value);
     ThruValues(const ThruValues &other);
 
     bool isEmpty() const;
@@ -56,12 +57,12 @@ public:
     QVariant &value(const uint &port1, const uint &port2);
     QVariant value(const uint &port1, const uint &port2) const;
 
-    Ports ports() const;
+    RsaToolbox::Ports ports() const;
     Thrus thrus() const;
 
     void clear();
-    void resize(const Ports &ports);
-    void resize(const Ports &ports, QVariant value);
+    void resize(const RsaToolbox::Ports &ports);
+    void resize(const RsaToolbox::Ports &ports, QVariant value);
     void copyValuesFrom(const ThruValues &other);
 
     void read(QDataStream &stream);
@@ -72,14 +73,14 @@ public:
     QVariant operator[](const uint &index) const;
 
 private:
-    Ports _ports;
+    RsaToolbox::Ports _ports;
     Thrus _thrus;
     QVector<QVariant> _values;
 };
 QDataStream& operator>>(QDataStream &stream, ThruValues &values);
 QDataStream& operator<<(QDataStream &stream, const ThruValues &values);
 
-uint thruCombinations(const Ports &ports);
-Thrus thrus(const Ports &ports);
+uint thruCombinations(const RsaToolbox::Ports &ports);
+Thrus thrus(const RsaToolbox::Ports &ports);
 
 #endif // PORTS_H
